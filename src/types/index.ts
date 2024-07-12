@@ -1,3 +1,3 @@
-export * from './config';
-export * from './theme';
-export * from './data';
+export * from './Config';
+export * from './Theme';
+export * from './Data';
