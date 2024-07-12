@@ -30,3 +30,18 @@ export interface ChainData {
     maxGasPerBatch: number;
   };
 }
+
+export interface EcosystemData {
+  chain: {
+    name: string;
+    id: number;
+    nativeToken: string;
+    tvl: {
+      [token: string]: number;
+    };
+    type: string;
+  };
+  tvl: {
+    [token: string]: number;
+  }[];
+}

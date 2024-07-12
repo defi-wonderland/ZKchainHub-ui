@@ -1,10 +1,19 @@
-import { createContext, useState } from 'react';
+import { createContext, useState, useEffect } from 'react';
+import { useQuery } from '@tanstack/react-query';
+import { useRouter } from 'next/router';
 
-import { ChainData } from '~/types';
+import { ChainData, EcosystemData } from '~/types';
+import { fetchEcosystemData, fetchChainData } from '~/utils';
 
 type ContextType = {
   selectedChain?: ChainData;
   setSelectedChain: (val: ChainData) => void;
+
+  isEcosystemLoading: boolean;
+  isChainLoading: boolean;
+
+  ecosystemData: EcosystemData;
+  chainData: ChainData;
 };
 
 interface DataProps {
@@ -15,12 +24,49 @@ export const DataContext = createContext({} as ContextType);
 
 export const DataProvider = ({ children }: DataProps) => {
   const [selectedChain, setSelectedChain] = useState<ChainData>();
+  const router = useRouter();
+
+  const {
+    isLoading: isEcosystemLoading,
+    data: ecosystemData,
+    isError: isEcosystemError,
+  } = useQuery({
+    queryKey: ['ecosystem'],
+    queryFn: fetchEcosystemData,
+  });
+
+  const {
+    isLoading: isChainLoading,
+    data: chainData,
+    isError: isChainError,
+    refetch: refetchChainData,
+  } = useQuery({
+    queryKey: ['chainData', selectedChain?.chainId],
+    queryFn: () => fetchChainData(selectedChain!.chainId!),
+    enabled: !!selectedChain?.chainId,
+  });
+
+  useEffect(() => {
+    if (selectedChain) {
+      refetchChainData();
+    }
+  }, [selectedChain, refetchChainData]);
+
+  useEffect(() => {
+    if (isEcosystemError || isChainError) {
+      router.push('/error');
+    }
+  }, [isEcosystemError, isChainError, router]);
 
   return (
     <DataContext.Provider
       value={{
         selectedChain,
         setSelectedChain,
+        isEcosystemLoading,
+        isChainLoading,
+        ecosystemData,
+        chainData,
       }}
     >
       {children}

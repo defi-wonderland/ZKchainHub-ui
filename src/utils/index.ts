@@ -1,4 +1,5 @@
 export * from './getTheme';
-export * from './Variables';
+export * from './variables';
 export * from './config';
 export * from './format';
+export * from './services';

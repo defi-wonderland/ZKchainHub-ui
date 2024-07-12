@@ -1,0 +1,60 @@
+[
+  {
+    "name": "ZKSync Era",
+    "chainId": 324,
+    "website": "https://example.com",
+    "explorer": "https://example.com",
+    "launchDate": "2023-12-05",
+    "environment": "Production",
+    "nativeToken": "ETH",
+    "chainType": "ZKRollup",
+    "lastBlock": 123456789,
+    "lastBlockVerified": 123456788,
+    "transactionsPerSecond": 15,
+    "totalBatchesCommitted": 1234567890,
+    "totalBatchesExecuted": 1234567890,
+    "totalBatchesVerified": 123456788,
+    "averageBlockTime": 100000,
+    "tvl": {
+      "ETH": {
+        "value": 500000000,
+        "address": "0x79db...d692"
+      },
+      "USDT": {
+        "value": 100000000,
+        "address": "0x79db...d692"
+      },
+      "USDC": {
+        "value": 50000000,
+        "address": "0x79db...d692"
+      },
+      "WBTC": {
+        "value": 30000000,
+        "address": "0x79db...d692"
+      }
+    },
+    "rpcs": [
+      {
+        "status": "Active",
+        "url": "https://lrpc.com"
+      },
+      {
+        "status": "Active",
+        "url": "https://blastapi.com"
+      },
+      {
+        "status": "Inactive",
+        "url": "https://llamarpc.com"
+      },
+      {
+        "status": "Active",
+        "url": "https://alchemy.com"
+      }
+    ],
+    "feeParams": {
+      "batchOverheadL1Gas": 1234567890,
+      "computeOverheadPart": 1234567890,
+      "maxGasPerBatch": 123456788
+    }
+  }
+]

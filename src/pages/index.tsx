@@ -2,7 +2,7 @@ import Head from 'next/head';
 
 import { Landing } from '~/containers';
 
-const Home = () => {
+const Ecosystem = () => {
   return (
     <>
       <Head>
@@ -13,4 +13,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Ecosystem;
