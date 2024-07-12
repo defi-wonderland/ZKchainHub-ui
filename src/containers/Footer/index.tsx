@@ -1,5 +1,5 @@
 import { styled } from '@mui/material/styles';
-import { useCustomTheme } from '~/hooks/useTheme';
+import { useCustomTheme } from '~/hooks/useContext/useTheme';
 
 import { FOOTER_HEIGHT } from '~/utils';
 
