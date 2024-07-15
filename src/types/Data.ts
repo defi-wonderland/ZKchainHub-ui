@@ -31,16 +31,18 @@ export interface ChainData {
   };
 }
 
-export interface EcosystemData {
-  chain: {
-    name: string;
-    id: number;
-    nativeToken: string;
-    tvl: {
-      [token: string]: number;
-    };
-    type: string;
+export interface ecosystemChainData {
+  name: string;
+  id: number;
+  nativeToken: string;
+  tvl: {
+    [token: string]: number;
   };
+  type: string;
+}
+
+export interface EcosystemData {
+  chains: ecosystemChainData[];
   tvl: {
     [token: string]: number;
   }[];
