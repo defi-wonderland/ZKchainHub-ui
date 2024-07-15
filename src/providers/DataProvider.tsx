@@ -1,5 +1,5 @@
-import { createContext, useState, useEffect } from 'react';
-import { useQuery } from '@tanstack/react-query';
+import { createContext, useState, useEffect, ReactNode } from 'react';
+import { useQuery, UseQueryResult } from '@tanstack/react-query';
 import { useRouter } from 'next/router';
 
 import { ChainData, EcosystemData } from '~/types';
@@ -11,13 +11,14 @@ type ContextType = {
 
   isEcosystemLoading: boolean;
   isChainLoading: boolean;
+  refetchChainData: (options: { throwOnError: boolean; cancelRefetch: boolean }) => Promise<UseQueryResult>;
 
   ecosystemData: EcosystemData;
   chainData: ChainData;
 };
 
 interface DataProps {
-  children: React.ReactElement;
+  children: ReactNode;
 }
 
 export const DataContext = createContext({} as ContextType);
@@ -47,12 +48,6 @@ export const DataProvider = ({ children }: DataProps) => {
   });
 
   useEffect(() => {
-    if (selectedChain) {
-      refetchChainData();
-    }
-  }, [selectedChain, refetchChainData]);
-
-  useEffect(() => {
     if (isEcosystemError || isChainError) {
       router.push('/error');
     }
@@ -67,6 +62,7 @@ export const DataProvider = ({ children }: DataProps) => {
         isChainLoading,
         ecosystemData,
         chainData,
+        refetchChainData,
       }}
     >
       {children}
