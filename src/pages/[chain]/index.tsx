@@ -1,13 +1,13 @@
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { useEffect } from 'react';
 
-import { ecosystemChainData } from '~/types';
+import { EcosystemChainData } from '~/types';
 import { CustomHead } from '~/components';
 import { useData } from '~/hooks/useContext/useData';
 import { fetchEcosystemData } from '~/utils';
 
 interface ChainProps {
-  chain: ecosystemChainData;
+  chain: EcosystemChainData;
 }
 
 const Chain = ({ chain }: ChainProps) => {
@@ -30,7 +30,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const ecosystemData = await fetchEcosystemData();
   const chains = ecosystemData.chains;
 
-  const paths = chains.map((chain: ecosystemChainData) => ({
+  const paths = chains.map((chain: EcosystemChainData) => ({
     params: { chain: chain.id.toString() },
   }));
 
@@ -41,7 +41,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const ecosystemData = await fetchEcosystemData();
   const chains = ecosystemData.chains;
   const chainId = parseInt(params?.chain as string);
-  const chain = chains.find((chain: ecosystemChainData) => chain.id === chainId);
+  const chain = chains.find((chain: EcosystemChainData) => chain.id === chainId);
 
   if (!chain) {
     return { notFound: true };

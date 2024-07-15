@@ -31,7 +31,7 @@ export interface ChainData {
   };
 }
 
-export interface ecosystemChainData {
+export interface EcosystemChainData {
   name: string;
   id: number;
   nativeToken: string;
@@ -42,7 +42,7 @@ export interface ecosystemChainData {
 }
 
 export interface EcosystemData {
-  chains: ecosystemChainData[];
+  chains: EcosystemChainData[];
   tvl: {
     [token: string]: number;
   }[];
