@@ -1,9 +1,9 @@
-import { GetStaticPaths, GetStaticProps } from 'next';
 import { useEffect } from 'react';
+import { GetStaticPaths, GetStaticProps } from 'next';
 
 import { EcosystemChainData } from '~/types';
 import { CustomHead } from '~/components';
-import { useData } from '~/hooks/useContext/useData';
+import { useData } from '~/hooks';
 import { fetchEcosystemData } from '~/utils';
 
 interface ChainProps {
