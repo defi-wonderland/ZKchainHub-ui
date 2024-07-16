@@ -26,6 +26,6 @@
       "~/*": ["src/*"]
     }
   },
-  "include": ["./src", "./dist/types/**/*.ts", "./next-env.d.ts", "./cypress/**/*.ts", "./jest.config.ts"],
+  "include": ["./src", "./dist/types/**/*.ts", "./next-env.d.ts", "./cypress/**/*.ts", "./jest.config.ts", "src/data/chainMockData.ts"],
   "exclude": ["./node_modules"]
 }

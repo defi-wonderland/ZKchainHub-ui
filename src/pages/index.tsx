@@ -2,15 +2,15 @@ import Head from 'next/head';
 
 import { Landing } from '~/containers';
 
-const Home = () => {
+const Ecosystem = () => {
   return (
     <>
       <Head>
-        <title>Web3 Boilerplate</title>
+        <title>ZKchainHub</title>
       </Head>
       <Landing />
     </>
   );
 };
 
-export default Home;
+export default Ecosystem;

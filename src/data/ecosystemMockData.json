@@ -1,0 +1,91 @@
+{
+  "chains": [
+    {
+      "name": "zkSync Era",
+      "id": 324,
+      "nativeToken": "ETH",
+      "tvl": 1000000,
+      "type": "ZKRollup"
+    },
+    {
+      "name": "Teva Chain",
+      "id": 100,
+      "nativeToken": "ETH",
+      "tvl": 1000000,
+      "type": "ZKRollup"
+    },
+    {
+      "name": "Cronos zkEVM",
+      "id": 101,
+      "nativeToken": "ETH",
+      "tvl": 1000000,
+      "type": "Validium"
+    },
+    {
+      "name": "GRVT",
+      "id": 102,
+      "nativeToken": "ETH",
+      "tvl": 1000000,
+      "type": "Validium"
+    },
+    {
+      "name": "Lens",
+      "id": 103,
+      "nativeToken": "ETH",
+      "tvl": 1000000,
+      "type": "Validium"
+    },
+    {
+      "name": "ZKChain 104",
+      "id": 104,
+      "nativeToken": "ETH",
+      "tvl": 1000000,
+      "type": "ZKRollup"
+    },
+    {
+      "name": "ZKChain 105",
+      "id": 105,
+      "nativeToken": "ETH",
+      "tvl": 1000000,
+      "type": "Validium"
+    }
+  ],
+  "tvl": [
+    {
+      "token": "ETH",
+      "value": 557596566
+    },
+    {
+      "token": "USDC",
+      "value": 90091851
+    },
+    {
+      "token": "KOI",
+      "value": 32757850
+    },
+    {
+      "token": "USDT",
+      "value": 18021853
+    },
+    {
+      "token": "WBTC",
+      "value": 12620248
+    },
+    {
+      "token": "wstETH",
+      "value": 3552439
+    },
+    {
+      "token": "MUTE",
+      "value": 2071481
+    },
+    {
+      "token": "rETH",
+      "value": 1404096
+    },
+    {
+      "token": "DAI",
+      "value": 1080375
+    }
+  ]
+}
