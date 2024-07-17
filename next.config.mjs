@@ -5,7 +5,6 @@ const nextConfig = {
     locales: ['en', 'es'],
     defaultLocale: 'en',
   },
-  outputFileTracing: true
 };
 
 export default nextConfig;
