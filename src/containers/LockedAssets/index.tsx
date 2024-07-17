@@ -1,5 +1,4 @@
-import { TotalValueLocked } from '~/components';
-import { Title } from '~/components/Title';
+import { TotalValueLocked, Title } from '~/components';
 import { useData } from '~/hooks';
 
 export const LockedAssets = () => {
