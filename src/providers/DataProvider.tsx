@@ -6,8 +6,8 @@ import { ChainData, EcosystemData } from '~/types';
 import { fetchEcosystemData, fetchChainData } from '~/utils';
 
 type ContextType = {
-  selectedChain?: ChainData;
-  setSelectedChain: (val: ChainData) => void;
+  selectedChainId?: number;
+  setSelectedChainId: (val: number) => void;
 
   isEcosystemLoading: boolean;
   isChainLoading: boolean;
@@ -24,7 +24,7 @@ interface DataProps {
 export const DataContext = createContext({} as ContextType);
 
 export const DataProvider = ({ children }: DataProps) => {
-  const [selectedChain, setSelectedChain] = useState<ChainData>();
+  const [selectedChainId, setSelectedChainId] = useState<number>();
   const router = useRouter();
 
   const {
@@ -42,9 +42,9 @@ export const DataProvider = ({ children }: DataProps) => {
     isError: isChainError,
     refetch: refetchChainData,
   } = useQuery({
-    queryKey: ['chainData', selectedChain?.chainId],
-    queryFn: () => fetchChainData(selectedChain!.chainId!),
-    enabled: !!selectedChain?.chainId,
+    queryKey: ['chainData', selectedChainId],
+    queryFn: () => fetchChainData(selectedChainId!),
+    enabled: !!selectedChainId,
   });
 
   useEffect(() => {
@@ -56,8 +56,8 @@ export const DataProvider = ({ children }: DataProps) => {
   return (
     <DataContext.Provider
       value={{
-        selectedChain,
-        setSelectedChain,
+        selectedChainId,
+        setSelectedChainId,
         isEcosystemLoading,
         isChainLoading,
         ecosystemData,
