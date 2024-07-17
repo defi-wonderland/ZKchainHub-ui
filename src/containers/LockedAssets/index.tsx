@@ -1,6 +1,6 @@
-import { TotalValueLocked } from '~/components';
-import { Title } from '~/components/Title';
+import { TotalValueLocked, Title } from '~/components';
 import { useData } from '~/hooks';
+import { formatDataNumber } from '~/utils';
 
 export const LockedAssets = () => {
   const { ecosystemData } = useData();
@@ -9,7 +9,7 @@ export const LockedAssets = () => {
     <section>
       {ecosystemData && (
         <>
-          <Title title={`Locked assets in shared bridge: ${ecosystemData.total}`} />
+          <Title title={`Locked assets in shared bridge: ${formatDataNumber(ecosystemData.total, 0, true, true)}`} />
           <TotalValueLocked tvl={ecosystemData.tvl} />
         </>
       )}
