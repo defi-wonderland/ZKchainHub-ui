@@ -50,6 +50,7 @@
       "type": "Validium"
     }
   ],
+  "total": 7000000,
   "tvl": [
     {
       "token": "ETH",
