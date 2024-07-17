@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { SearchBar, Table, Title } from '~/components';
 import { useData } from '~/hooks';
 
-const Dashboard = () => {
+export const Dashboard = () => {
   const { ecosystemData } = useData();
   const [searchTerm, setSearchTerm] = useState<string>('');
 
