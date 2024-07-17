@@ -1,14 +1,15 @@
 import { SearchBar, Table } from '~/components';
+import { Title } from '~/components/Title';
 
 const Dashboard = () => {
   return (
-    <div>
-      <div>
-        <h1>Chain list</h1>
+    <section>
+      <header>
+        <Title title={'Chain list'} />
         <SearchBar />
-      </div>
+      </header>
       <Table />
-    </div>
+    </section>
   );
 };
 

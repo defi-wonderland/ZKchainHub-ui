@@ -14,7 +14,7 @@ export const Landing = () => {
   );
 };
 
-const LandingContainer = styled('div')({
+const LandingContainer = styled('main')({
   display: 'flex',
   flexDirection: 'column',
   padding: '0 8rem',
