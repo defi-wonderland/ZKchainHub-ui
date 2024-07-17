@@ -5,7 +5,7 @@ const Dashboard = () => {
   return (
     <section>
       <header>
-        <Title title={'Chain list'} />
+        <Title title="Chain list" />
         <SearchBar />
       </header>
       <Table />
