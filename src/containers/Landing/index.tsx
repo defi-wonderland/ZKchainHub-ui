@@ -1,8 +1,7 @@
 import { styled } from '@mui/material/styles';
 
-import Dashboard from '../Dashboard';
-import { LockedAssets } from '../LockedAssets';
-import { TitleBanner } from '~/components/TitleBanner';
+import { Dashboard, LockedAssets } from '~/containers';
+import { TitleBanner } from '~/components';
 
 export const Landing = () => {
   return (
