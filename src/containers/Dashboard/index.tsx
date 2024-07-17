@@ -1,15 +1,13 @@
 import { SearchBar, Table, Title } from '~/components';
 
-const Dashboard = () => {
+export const Dashboard = () => {
   return (
     <section>
       <header>
-        <Title title="Chain list" />
+        <Title title='Chain list' />
         <SearchBar />
       </header>
       <Table />
     </section>
   );
 };
-
-export default Dashboard;
