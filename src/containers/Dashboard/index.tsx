@@ -1,5 +1,4 @@
-import { SearchBar, Table } from '~/components';
-import { Title } from '~/components/Title';
+import { SearchBar, Table, Title } from '~/components';
 
 const Dashboard = () => {
   return (
