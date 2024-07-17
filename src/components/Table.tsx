@@ -1,15 +1,19 @@
+import { useTranslation } from 'next-i18next';
+
 import { useData } from '~/hooks';
 
 export const Table = () => {
+  const { t } = useTranslation();
   const { ecosystemData } = useData();
+
   return (
     <table>
       <tr>
-        <th>Chain</th>
-        <th>Chain ID</th>
-        <th>Native token</th>
-        <th>TVL - L1</th>
-        <th>Type</th>
+        <th>{t('HOME.DASHBOARD.chain')}</th>
+        <th>{t('HOME.DASHBOARD.chainId')}</th>
+        <th>{t('HOME.DASHBOARD.nativeToken')}</th>
+        <th>{t('HOME.DASHBOARD.tvl')}</th>
+        <th>{t('HOME.DASHBOARD.type')}</th>
       </tr>
 
       {ecosystemData?.chains.map((data, index) => {

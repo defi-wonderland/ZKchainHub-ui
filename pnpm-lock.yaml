@@ -43,7 +43,7 @@ dependencies:
     version: 14.1.3(@babel/core@7.24.1)(react-dom@18.2.0)(react@18.2.0)
   next-i18next:
     specifier: 15.3.0
-    version: 15.3.0(i18next@23.12.1)(next@14.1.3)(react-i18next@13.5.0)(react@18.2.0)
+    version: 15.3.0(i18next@23.12.1)(next@14.1.3)(react-i18next@15.0.0)(react@18.2.0)
   react:
     specifier: 18.2.0
     version: 18.2.0
@@ -1534,6 +1534,13 @@ packages:
     engines: {node: '>=6.9.0'}
     dependencies:
       regenerator-runtime: 0.14.1
+
+  /@babel/runtime@7.24.8:
+    resolution: {integrity: sha512-5F7SDGs1T72ZczbRwbGO9lQi0NLjQxzl6i4lJxLxfW9U5UluCSyEJeniWvnhl3/euNiqQVbo8zruhsDfid0esA==}
+    engines: {node: '>=6.9.0'}
+    dependencies:
+      regenerator-runtime: 0.14.1
+    dev: false
 
   /@babel/template@7.24.0:
     resolution: {integrity: sha512-Bkf2q8lMB0AFpX0NFEqSbx1OkTHf0f+0j82mkw+ZpzBnkk7e9Ql0891vlfgi+kHwOk8tQjiQHpqh4LaSa0fKEA==}
@@ -5757,7 +5764,7 @@ packages:
     resolution: {integrity: sha512-fnULvOpxnC5/Vg3NCiWelDsLiUc9bRwAPs/+LfTLNvetFCtCTN+yQz15C/fs4AwX1R9K5GLtLfn8QW+dWisaAw==}
     engines: {node: '>=0.11'}
     dependencies:
-      '@babel/runtime': 7.24.1
+      '@babel/runtime': 7.24.8
     dev: false
 
   /dayjs@1.11.10:
@@ -7438,7 +7445,7 @@ packages:
   /i18next-browser-languagedetector@7.2.0:
     resolution: {integrity: sha512-U00DbDtFIYD3wkWsr2aVGfXGAj2TgnELzOX9qv8bT0aJtvPV9CRO77h+vgmHFBMe7LAxdwvT/7VkCWGya6L3tA==}
     dependencies:
-      '@babel/runtime': 7.24.1
+      '@babel/runtime': 7.24.8
     dev: false
 
   /i18next-fs-backend@2.3.1:
@@ -7448,7 +7455,7 @@ packages:
   /i18next@22.5.1:
     resolution: {integrity: sha512-8TGPgM3pAD+VRsMtUMNknRz3kzqwp/gPALrWMsDnmC1mKqJwpWyooQRLMcbTwq8z8YwSmuj+ZYvc+xCuEpkssA==}
     dependencies:
-      '@babel/runtime': 7.24.1
+      '@babel/runtime': 7.24.8
     dev: false
 
   /i18next@23.12.1:
@@ -9023,7 +9030,7 @@ packages:
     resolution: {integrity: sha512-21GQVd0pp2nACoK0C2PL8mBsEhIFUFFntYrWRlYNHtPQoqDzddrPEIgkyaABGXGued+dZoBlFQl+LASlmmfkvw==}
     engines: {node: '>=18'}
     dependencies:
-      '@babel/runtime': 7.24.1
+      '@babel/runtime': 7.24.8
     dev: false
 
   /metro-source-map@0.80.6:
@@ -9330,7 +9337,7 @@ packages:
     resolution: {integrity: sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==}
     dev: false
 
-  /next-i18next@15.3.0(i18next@23.12.1)(next@14.1.3)(react-i18next@13.5.0)(react@18.2.0):
+  /next-i18next@15.3.0(i18next@23.12.1)(next@14.1.3)(react-i18next@15.0.0)(react@18.2.0):
     resolution: {integrity: sha512-bq7Cc9XJFcmGOCLnyEtHaeJ3+JJNsI/8Pkj9BaHAnhm4sZ9vNNC4ZsaqYnlRZ7VH5ypSo73fEqLK935jLsmCvQ==}
     engines: {node: '>=14'}
     peerDependencies:
@@ -9347,7 +9354,7 @@ packages:
       i18next-fs-backend: 2.3.1
       next: 14.1.3(@babel/core@7.24.1)(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
-      react-i18next: 13.5.0(i18next@23.12.1)(react-dom@18.2.0)(react-native@0.73.6)(react@18.2.0)
+      react-i18next: 15.0.0(i18next@23.12.1)(react-dom@18.2.0)(react-native@0.73.6)(react@18.2.0)
     dev: false
 
   /next@14.1.3(@babel/core@7.24.1)(react-dom@18.2.0)(react@18.2.0):
@@ -10146,7 +10153,7 @@ packages:
       react-native:
         optional: true
     dependencies:
-      '@babel/runtime': 7.24.1
+      '@babel/runtime': 7.24.8
       html-parse-stringify: 3.0.1
       i18next: 22.5.1
       react: 18.2.0
@@ -10154,8 +10161,8 @@ packages:
       react-native: 0.73.6(@babel/core@7.24.1)(@babel/preset-env@7.24.1)(react@18.2.0)
     dev: false
 
-  /react-i18next@13.5.0(i18next@23.12.1)(react-dom@18.2.0)(react-native@0.73.6)(react@18.2.0):
-    resolution: {integrity: sha512-CFJ5NDGJ2MUyBohEHxljOq/39NQ972rh1ajnadG9BjTk+UXbHLq4z5DKEbEQBDoIhUmmbuS/fIMJKo6VOax1HA==}
+  /react-i18next@15.0.0(i18next@23.12.1)(react-dom@18.2.0)(react-native@0.73.6)(react@18.2.0):
+    resolution: {integrity: sha512-2O3IgF4zivg57Q6p6i+ChDgJ371IDcEWbuWC6gvoh5NbkDMs0Q+O7RPr4v61+Se32E0V+LmtwePAeqWZW0bi6g==}
     peerDependencies:
       i18next: '>= 23.2.3'
       react: '>= 16.8.0'
@@ -10167,7 +10174,7 @@ packages:
       react-native:
         optional: true
     dependencies:
-      '@babel/runtime': 7.24.1
+      '@babel/runtime': 7.24.8
       html-parse-stringify: 3.0.1
       i18next: 23.12.1
       react: 18.2.0

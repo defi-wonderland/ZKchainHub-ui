@@ -1,5 +1,58 @@
 {
-    "HOME":{
-        
+  "HOME": {
+    "title": "ZKsync Ecosystem",
+    "gasPrice": "Gas Price",
+    "transfer": "ERC-20 Transfer",
+    "lockedAssets": "Locked assets in shared bridge",
+    "DASHBOARD": {
+      "title": "Chain list",
+      "chain": "Chain",
+      "chainId": "Chain ID",
+      "nativeToken": "Native token",
+      "tvl": "TVL - L1",
+      "type": "Type",
+      "search": "Search by chain name or id..."
     }
+  },
+  "CHAINPAGE": {
+    "website": "Website",
+    "explorer": "Explorer",
+    "launchDate": "Launch date",
+    "environment": "Environment",
+    "nativeToken": "Native token",
+    "CHAININFORMATION": {
+      "title": "Chain information",
+      "chainType": "Chain type",
+      "lastBlock": "Last block",
+      "lastBlockVerified": "Last block verified",
+      "transactionsPerSecond": "Transactions per second",
+      "totalBatchesCommitted": "Total batches committed",
+      "totalBatchesVerified": "Total batches verified",
+      "averageBlockTime": "Average block time"
+    },
+    "ZKCHAINTVL": {
+      "title": "ZKchain TVL"
+    },
+    "RPC": {
+      "title": "RPC",
+      "status": "Status"
+    },
+    "FEEPARAMS": {
+      "batch": "Batch Overhead L1 Gas",
+      "compute": "Compute Overhead Part",
+      "maxGasBatch": "Max Gas per Batch"
+    }
+  },
+  "FOOTER": {
+    "docs": "Documentation",
+    "github": "GitHub",
+    "madeWithLove": "Made with ❤️ by"
+  },
+  "DISCLAIMER": {
+    "disclaimer": "Disclaimer: This application is currently in beta. Please proceed at your own risk. Any funds lost through its use are non-recoverable."
+  },
+  "LOCALES": {
+    "en": "English",
+    "es": "Spanish"
+  }
 }
