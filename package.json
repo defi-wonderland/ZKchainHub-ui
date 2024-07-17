@@ -1,8 +1,7 @@
 {
-  "name": "web3-react-boilerplate",
+  "name": "ZKchainHub",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
   "license": "MIT",
   "author": "Wonderland",
   "engines": {
