@@ -1,7 +1,10 @@
-import { useData } from '~/hooks';
+import { EcosystemChainData } from '~/types';
 
-export const Table = () => {
-  const { ecosystemData } = useData();
+interface TableProps {
+  chains: EcosystemChainData[];
+}
+
+export const Table = ({ chains }: TableProps) => {
   return (
     <table>
       <tr>
@@ -12,7 +15,7 @@ export const Table = () => {
         <th>Type</th>
       </tr>
 
-      {ecosystemData?.chains.map((data, index) => {
+      {chains?.map((data, index) => {
         return (
           <tr key={index}>
             <td>{data.name}</td>
