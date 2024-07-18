@@ -7,7 +7,7 @@ interface SearchBarProps {
 
 export const SearchBar = ({ value, onChange }: SearchBarProps) => {
   const { t } = useTranslation();
-  
+
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     onChange(event.target.value);
   };
