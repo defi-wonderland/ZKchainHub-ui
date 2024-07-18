@@ -10,7 +10,7 @@ export const SearchBar = ({ value, onChange }: SearchBarProps) => {
 
   return (
     <form>
-      <input type='text' value={value} onChange={handleChange} placeholder='Search chain...' />
+      <input type='text' value={value} onChange={handleChange} placeholder='Search...' />
     </form>
   );
 };
