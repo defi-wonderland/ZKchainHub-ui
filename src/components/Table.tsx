@@ -1,10 +1,13 @@
 import { useTranslation } from 'next-i18next';
 
-import { useData } from '~/hooks';
+import { EcosystemChainData } from '~/types';
 
-export const Table = () => {
+interface TableProps {
+  chains: EcosystemChainData[];
+}
+
+export const Table = ({ chains }: TableProps) => {
   const { t } = useTranslation();
-  const { ecosystemData } = useData();
 
   return (
     <table>
@@ -16,7 +19,7 @@ export const Table = () => {
         <th>{t('HOME.DASHBOARD.type')}</th>
       </tr>
 
-      {ecosystemData?.chains.map((data, index) => {
+      {chains?.map((data, index) => {
         return (
           <tr key={index}>
             <td>{data.name}</td>
