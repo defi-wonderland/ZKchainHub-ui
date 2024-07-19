@@ -1,14 +1,14 @@
 import { styled, Box, Typography } from '@mui/material';
+import { useTranslation } from 'next-i18next';
 
 import { DISCLAIMER_HEIGHT } from '~/utils';
 
 export const Disclaimer = () => {
+  const { t } = useTranslation();
+
   return (
     <Container>
-      <Typography variant='h1'>
-        Disclaimer: This application is currently in beta. Please proceed at your own risk. Any funds lost through its
-        use are non-recoverable.
-      </Typography>
+      <Typography variant='h1'>{t('DISCLAIMER.disclaimer')}</Typography>
     </Container>
   );
 };

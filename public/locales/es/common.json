@@ -1,0 +1,58 @@
+{
+  "HOME": {
+    "title": "Ecosistema ZKsync",
+    "gasPrice": "Precio del gas",
+    "transfer": "Transferencia ERC-20",
+    "lockedAssets": "Activos bloqueados en puente compartido",
+    "DASHBOARD": {
+      "title": "Lista de cadenas",
+      "chain": "Cadena",
+      "chainId": "ID de cadena",
+      "nativeToken": "Token nativo",
+      "tvl": "TVL - L1",
+      "type": "Tipo",
+      "search": "Buscar por nombre o ID de la cadena..."
+    }
+  },
+  "CHAINPAGE": {
+    "website": "Sitio web",
+    "explorer": "Explorador",
+    "launchDate": "Fecha de lanzamiento",
+    "environment": "Entorno",
+    "nativeToken": "Token nativo",
+    "CHAININFORMATION": {
+      "title": "Información de la cadena",
+      "chainType": "Tipo de cadena",
+      "lastBlock": "Último bloque",
+      "lastBlockVerified": "Último bloque verificado",
+      "transactionsPerSecond": "Transacciones por segundo",
+      "totalBatchesCommitted": "Total de lotes comprometidos",
+      "totalBatchesVerified": "Total de lotes verificados",
+      "averageBlockTime": "Tiempo promedio de bloque"
+    },
+    "ZKCHAINTVL": {
+      "title": "TVL de ZKchain"
+    },
+    "RPC": {
+      "title": "RPC",
+      "status": "Estado"
+    },
+    "FEEPARAMS": {
+      "batch": "Sobrecarga de lote L1 Gas",
+      "compute": "Parte de sobrecarga de cómputo",
+      "maxGasBatch": "Máximo gas por lote"
+    }
+  },
+  "FOOTER": {
+    "docs": "Documentación",
+    "github": "GitHub",
+    "madeWithLove": "Hecho con ❤️ por"
+  },
+  "DISCLAIMER": {
+    "disclaimer": "Advertencia: Esta aplicación está actualmente en beta. Por favor, proceda bajo su propio riesgo. Cualquier fondo perdido a través de su uso no es recuperable."
+  },
+  "LOCALES": {
+    "en": "Inglés",
+    "es": "Español"
+  }
+}

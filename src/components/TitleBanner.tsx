@@ -1,9 +1,14 @@
+import { useTranslation } from 'next-i18next';
+
 export const TitleBanner = () => {
+  const { t } = useTranslation();
+
   return (
     <div>
-      <span>zkSync Ecosystem</span>
+      <span>{t('HOME.title')}</span>
+
       <div>
-        <span>Gas Price: 10 wei · ERC-20 Transfer: $10</span>
+        <span>{`${t('HOME.gasPrice')}: 10 wei ${t('HOME.transfer')} $10`}</span>
       </div>
     </div>
   );

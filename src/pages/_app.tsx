@@ -1,4 +1,6 @@
 import { AppProps } from 'next/app';
+import { appWithTranslation } from 'next-i18next';
+
 import { Providers } from '~/providers';
 import Layout from './layout';
 
@@ -12,4 +14,4 @@ const Home = ({ Component, pageProps }: AppProps) => {
   );
 };
 
-export default Home;
+export default appWithTranslation(Home);
