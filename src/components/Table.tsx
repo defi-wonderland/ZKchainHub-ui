@@ -1,3 +1,5 @@
+import { useTranslation } from 'next-i18next';
+
 import { EcosystemChainData } from '~/types';
 
 interface TableProps {
@@ -5,14 +7,16 @@ interface TableProps {
 }
 
 export const Table = ({ chains }: TableProps) => {
+  const { t } = useTranslation();
+
   return (
     <table>
       <tr>
-        <th>Chain</th>
-        <th>Chain ID</th>
-        <th>Native token</th>
-        <th>TVL - L1</th>
-        <th>Type</th>
+        <th>{t('HOME.DASHBOARD.chain')}</th>
+        <th>{t('HOME.DASHBOARD.chainId')}</th>
+        <th>{t('HOME.DASHBOARD.nativeToken')}</th>
+        <th>{t('HOME.DASHBOARD.tvl')}</th>
+        <th>{t('HOME.DASHBOARD.type')}</th>
       </tr>
 
       {chains?.map((data, index) => {

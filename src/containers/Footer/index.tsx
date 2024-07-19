@@ -1,14 +1,17 @@
+import { useTranslation } from 'next-i18next';
 import { styled } from '@mui/material/styles';
-import { useCustomTheme } from '~/hooks/useContext/useTheme';
 
+import { useCustomTheme } from '~/hooks';
 import { FOOTER_HEIGHT } from '~/utils';
 
 export const Footer = () => {
+  const { t } = useTranslation();
+
   return (
     <FooterContainer>
       <h1>Footer</h1>
       <Subtitle>
-        <p>Made with 💜 by</p>
+        <p>{t('FOOTER.madeWithLove')}</p>
         <a href='https://defi.sucks'>Wonderland</a>
       </Subtitle>
     </FooterContainer>

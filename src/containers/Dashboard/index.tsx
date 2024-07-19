@@ -1,8 +1,11 @@
+import { useTranslation } from 'next-i18next';
 import { useState } from 'react';
+
 import { SearchBar, Table, Title } from '~/components';
 import { useData } from '~/hooks';
 
 export const Dashboard = () => {
+  const { t } = useTranslation();
   const { ecosystemData } = useData();
   const [searchTerm, setSearchTerm] = useState<string>('');
 
@@ -18,7 +21,7 @@ export const Dashboard = () => {
   return (
     <section>
       <header>
-        <Title title={'Chain list'} />
+        <Title title={t('HOME.DASHBOARD.title')} />
         <SearchBar value={searchTerm} onChange={handleChange} />
       </header>
 
