@@ -1,4 +1,5 @@
 import { useTranslation } from 'next-i18next';
+import { useRouter } from 'next/router';
 
 import { EcosystemChainData } from '~/types';
 
@@ -8,6 +9,11 @@ interface TableProps {
 
 export const Table = ({ chains }: TableProps) => {
   const { t } = useTranslation();
+  const router = useRouter();
+
+  const handleChainNavigation = (id: number) => {
+    router.push(`/${id}`);
+  };
 
   return (
     <table>
@@ -21,7 +27,7 @@ export const Table = ({ chains }: TableProps) => {
 
       {chains?.map((data, index) => {
         return (
-          <tr key={index}>
+          <tr key={index} onClick={() => handleChainNavigation(data.id)}>
             <td>{data.name}</td>
             <td>{data.id}</td>
             <td>{data.nativeToken}</td>
