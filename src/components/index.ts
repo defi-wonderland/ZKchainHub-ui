@@ -6,3 +6,4 @@ export * from './SearchBar';
 export * from './TotalValueLocked';
 export * from './Title';
 export * from './TitleBanner';
+export * from './InfoBox';

@@ -14,7 +14,7 @@
       "search": "Buscar por nombre o ID de la cadena..."
     }
   },
-  "CHAINPAGE": {
+  "CHAIN": {
     "website": "Sitio web",
     "explorer": "Explorador",
     "launchDate": "Fecha de lanzamiento",
@@ -41,7 +41,8 @@
       "batch": "Sobrecarga de lote L1 Gas",
       "compute": "Parte de sobrecarga de cómputo",
       "maxGasBatch": "Máximo gas por lote"
-    }
+    },
+    "backButton": "Volver"
   },
   "FOOTER": {
     "docs": "Documentación",

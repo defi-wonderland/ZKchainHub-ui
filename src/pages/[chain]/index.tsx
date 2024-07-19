@@ -1,27 +1,32 @@
 import { useEffect } from 'react';
-import { GetStaticPaths, GetStaticProps } from 'next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { GetStaticProps, GetStaticPaths, GetStaticPropsContext, InferGetStaticPropsType } from 'next';
 
 import { EcosystemChainData } from '~/types';
 import { CustomHead } from '~/components';
 import { useData } from '~/hooks';
 import { fetchEcosystemData } from '~/utils';
+import { ChainDetail } from '~/containers';
+import { getConfig } from '~/config';
+
+const { DEFAULT_LANG, SUPPORTED_LANGUAGES } = getConfig();
 
 interface ChainProps {
   chain: EcosystemChainData;
 }
 
-const Chain = ({ chain }: ChainProps) => {
-  const { setSelectedChainId } = useData();
+const Chain = ({ chain }: InferGetStaticPropsType<typeof getStaticProps>) => {
+  const { setSelectedChainId, refetchChainData } = useData();
 
   useEffect(() => {
-    setSelectedChainId(chain.id);
-  }, [chain.id, setSelectedChainId]);
+    setSelectedChainId(chain?.id);
+    refetchChainData({ throwOnError: true, cancelRefetch: false });
+  }, [chain?.id, setSelectedChainId, refetchChainData]);
 
   return (
     <>
-      <CustomHead title={chain.name} />
-      <h1>{chain.name}</h1>
-      {/* TODO: Add chain page containers */}
+      <CustomHead title={chain?.name} />
+      <ChainDetail />
     </>
   );
 };
@@ -30,14 +35,17 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const ecosystemData = await fetchEcosystemData();
   const chains = ecosystemData.chains;
 
-  const paths = chains.map((chain: EcosystemChainData) => ({
-    params: { chain: chain.id.toString() },
-  }));
+  const paths = SUPPORTED_LANGUAGES.flatMap((locale) =>
+    chains.map((chain: EcosystemChainData) => ({
+      params: { chain: chain.id.toString() },
+      locale,
+    })),
+  );
 
-  return { paths, fallback: false };
+  return { paths, fallback: true };
 };
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
+export const getStaticProps: GetStaticProps<ChainProps> = async ({ params, locale }: GetStaticPropsContext) => {
   const ecosystemData = await fetchEcosystemData();
   const chains = ecosystemData.chains;
   const chainId = parseInt(params?.chain as string);
@@ -47,9 +55,12 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     return { notFound: true };
   }
 
+  const i18Config = await serverSideTranslations(locale || DEFAULT_LANG, ['common'], null, SUPPORTED_LANGUAGES);
+
   return {
     props: {
       chain,
+      ...i18Config,
     },
   };
 };

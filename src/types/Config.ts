@@ -5,8 +5,10 @@ export interface Env {
   API_URL: string;
 }
 
+export type SupportedLanguage = 'en' | 'es';
 export interface Constants {
-  // ...
+  SUPPORTED_LANGUAGES: SupportedLanguage[];
+  DEFAULT_LANG: SupportedLanguage;
 }
 
 export interface Config extends Env, Constants {}

@@ -14,7 +14,7 @@
       "search": "Search by chain name or id..."
     }
   },
-  "CHAINPAGE": {
+  "CHAIN": {
     "website": "Website",
     "explorer": "Explorer",
     "launchDate": "Launch date",
@@ -41,7 +41,8 @@
       "batch": "Batch Overhead L1 Gas",
       "compute": "Compute Overhead Part",
       "maxGasBatch": "Max Gas per Batch"
-    }
+    },
+    "backButton": "Go back"
   },
   "FOOTER": {
     "docs": "Documentation",
