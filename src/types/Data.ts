@@ -1,33 +1,39 @@
 export interface ChainData {
-  name: string;
-  chainId: number;
-  website: string;
-  explorer: string;
-  launchDate: string;
-  environment: string;
-  nativeToken: string;
   chainType: string;
-  lastBlock: number;
-  lastBlockVerified: number;
-  transactionsPerSecond: number;
-  totalBatchesCommitted: number;
-  totalBatchesExecuted: number;
-  totalBatchesVerified: number;
-  averageBlockTime: number;
   tvl: {
-    [token: string]: {
-      value: number;
-      address: string;
-    };
+    [token: string]: number;
   };
-  rpcs: {
-    status: string;
-    url: string;
-  }[];
+  batchesInfo: {
+    commited: number;
+    verified: number;
+    proved: number;
+  };
   feeParams: {
     batchOverheadL1Gas: number;
-    computeOverheadPart: number;
-    maxGasPerBatch: number;
+    maxPubdataPerBatch: number;
+    maxL2GasPerBatch: number;
+    priorityTxMaxPubdata: number;
+    minimalL2GasPrice: number;
+  };
+  metadata: {
+    iconUrl: string;
+    chainName: string;
+    chainId: number;
+    publicRpcs: {
+      url: string;
+      status: boolean;
+    }[];
+    websiteUrl: string;
+    explorerUrl: string;
+    launchDate: number;
+    environment: string;
+    nativeToken: string;
+  };
+  l2ChainInfo: {
+    tps: number;
+    avgBlockTime: number;
+    lastBlock: number;
+    lastBlockVerified: number;
   };
 }
 

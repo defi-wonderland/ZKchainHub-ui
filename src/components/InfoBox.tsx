@@ -1,6 +1,6 @@
 interface InfoBoxProps {
   title: string;
-  description: string;
+  description: string | number;
 }
 
 export const InfoBox = ({ title, description }: InfoBoxProps) => {

@@ -1,11 +1,11 @@
+import { ChainMetadata } from './ChainMetadata';
 import { ChainDescription } from './ChainDescription';
-import { ChainInformation } from './ChainInformation';
 
 export const ChainDetail = () => {
   return (
     <div>
+      <ChainMetadata />
       <ChainDescription />
-      <ChainInformation />
     </div>
   );
 };

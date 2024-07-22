@@ -27,10 +27,11 @@
       "lastBlockVerified": "Último bloque verificado",
       "transactionsPerSecond": "Transacciones por segundo",
       "totalBatchesCommitted": "Total de lotes comprometidos",
+      "totalBatchesExecuted": "Total de lotes ejecutados",
       "totalBatchesVerified": "Total de lotes verificados",
       "averageBlockTime": "Tiempo promedio de bloque"
     },
-    "ZKCHAINTVL": {
+    "TVL": {
       "title": "TVL de ZKchain"
     },
     "RPC": {
