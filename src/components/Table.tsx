@@ -1,6 +1,7 @@
 import { useTranslation } from 'next-i18next';
 
 import { EcosystemChainData } from '~/types';
+import { formatDataNumber } from '~/utils';
 
 interface TableProps {
   chains: EcosystemChainData[];
@@ -25,7 +26,7 @@ export const Table = ({ chains }: TableProps) => {
             <td>{data.name}</td>
             <td>{data.id}</td>
             <td>{data.nativeToken}</td>
-            <td>{data.tvl}</td>
+            <td>{formatDataNumber(data.tvl, 0, true)}</td>
             <td>{data.type}</td>
           </tr>
         );

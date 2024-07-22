@@ -1,7 +1,7 @@
 import { useTranslation } from 'next-i18next';
 import { useState } from 'react';
 
-import { SearchBar, Table, Title } from '~/components';
+import { NotFound, SearchBar, Table, Title } from '~/components';
 import { useData } from '~/hooks';
 
 export const Dashboard = () => {
@@ -9,14 +9,22 @@ export const Dashboard = () => {
   const { ecosystemData } = useData();
   const [searchTerm, setSearchTerm] = useState<string>('');
 
+  const filteredChains = ecosystemData?.chains.filter((chain) => {
+    const chainIdStr = String(chain.id);
+    const formattedSearchTerm = String(searchTerm).toLowerCase();
+
+    // Check if either chain name or chain ID matches the search term
+    const matchesName = chain.name.toLowerCase().includes(formattedSearchTerm);
+    const matchesId = chainIdStr.includes(formattedSearchTerm);
+
+    return matchesName || matchesId;
+  });
+
+  const availableChains = filteredChains?.length > 0;
+
   const handleChange = (value: string) => {
     setSearchTerm(value);
   };
-
-  // Filter chains based on search term
-  const filteredChains = ecosystemData?.chains.filter((chain) =>
-    chain.name.toLowerCase().includes(searchTerm.toLowerCase()),
-  );
 
   return (
     <section>
@@ -25,7 +33,8 @@ export const Dashboard = () => {
         <SearchBar value={searchTerm} onChange={handleChange} />
       </header>
 
-      <Table chains={filteredChains} />
+      {availableChains && <Table chains={filteredChains} />}
+      {!availableChains && <NotFound text={t('HOME.DASHBOARD.notFound')} />}
     </section>
   );
 };

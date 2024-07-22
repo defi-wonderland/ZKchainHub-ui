@@ -1,3 +1,5 @@
+import { formatDataNumber } from '~/utils';
+
 export interface TokenValueLocked {
   token: string;
   value: number;
@@ -13,7 +15,7 @@ export const TotalValueLocked = ({ tvl }: TotalValueLockedProps) => {
       {tvl.map((data, index) => (
         <div key={index}>
           <span>{data.token}</span>
-          <span>{data.value}</span>
+          <span>{formatDataNumber(data.value, 0, true)}</span>
         </div>
       ))}
     </div>
