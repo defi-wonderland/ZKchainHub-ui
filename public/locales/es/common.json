@@ -11,7 +11,8 @@
       "nativeToken": "Token nativo",
       "tvl": "TVL - L1",
       "type": "Tipo",
-      "search": "Buscar por nombre o ID de la cadena..."
+      "search": "Buscar por nombre o ID de la cadena...",
+      "notFound": "Cadena no encontrada"
     }
   },
   "CHAIN": {
