@@ -1,21 +1,38 @@
 import { useTranslation } from 'next-i18next';
+import { useRouter } from 'next/router';
 import { InfoBox } from '~/components';
 import { useData } from '~/hooks';
 
 export const ChainDescription = () => {
   const { t } = useTranslation();
-  const { chainData } = useData();
+  const { chainData, ecosystemData } = useData();
+  const router = useRouter();
+
+  const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const selectedChainId = event.target.value;
+    router.push(`/${selectedChainId}`);
+  };
+
+  const handleBack = () => {
+    router.back();
+  };
 
   return (
     <div>
       <div>
         <div>
           {/* <img></img> */}
-          <button>{chainData?.name}</button>
-          <span></span>
+          <select onChange={handleChange} value={chainData?.chainId || ''}>
+            {ecosystemData?.chains.map((chain) => (
+              <option key={chain.id} value={chain.id}>
+                {chain.name}
+              </option>
+            ))}
+          </select>
+          <span>{chainData?.chainId}</span>
         </div>
 
-        <button>{t('CHAIN.backButton')}</button>
+        <button onClick={handleBack}>{t('CHAIN.backButton')}</button>
       </div>
 
       <div>

@@ -38,6 +38,7 @@
       "status": "Estado"
     },
     "FEEPARAMS": {
+      "title": "Parámetros de gas",
       "batch": "Sobrecarga de lote L1 Gas",
       "compute": "Parte de sobrecarga de cómputo",
       "maxGasBatch": "Máximo gas por lote"

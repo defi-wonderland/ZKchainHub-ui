@@ -3,6 +3,7 @@ import { styled } from '@mui/material/styles';
 import { IconButton } from '@mui/material';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
+import Link from 'next/link';
 
 import { useCustomTheme } from '~/hooks/useContext/useTheme';
 import { zIndex, HEADER_HEIGHT } from '~/utils';
@@ -12,7 +13,9 @@ export const Header = () => {
 
   return (
     <StyledHeader>
-      <Logo>Logo</Logo>
+      <Link href='/' passHref>
+        <Logo>Logo</Logo>
+      </Link>
       <SIconButton onClick={changeTheme}>{theme === 'dark' ? <LightModeIcon /> : <DarkModeIcon />}</SIconButton>
       <ConnectButton />
     </StyledHeader>

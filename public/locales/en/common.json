@@ -38,6 +38,7 @@
       "status": "Status"
     },
     "FEEPARAMS": {
+      "title": "Fee params",
       "batch": "Batch Overhead L1 Gas",
       "compute": "Compute Overhead Part",
       "maxGasBatch": "Max Gas per Batch"
