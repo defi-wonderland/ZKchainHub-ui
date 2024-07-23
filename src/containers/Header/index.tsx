@@ -1,23 +1,41 @@
-import { ConnectButton } from '@rainbow-me/rainbowkit';
 import { styled } from '@mui/material/styles';
 import { IconButton } from '@mui/material';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import DarkModeIcon from '@mui/icons-material/DarkMode';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { useTranslation } from 'next-i18next';
 
+import { BasicSelect } from '~/components';
 import { useCustomTheme } from '~/hooks/useContext/useTheme';
 import { zIndex, HEADER_HEIGHT } from '~/utils';
+import { getConfig } from '~/config';
+
+const { DEFAULT_LANG } = getConfig();
 
 export const Header = () => {
   const { changeTheme, theme } = useCustomTheme();
+  const {
+    t,
+    i18n: { changeLanguage, language },
+  } = useTranslation();
+  const { locales, replace } = useRouter();
+
+  const localesMap = locales ? Object.fromEntries(locales.map((locale) => [locale, t(`LOCALES.${locale}`)])) : {};
+
+  const handleChangeLanguage = (value: string) => {
+    const locale = Object.keys(localesMap).find((key) => localesMap[key] === value) || DEFAULT_LANG;
+    replace('/', undefined, { locale: locale });
+    changeLanguage(locale);
+  };
 
   return (
     <StyledHeader>
       <Link href='/' passHref>
-        <Logo>Logo</Logo>
+        <Logo>ZKchainHub</Logo>
       </Link>
       <SIconButton onClick={changeTheme}>{theme === 'dark' ? <LightModeIcon /> : <DarkModeIcon />}</SIconButton>
-      <ConnectButton />
+      <BasicSelect value={t(`LOCALES.${language}`)} setValue={handleChangeLanguage} list={Object.values(localesMap)} />
     </StyledHeader>
   );
 };

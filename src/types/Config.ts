@@ -6,6 +6,7 @@ export interface Env {
 }
 
 export type SupportedLanguage = 'en' | 'es';
+
 export interface Constants {
   SUPPORTED_LANGUAGES: SupportedLanguage[];
   DEFAULT_LANG: SupportedLanguage;

@@ -11,4 +11,5 @@ export * from './FeeParams';
 export * from './RPC';
 export * from './TVL';
 export * from './ChainInformation';
+export * from './BasicSelect';
 export * from './NotFound';
