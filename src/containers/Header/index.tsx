@@ -19,13 +19,24 @@ export const Header = () => {
     t,
     i18n: { changeLanguage, language },
   } = useTranslation();
-  const { locales, replace } = useRouter();
+  const router = useRouter();
+  const { locales, pathname, query } = router;
 
   const localesMap = locales ? Object.fromEntries(locales.map((locale) => [locale, t(`LOCALES.${locale}`)])) : {};
 
   const handleChangeLanguage = (value: string) => {
     const locale = Object.keys(localesMap).find((key) => localesMap[key] === value) || DEFAULT_LANG;
-    replace('/', undefined, { locale: locale });
+    const newPath = `/${locale}${pathname}`;
+
+    router.replace(
+      {
+        pathname: newPath,
+        query,
+      },
+      undefined,
+      { locale },
+    );
+
     changeLanguage(locale);
   };
 
