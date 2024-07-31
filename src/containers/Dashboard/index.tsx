@@ -1,13 +1,12 @@
 import { useTranslation } from 'next-i18next';
-import { useState } from 'react';
 
-import { NotFound, SearchBar, Table, Title } from '~/components';
-import { useData } from '~/hooks';
+import { NotFound, Table, Title } from '~/components';
+import { useData, useStateContext } from '~/hooks';
 
 export const Dashboard = () => {
   const { t } = useTranslation();
   const { ecosystemData } = useData();
-  const [searchTerm, setSearchTerm] = useState<string>('');
+  const { searchTerm } = useStateContext();
 
   const filteredChains = ecosystemData?.chains.filter((chain) => {
     const chainIdStr = String(chain.id);
@@ -22,15 +21,10 @@ export const Dashboard = () => {
 
   const availableChains = filteredChains?.length > 0;
 
-  const handleChange = (value: string) => {
-    setSearchTerm(value);
-  };
-
   return (
     <section>
       <header>
         <Title title={t('HOME.DASHBOARD.title')} />
-        <SearchBar value={searchTerm} onChange={handleChange} />
       </header>
 
       {availableChains && <Table chains={filteredChains} />}
