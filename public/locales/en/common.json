@@ -11,7 +11,7 @@
       "nativeToken": "Native token",
       "tvl": "TVL - L1",
       "type": "Type",
-      "search": "Search by chain name or id...",
+      "search": "Search",
       "notFound": "Chain not found"
     }
   },
@@ -51,9 +51,6 @@
     "docs": "Documentation",
     "github": "GitHub",
     "madeWithLove": "Made with ❤️ by"
-  },
-  "DISCLAIMER": {
-    "disclaimer": "Disclaimer: This application is currently in beta. Please proceed at your own risk. Any funds lost through its use are non-recoverable."
   },
   "LOCALES": {
     "en": "English",

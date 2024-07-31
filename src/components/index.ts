@@ -1,5 +1,4 @@
 export * from './Theme';
-export * from './Disclaimer';
 export * from './CustomHead';
 export * from './Table';
 export * from './SearchBar';
