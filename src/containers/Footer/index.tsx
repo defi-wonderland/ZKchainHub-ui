@@ -1,15 +1,22 @@
 import { useTranslation } from 'next-i18next';
 import { styled } from '@mui/material/styles';
+import { Box, Typography } from '@mui/material';
+import Image from 'next/image';
 
-import { useCustomTheme } from '~/hooks';
-import { FOOTER_HEIGHT } from '~/utils';
+import Github from '~/assets/icons/github.svg';
 
 export const Footer = () => {
   const { t } = useTranslation();
 
   return (
     <FooterContainer>
-      <h1>Footer</h1>
+      <SBox>
+        <SText>{t('FOOTER.docs')}</SText>
+        <IconText>
+          <Image src={Github} alt='github' />
+          <Typography>{t('FOOTER.github')}</Typography>
+        </IconText>
+      </SBox>
       <Subtitle>
         <p>{t('FOOTER.madeWithLove')}</p>
         <a href='https://defi.sucks'>Wonderland</a>
@@ -19,15 +26,12 @@ export const Footer = () => {
 };
 
 const FooterContainer = styled('footer')(() => {
-  const { currentTheme } = useCustomTheme();
   return {
     display: 'flex',
-    height: `${FOOTER_HEIGHT}rem`,
-    padding: '0 8rem',
+    height: `5.5rem`,
+    padding: '1rem',
     alignItems: 'center',
     justifyContent: 'space-between',
-    backgroundColor: currentTheme.backgroundSecondary,
-    borderTop: currentTheme.border,
     width: '100%',
   };
 });
@@ -35,7 +39,7 @@ const FooterContainer = styled('footer')(() => {
 const Subtitle = styled('div')({
   display: 'flex',
   alignItems: 'center',
-  gap: '0.8rem',
+  gap: '0.25rem',
   '& p': {
     display: 'inline-block',
   },
@@ -43,4 +47,25 @@ const Subtitle = styled('div')({
     textDecoration: 'none',
     color: 'inherit',
   },
+});
+
+const SBox = styled(Box)({
+  display: 'flex',
+  gap: '0.25rem',
+  alignItems: 'center',
+});
+
+const IconText = styled(Box)({
+  display: 'flex',
+  gap: '1rem',
+  alignItems: 'center',
+  backgroundColor: '#262B33',
+  borderRadius: '1.5rem',
+  padding: '1rem',
+});
+
+const SText = styled(Typography)({
+  backgroundColor: '#262B33',
+  borderRadius: '1.5rem',
+  padding: '1rem',
 });
