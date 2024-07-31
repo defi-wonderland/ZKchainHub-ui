@@ -13,6 +13,8 @@ export const darkTheme: Theme = {
   borderRadius: '1.5rem',
   secondaryBorderRadius: '0.4rem',
   border: '0.1rem solid rgba(153, 164, 184, 0.1)',
+  gap: '0.25rem',
+  padding: '1rem',
 };
 
 export const lightTheme: Theme = {
@@ -29,4 +31,6 @@ export const lightTheme: Theme = {
   borderRadius: '1.5rem',
   secondaryBorderRadius: '0.4rem',
   border: '0.1rem solid rgba(183, 183, 183, 0.3)',
+  gap: '0.25rem',
+  padding: '1rem',
 };
