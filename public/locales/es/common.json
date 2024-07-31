@@ -15,7 +15,7 @@
       "notFound": "Cadena no encontrada"
     }
   },
-  "CHAINPAGE": {
+  "CHAIN": {
     "website": "Sitio web",
     "explorer": "Explorador",
     "launchDate": "Fecha de lanzamiento",
@@ -28,10 +28,11 @@
       "lastBlockVerified": "Último bloque verificado",
       "transactionsPerSecond": "Transacciones por segundo",
       "totalBatchesCommitted": "Total de lotes comprometidos",
+      "totalBatchesExecuted": "Total de lotes ejecutados",
       "totalBatchesVerified": "Total de lotes verificados",
       "averageBlockTime": "Tiempo promedio de bloque"
     },
-    "ZKCHAINTVL": {
+    "TVL": {
       "title": "TVL de ZKchain"
     },
     "RPC": {
@@ -39,10 +40,12 @@
       "status": "Estado"
     },
     "FEEPARAMS": {
+      "title": "Parámetros de gas",
       "batch": "Sobrecarga de lote L1 Gas",
       "compute": "Parte de sobrecarga de cómputo",
       "maxGasBatch": "Máximo gas por lote"
-    }
+    },
+    "backButton": "Volver"
   },
   "FOOTER": {
     "docs": "Documentación",

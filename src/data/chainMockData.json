@@ -1,60 +1,49 @@
-[
-  {
-    "name": "ZKSync Era",
-    "chainId": 324,
-    "website": "https://example.com",
-    "explorer": "https://example.com",
-    "launchDate": "2023-12-05",
-    "environment": "Production",
-    "nativeToken": "ETH",
-    "chainType": "ZKRollup",
-    "lastBlock": 123456789,
-    "lastBlockVerified": 123456788,
-    "transactionsPerSecond": 15,
-    "totalBatchesCommitted": 1234567890,
-    "totalBatchesExecuted": 1234567890,
-    "totalBatchesVerified": 123456788,
-    "averageBlockTime": 100000,
-    "tvl": {
-      "ETH": {
-        "value": 500000000,
-        "address": "0x79db...d692"
-      },
-      "USDT": {
-        "value": 100000000,
-        "address": "0x79db...d692"
-      },
-      "USDC": {
-        "value": 50000000,
-        "address": "0x79db...d692"
-      },
-      "WBTC": {
-        "value": 30000000,
-        "address": "0x79db...d692"
-      }
-    },
-    "rpcs": [
+{
+  "chainType": "Rollup",
+  "tvl": {
+    "ETH": 1000000,
+    "USDC": 500000
+  },
+  "batchesInfo": {
+    "commited": 100,
+    "verified": 90,
+    "proved": 80
+  },
+  "feeParams": {
+    "batchOverheadL1Gas": 50000,
+    "maxPubdataPerBatch": 120000,
+    "maxL2GasPerBatch": 10000000,
+    "priorityTxMaxPubdata": 15000,
+    "minimalL2GasPrice": 0.25
+  },
+  "metadata": {
+    "iconUrl": "https://s2.coinmarketcap.com/static/img/coins/64x64/24091.png",
+    "chainName": "ZKsyncERA",
+    "chainId": "324",
+    "publicRpcs": [
       {
-        "status": "Active",
-        "url": "https://lrpc.com"
+        "url": "https://mainnet.era.zksync.io",
+        "status": true
       },
       {
-        "status": "Active",
-        "url": "https://blastapi.com"
+        "url": "https://1rpc.io/zksync2-era",
+        "status": true
       },
       {
-        "status": "Inactive",
-        "url": "https://llamarpc.com"
-      },
-      {
-        "status": "Active",
-        "url": "https://alchemy.com"
+        "url": "https://zksync.drpc.org",
+        "status": false
       }
     ],
-    "feeParams": {
-      "batchOverheadL1Gas": 1234567890,
-      "computeOverheadPart": 1234567890,
-      "maxGasPerBatch": 123456788
-    }
+    "websiteUrl": "https://zksync.io/",
+    "explorerUrl": "https://explorer.zksync.io/",
+    "launchDate": 1679626800,
+    "environment": "mainnet",
+    "nativeToken": "ETH"
+  },
+  "l2ChainInfo": {
+    "tps": 10000000,
+    "avgBlockTime": 12,
+    "lastBlock": 1000000,
+    "lastBlockVerified": 999999
   }
-]
+}

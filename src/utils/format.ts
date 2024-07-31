@@ -2,6 +2,10 @@ export const truncateAddress = (address: string) => {
   return `${address.slice(0, 6)}...${address.slice(-4)}`;
 };
 
+export const formatTimestampToDate = (timestamp: number): string => {
+  return new Date(timestamp * 1000).toLocaleDateString();
+};
+
 export function formatDataNumber(input: string | number, formatDecimal = 3, currency?: boolean, compact?: boolean) {
   const res: number = Number.parseFloat(input.toString());
 

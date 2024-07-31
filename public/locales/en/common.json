@@ -15,7 +15,7 @@
       "notFound": "Chain not found"
     }
   },
-  "CHAINPAGE": {
+  "CHAIN": {
     "website": "Website",
     "explorer": "Explorer",
     "launchDate": "Launch date",
@@ -28,10 +28,11 @@
       "lastBlockVerified": "Last block verified",
       "transactionsPerSecond": "Transactions per second",
       "totalBatchesCommitted": "Total batches committed",
+      "totalBatchesExecuted": "Total batches executed",
       "totalBatchesVerified": "Total batches verified",
       "averageBlockTime": "Average block time"
     },
-    "ZKCHAINTVL": {
+    "TVL": {
       "title": "ZKchain TVL"
     },
     "RPC": {
@@ -39,10 +40,12 @@
       "status": "Status"
     },
     "FEEPARAMS": {
+      "title": "Fee params",
       "batch": "Batch Overhead L1 Gas",
       "compute": "Compute Overhead Part",
       "maxGasBatch": "Max Gas per Batch"
-    }
+    },
+    "backButton": "Go back"
   },
   "FOOTER": {
     "docs": "Documentation",
