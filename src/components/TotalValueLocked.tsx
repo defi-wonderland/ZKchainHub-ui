@@ -1,23 +1,10 @@
-import { formatDataNumber } from '~/utils';
-
-export interface TokenValueLocked {
-  token: string;
-  value: number;
-}
-
+import { TvlData } from '~/types';
+import { Box } from '@mui/material';
 interface TotalValueLockedProps {
-  tvl: { [token: string]: number }[];
+  tvl: TvlData[];
 }
 
 export const TotalValueLocked = ({ tvl }: TotalValueLockedProps) => {
-  return (
-    <div>
-      {tvl.map((data, index) => (
-        <div key={index}>
-          <span>{data.token}</span>
-          <span>{formatDataNumber(data.value, 0, true)}</span>
-        </div>
-      ))}
-    </div>
-  );
+  console.log(tvl);
+  return <Box>{/* Token graph tvl */}</Box>;
 };

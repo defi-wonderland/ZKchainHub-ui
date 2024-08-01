@@ -1,92 +1,89 @@
 {
-  "chains": [
-    {
-      "name": "zkSync Era",
-      "id": 324,
-      "nativeToken": "ETH",
-      "tvl": 1000000,
-      "type": "ZKRollup"
-    },
-    {
-      "name": "Teva Chain",
-      "id": 100,
-      "nativeToken": "ETH",
-      "tvl": 1000000,
-      "type": "ZKRollup"
-    },
-    {
-      "name": "Cronos zkEVM",
-      "id": 101,
-      "nativeToken": "ETH",
-      "tvl": 1000000,
-      "type": "Validium"
-    },
-    {
-      "name": "GRVT",
-      "id": 102,
-      "nativeToken": "ETH",
-      "tvl": 1000000,
-      "type": "Validium"
-    },
-    {
-      "name": "Lens",
-      "id": 103,
-      "nativeToken": "ETH",
-      "tvl": 1000000,
-      "type": "Validium"
-    },
-    {
-      "name": "ZKChain 104",
-      "id": 104,
-      "nativeToken": "ETH",
-      "tvl": 1000000,
-      "type": "ZKRollup"
-    },
-    {
-      "name": "ZKChain 105",
-      "id": 105,
-      "nativeToken": "ETH",
-      "tvl": 1000000,
-      "type": "Validium"
-    }
-  ],
-  "total": 700000000,
-  "tvl": [
+  "l1Tvl": [
     {
       "token": "ETH",
-      "value": 557596566
-    },
-    {
-      "token": "USDC",
-      "value": 90091851
-    },
-    {
-      "token": "KOI",
-      "value": 32757850
+      "total": 557596566000,
+      "imageUrl": "https://coin-images.coingecko.com/coins/images/279/large/ethereum.png?1696501628"
     },
     {
       "token": "USDT",
-      "value": 18021853
+      "total": 114493849618,
+      "imageUrl": "https://coin-images.coingecko.com/coins/images/325/large/tether.png"
+    },
+    {
+      "token": "USDC",
+      "total": 34115209093,
+      "imageUrl": "https://coin-images.coingecko.com/coins/images/6319/large/usd-coin.png"
+    },
+    {
+      "token": "KOI",
+      "total": 24115209093,
+      "imageUrl": "https://assets.coingecko.com/coins/images/35766/standard/Koi_logo.png?1709782399"
     },
     {
       "token": "WBTC",
-      "value": 12620248
+      "total": 12620248,
+      "imageUrl": "https://coin-images.coingecko.com/coins/images/5757/large/wrapped-bitcoin.png"
     },
     {
-      "token": "wstETH",
-      "value": 3552439
+      "token": "wsETH",
+      "total": 3552439,
+      "imageUrl": "https://coin-images.coingecko.com/coins/images/11320/large/staked-ether.png"
     },
     {
-      "token": "MUTE",
-      "value": 2071481
+      "token": "cbETH",
+      "total": 2552439,
+      "imageUrl": "https://assets.coingecko.com/coins/images/27008/standard/cbeth.png?1709186989"
     },
     {
-      "token": "rETH",
-      "value": 1404096
+      "token": "BAL",
+      "total": 1552439,
+      "imageUrl": "https://coin-images.coingecko.com/coins/images/671/large/balancer.png"
+    }
+  ],
+  "ethGasInfo": {
+    "gasPrice": 50,
+    "ethTransfer": 21000,
+    "erc20Transfer": 65000
+  },
+  "zkChains": [
+    {
+      "chainId": 0,
+      "chainName": "ZKsyncERA",
+      "iconUrl": "https://s2.coinmarketcap.com/static/img/coins/64x64/24091.png",
+      "chainType": "Rollup",
+      "nativeToken": "ETH",
+      "tvl": 1000000,
+      "metadata": true,
+      "rpc": true
     },
     {
-      "token": "DAI",
-      "value": 1080375
+      "chainId": 1,
+      "chainName": "ZKsyncERA",
+      "iconUrl": "https://s2.coinmarketcap.com/static/img/coins/64x64/24091.png",
+      "chainType": "Validium",
+      "nativeToken": "ETH",
+      "tvl": 500000,
+      "metadata": true,
+      "rpc": false
+    },
+    {
+      "chainId": 2,
+      "chainName": "ZKsyncERA",
+      "iconUrl": "https://s2.coinmarketcap.com/static/img/coins/64x64/24091.png",
+      "chainType": "Rollup",
+      "tvl": 300000,
+      "metadata": false,
+      "rpc": true
+    },
+    {
+      "chainId": 3,
+      "chainName": "ZKsyncERA",
+      "iconUrl": "https://s2.coinmarketcap.com/static/img/coins/64x64/24091.png",
+      "chainType": "Rollup",
+      "tvl": 10000,
+      "metadata": false,
+      "rpc": false
     }
   ]
 }

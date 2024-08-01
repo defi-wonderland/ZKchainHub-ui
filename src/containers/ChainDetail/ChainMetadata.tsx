@@ -25,9 +25,9 @@ export const ChainMetadata = () => {
         <div>
           {/* <img></img> */}
           <select onChange={handleChange} value={data?.chainName || ''}>
-            {ecosystemData?.chains.map((chain) => (
-              <option key={chain.id} value={chain.id}>
-                {chain.name}
+            {ecosystemData?.zkChains.map((chain) => (
+              <option key={chain.chainId} value={chain.chainId}>
+                {chain.chainName}
               </option>
             ))}
           </select>

@@ -1,6 +1,6 @@
 import { useTranslation } from 'next-i18next';
 
-import { NotFound, Table, Title } from '~/components';
+import { NotFound, DataTable, Title } from '~/components';
 import { useData, useStateContext } from '~/hooks';
 
 export const Dashboard = () => {
@@ -8,12 +8,12 @@ export const Dashboard = () => {
   const { ecosystemData } = useData();
   const { searchTerm } = useStateContext();
 
-  const filteredChains = ecosystemData?.chains.filter((chain) => {
-    const chainIdStr = String(chain.id);
+  const filteredChains = ecosystemData?.zkChains.filter((chain) => {
+    const chainIdStr = String(chain.chainId);
     const formattedSearchTerm = String(searchTerm).toLowerCase();
 
     // Check if either chain name or chain ID matches the search term
-    const matchesName = chain.name.toLowerCase().includes(formattedSearchTerm);
+    const matchesName = chain.chainName.toLowerCase().includes(formattedSearchTerm);
     const matchesId = chainIdStr.includes(formattedSearchTerm);
 
     return matchesName || matchesId;
@@ -27,7 +27,7 @@ export const Dashboard = () => {
         <Title title={t('HOME.DASHBOARD.title')} />
       </header>
 
-      {availableChains && <Table chains={filteredChains} />}
+      {availableChains && <DataTable chains={filteredChains} />}
       {!availableChains && <NotFound text={t('HOME.DASHBOARD.notFound')} />}
     </section>
   );

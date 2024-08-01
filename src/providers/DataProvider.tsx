@@ -2,7 +2,7 @@ import { createContext, useState, useEffect, ReactNode } from 'react';
 import { useQuery, UseQueryResult } from '@tanstack/react-query';
 import { useRouter } from 'next/router';
 
-import { ChainData, EcosystemData } from '~/types';
+import { ChainData, EcosystemData, TvlData } from '~/types';
 import { fetchEcosystemData, fetchChainData } from '~/utils';
 
 type ContextType = {
@@ -15,6 +15,8 @@ type ContextType = {
 
   ecosystemData: EcosystemData;
   chainData: ChainData;
+
+  totalL1TVL: number;
 };
 
 interface DataProps {
@@ -53,6 +55,10 @@ export const DataProvider = ({ children }: DataProps) => {
     }
   }, [isEcosystemError, isChainError, router]);
 
+  const totalL1TVL = (ecosystemData?.l1Tvl || []).reduce((accumulator: number, token: TvlData) => {
+    return accumulator + (token.total || 0);
+  }, 0);
+
   return (
     <DataContext.Provider
       value={{
@@ -63,6 +69,7 @@ export const DataProvider = ({ children }: DataProps) => {
         ecosystemData,
         chainData,
         refetchChainData,
+        totalL1TVL,
       }}
     >
       {children}

@@ -38,17 +38,28 @@ export interface ChainData {
 }
 
 export interface EcosystemChainData {
-  name: string;
-  id: number;
+  chainName: string;
+  chainId: number;
+  iconUrl: string;
   nativeToken: string;
   tvl: number;
-  type: string;
+  chainType: string;
+  metadata: boolean;
+  rpc: boolean;
 }
 
 export interface EcosystemData {
-  chains: EcosystemChainData[];
+  l1Tvl: TvlData[];
+  ethGasInfo: {
+    gasPrice: number;
+    ethTransfer: number;
+    erc20Transfer: number;
+  };
+  zkChains: EcosystemChainData[];
+}
+
+export interface TvlData {
+  token: string;
   total: number;
-  tvl: {
-    [token: string]: number;
-  }[];
+  imageUrl: string;
 }

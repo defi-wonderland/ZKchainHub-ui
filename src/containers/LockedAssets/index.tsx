@@ -6,14 +6,14 @@ import { formatDataNumber } from '~/utils';
 
 export const LockedAssets = () => {
   const { t } = useTranslation();
-  const { ecosystemData } = useData();
+  const { ecosystemData, totalL1TVL } = useData();
 
   return (
     <section>
       {ecosystemData && (
         <>
-          <Title title={`${t('HOME.lockedAssets')}: ${formatDataNumber(ecosystemData.total, 0, true, true)}`} />
-          <TotalValueLocked tvl={ecosystemData.tvl} />
+          <Title title={`${t('HOME.lockedAssets')}: ${formatDataNumber(totalL1TVL, 0, true, true)}`} />
+          <TotalValueLocked tvl={ecosystemData.l1Tvl} />
         </>
       )}
     </section>
