@@ -18,6 +18,7 @@ export interface Theme {
   warningText: string;
   warningBackground: string;
   warningBorder: string;
+  emptyBackground: string;
   padding: string;
   neutral: { [key: number]: string };
   primary: { [key: number]: string };

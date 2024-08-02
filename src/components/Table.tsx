@@ -71,8 +71,8 @@ const STableContainer = styled(TableContainer)(() => {
   const { currentTheme } = useCustomTheme();
   return {
     width: '75rem',
-    borderRadius: `${currentTheme.borderRadius}`,
-    border: `1px solid ${currentTheme.neutral[700]}`,
+    borderRadius: currentTheme.borderRadius,
+    border: currentTheme.border,
     overflow: 'hidden',
   };
 });
@@ -80,15 +80,19 @@ const STableContainer = styled(TableContainer)(() => {
 const STableHead = styled(TableHead)(() => {
   const { currentTheme } = useCustomTheme();
   return {
-    backgroundColor: `${currentTheme.backgroundTertiary}`,
-    color: `${currentTheme.textSecondary}`,
+    backgroundColor: currentTheme.backgroundTertiary,
+    color: currentTheme.textSecondary,
+    '&:not(:last-child)': {
+      borderBottom: currentTheme.border,
+    },
   };
 });
 
 const STableBody = styled(TableBody)(() => {
   const { currentTheme } = useCustomTheme();
   return {
-    backgroundColor: `${currentTheme.backgroundSecondary}`,
+    backgroundColor: currentTheme.backgroundSecondary,
+    border: currentTheme.border,
   };
 });
 
@@ -96,7 +100,7 @@ const STableRow = styled(TableRow)(() => {
   const { currentTheme } = useCustomTheme();
   return {
     '&:not(:last-child)': {
-      borderBottom: `1px solid ${currentTheme.neutral[700]}`,
+      border: currentTheme.border,
     },
     cursor: 'pointer',
     transition: currentTheme.transition,
@@ -114,7 +118,7 @@ const STableCellHead = styled(TableCell)(() => {
 const STableCell = styled(TableCell)(() => {
   const { currentTheme } = useCustomTheme();
   return {
-    color: `${currentTheme.textPrimary}`,
+    color: currentTheme.textPrimary,
     textAlign: 'left',
   };
 });
@@ -122,7 +126,7 @@ const STableCell = styled(TableCell)(() => {
 const LogoCell = styled(TableCell)(() => {
   const { currentTheme } = useCustomTheme();
   return {
-    color: `${currentTheme.textPrimary}`,
+    color: currentTheme.textPrimary,
     display: 'flex',
     alignItems: 'center',
     gap: `${currentTheme.gap}`,
@@ -143,6 +147,6 @@ const TokenAvatar = styled(Avatar)(() => {
   return {
     width: '1.5rem',
     height: '1.5rem',
-    backgroundColor: `${currentTheme.backgroundTertiary}`,
+    backgroundColor: currentTheme.emptyBackground,
   };
 });
