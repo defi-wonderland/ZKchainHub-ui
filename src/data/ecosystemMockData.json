@@ -53,6 +53,7 @@
       "iconUrl": "https://s2.coinmarketcap.com/static/img/coins/64x64/24091.png",
       "chainType": "Rollup",
       "nativeToken": "ETH",
+      "tokenImgUrl": "https://coin-images.coingecko.com/coins/images/279/large/ethereum.png?1696501628",
       "tvl": 1000000,
       "metadata": true,
       "rpc": true
@@ -63,6 +64,7 @@
       "iconUrl": "https://s2.coinmarketcap.com/static/img/coins/64x64/24091.png",
       "chainType": "Validium",
       "nativeToken": "ETH",
+      "tokenImgUrl": "https://coin-images.coingecko.com/coins/images/279/large/ethereum.png?1696501628",
       "tvl": 500000,
       "metadata": true,
       "rpc": false
@@ -72,6 +74,8 @@
       "chainName": "ZKsyncERA",
       "iconUrl": "https://s2.coinmarketcap.com/static/img/coins/64x64/24091.png",
       "chainType": "Rollup",
+      "nativeToken": "ETH",
+      "tokenImgUrl": "https://coin-images.coingecko.com/coins/images/279/large/ethereum.png?1696501628",
       "tvl": 300000,
       "metadata": false,
       "rpc": true
@@ -81,6 +85,8 @@
       "chainName": "ZKsyncERA",
       "iconUrl": "https://s2.coinmarketcap.com/static/img/coins/64x64/24091.png",
       "chainType": "Rollup",
+      "nativeToken": "ETH",
+      "tokenImgUrl": "https://coin-images.coingecko.com/coins/images/279/large/ethereum.png?1696501628",
       "tvl": 10000,
       "metadata": false,
       "rpc": false

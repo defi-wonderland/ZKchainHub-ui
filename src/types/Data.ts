@@ -42,6 +42,7 @@ export interface EcosystemChainData {
   chainId: number;
   iconUrl: string;
   nativeToken: string;
+  tokenImgUrl: string;
   tvl: number;
   chainType: string;
   metadata: boolean;
