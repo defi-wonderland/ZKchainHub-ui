@@ -110,7 +110,7 @@ const STableRow = styled(TableRow)(() => {
 const STableCellHead = styled(TableCell)(() => {
   const { currentTheme } = useCustomTheme();
   return {
-    color: `${currentTheme.textSecondary}`,
+    color: currentTheme.textSecondary,
     textAlign: 'left',
   };
 });
@@ -129,7 +129,7 @@ const LogoCell = styled(TableCell)(() => {
     color: currentTheme.textPrimary,
     display: 'flex',
     alignItems: 'center',
-    gap: `${currentTheme.gap}`,
+    gap: currentTheme.gap,
     border: 'none',
     textAlign: 'left',
   };
