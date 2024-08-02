@@ -4,7 +4,10 @@ import { ThemeProvider as MuiThemeProvider } from '@mui/material/styles';
 import { getMuiThemeConfig } from '~/components';
 
 import { Theme, ThemeName } from '~/types';
-import { THEME_KEY, getTheme } from '~/utils';
+import { getTheme } from '~/utils';
+import { getConfig } from '~/config';
+
+const { THEME_KEY } = getConfig();
 
 type ContextType = {
   theme: ThemeName;
