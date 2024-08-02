@@ -12,3 +12,4 @@ export * from './TVL';
 export * from './ChainInformation';
 export * from './BasicSelect';
 export * from './NotFound';
+export * from './Gas';

@@ -66,10 +66,13 @@ export const BasicSelect = ({ list, value, setValue, disabled, dataTest }: Basic
   );
 };
 
-const SBox = styled(Box)({
-  display: 'flex',
-  flexDirection: 'column',
-  gap: '0.5rem',
+export const SBox = styled(Box)(() => {
+  const { currentTheme } = useCustomTheme();
+  return {
+    display: 'flex',
+    gap: currentTheme.gap,
+    alignItems: 'center',
+  };
 });
 
 const MenuButton = styled(Button)(() => {
