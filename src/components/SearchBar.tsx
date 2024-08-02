@@ -1,13 +1,16 @@
 import { useTranslation } from 'next-i18next';
-import { useCustomTheme, useStateContext } from '~/hooks';
 import { styled, TextField, InputAdornment } from '@mui/material';
 import Image from 'next/image';
 
-import Search from '~/assets/icons/search.svg';
+import SearchDark from '~/assets/icons/searchDark.svg';
+import SearchLight from '~/assets/icons/searchLight.svg';
+import { useCustomTheme, useStateContext } from '~/hooks';
 
 export const SearchBar = () => {
   const { t } = useTranslation();
   const { searchTerm, setSearchTerm } = useStateContext();
+  const { theme } = useCustomTheme();
+
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
     setSearchTerm(value);
@@ -21,7 +24,7 @@ export const SearchBar = () => {
       InputProps={{
         startAdornment: (
           <InputAdornment position='start'>
-            <Image src={Search} alt='search' />
+            <Image src={theme === 'dark' ? SearchDark : SearchLight} alt='search' />
           </InputAdornment>
         ),
       }}

@@ -5,13 +5,11 @@ import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
 import Image from 'next/image';
 
-import { BasicSelect, SearchBar } from '~/components';
+import { BasicSelect, SearchBar, Gas, SBox } from '~/components';
 import { useCustomTheme } from '~/hooks/useContext/useTheme';
-import { zIndex } from '~/utils';
 import { getConfig } from '~/config';
 import LightMode from '~/assets/icons/lightMode.svg';
-// temporary awaiting dark mode icon
-import DarkMode from '~/assets/icons/lightMode.svg';
+import DarkMode from '~/assets/icons/darkMode.svg';
 
 const { DEFAULT_LANG } = getConfig();
 
@@ -50,6 +48,7 @@ export const Header = () => {
         </StyledLink>
       </Box>
       <SBox>
+        <Gas />
         <SearchBar />
         <BasicSelect
           value={t(`LOCALES.${language}`)}
@@ -71,7 +70,6 @@ const StyledHeader = styled('header')({
   alignItems: 'center',
   justifyContent: 'space-between',
   width: '100%',
-  zIndex: zIndex.HEADER,
 });
 
 const Logo = styled('h1')({
@@ -96,10 +94,4 @@ const SIconButton = styled(IconButton)(() => {
     width: '3.5rem',
     height: '3.5rem',
   };
-});
-
-const SBox = styled(Box)({
-  display: 'flex',
-  alignItems: 'center',
-  gap: '0.25rem',
 });

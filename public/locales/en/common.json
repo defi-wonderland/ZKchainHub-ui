@@ -1,7 +1,8 @@
 {
   "HOME": {
-    "title": "ZKsync Ecosystem",
-    "gasPrice": "Gas Price",
+    "title": "ZKsync",
+    "subtitle": "Ecosystem",
+    "gasPrice": "L1 Gas Price",
     "transfer": "ERC-20 Transfer",
     "lockedAssets": "Locked assets in shared bridge",
     "DASHBOARD": {
@@ -50,7 +51,8 @@
   "FOOTER": {
     "docs": "Documentation",
     "github": "GitHub",
-    "madeWithLove": "Made with ❤️ by"
+    "madeWith": "Made with",
+    "by": "by"
   },
   "LOCALES": {
     "en": "English",
