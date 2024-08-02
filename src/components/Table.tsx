@@ -32,6 +32,7 @@ export const DataTable = ({ chains }: TableProps) => {
   return (
     <STableContainer>
       <Table>
+        {/* Table titles */}
         <STableHead>
           <STableRow>
             <STableCellHead sx={{ width: '60%' }}>{t('HOME.DASHBOARD.chain')}</STableCellHead>
@@ -41,22 +42,29 @@ export const DataTable = ({ chains }: TableProps) => {
             <STableCellHead sx={{ width: '10%' }}>{t('HOME.DASHBOARD.type')}</STableCellHead>
           </STableRow>
         </STableHead>
+
+        {/* Table data */}
         <STableBody>
           {chains?.map((data, index) => {
             return (
               <STableRow key={index} onClick={() => handleChainNavigation(data.chainId)}>
+                {/* Chain Name with Logo and Tags */}
                 <LogoCell sx={{ width: '60%' }}>
                   <ChainAvatar alt={`${data.chainName} logo`} src={data.iconUrl} />
                   <Typography>{data.chainName}</Typography>
                   {!data.rpc && <InfoTag information={t('HOME.DASHBOARD.noRPC')} />}
                   {!data.metadata && <InfoTag information={t('HOME.DASHBOARD.noMetadata')} />}
                 </LogoCell>
+
                 <STableCell sx={{ width: '10%' }}>{data.chainId}</STableCell>
+
                 <LogoCell sx={{ width: '10%' }}>
                   <TokenAvatar alt={`${data.nativeToken} logo`} src={data.tokenImgUrl} />
                   <Typography>{data.nativeToken}</Typography>
                 </LogoCell>
+
                 <STableCell sx={{ width: '10%' }}>{formatDataNumber(data.tvl, 0, true)}</STableCell>
+
                 <STableCell sx={{ width: '10%' }}>{data.chainType}</STableCell>
               </STableRow>
             );
