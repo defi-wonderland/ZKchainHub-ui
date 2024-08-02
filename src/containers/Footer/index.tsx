@@ -91,24 +91,3 @@ const SText = styled(Typography)(() => {
     padding: currentTheme.padding,
   };
 });
-
-const SBox = styled(Box)({
-  display: 'flex',
-  gap: '0.25rem',
-  alignItems: 'center',
-});
-
-const IconText = styled(Box)({
-  display: 'flex',
-  gap: '1rem',
-  alignItems: 'center',
-  backgroundColor: '#262B33',
-  borderRadius: '1.5rem',
-  padding: '1rem',
-});
-
-const SText = styled(Typography)({
-  backgroundColor: '#262B33',
-  borderRadius: '1.5rem',
-  padding: '1rem',
-});

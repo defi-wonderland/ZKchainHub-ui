@@ -15,7 +15,15 @@ export interface Theme {
   transition: string;
   border: string;
   gap: string;
+  warningText: string;
+  warningBackground: string;
+  warningBorder: string;
   padding: string;
+  neutral: { [key: number]: string };
+  primary: { [key: number]: string };
+  warning: { [key: number]: string };
+  error: { [key: number]: string };
+  success: { [key: number]: string };
 }
 
 export interface PropTheme {
