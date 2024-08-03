@@ -2,41 +2,49 @@
   "l1Tvl": [
     {
       "token": "ETH",
+      "tokenName": "Ethereum",
       "total": 557596566000,
       "imageUrl": "https://coin-images.coingecko.com/coins/images/279/large/ethereum.png?1696501628"
     },
     {
       "token": "USDT",
+      "tokenName": "Tether USD",
       "total": 114493849618,
       "imageUrl": "https://coin-images.coingecko.com/coins/images/325/large/tether.png"
     },
     {
       "token": "USDC",
+      "tokenName": "Bridged USD",
       "total": 34115209093,
-      "imageUrl": "https://coin-images.coingecko.com/coins/images/6319/large/usd-coin.png"
+      "imageUrl": "https://assets.coingecko.com/coins/images/6319/standard/usdc.png?1696506694"
     },
     {
       "token": "KOI",
+      "tokenName": "Koi Finance",
       "total": 24115209093,
       "imageUrl": "https://assets.coingecko.com/coins/images/35766/standard/Koi_logo.png?1709782399"
     },
     {
       "token": "WBTC",
+      "tokenName": "Wrapped BTC",
       "total": 12620248,
-      "imageUrl": "https://coin-images.coingecko.com/coins/images/5757/large/wrapped-bitcoin.png"
+      "imageUrl": "https://assets.coingecko.com/coins/images/7598/standard/wrapped_bitcoin_wbtc.png?1696507857"
     },
     {
-      "token": "wsETH",
+      "token": "wstETH",
+      "tokenName": "Lido wstETH",
       "total": 3552439,
-      "imageUrl": "https://coin-images.coingecko.com/coins/images/11320/large/staked-ether.png"
+      "imageUrl": "https://assets.coingecko.com/coins/images/18834/standard/wstETH.png?1696518295"
     },
     {
       "token": "cbETH",
+      "tokenName": "Curve cbETH",
       "total": 2552439,
       "imageUrl": "https://assets.coingecko.com/coins/images/27008/standard/cbeth.png?1709186989"
     },
     {
       "token": "BAL",
+      "tokenName": "Balancer",
       "total": 1552439,
       "imageUrl": "https://coin-images.coingecko.com/coins/images/671/large/balancer.png"
     }
