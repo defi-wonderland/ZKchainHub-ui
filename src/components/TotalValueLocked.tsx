@@ -1,7 +1,7 @@
 import { Box, Typography, Grid, styled } from '@mui/material';
+import { useTranslation } from 'next-i18next';
 import { TvlData } from '~/types';
-import { TvlContentBox } from './TvlContentBox';
-
+import { TvlContentBox } from '~/components';
 import { useCustomTheme } from '~/hooks';
 
 interface TotalValueLockedProps {
@@ -9,94 +9,57 @@ interface TotalValueLockedProps {
 }
 
 export const TotalValueLocked = ({ tvl }: TotalValueLockedProps) => {
-  const firstTvl = tvl[0];
-  const secondTvl = tvl[1];
-  const thirdTvl = tvl[2];
-  const fourthTvl = tvl[3];
-  const fifthTvl = tvl[4];
-  const sixthTvl = tvl[5];
+  const { t } = useTranslation();
+
+  /**
+   * Renders the TVL content within a grid container.
+   * @param data - The TVL data.
+   * @param index - The index of the item in the array.
+   * @param height - The height of the container.
+   * @param xs - The grid size for the container.
+   * @param smallCard - Whether the card is small or not.
+   * @param isLast - Whether the card is the last one or not.
+   */
+  const renderTvlContent = (
+    data: TvlData,
+    index: number,
+    height: string,
+    xs: number,
+    smallCard?: boolean,
+    isLast?: boolean,
+  ) => (
+    <Grid item xs={xs} key={index}>
+      <GridContainer imageUrl={data.imageUrl} height={height} smallCard={smallCard}>
+        <TvlContentBox
+          avatar={data.imageUrl}
+          token={data.token}
+          total={data.total}
+          tokenName={data.tokenName}
+          isLast={isLast}
+        />
+      </GridContainer>
+    </Grid>
+  );
 
   return (
     <TvlContainer container spacing={0.5}>
-      {/* First tvl row */}
-      <Grid item xs={12}>
-        <GridContainer imageUrl={firstTvl.imageUrl} height={'12rem'}>
-          <TvlContentBox
-            avatar={firstTvl.imageUrl}
-            token={firstTvl.token}
-            total={firstTvl.total}
-            tokenName={firstTvl.tokenName}
-          />
-        </GridContainer>
-      </Grid>
+      {renderTvlContent(tvl[0], 0, '12rem', 12)}
 
-      {/* Second tvl row */}
       <Grid item container xs={12} spacing={0.5}>
-        <Grid item xs={6}>
-          <GridContainer imageUrl={secondTvl.imageUrl} height={'12rem'}>
-            <TvlContentBox
-              avatar={secondTvl.imageUrl}
-              token={secondTvl.token}
-              total={secondTvl.total}
-              tokenName={secondTvl.tokenName}
-            />
-          </GridContainer>
-        </Grid>
+        {renderTvlContent(tvl[1], 1, '12rem', 6)}
 
         <Grid item container xs={6} spacing={0.5}>
-          <Grid item xs={4}>
-            <GridContainer imageUrl={thirdTvl.imageUrl} height={'12rem'} smallCard>
-              <TvlContentBox
-                avatar={thirdTvl.imageUrl}
-                token={thirdTvl.token}
-                total={thirdTvl.total}
-                tokenName={thirdTvl.tokenName}
-              />
-            </GridContainer>
-          </Grid>
+          {tvl.slice(2, 4).map((data, index) => renderTvlContent(data, index + 2, '12rem', 4, true))}
 
-          <Grid item xs={4}>
-            <GridContainer imageUrl={fourthTvl.imageUrl} height={'12rem'} smallCard>
-              <TvlContentBox
-                avatar={fourthTvl.imageUrl}
-                token={fourthTvl.token}
-                total={fourthTvl.total}
-                tokenName={fourthTvl.tokenName}
-              />
-            </GridContainer>
-          </Grid>
-
-          {/* Last tvl container */}
           <Grid item container xs={4} direction='column'>
-            <Grid item xs={6}>
-              <GridContainer imageUrl={fifthTvl.imageUrl} height={'5.85rem'} smallCard>
-                <TvlContentBox
-                  avatar={fifthTvl.imageUrl}
-                  token={fifthTvl.token}
-                  total={fifthTvl.total}
-                  tokenName={fifthTvl.tokenName}
-                  isLast={true}
-                />
-              </GridContainer>
-            </Grid>
+            {renderTvlContent(tvl[4], 4, '5.85rem', 6, true)}
 
             <Grid item container xs={6} spacing={0.5}>
-              <Grid item xs={9}>
-                <GridContainer imageUrl={sixthTvl.imageUrl} height={'5.85rem'} smallCard>
-                  <TvlContentBox
-                    avatar={sixthTvl.imageUrl}
-                    token={sixthTvl.token}
-                    total={sixthTvl.total}
-                    tokenName={sixthTvl.tokenName}
-                    isLast={true}
-                  />
-                </GridContainer>
-              </Grid>
-
+              {renderTvlContent(tvl[5], 5, '5.85rem', 9, true, true)}
               <Grid item xs={3}>
-                <GridContainer height={'5.85rem'}>
+                <GridContainer height='5.85rem'>
                   <OthersBox>
-                    <OthersText>Others</OthersText>
+                    <OthersText>{t('HOME.LOCKEDASSETS.others')}</OthersText>
                   </OthersBox>
                 </GridContainer>
               </Grid>
@@ -135,15 +98,15 @@ const GridContainer = styled(Grid)(({ imageUrl, height, smallCard }: GridContain
     '&::before': {
       content: '""',
       position: 'absolute',
-      top: -25,
+      top: smallCard ? -20 : -25,
       left: smallCard ? -50 : -95,
       width: '100%',
       height: '100%',
       backgroundImage: `url(${imageUrl})`,
       backgroundRepeat: 'no-repeat',
-      backgroundSize: smallCard ? '250px' : '400px',
-      backgroundPosition: smallCard && 'center',
-      filter: smallCard ? 'blur(95px)' : 'blur(150px)',
+      backgroundSize: smallCard ? '200px' : '400px',
+      backgroundPosition: 'center',
+      filter: smallCard ? 'blur(85px)' : 'blur(120px)',
     },
   };
 });
