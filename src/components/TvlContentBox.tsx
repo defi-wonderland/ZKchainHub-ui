@@ -72,9 +72,6 @@ const TokenName = styled(Typography)({
   fontSize: '0.85rem',
   fontWeight: 400,
   whiteSpace: 'nowrap',
-  minWidth: 0,
-  overflow: 'hidden',
-  textOverflow: 'ellipsis',
 });
 
 const TokenTicker = styled(Typography)(() => {
@@ -84,8 +81,5 @@ const TokenTicker = styled(Typography)(() => {
     fontWeight: 400,
     color: currentTheme.textSecondary,
     whiteSpace: 'nowrap',
-    minWidth: 0,
-    overflow: 'hidden',
-    textOverflow: 'ellipsis',
   };
 });
