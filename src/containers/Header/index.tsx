@@ -85,7 +85,6 @@ const StyledLink = styled(Link)({
 const SIconButton = styled(IconButton)(() => {
   const { currentTheme } = useCustomTheme();
   return {
-    marginRight: '1rem',
     color: `${currentTheme.textPrimary}`,
     backgroundColor: `${currentTheme.backgroundSecondary}`,
     borderRadius: `${currentTheme.borderRadius}`,

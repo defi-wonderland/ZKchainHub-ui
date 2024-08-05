@@ -2,6 +2,8 @@ import { Box, Typography, Grid, styled } from '@mui/material';
 import { TvlData } from '~/types';
 import { TvlContentBox } from './TvlContentBox';
 
+import { useCustomTheme } from '~/hooks';
+
 interface TotalValueLockedProps {
   tvl: TvlData[];
 }
@@ -43,7 +45,7 @@ export const TotalValueLocked = ({ tvl }: TotalValueLockedProps) => {
 
         <Grid item container xs={6} spacing={0.5}>
           <Grid item xs={4}>
-            <GridContainer imageUrl={thirdTvl.imageUrl} height={'12rem'}>
+            <GridContainer imageUrl={thirdTvl.imageUrl} height={'12rem'} smallCard>
               <TvlContentBox
                 avatar={thirdTvl.imageUrl}
                 token={thirdTvl.token}
@@ -54,7 +56,7 @@ export const TotalValueLocked = ({ tvl }: TotalValueLockedProps) => {
           </Grid>
 
           <Grid item xs={4}>
-            <GridContainer imageUrl={fourthTvl.imageUrl} height={'12rem'}>
+            <GridContainer imageUrl={fourthTvl.imageUrl} height={'12rem'} smallCard>
               <TvlContentBox
                 avatar={fourthTvl.imageUrl}
                 token={fourthTvl.token}
@@ -67,7 +69,7 @@ export const TotalValueLocked = ({ tvl }: TotalValueLockedProps) => {
           {/* Last tvl container */}
           <Grid item container xs={4} direction='column'>
             <Grid item xs={6}>
-              <GridContainer imageUrl={fifthTvl.imageUrl} height={'5.75rem'}>
+              <GridContainer imageUrl={fifthTvl.imageUrl} height={'5.85rem'} smallCard>
                 <TvlContentBox
                   avatar={fifthTvl.imageUrl}
                   token={fifthTvl.token}
@@ -80,7 +82,7 @@ export const TotalValueLocked = ({ tvl }: TotalValueLockedProps) => {
 
             <Grid item container xs={6} spacing={0.5}>
               <Grid item xs={9}>
-                <GridContainer imageUrl={sixthTvl.imageUrl} height={'5.75rem'}>
+                <GridContainer imageUrl={sixthTvl.imageUrl} height={'5.85rem'} smallCard>
                   <TvlContentBox
                     avatar={sixthTvl.imageUrl}
                     token={sixthTvl.token}
@@ -92,9 +94,9 @@ export const TotalValueLocked = ({ tvl }: TotalValueLockedProps) => {
               </Grid>
 
               <Grid item xs={3}>
-                <GridContainer height={'5.75rem'}>
+                <GridContainer height={'5.85rem'}>
                   <OthersBox>
-                    <Typography style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}>Others</Typography>
+                    <OthersText>Others</OthersText>
                   </OthersBox>
                 </GridContainer>
               </Grid>
@@ -115,36 +117,53 @@ const TvlContainer = styled(Grid)({
 interface GridContainerProps {
   imageUrl?: string;
   height?: string;
+  smallCard?: boolean;
 }
 
-const GridContainer = styled(Grid)(({ imageUrl, height }: GridContainerProps) => ({
-  position: 'relative',
-  height: height || 'fit-content',
-  display: 'flex',
-  color: '#fff',
-  textShadow: '0 0 5px rgba(0, 0, 0, 0.5)',
-  overflow: 'hidden',
-  backgroundColor: 'rgba(250, 250, 250, 0.2)',
-  borderRadius: '1rem',
-  padding: '1rem',
-  '&::before': {
-    content: '""',
-    position: 'absolute',
-    top: -20,
-    left: -450,
-    right: 0,
-    bottom: 0,
-    backgroundImage: `url(${imageUrl})`,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    filter: 'blur(130px)',
-  },
-}));
+const GridContainer = styled(Grid)(({ imageUrl, height, smallCard }: GridContainerProps) => {
+  const { currentTheme } = useCustomTheme();
+  return {
+    position: 'relative',
+    height: height || 'fit-content',
+    display: 'flex',
+    color: currentTheme.textPrimary,
+    overflow: 'hidden',
+    backgroundColor: currentTheme.backgroundSecondary,
+    borderRadius: '1rem',
+    padding: currentTheme.padding,
+    border: currentTheme.border,
+    '&::before': {
+      content: '""',
+      position: 'absolute',
+      top: -25,
+      left: smallCard ? -50 : -95,
+      width: '100%',
+      height: '100%',
+      backgroundImage: `url(${imageUrl})`,
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'top left',
+      backgroundSize: smallCard ? '200px' : '400px',
+      filter: smallCard ? 'blur(95px)' : 'blur(150px)',
+    },
+  };
+});
 
 const OthersBox = styled(Box)({
-  position: 'relative',
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
   justifyContent: 'center',
+});
+
+const OthersText = styled(Typography)(() => {
+  const { currentTheme } = useCustomTheme();
+  return {
+    color: currentTheme.textSecondary,
+    writingMode: 'vertical-rl',
+    transform: 'rotate(180deg)',
+  };
 });

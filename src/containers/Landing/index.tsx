@@ -20,4 +20,7 @@ const LandingContainer = styled('main')({
   alignItems: 'center',
   justifyContent: 'center',
   width: '100%',
+  gap: '4rem',
+  marginTop: '4rem',
+  marginBottom: '4rem',
 });

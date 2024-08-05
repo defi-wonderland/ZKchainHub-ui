@@ -4,7 +4,8 @@
     "subtitle": "Ecosystem",
     "gasPrice": "L1 Gas Price",
     "transfer": "ERC-20 Transfer",
-    "lockedAssets": "Locked assets in shared bridge",
+    "lockedAssets": "Locked assets",
+    "lockedAssetsDescription": "Locked assets in Elastic Chain Ecosystem",
     "DASHBOARD": {
       "title": "Chain list",
       "chain": "Chain",

@@ -15,11 +15,13 @@ export const TvlContentBox = ({ avatar, token, total, tokenName, isLast }: TvlCo
     <ContentBox>
       <TopBox>
         <TokenLogo src={avatar} alt={token} isLast={isLast || false} />
-        <TokenName>{tokenName}</TokenName>
-        <TokenTicker>{token}</TokenTicker>
+        <TextBox>
+          <TokenName>{tokenName}</TokenName>
+          <TokenTicker>{token}</TokenTicker>
+        </TextBox>
       </TopBox>
 
-      <Typography>{formatDataNumber(total, 0, true)}</Typography>
+      <TvlAmount isLast={isLast || false}>{formatDataNumber(total, 0, true)}</TvlAmount>
     </ContentBox>
   );
 };
@@ -28,35 +30,62 @@ const ContentBox = styled(Box)({
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'space-between',
-  alignItems: 'center',
+  alignItems: 'flex-start',
   zIndex: 1,
+  width: '100%',
 });
 
-const TopBox = styled(Box)({
-  display: 'flex',
-  alignItems: 'center',
-  gap: '0.5rem',
+const TopBox = styled(Box)(() => {
+  const { currentTheme } = useCustomTheme();
+  return {
+    display: 'flex',
+    gap: currentTheme.gap,
+    width: '100%',
+  };
 });
 
-interface TokenLogoProps {
+interface TvlProps {
   isLast: boolean;
 }
 
-const TokenLogo = styled(Avatar)<TokenLogoProps>(({ isLast }) => ({
-  width: `${isLast ? '1.25rem' : '2rem'}`,
-  height: `${isLast ? '1.25rem' : '2rem'}`,
+const TokenLogo = styled(Avatar)<TvlProps>(({ isLast }) => ({
+  width: `${isLast ? '1.25rem' : '2.5rem'}`,
+  height: `${isLast ? '1.25rem' : '2.5rem'}`,
 }));
 
-const TokenTicker = styled(Typography)(() => {
+const TvlAmount = styled(Typography)<TvlProps>(({ isLast }) => ({
+  fontSize: `${isLast ? '0.85rem' : '1rem'}`,
+  fontWeight: 400,
+}));
+
+const TextBox = styled(Box)(() => {
   const { currentTheme } = useCustomTheme();
   return {
-    fontSize: '0.75rem',
-    fontWeight: 400,
-    color: currentTheme.textSecondary,
+    display: 'flex',
+    alignItems: 'center',
+    flexWrap: 'wrap',
+    gap: currentTheme.gap,
   };
 });
 
 const TokenName = styled(Typography)({
-  fontSize: '0.75rem',
+  fontSize: '0.85rem',
   fontWeight: 400,
+  whiteSpace: 'nowrap',
+  minWidth: 0,
+  overflow: 'hidden',
+  textOverflow: 'ellipsis',
+});
+
+const TokenTicker = styled(Typography)(() => {
+  const { currentTheme } = useCustomTheme();
+  return {
+    fontSize: '0.85rem',
+    fontWeight: 400,
+    color: currentTheme.textSecondary,
+    whiteSpace: 'nowrap',
+    minWidth: 0,
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+  };
 });

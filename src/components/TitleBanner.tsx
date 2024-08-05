@@ -28,6 +28,7 @@ const TitleBox = styled(Box)(() => {
   return {
     display: 'flex',
     alignItems: 'center',
+    alignSelf: 'flex-start',
     gap: currentTheme.gap,
   };
 });
@@ -48,5 +49,4 @@ const Subtitle = styled(Typography)(() => ({
   fontWeight: 700,
   lineHeight: '4rem',
   letterSpacing: '-0.03em',
-  textAlign: 'left',
 }));
