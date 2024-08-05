@@ -4,7 +4,12 @@
     "subtitle": "Ecosistema",
     "gasPrice": "Precio del gas L1",
     "transfer": "Transferencia ERC-20",
-    "lockedAssets": "Activos bloqueados en puente compartido",
+    "LOCKEDASSETS": {
+      "lockedAssets": "Activos bloqueados",
+      "lockedAssetsDescription": "Activos bloqueados en el ecosistema de Elastic Chain",
+      "others": "Otros",
+      "allTokens": "Todos los tokens"
+    },
     "DASHBOARD": {
       "title": "Lista de cadenas",
       "chain": "Cadena",
