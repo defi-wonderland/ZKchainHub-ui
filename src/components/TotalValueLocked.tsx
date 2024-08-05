@@ -105,7 +105,7 @@ const GridContainer = styled(Grid)(({ imageUrl, height, smallCard }: GridContain
       backgroundImage: `url(${imageUrl})`,
       backgroundRepeat: 'no-repeat',
       backgroundSize: smallCard ? '200px' : '400px',
-      backgroundPosition: 'center',
+      backgroundPosition: smallCard && 'center',
       filter: smallCard ? 'blur(85px)' : 'blur(120px)',
     },
   };
