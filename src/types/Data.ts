@@ -1,8 +1,6 @@
 export interface ChainData {
   chainType: string;
-  tvl: {
-    [token: string]: number;
-  };
+  tvl: ChainTvl[];
   batchesInfo: {
     commited: number;
     verified: number;
@@ -64,4 +62,12 @@ export interface TvlData {
   tokenName: string;
   total: number;
   imageUrl: string;
+}
+
+export interface ChainTvl {
+  token: string;
+  tokenName: string;
+  total: number;
+  imageUrl: string;
+  price: number;
 }

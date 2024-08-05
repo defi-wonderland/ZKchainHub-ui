@@ -15,8 +15,8 @@ export const LockedAssets = () => {
         <>
           <LockedAssetsContainer>
             <Box>
-              <Title>{t('HOME.lockedAssets')}</Title>
-              <Subtitle>{t('HOME.lockedAssetsDescription')}</Subtitle>
+              <Title>{t('HOME.LOCKEDASSETS.lockedAssets')}</Title>
+              <Subtitle>{t('HOME.LOCKEDASSETS.lockedAssetsDescription')}</Subtitle>
             </Box>
             <TitleAmount>{formatDataNumber(totalL1TVL, 0, true, true)}</TitleAmount>
           </LockedAssetsContainer>

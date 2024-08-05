@@ -4,9 +4,9 @@ export const ChainDescription = () => {
   return (
     <section>
       <ChainInformation />
-      <TVL />
       <RPC />
       <FeeParams />
+      <TVL />
     </section>
   );
 };

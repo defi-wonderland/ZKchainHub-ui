@@ -1,3 +1,4 @@
+import { Grid } from '@mui/material';
 import { useTranslation } from 'next-i18next';
 import { InfoBox, Title } from '~/components';
 import { useData } from '~/hooks';
@@ -9,11 +10,17 @@ export const FeeParams = () => {
   return (
     <article>
       <Title title={t('CHAIN.FEEPARAMS.title')} />
-      <div>
-        <InfoBox title={t('CHAIN.FEEPARAMS.batch')} description={chainData?.feeParams.batchOverheadL1Gas} />
-        <InfoBox title={t('CHAIN.FEEPARAMS.compute')} description={chainData?.feeParams.maxPubdataPerBatch} />
-        <InfoBox title={t('CHAIN.FEEPARAMS.maxGasBatch')} description={chainData?.feeParams.maxL2GasPerBatch} />
-      </div>
+      <Grid container spacing={2}>
+        <Grid item xs={12} sm={6} md={3}>
+          <InfoBox title={t('CHAIN.FEEPARAMS.batch')} description={chainData?.feeParams.batchOverheadL1Gas} />
+        </Grid>
+        <Grid item xs={12} sm={6} md={3}>
+          <InfoBox title={t('CHAIN.FEEPARAMS.compute')} description={chainData?.feeParams.maxPubdataPerBatch} />
+        </Grid>
+        <Grid item xs={12} sm={6} md={3}>
+          <InfoBox title={t('CHAIN.FEEPARAMS.maxGasBatch')} description={chainData?.feeParams.maxL2GasPerBatch} />
+        </Grid>
+      </Grid>
     </article>
   );
 };
