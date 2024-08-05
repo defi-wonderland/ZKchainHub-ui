@@ -16,11 +16,11 @@ export const Gas = () => {
       <Image src={theme === 'dark' ? GasDark : GasLight} alt='gas' />
       <Box>
         <SBox>
-          <Typography>{t('HOME.gasPrice')}:</Typography>
+          <GasLabel>{t('HOME.gasPrice')}:</GasLabel>
           <GasValueText>10 wei</GasValueText>
         </SBox>
         <SBox>
-          <Typography>{t('HOME.transfer')}:</Typography>
+          <GasLabel>{t('HOME.transfer')}:</GasLabel>
           <GasValueText>$10</GasValueText>
         </SBox>
       </Box>
@@ -34,11 +34,7 @@ const GasContainer = styled(Box)(() => {
   return {
     display: 'flex',
     alignItems: 'center',
-    color: currentTheme.textSecondary,
     gap: currentTheme.gap,
-    fontWeight: 400,
-    fontSize: '0.7rem',
-    lineHeight: '1.25rem',
     padding: '0.5rem 1rem',
   };
 });
@@ -49,6 +45,17 @@ const GasValueText = styled(Typography)(() => {
   return {
     color: currentTheme.textPrimary,
     fontWeight: 500,
-    letterSpacing: '-0.03em',
+    fontSize: '0.9rem',
+  };
+});
+
+const GasLabel = styled(Typography)(() => {
+  const { currentTheme } = useCustomTheme();
+
+  return {
+    color: currentTheme.textSecondary,
+    fontSize: '0.9rem',
+    fontWeight: 400,
+    lineHeight: '1rem',
   };
 });

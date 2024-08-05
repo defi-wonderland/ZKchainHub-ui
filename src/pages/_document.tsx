@@ -10,7 +10,7 @@ export default function MyDocument(props: DocumentProps & DocumentHeadTagsProps)
     <Html lang='en'>
       <Head>
         <DocumentHeadTags {...props} />
-        <link rel='icon' href='/favicon.ico' type='image/x-icon' sizes='48x48' />
+        <link rel='icon' href='/fav.svg' type='image/x-icon' sizes='48x48' />
         <meta name='description' content={descriptionText} />
 
         <meta property='og:title' content='Web3 Boilerplate' />

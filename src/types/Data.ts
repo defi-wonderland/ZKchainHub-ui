@@ -61,6 +61,7 @@ export interface EcosystemData {
 
 export interface TvlData {
   token: string;
+  tokenName: string;
   total: number;
   imageUrl: string;
 }
