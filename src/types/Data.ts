@@ -25,6 +25,7 @@ export interface ChainData {
     explorerUrl: string;
     launchDate: number;
     environment: string;
+    nativeTokenIconUrl: string;
     nativeToken: string;
   };
   l2ChainInfo: {

@@ -77,7 +77,7 @@ export const darkTheme: Theme = {
   textSecondary: '#A1A7B3',
   backgroundPrimary: '#000000',
   backgroundSecondary: '#262B33',
-  backgroundTertiary: '#11141A',
+  backgroundTertiary: 'rgba(17, 20, 26, 1)',
   titleFontFamily: 'Inter-Variable',
   textFontFamily: 'Inter-Variable',
   borderRadius: '1.5rem',
