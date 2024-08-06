@@ -1,4 +1,4 @@
-import { Card, CardContent, Typography, styled } from '@mui/material';
+import { Card, CardContent, Typography, styled, Box } from '@mui/material';
 
 import { useCustomTheme } from '~/hooks';
 import { Icon } from './Icon';
@@ -16,11 +16,14 @@ export const InfoBox = ({ title, description, darkIcon, lightIcon, size, alt }: 
   return (
     <StyledCard>
       <CardContent>
-        <Icon darkIcon={darkIcon} lightIcon={lightIcon} size={size} alt={alt} />
-        <Typography variant='subtitle1' color='textSecondary' gutterBottom>
-          {title}
-        </Typography>
-        <Typography variant='body1'>{description}</Typography>
+        <LabelContainer>
+          <Icon darkIcon={darkIcon} lightIcon={lightIcon} size={size} alt={alt} />
+          <Label variant='subtitle1' color='textSecondary' gutterBottom>
+            {title}
+          </Label>
+        </LabelContainer>
+
+        <Description>{description}</Description>
       </CardContent>
     </StyledCard>
   );
@@ -32,7 +35,38 @@ const StyledCard = styled(Card)(() => {
     height: '100%',
     background: currentTheme.backgroundTertiary,
     color: currentTheme.textPrimary,
-    border: 'none',
+    border: currentTheme.border,
     boxShadow: 'none',
+  };
+});
+
+const LabelContainer = styled(Box)(() => {
+  const { currentTheme } = useCustomTheme();
+  return {
+    display: 'flex',
+    alignItems: 'center',
+    gap: currentTheme.gap,
+  };
+});
+
+const Label = styled(Typography)(() => {
+  const { currentTheme } = useCustomTheme();
+  return {
+    fontSize: '0.875rem',
+    lineHeight: '1.25rem',
+    fontWeight: 400,
+    margin: 0,
+    color: currentTheme.textSecondary,
+  };
+});
+
+const Description = styled(Typography)(() => {
+  const { currentTheme } = useCustomTheme();
+  return {
+    fontSize: '1.5rem',
+    lineHeight: '2rem',
+    fontWeight: 400,
+    margin: 0,
+    color: currentTheme.textPrimary,
   };
 });

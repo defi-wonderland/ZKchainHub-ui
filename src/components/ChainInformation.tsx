@@ -12,92 +12,94 @@ export const ChainInformation = () => {
   const { chainData } = useData();
 
   return (
-    <StyledContainer>
+    <>
       <Typography variant='h5' gutterBottom>
         {t('CHAIN.CHAININFORMATION.title')}
       </Typography>
-      <Grid container spacing={2}>
-        <Grid item xs={12} sm={6} md={3}>
-          <InfoBox
-            title={t('CHAIN.CHAININFORMATION.chainType')}
-            description={chainData?.chainType}
-            darkIcon={BlockDark}
-            lightIcon={BlockLight}
-            size={20}
-            alt='block'
-          />
+      <StyledContainer>
+        <Grid container spacing={2}>
+          <Grid item xs={12} sm={6} md={3}>
+            <InfoBox
+              title={t('CHAIN.CHAININFORMATION.chainType')}
+              description={chainData?.chainType}
+              darkIcon={BlockDark}
+              lightIcon={BlockLight}
+              size={22}
+              alt='block'
+            />
+          </Grid>
+          <Grid item xs={12} sm={6} md={3}>
+            <InfoBox
+              title={t('CHAIN.CHAININFORMATION.lastBlock')}
+              description={chainData?.l2ChainInfo.lastBlock}
+              darkIcon={BlockDark}
+              lightIcon={BlockLight}
+              size={22}
+              alt='block'
+            />
+          </Grid>
+          <Grid item xs={12} sm={6} md={3}>
+            <InfoBox
+              title={t('CHAIN.CHAININFORMATION.lastBlockVerified')}
+              description={chainData?.l2ChainInfo.lastBlockVerified}
+              darkIcon={BlockDark}
+              lightIcon={BlockLight}
+              size={22}
+              alt='block'
+            />
+          </Grid>
+          <Grid item xs={12} sm={6} md={3}>
+            <InfoBox
+              title={t('CHAIN.CHAININFORMATION.transactionsPerSecond')}
+              description={chainData?.l2ChainInfo.tps}
+              darkIcon={BlockDark}
+              lightIcon={BlockLight}
+              size={22}
+              alt='block'
+            />
+          </Grid>
+          <Grid item xs={12} sm={6} md={3}>
+            <InfoBox
+              title={t('CHAIN.CHAININFORMATION.totalBatchesCommitted')}
+              description={chainData?.batchesInfo.commited}
+              darkIcon={BlockDark}
+              lightIcon={BlockLight}
+              size={22}
+              alt='block'
+            />
+          </Grid>
+          <Grid item xs={12} sm={6} md={3}>
+            <InfoBox
+              title={t('CHAIN.CHAININFORMATION.totalBatchesExecuted')}
+              description={chainData?.batchesInfo.proved}
+              darkIcon={BlockDark}
+              lightIcon={BlockLight}
+              size={22}
+              alt='block'
+            />
+          </Grid>
+          <Grid item xs={12} sm={6} md={3}>
+            <InfoBox
+              title={t('CHAIN.CHAININFORMATION.totalBatchesVerified')}
+              description={chainData?.batchesInfo.verified}
+              darkIcon={BlockDark}
+              lightIcon={BlockLight}
+              size={22}
+              alt='block'
+            />
+          </Grid>
+          <Grid item xs={12} sm={6} md={3}>
+            <InfoBox
+              title={t('CHAIN.CHAININFORMATION.averageBlockTime')}
+              description={chainData?.l2ChainInfo.avgBlockTime}
+              darkIcon={BlockDark}
+              lightIcon={BlockLight}
+              size={22}
+              alt='block'
+            />
+          </Grid>
         </Grid>
-        <Grid item xs={12} sm={6} md={3}>
-          <InfoBox
-            title={t('CHAIN.CHAININFORMATION.lastBlock')}
-            description={chainData?.l2ChainInfo.lastBlock}
-            darkIcon={BlockDark}
-            lightIcon={BlockLight}
-            size={20}
-            alt='block'
-          />
-        </Grid>
-        <Grid item xs={12} sm={6} md={3}>
-          <InfoBox
-            title={t('CHAIN.CHAININFORMATION.lastBlockVerified')}
-            description={chainData?.l2ChainInfo.lastBlockVerified}
-            darkIcon={BlockDark}
-            lightIcon={BlockLight}
-            size={20}
-            alt='block'
-          />
-        </Grid>
-        <Grid item xs={12} sm={6} md={3}>
-          <InfoBox
-            title={t('CHAIN.CHAININFORMATION.transactionsPerSecond')}
-            description={chainData?.l2ChainInfo.tps}
-            darkIcon={BlockDark}
-            lightIcon={BlockLight}
-            size={20}
-            alt='block'
-          />
-        </Grid>
-        <Grid item xs={12} sm={6} md={3}>
-          <InfoBox
-            title={t('CHAIN.CHAININFORMATION.totalBatchesCommitted')}
-            description={chainData?.batchesInfo.commited}
-            darkIcon={BlockDark}
-            lightIcon={BlockLight}
-            size={20}
-            alt='block'
-          />
-        </Grid>
-        <Grid item xs={12} sm={6} md={3}>
-          <InfoBox
-            title={t('CHAIN.CHAININFORMATION.totalBatchesExecuted')}
-            description={chainData?.batchesInfo.proved}
-            darkIcon={BlockDark}
-            lightIcon={BlockLight}
-            size={20}
-            alt='block'
-          />
-        </Grid>
-        <Grid item xs={12} sm={6} md={3}>
-          <InfoBox
-            title={t('CHAIN.CHAININFORMATION.totalBatchesVerified')}
-            description={chainData?.batchesInfo.verified}
-            darkIcon={BlockDark}
-            lightIcon={BlockLight}
-            size={20}
-            alt='block'
-          />
-        </Grid>
-        <Grid item xs={12} sm={6} md={3}>
-          <InfoBox
-            title={t('CHAIN.CHAININFORMATION.averageBlockTime')}
-            description={chainData?.l2ChainInfo.avgBlockTime}
-            darkIcon={BlockDark}
-            lightIcon={BlockLight}
-            size={20}
-            alt='block'
-          />
-        </Grid>
-      </Grid>
-    </StyledContainer>
+      </StyledContainer>
+    </>
   );
 };
