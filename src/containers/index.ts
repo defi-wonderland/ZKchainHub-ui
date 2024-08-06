@@ -5,3 +5,5 @@ export * from './Landing';
 export * from './Dashboard';
 export * from './LockedAssets';
 export * from './ChainDetail';
+export * from './ChainDetail/ChainDescription';
+export * from './ChainDetail/ChainMetadata';

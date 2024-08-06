@@ -29,6 +29,7 @@
     "launchDate": "Fecha de lanzamiento",
     "environment": "Entorno",
     "nativeToken": "Token nativo",
+    "addNetwork": "Agregar red",
     "CHAININFORMATION": {
       "title": "Información de la cadena",
       "chainType": "Tipo de cadena",
@@ -41,7 +42,10 @@
       "averageBlockTime": "Tiempo promedio de bloque"
     },
     "TVL": {
-      "title": "TVL de ZKchain"
+      "title": "TVL de ZKchain",
+      "chain": "Cadena",
+      "price": "Precio",
+      "tvl": "TVL"
     },
     "RPC": {
       "title": "RPC",

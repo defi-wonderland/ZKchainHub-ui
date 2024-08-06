@@ -26,9 +26,9 @@ export const TVL = () => {
         <Table>
           <STableHead>
             <STableRow>
-              <STableCellHead>{t('CHAIN.TVL.token')}</STableCellHead>
+              <STableCellHead>{t('CHAIN.TVL.chain')}</STableCellHead>
               <STableCellHead>{t('CHAIN.TVL.price')}</STableCellHead>
-              <STableCellHead>{t('CHAIN.TVL.total')}</STableCellHead>
+              <STableCellHead>{t('CHAIN.TVL.tvl')}</STableCellHead>
             </STableRow>
           </STableHead>
           <STableBody>
@@ -41,8 +41,7 @@ export const TVL = () => {
                   </Typography>
                 </LogoCell>
                 <STableCell>${token.price.toLocaleString()}</STableCell>
-                <STableCell>${((token.total * token.price) / 1e18).toLocaleString()}</STableCell>{' '}
-                {/* Adjust for precision */}
+                <STableCell>${((token.total * token.price) / 1e18).toLocaleString()}</STableCell>
               </STableRow>
             ))}
           </STableBody>

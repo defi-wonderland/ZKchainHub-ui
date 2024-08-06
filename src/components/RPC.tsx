@@ -2,12 +2,13 @@ import { useTranslation } from 'next-i18next';
 import { Grid, Typography, Tooltip } from '@mui/material';
 import { CheckCircle as CheckIcon, Cancel as CancelIcon } from '@mui/icons-material';
 import { useData } from '~/hooks';
+import { StyledContainer } from '~/containers';
 
 export const RPC = () => {
   const { t } = useTranslation();
   const { chainData } = useData();
   return (
-    <article>
+    <StyledContainer>
       <Typography variant='h4' gutterBottom>
         {t('CHAIN.RPC.title')}
       </Typography>
@@ -28,6 +29,6 @@ export const RPC = () => {
             </Grid>
           ))}
       </Grid>
-    </article>
+    </StyledContainer>
   );
 };

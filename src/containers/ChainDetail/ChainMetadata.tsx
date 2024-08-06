@@ -2,7 +2,7 @@ import { Avatar, Box, Button, Typography, Grid, styled } from '@mui/material';
 import { useTranslation } from 'next-i18next';
 
 import { InfoBox } from '~/components';
-import { useData } from '~/hooks';
+import { useCustomTheme, useData } from '~/hooks';
 import { formatTimestampToDate } from '~/utils';
 import WebIcon from '@mui/icons-material/Web';
 import ExploreIcon from '@mui/icons-material/Explore';
@@ -25,25 +25,19 @@ export const ChainMetadata = () => {
         </Grid>
 
         <Grid item xs={12} md={6} display='flex' justifyContent='flex-end' alignItems='center'>
-          <Button variant='contained' startIcon={<WebIcon />} href={data?.websiteUrl} target='_blank' sx={{ mr: 2 }}>
+          <MetadataButton variant='contained' startIcon={<WebIcon />} href={data?.websiteUrl} sx={{ mr: 2 }}>
             {t('CHAIN.website')}
-          </Button>
-          <Button
-            variant='contained'
-            startIcon={<ExploreIcon />}
-            href={data?.explorerUrl}
-            target='_blank'
-            sx={{ mr: 2 }}
-          >
+          </MetadataButton>
+          <MetadataButton variant='contained' startIcon={<ExploreIcon />} href={data?.explorerUrl} sx={{ mr: 2 }}>
             {t('CHAIN.explorer')}
-          </Button>
-          <Button
+          </MetadataButton>
+          <MetadataButton
             variant='contained'
             startIcon={<AddCircleOutlineIcon />}
             onClick={() => console.log('Add to Network')}
           >
-            {t('CHAIN.addToNetwork')}
-          </Button>
+            {t('CHAIN.addNetwork')}
+          </MetadataButton>
         </Grid>
 
         <Grid item xs={12}>
@@ -64,8 +58,21 @@ export const ChainMetadata = () => {
   );
 };
 
-const StyledContainer = styled(Box)({
-  background: 'rgba(17, 20, 26, 1)',
-  padding: '1rem',
-  borderRadius: '0.5rem',
+export const StyledContainer = styled(Box)(() => {
+  const { currentTheme } = useCustomTheme();
+  return {
+    background: currentTheme.backgroundTertiary,
+    borderRadius: currentTheme.borderRadius,
+    padding: currentTheme.padding,
+  };
+});
+
+export const MetadataButton = styled(Button)(() => {
+  const { currentTheme } = useCustomTheme();
+  return {
+    background: currentTheme.backgroundSecondary,
+    borderRadius: currentTheme.borderRadius,
+    padding: currentTheme.padding,
+    color: currentTheme.textPrimary,
+  };
 });
