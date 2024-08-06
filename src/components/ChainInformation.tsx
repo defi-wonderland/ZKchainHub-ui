@@ -1,9 +1,8 @@
-import { Grid, Typography } from '@mui/material';
+import { Grid, Typography, styled, Box } from '@mui/material';
 import { useTranslation } from 'next-i18next';
 
 import { InfoBox } from '~/components';
-import { useData } from '~/hooks';
-import { StyledContainer } from '~/containers';
+import { useData, useCustomTheme } from '~/hooks';
 import BlockDark from '~/assets/icons/blockDark.svg';
 import BlockLight from '~/assets/icons/blockLight.svg';
 
@@ -13,11 +12,11 @@ export const ChainInformation = () => {
 
   return (
     <>
-      <Typography variant='h5' gutterBottom>
+      <STitle variant='h5' gutterBottom>
         {t('CHAIN.CHAININFORMATION.title')}
-      </Typography>
-      <StyledContainer>
-        <Grid container spacing={2}>
+      </STitle>
+      <DataContainer>
+        <GridContainer container>
           <Grid item xs={12} sm={6} md={3}>
             <InfoBox
               title={t('CHAIN.CHAININFORMATION.chainType')}
@@ -98,8 +97,31 @@ export const ChainInformation = () => {
               alt='block'
             />
           </Grid>
-        </Grid>
-      </StyledContainer>
+        </GridContainer>
+      </DataContainer>
     </>
   );
 };
+
+export const DataContainer = styled(Box)(() => {
+  const { currentTheme } = useCustomTheme();
+  return {
+    background: currentTheme.backgroundTertiary,
+    borderRadius: currentTheme.borderRadius,
+    border: currentTheme.border,
+  };
+});
+
+export const GridContainer = styled(Grid)(() => ({
+  width: '100%',
+  borderRadius: 'inherit',
+  overflow: 'hidden',
+}));
+
+export const STitle = styled(Typography)(() => {
+  return {
+    fontSize: '1.5rem',
+    fontWeight: 700,
+    lineHeight: '2rem',
+  };
+});

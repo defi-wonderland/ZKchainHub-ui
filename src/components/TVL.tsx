@@ -11,7 +11,8 @@ import {
   STableBody,
   LogoCell,
   TokenAvatar,
-} from '~/components/Table';
+  STitle,
+} from '~/components';
 
 export const TVL = () => {
   const { t } = useTranslation();
@@ -19,9 +20,7 @@ export const TVL = () => {
   const tvl = chainData?.tvl || [];
   return (
     <article>
-      <Typography variant='h4' gutterBottom>
-        {t('CHAIN.TVL.title')}
-      </Typography>
+      <STitle>{t('CHAIN.TVL.title')}</STitle>
       <STableContainer>
         <Table>
           <STableHead>

@@ -26,7 +26,7 @@ export const ChainMetadata = () => {
   const dark = theme === 'dark';
 
   return (
-    <StyledContainer>
+    <MetadataContainer>
       <FirstRow>
         <ChainIdentity>
           <Avatar src={data?.iconUrl} alt={data?.chainName} sx={{ width: 56, height: 56 }} />
@@ -86,11 +86,11 @@ export const ChainMetadata = () => {
           </Box>
         </MetadataItem>
       </SecondRow>
-    </StyledContainer>
+    </MetadataContainer>
   );
 };
 
-export const StyledContainer = styled(Box)(() => {
+const MetadataContainer = styled(Box)(() => {
   const { currentTheme } = useCustomTheme();
   return {
     background: currentTheme.backgroundTertiary,
@@ -100,7 +100,7 @@ export const StyledContainer = styled(Box)(() => {
   };
 });
 
-export const FirstRow = styled(Box)(() => {
+const FirstRow = styled(Box)(() => {
   return {
     display: 'flex',
     alignItems: 'center',
@@ -109,7 +109,7 @@ export const FirstRow = styled(Box)(() => {
   };
 });
 
-export const SecondRow = styled(Box)(() => {
+const SecondRow = styled(Box)(() => {
   const { currentTheme } = useCustomTheme();
   return {
     display: 'flex',
@@ -118,14 +118,14 @@ export const SecondRow = styled(Box)(() => {
   };
 });
 
-export const ChainIdentity = styled(Box)(() => {
+const ChainIdentity = styled(Box)(() => {
   return {
     display: 'flex',
     gap: '1rem',
   };
 });
 
-export const MetadataButton = styled(Button)(() => {
+const MetadataButton = styled(Button)(() => {
   const { currentTheme } = useCustomTheme();
   return {
     background: currentTheme.backgroundSecondary,

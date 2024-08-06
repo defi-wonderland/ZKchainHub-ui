@@ -32,7 +32,6 @@ export const InfoBox = ({ title, description, darkIcon, lightIcon, size, alt }: 
 const StyledCard = styled(Card)(() => {
   const { currentTheme } = useCustomTheme();
   return {
-    height: '100%',
     background: currentTheme.backgroundTertiary,
     color: currentTheme.textPrimary,
     border: currentTheme.border,
