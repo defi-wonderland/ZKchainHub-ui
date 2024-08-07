@@ -51,10 +51,10 @@ export const ChainMetadata = () => {
             <SIcon src={dark ? LinkDark : LinkLight} alt='link icon' />
           </MetadataButton>
 
-          <MetadataButton variant='contained'>
+          <AddNetworkBtn variant='contained'>
             <SIcon src={Add} alt='add icon' />
             {t('CHAIN.addNetwork')}
-          </MetadataButton>
+          </AddNetworkBtn>
         </ButtonsContainer>
       </FirstRow>
       <SecondRow>
@@ -95,7 +95,6 @@ const MetadataContainer = styled(Box)(() => {
   return {
     background: currentTheme.backgroundTertiary,
     borderRadius: currentTheme.borderRadius,
-    padding: currentTheme.padding,
     border: currentTheme.border,
   };
 });
@@ -136,6 +135,26 @@ const MetadataButton = styled(Button)(() => {
     fontSize: '1rem',
     gap: '0.5rem',
     lineHeight: '1.5rem',
+    '&:hover': {
+      background: currentTheme.neutral[800],
+    },
+  };
+});
+
+const AddNetworkBtn = styled(Button)(() => {
+  const { currentTheme } = useCustomTheme();
+  return {
+    background: currentTheme.primary[500],
+    borderRadius: currentTheme.borderRadius,
+    padding: currentTheme.padding,
+    color: '#fff',
+    textTransform: 'none',
+    fontSize: '1rem',
+    gap: '0.5rem',
+    lineHeight: '1.5rem',
+    '&:hover': {
+      background: currentTheme.primary[300],
+    },
   };
 });
 
@@ -195,6 +214,9 @@ const MetadataItem = styled(Box)(() => {
     padding: currentTheme.padding,
     gap: '0.5rem',
     borderRight: currentTheme.border,
+    '&:last-child': {
+      borderRight: 'none',
+    },
   };
 });
 

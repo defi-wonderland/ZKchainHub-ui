@@ -50,7 +50,9 @@
     },
     "RPC": {
       "title": "RPC",
-      "status": "Status"
+      "status": "Status",
+      "statusActive": "Active",
+      "statusInactive": "Inactive"
     },
     "FEEPARAMS": {
       "title": "Fee params",

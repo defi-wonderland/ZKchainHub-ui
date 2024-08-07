@@ -90,9 +90,6 @@ export const STableHead = styled(TableHead)(() => {
   return {
     backgroundColor: currentTheme.backgroundTertiary,
     color: currentTheme.textSecondary,
-    '&:not(:last-child)': {
-      borderBottom: currentTheme.border,
-    },
   };
 });
 
@@ -120,6 +117,7 @@ export const STableCellHead = styled(TableCell)(() => {
   return {
     color: currentTheme.textSecondary,
     textAlign: 'left',
+    borderBottom: 'none',
   };
 });
 
@@ -128,6 +126,7 @@ export const STableCell = styled(TableCell)(() => {
   return {
     color: currentTheme.textPrimary,
     textAlign: 'left',
+    border: 'none',
   };
 });
 

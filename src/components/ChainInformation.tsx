@@ -11,95 +11,84 @@ export const ChainInformation = () => {
   const { chainData } = useData();
 
   return (
-    <>
+    <article>
       <STitle variant='h5' gutterBottom>
         {t('CHAIN.CHAININFORMATION.title')}
       </STitle>
       <DataContainer>
-        <GridContainer container>
-          <Grid item xs={12} sm={6} md={3}>
-            <InfoBox
-              title={t('CHAIN.CHAININFORMATION.chainType')}
-              description={chainData?.chainType}
-              darkIcon={BlockDark}
-              lightIcon={BlockLight}
-              size={22}
-              alt='block'
-            />
-          </Grid>
-          <Grid item xs={12} sm={6} md={3}>
-            <InfoBox
-              title={t('CHAIN.CHAININFORMATION.lastBlock')}
-              description={chainData?.l2ChainInfo.lastBlock}
-              darkIcon={BlockDark}
-              lightIcon={BlockLight}
-              size={22}
-              alt='block'
-            />
-          </Grid>
-          <Grid item xs={12} sm={6} md={3}>
-            <InfoBox
-              title={t('CHAIN.CHAININFORMATION.lastBlockVerified')}
-              description={chainData?.l2ChainInfo.lastBlockVerified}
-              darkIcon={BlockDark}
-              lightIcon={BlockLight}
-              size={22}
-              alt='block'
-            />
-          </Grid>
-          <Grid item xs={12} sm={6} md={3}>
-            <InfoBox
-              title={t('CHAIN.CHAININFORMATION.transactionsPerSecond')}
-              description={chainData?.l2ChainInfo.tps}
-              darkIcon={BlockDark}
-              lightIcon={BlockLight}
-              size={22}
-              alt='block'
-            />
-          </Grid>
-          <Grid item xs={12} sm={6} md={3}>
-            <InfoBox
-              title={t('CHAIN.CHAININFORMATION.totalBatchesCommitted')}
-              description={chainData?.batchesInfo.commited}
-              darkIcon={BlockDark}
-              lightIcon={BlockLight}
-              size={22}
-              alt='block'
-            />
-          </Grid>
-          <Grid item xs={12} sm={6} md={3}>
-            <InfoBox
-              title={t('CHAIN.CHAININFORMATION.totalBatchesExecuted')}
-              description={chainData?.batchesInfo.proved}
-              darkIcon={BlockDark}
-              lightIcon={BlockLight}
-              size={22}
-              alt='block'
-            />
-          </Grid>
-          <Grid item xs={12} sm={6} md={3}>
-            <InfoBox
-              title={t('CHAIN.CHAININFORMATION.totalBatchesVerified')}
-              description={chainData?.batchesInfo.verified}
-              darkIcon={BlockDark}
-              lightIcon={BlockLight}
-              size={22}
-              alt='block'
-            />
-          </Grid>
-          <Grid item xs={12} sm={6} md={3}>
-            <InfoBox
-              title={t('CHAIN.CHAININFORMATION.averageBlockTime')}
-              description={chainData?.l2ChainInfo.avgBlockTime}
-              darkIcon={BlockDark}
-              lightIcon={BlockLight}
-              size={22}
-              alt='block'
-            />
-          </Grid>
-        </GridContainer>
+        <InfoBox
+          title={t('CHAIN.CHAININFORMATION.chainType')}
+          description={chainData?.chainType}
+          darkIcon={BlockDark}
+          lightIcon={BlockLight}
+          size={22}
+          alt='block'
+        />
+
+        <InfoBox
+          title={t('CHAIN.CHAININFORMATION.lastBlock')}
+          description={chainData?.l2ChainInfo.lastBlock}
+          darkIcon={BlockDark}
+          lightIcon={BlockLight}
+          size={22}
+          alt='block'
+        />
+
+        <InfoBox
+          title={t('CHAIN.CHAININFORMATION.lastBlockVerified')}
+          description={chainData?.l2ChainInfo.lastBlockVerified}
+          darkIcon={BlockDark}
+          lightIcon={BlockLight}
+          size={22}
+          alt='block'
+        />
+
+        <InfoBox
+          title={t('CHAIN.CHAININFORMATION.transactionsPerSecond')}
+          description={chainData?.l2ChainInfo.tps}
+          darkIcon={BlockDark}
+          lightIcon={BlockLight}
+          size={22}
+          alt='block'
+        />
+
+        <InfoBox
+          title={t('CHAIN.CHAININFORMATION.totalBatchesCommitted')}
+          description={chainData?.batchesInfo.commited}
+          darkIcon={BlockDark}
+          lightIcon={BlockLight}
+          size={22}
+          alt='block'
+        />
+
+        <InfoBox
+          title={t('CHAIN.CHAININFORMATION.totalBatchesExecuted')}
+          description={chainData?.batchesInfo.proved}
+          darkIcon={BlockDark}
+          lightIcon={BlockLight}
+          size={22}
+          alt='block'
+        />
+
+        <InfoBox
+          title={t('CHAIN.CHAININFORMATION.totalBatchesVerified')}
+          description={chainData?.batchesInfo.verified}
+          darkIcon={BlockDark}
+          lightIcon={BlockLight}
+          size={22}
+          alt='block'
+        />
+
+        <InfoBox
+          title={t('CHAIN.CHAININFORMATION.averageBlockTime')}
+          description={chainData?.l2ChainInfo.avgBlockTime}
+          darkIcon={BlockDark}
+          lightIcon={BlockLight}
+          size={22}
+          alt='block'
+        />
       </DataContainer>
-    </>
+    </article>
   );
 };
 
@@ -109,19 +98,26 @@ export const DataContainer = styled(Box)(() => {
     background: currentTheme.backgroundTertiary,
     borderRadius: currentTheme.borderRadius,
     border: currentTheme.border,
+    display: 'grid',
+    gridTemplateColumns: 'repeat(4, 1fr)',
   };
 });
 
-export const GridContainer = styled(Grid)(() => ({
-  width: '100%',
-  borderRadius: 'inherit',
-  overflow: 'hidden',
-}));
+export const GridContainer = styled(Grid)(() => {
+  const { currentTheme } = useCustomTheme();
+  return {
+    width: '100%',
+    borderRadius: 'inherit',
+    overflow: 'hidden',
+    border: currentTheme.border,
+  };
+});
 
 export const STitle = styled(Typography)(() => {
   return {
     fontSize: '1.5rem',
     fontWeight: 700,
     lineHeight: '2rem',
+    marginBottom: '1.5rem',
   };
 });

@@ -34,8 +34,9 @@ const StyledCard = styled(Card)(() => {
   return {
     background: currentTheme.backgroundTertiary,
     color: currentTheme.textPrimary,
-    border: currentTheme.border,
+    overflow: 'hidden',
     boxShadow: 'none',
+    borderRadius: 'inherit',
   };
 });
 
@@ -65,7 +66,7 @@ const Description = styled(Typography)(() => {
     fontSize: '1.5rem',
     lineHeight: '2rem',
     fontWeight: 400,
-    margin: 0,
     color: currentTheme.textPrimary,
+    marginTop: '0.5rem',
   };
 });

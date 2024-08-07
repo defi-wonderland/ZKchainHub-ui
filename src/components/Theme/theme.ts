@@ -83,7 +83,7 @@ export const darkTheme: Theme = {
   borderRadius: '1.5rem',
   secondaryBorderRadius: '0.4rem',
   transition: 'all 180ms ease-in-out',
-  border: '0.1rem solid rgba(255, 255, 255, 0.05)',
+  border: '0.0625rem solid rgba(255, 255, 255, 0.05)',
   gap: '0.25rem',
   padding: '1rem',
   warningText: warning[400],
