@@ -2,8 +2,15 @@ import { useTranslation } from 'next-i18next';
 
 import { InfoBox, STitle, DataContainer } from '~/components';
 import { useData } from '~/hooks';
+
 import BlockDark from '~/assets/icons/blockDark.svg';
 import BlockLight from '~/assets/icons/blockLight.svg';
+import TagDark from '~/assets/icons/tagDark.svg';
+import TagLight from '~/assets/icons/tagLight.svg';
+import MaxDark from '~/assets/icons/maxDark.svg';
+import MaxLight from '~/assets/icons/maxLight.svg';
+import CheckBlockDark from '~/assets/icons/checkBlockDark.svg';
+import CheckBlockLight from '~/assets/icons/checkBlockLight.svg';
 
 export const FeeParams = () => {
   const { t } = useTranslation();
@@ -16,10 +23,10 @@ export const FeeParams = () => {
         <InfoBox
           title={t('CHAIN.FEEPARAMS.batch')}
           description={chainData?.feeParams.batchOverheadL1Gas}
-          darkIcon={BlockDark}
-          lightIcon={BlockLight}
+          darkIcon={TagDark}
+          lightIcon={TagLight}
           size={20}
-          alt='block'
+          alt='tag-icon'
         />
 
         <InfoBox
@@ -28,25 +35,25 @@ export const FeeParams = () => {
           darkIcon={BlockDark}
           lightIcon={BlockLight}
           size={20}
-          alt='block'
+          alt='block-icon'
         />
 
         <InfoBox
           title={t('CHAIN.FEEPARAMS.maxGasBatch')}
           description={chainData?.feeParams.maxL2GasPerBatch}
-          darkIcon={BlockDark}
-          lightIcon={BlockLight}
+          darkIcon={CheckBlockDark}
+          lightIcon={CheckBlockLight}
           size={20}
-          alt='block'
+          alt='check-block-icon'
         />
 
         <InfoBox
           title={t('CHAIN.FEEPARAMS.maxGasBatch')}
           description={chainData?.feeParams.maxL2GasPerBatch}
-          darkIcon={BlockDark}
-          lightIcon={BlockLight}
+          darkIcon={MaxDark}
+          lightIcon={MaxLight}
           size={20}
-          alt='block'
+          alt='max-icon'
         />
       </DataContainer>
     </>
