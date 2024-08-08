@@ -1,5 +1,5 @@
 import { ReactNode, FunctionComponent } from 'react';
-import { Box, styled } from '@mui/material';
+import { Box } from '@mui/material';
 
 import { Header, Footer } from '~/containers';
 interface AppLayoutProps {
@@ -11,17 +11,10 @@ const AppLayout: FunctionComponent<AppLayoutProps> = (props) => {
   return (
     <>
       <Header />
-      <Container>{children}</Container>
-
+      <Box>{children}</Box>
       <Footer />
     </>
   );
 };
-
-const Container = styled(Box)(() => {
-  return {
-    width: '85%',
-  };
-});
 
 export { AppLayout };

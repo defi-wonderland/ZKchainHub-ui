@@ -10,7 +10,7 @@ export const LockedAssets = () => {
   const { ecosystemData, totalL1TVL } = useData();
 
   return (
-    <section>
+    <StyledSection>
       {ecosystemData && (
         <>
           <LockedAssetsContainer>
@@ -23,9 +23,13 @@ export const LockedAssets = () => {
           <TotalValueLocked tvl={ecosystemData.l1Tvl} />
         </>
       )}
-    </section>
+    </StyledSection>
   );
 };
+
+export const StyledSection = styled('section')(() => ({
+  width: '100%',
+}));
 
 const LockedAssetsContainer = styled(Box)(() => ({
   display: 'flex',
