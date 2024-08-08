@@ -30,9 +30,9 @@ export const InfoBox = ({ title, description, darkIcon, lightIcon, size, alt }: 
 };
 
 const StyledCard = styled(Card)(() => {
-  const { currentTheme } = useCustomTheme();
+  const { currentTheme, theme } = useCustomTheme();
   return {
-    background: currentTheme.backgroundTertiary,
+    background: theme === 'dark' ? currentTheme.backgroundTertiary : currentTheme.backgroundSecondary,
     color: currentTheme.textPrimary,
     overflow: 'hidden',
     boxShadow: 'none',
