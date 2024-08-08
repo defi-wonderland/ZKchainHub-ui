@@ -16,35 +16,43 @@ export const Breadcrumb = ({ isChain }: BreadcrumbProps) => {
   const { chainData } = useData();
   const { theme } = useCustomTheme();
   const { t } = useTranslation();
+
   const pathNames = pathname ? pathname.split('/').filter((path) => path) : [];
+
+  const breadcrumbItems = pathNames.map((path, index) => {
+    const isLast = index === pathNames.length - 1;
+    const displayName = isChain && isLast ? chainData?.metadata?.chainName || path : path;
+    const href = `/${pathNames.slice(0, index + 1).join('/')}`;
+
+    return {
+      key: index,
+      isLast,
+      displayName,
+      href,
+    };
+  });
 
   return (
     <BreadcrumbNav aria-label='breadcrumb'>
       <BreadcrumbLink href='/'>{t('HOME.home')}</BreadcrumbLink>
-      {pathNames.map((path, index) => {
-        const isLast = index === pathNames.length - 1;
-        const displayName = isChain ? chainData?.metadata?.chainName : path;
 
-        return (
-          <BreadcrumbItem key={index}>
-            <ArrowIcon src={theme === 'dark' ? SmallArrowDark : SmallArrowLight} alt='arrow' />
-            {isLast ? (
-              <BreadcrumbCurrent aria-current='page'>{displayName}</BreadcrumbCurrent>
-            ) : (
-              <BreadcrumbLink href={`/${pathNames.slice(0, index + 1).join('/')}`}>{displayName}</BreadcrumbLink>
-            )}
-          </BreadcrumbItem>
-        );
-      })}
+      {breadcrumbItems.map(({ key, isLast, displayName, href }) => (
+        <BreadcrumbItem key={key}>
+          <ArrowIcon src={theme === 'dark' ? SmallArrowDark : SmallArrowLight} alt='arrow' />
+          {isLast ? (
+            <BreadcrumbCurrent aria-current='page'>{displayName}</BreadcrumbCurrent>
+          ) : (
+            <BreadcrumbLink href={href}>{displayName}</BreadcrumbLink>
+          )}
+        </BreadcrumbItem>
+      ))}
     </BreadcrumbNav>
   );
 };
 
-const BreadcrumbNav = styled('nav')(() => {
-  return {
-    display: 'flex',
-    alignItems: 'center',
-  };
+const BreadcrumbNav = styled('nav')({
+  display: 'flex',
+  alignItems: 'center',
 });
 
 const BreadcrumbLink = styled(Link)(() => {
@@ -59,17 +67,13 @@ const BreadcrumbLink = styled(Link)(() => {
   };
 });
 
-const BreadcrumbItem = styled('span')(() => {
-  return {
-    display: 'flex',
-    alignItems: 'center',
-  };
+const BreadcrumbItem = styled('span')({
+  display: 'flex',
+  alignItems: 'center',
 });
 
-const ArrowIcon = styled(Image)(() => {
-  return {
-    width: '1.25rem',
-  };
+const ArrowIcon = styled(Image)({
+  width: '1.25rem',
 });
 
 const BreadcrumbCurrent = styled(Typography)(() => {
