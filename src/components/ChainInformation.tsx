@@ -3,8 +3,15 @@ import { useTranslation } from 'next-i18next';
 
 import { InfoBox } from '~/components';
 import { useData, useCustomTheme } from '~/hooks';
+
 import BlockDark from '~/assets/icons/blockDark.svg';
 import BlockLight from '~/assets/icons/blockLight.svg';
+import ChainTypeDark from '~/assets/icons/chainTypeDark.svg';
+import ChainTypeLight from '~/assets/icons/chainTypeLight.svg';
+import CheckBlockDark from '~/assets/icons/checkBlockDark.svg';
+import CheckBlockLight from '~/assets/icons/checkBlockLight.svg';
+import SpeedDark from '~/assets/icons/speedDark.svg';
+import SpeedLight from '~/assets/icons/speedLight.svg';
 
 export const ChainInformation = () => {
   const { t } = useTranslation();
@@ -19,10 +26,10 @@ export const ChainInformation = () => {
         <InfoBox
           title={t('CHAIN.CHAININFORMATION.chainType')}
           description={chainData?.chainType}
-          darkIcon={BlockDark}
-          lightIcon={BlockLight}
+          darkIcon={ChainTypeDark}
+          lightIcon={ChainTypeLight}
           size={22}
-          alt='block'
+          alt='chain-type-icon'
         />
 
         <InfoBox
@@ -31,25 +38,25 @@ export const ChainInformation = () => {
           darkIcon={BlockDark}
           lightIcon={BlockLight}
           size={22}
-          alt='block'
+          alt='block-icon'
         />
 
         <InfoBox
           title={t('CHAIN.CHAININFORMATION.lastBlockVerified')}
           description={chainData?.l2ChainInfo.lastBlockVerified}
-          darkIcon={BlockDark}
-          lightIcon={BlockLight}
+          darkIcon={CheckBlockDark}
+          lightIcon={CheckBlockLight}
           size={22}
-          alt='block'
+          alt='check-block-icon'
         />
 
         <InfoBox
           title={t('CHAIN.CHAININFORMATION.transactionsPerSecond')}
           description={chainData?.l2ChainInfo.tps}
-          darkIcon={BlockDark}
-          lightIcon={BlockLight}
+          darkIcon={SpeedDark}
+          lightIcon={SpeedLight}
           size={22}
-          alt='block'
+          alt='speed-icon'
         />
 
         <InfoBox
@@ -73,19 +80,19 @@ export const ChainInformation = () => {
         <InfoBox
           title={t('CHAIN.CHAININFORMATION.totalBatchesVerified')}
           description={chainData?.batchesInfo.verified}
-          darkIcon={BlockDark}
-          lightIcon={BlockLight}
+          darkIcon={CheckBlockDark}
+          lightIcon={CheckBlockLight}
           size={22}
-          alt='block'
+          alt='check-block'
         />
 
         <InfoBox
           title={t('CHAIN.CHAININFORMATION.averageBlockTime')}
           description={chainData?.l2ChainInfo.avgBlockTime}
-          darkIcon={BlockDark}
-          lightIcon={BlockLight}
+          darkIcon={SpeedDark}
+          lightIcon={SpeedLight}
           size={22}
-          alt='block'
+          alt='speed-icon'
         />
       </DataContainer>
     </article>
@@ -93,9 +100,9 @@ export const ChainInformation = () => {
 };
 
 export const DataContainer = styled(Box)(() => {
-  const { currentTheme } = useCustomTheme();
+  const { currentTheme, theme } = useCustomTheme();
   return {
-    background: currentTheme.backgroundTertiary,
+    background: theme === 'dark' ? currentTheme.backgroundTertiary : currentTheme.backgroundSecondary,
     borderRadius: currentTheme.borderRadius,
     border: currentTheme.border,
     display: 'grid',

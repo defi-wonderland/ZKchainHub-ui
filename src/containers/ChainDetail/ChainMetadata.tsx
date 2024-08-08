@@ -29,7 +29,7 @@ export const ChainMetadata = () => {
     <MetadataContainer>
       <FirstRow>
         <ChainIdentity>
-          <Avatar src={data?.iconUrl} alt={data?.chainName} sx={{ width: 56, height: 56 }} />
+          <Avatar src={data?.iconUrl} alt={data?.chainName} sx={{ width: 72, height: 72 }} />
           <Box>
             <ChainName>{data?.chainName}</ChainName>
             <ChainId>
@@ -91,9 +91,9 @@ export const ChainMetadata = () => {
 };
 
 const MetadataContainer = styled(Box)(() => {
-  const { currentTheme } = useCustomTheme();
+  const { currentTheme, theme } = useCustomTheme();
   return {
-    background: currentTheme.backgroundTertiary,
+    background: theme === 'dark' ? currentTheme.backgroundTertiary : currentTheme.backgroundSecondary,
     borderRadius: currentTheme.borderRadius,
     border: currentTheme.border,
   };
@@ -121,22 +121,25 @@ const ChainIdentity = styled(Box)(() => {
   return {
     display: 'flex',
     gap: '1rem',
+    alignItems: 'center',
   };
 });
 
 const MetadataButton = styled(Button)(() => {
-  const { currentTheme } = useCustomTheme();
+  const { currentTheme, theme } = useCustomTheme();
   return {
-    background: currentTheme.backgroundSecondary,
+    background: theme === 'dark' ? currentTheme.backgroundSecondary : currentTheme.backgroundTertiary,
     borderRadius: currentTheme.borderRadius,
     padding: currentTheme.padding,
     color: currentTheme.textPrimary,
+    boxShadow: 'none',
     textTransform: 'none',
     fontSize: '1rem',
     gap: '0.5rem',
     lineHeight: '1.5rem',
     '&:hover': {
-      background: currentTheme.neutral[800],
+      background: theme === 'dark' ? currentTheme.neutral[800] : currentTheme.neutral[300],
+      boxShadow: 'none',
     },
   };
 });
@@ -152,8 +155,10 @@ const AddNetworkBtn = styled(Button)(() => {
     fontSize: '1rem',
     gap: '0.5rem',
     lineHeight: '1.5rem',
+    boxShadow: 'none',
     '&:hover': {
       background: currentTheme.primary[300],
+      boxShadow: 'none',
     },
   };
 });

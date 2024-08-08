@@ -33,16 +33,23 @@ export const SearchBar = () => {
 };
 
 const StyledTextField = styled(TextField)(() => {
-  const { currentTheme } = useCustomTheme();
+  const { theme, currentTheme } = useCustomTheme();
 
   return {
     width: '15rem',
     height: '3.5rem',
-    borderRadius: `${currentTheme.borderRadius}`,
-    border: `1px solid ${currentTheme.backgroundSecondary}`,
-    backgroundColor: `${currentTheme.backgroundTertiary}`,
+    borderRadius: currentTheme.borderRadius,
+    border: currentTheme.border,
+    backgroundColor: theme === 'dark' ? currentTheme.backgroundTertiary : currentTheme.backgroundSecondary,
     opacity: 1,
     '& .MuiOutlinedInput-root': {
+      '& input': {
+        color: currentTheme.textPrimary,
+      },
+      '&::placeholder': {
+        color: currentTheme.textPrimary,
+        opacity: 1,
+      },
       '& fieldset': {
         border: 'none',
       },

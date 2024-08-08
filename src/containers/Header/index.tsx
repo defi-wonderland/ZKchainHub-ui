@@ -1,6 +1,5 @@
 import { styled } from '@mui/material/styles';
 import { IconButton, Box } from '@mui/material';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
 import Image from 'next/image';
@@ -8,6 +7,9 @@ import Image from 'next/image';
 import { BasicSelect, SearchBar, Gas, SBox } from '~/components';
 import { useCustomTheme } from '~/hooks/useContext/useTheme';
 import { getConfig } from '~/config';
+
+import LogoDark from '~/assets/icons/logoDark.svg';
+import LogoLight from '~/assets/icons/logoLight.svg';
 import LightMode from '~/assets/icons/lightMode.svg';
 import DarkMode from '~/assets/icons/darkMode.svg';
 
@@ -40,13 +42,15 @@ export const Header = () => {
     changeLanguage(locale);
   };
 
+  const handleLogoClick = () => {
+    router.push('/');
+  };
+
   return (
     <StyledHeader>
-      <Box>
-        <StyledLink href='/' passHref>
-          <Logo>ZKchainHub</Logo>
-        </StyledLink>
-      </Box>
+      <LogoContainer onClick={handleLogoClick} role='button' aria-label='Navigate to home'>
+        <Logo src={theme === 'dark' ? LogoDark : LogoLight} alt='ZK Chain Hub' />
+      </LogoContainer>
       <SBox>
         <Gas />
         <SearchBar />
@@ -72,14 +76,17 @@ const StyledHeader = styled('header')({
   width: '100%',
 });
 
-const Logo = styled('h1')({
-  fontSize: '1.5rem',
-  cursor: 'pointer',
+const LogoContainer = styled(Box)({
+  display: 'flex',
+  alignItems: 'center',
+  height: '100%',
+  flexShrink: 0,
 });
 
-const StyledLink = styled(Link)({
-  textDecoration: 'none',
-  color: 'inherit',
+const Logo = styled(Image)({
+  width: '13rem',
+  height: 'auto',
+  maxHeight: '100%',
 });
 
 const SIconButton = styled(IconButton)(() => {

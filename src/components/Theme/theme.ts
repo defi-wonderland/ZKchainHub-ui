@@ -73,7 +73,7 @@ const success: { [key: number]: string } = {
 export const darkTheme: Theme = {
   type: 'dark',
   titleColor: '#000000',
-  textPrimary: '#ffffff',
+  textPrimary: 'rgba(255, 255, 255, 1)',
   textSecondary: '#A1A7B3',
   backgroundPrimary: '#000000',
   backgroundSecondary: '#262B33',
@@ -98,12 +98,11 @@ export const darkTheme: Theme = {
 };
 
 export const lightTheme: Theme = {
-  // TBD
   type: 'light',
   titleColor: '#000000',
-  textPrimary: '#000000',
+  textPrimary: 'rgba(17, 20, 26, 1)',
   textSecondary: 'rgba(61, 66, 77, 1)',
-  backgroundPrimary: '#ffffff',
+  backgroundPrimary: 'rgba(247, 249, 252, 1)',
   backgroundSecondary: 'rgba(232, 236, 242, 1)',
   backgroundTertiary: ' rgba(218, 221, 229, 1)',
   titleFontFamily: 'Inter-Variable',
@@ -111,12 +110,12 @@ export const lightTheme: Theme = {
   borderRadius: '1.5rem',
   secondaryBorderRadius: '0.4rem',
   transition: 'all 180ms ease-in-out',
-  border: '0.1rem solid rgba(0, 0, 0, 0.05)',
+  border: '0.0625rem solid rgba(0, 0, 0, 0.05)',
   gap: '0.25rem',
   warningText: warning[800],
   padding: '1rem',
-  warningBackground: 'rgba(153, 117, 0, 0.051)',
-  warningBorder: '1px solid rgba(153, 117, 0, 0.01)',
+  warningBackground: 'rgba(153, 117, 0, 0.1)',
+  warningBorder: '1px solid rgba(153, 117, 0, 0.05)',
   emptyBackground: 'rgba(61, 66, 77, 1)',
   neutral,
   primary,

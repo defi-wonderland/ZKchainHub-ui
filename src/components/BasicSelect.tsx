@@ -2,7 +2,8 @@ import { useState } from 'react';
 import { styled, MenuProps, Menu, Box, Button, MenuItem } from '@mui/material';
 import Image from 'next/image';
 
-import arrowDown from '~/assets/icons/arrowDown.svg';
+import arrowDownDark from '~/assets/icons/arrowDownDark.svg';
+import arrowDownLight from '~/assets/icons/arrowDownLight.svg';
 import { useCustomTheme } from '~/hooks';
 
 interface BasicSelectProps {
@@ -15,6 +16,7 @@ interface BasicSelectProps {
 }
 
 export const BasicSelect = ({ list, value, setValue, disabled, dataTest }: BasicSelectProps) => {
+  const { theme } = useCustomTheme();
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
 
@@ -29,7 +31,9 @@ export const BasicSelect = ({ list, value, setValue, disabled, dataTest }: Basic
     setValue(explorer);
   };
 
-  const endIcon = disabled ? null : <Image src={arrowDown} alt='arrow-down' width={16} height={16} />;
+  const endIcon = disabled ? null : (
+    <Image src={theme === 'dark' ? arrowDownDark : arrowDownLight} alt='arrow-down' width={16} height={16} />
+  );
 
   return (
     <SBox>
