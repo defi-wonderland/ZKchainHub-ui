@@ -102,7 +102,7 @@ export const lightTheme: Theme = {
   type: 'light',
   titleColor: '#000000',
   textPrimary: '#000000',
-  textSecondary: '#717171',
+  textSecondary: 'rgba(61, 66, 77, 1)',
   backgroundPrimary: '#ffffff',
   backgroundSecondary: 'rgba(232, 236, 242, 1)',
   backgroundTertiary: ' rgba(218, 221, 229, 1)',

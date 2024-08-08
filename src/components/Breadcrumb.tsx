@@ -4,7 +4,8 @@ import { useTranslation } from 'next-i18next';
 import Image from 'next/image';
 
 import { useData, useCustomTheme } from '~/hooks';
-import SmallArrow from '~/assets/icons/smallArrowDark.svg';
+import SmallArrowDark from '~/assets/icons/smallArrowDark.svg';
+import SmallArrowLight from '~/assets/icons/smallArrowLight.svg';
 
 interface BreadcrumbProps {
   isChain: boolean;
@@ -13,6 +14,7 @@ interface BreadcrumbProps {
 export const Breadcrumb = ({ isChain }: BreadcrumbProps) => {
   const pathname = usePathname();
   const { chainData } = useData();
+  const { theme } = useCustomTheme();
   const { t } = useTranslation();
   const pathNames = pathname ? pathname.split('/').filter((path) => path) : [];
 
@@ -25,7 +27,7 @@ export const Breadcrumb = ({ isChain }: BreadcrumbProps) => {
 
         return (
           <BreadcrumbItem key={index}>
-            <ArrowIcon src={SmallArrow} alt='arrow' />
+            <ArrowIcon src={theme === 'dark' ? SmallArrowDark : SmallArrowLight} alt='arrow' />
             {isLast ? (
               <BreadcrumbCurrent aria-current='page'>{displayName}</BreadcrumbCurrent>
             ) : (
@@ -38,14 +40,14 @@ export const Breadcrumb = ({ isChain }: BreadcrumbProps) => {
   );
 };
 
-export const BreadcrumbNav = styled('nav')(() => {
+const BreadcrumbNav = styled('nav')(() => {
   return {
     display: 'flex',
     alignItems: 'center',
   };
 });
 
-export const BreadcrumbLink = styled(Link)(() => {
+const BreadcrumbLink = styled(Link)(() => {
   const { currentTheme } = useCustomTheme();
   return {
     display: 'flex',
@@ -57,20 +59,20 @@ export const BreadcrumbLink = styled(Link)(() => {
   };
 });
 
-export const BreadcrumbItem = styled('span')(() => {
+const BreadcrumbItem = styled('span')(() => {
   return {
     display: 'flex',
     alignItems: 'center',
   };
 });
 
-export const ArrowIcon = styled(Image)(() => {
+const ArrowIcon = styled(Image)(() => {
   return {
     width: '1.25rem',
   };
 });
 
-export const BreadcrumbCurrent = styled(Typography)(() => {
+const BreadcrumbCurrent = styled(Typography)(() => {
   const { currentTheme } = useCustomTheme();
   return {
     fontSize: '0.875rem',
