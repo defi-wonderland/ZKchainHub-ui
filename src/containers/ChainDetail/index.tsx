@@ -2,10 +2,12 @@ import { Box, styled } from '@mui/material';
 
 import { ChainMetadata } from './ChainMetadata';
 import { ChainDescription } from './ChainDescription';
+import { Breadcrumb } from '~/components';
 
 export const ChainDetail = () => {
   return (
     <ChainContainer>
+      <Breadcrumb isChain={true} />
       <ChainMetadata />
       <ChainDescription />
     </ChainContainer>

@@ -4,6 +4,7 @@
     "subtitle": "Ecosistema",
     "gasPrice": "Precio del gas L1",
     "transfer": "Transferencia ERC-20",
+    "home": "Inicio",
     "LOCKEDASSETS": {
       "lockedAssets": "Activos bloqueados",
       "lockedAssetsDescription": "Activos bloqueados en el ecosistema de Elastic Chain",
