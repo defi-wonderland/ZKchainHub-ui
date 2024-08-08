@@ -29,6 +29,8 @@
     "launchDate": "Fecha de lanzamiento",
     "environment": "Entorno",
     "nativeToken": "Token nativo",
+    "addNetwork": "Agregar red",
+    "chainId": "ID de cadena",
     "CHAININFORMATION": {
       "title": "Información de la cadena",
       "chainType": "Tipo de cadena",
@@ -41,11 +43,16 @@
       "averageBlockTime": "Tiempo promedio de bloque"
     },
     "TVL": {
-      "title": "TVL de ZKchain"
+      "title": "TVL de ZKchain",
+      "chain": "Cadena",
+      "price": "Precio",
+      "tvl": "TVL"
     },
     "RPC": {
       "title": "RPC",
-      "status": "Estado"
+      "status": "Estado",
+      "statusActive": "Activo",
+      "statusInactive": "Inactivo"
     },
     "FEEPARAMS": {
       "title": "Parámetros de gas",
