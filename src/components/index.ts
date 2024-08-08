@@ -15,3 +15,4 @@ export * from './NotFound';
 export * from './Gas';
 export * from './TvlContentBox';
 export * from './Breadcrumb';
+export * from './Icon';

@@ -75,7 +75,7 @@ export const DataTable = ({ chains }: TableProps) => {
   );
 };
 
-const STableContainer = styled(TableContainer)(() => {
+export const STableContainer = styled(TableContainer)(() => {
   const { currentTheme } = useCustomTheme();
   return {
     width: '75rem',
@@ -85,18 +85,15 @@ const STableContainer = styled(TableContainer)(() => {
   };
 });
 
-const STableHead = styled(TableHead)(() => {
+export const STableHead = styled(TableHead)(() => {
   const { currentTheme } = useCustomTheme();
   return {
     backgroundColor: currentTheme.backgroundTertiary,
     color: currentTheme.textSecondary,
-    '&:not(:last-child)': {
-      borderBottom: currentTheme.border,
-    },
   };
 });
 
-const STableBody = styled(TableBody)(() => {
+export const STableBody = styled(TableBody)(() => {
   const { currentTheme } = useCustomTheme();
   return {
     backgroundColor: currentTheme.backgroundSecondary,
@@ -104,7 +101,7 @@ const STableBody = styled(TableBody)(() => {
   };
 });
 
-const STableRow = styled(TableRow)(() => {
+export const STableRow = styled(TableRow)(() => {
   const { currentTheme } = useCustomTheme();
   return {
     '&:not(:last-child)': {
@@ -115,23 +112,25 @@ const STableRow = styled(TableRow)(() => {
   };
 });
 
-const STableCellHead = styled(TableCell)(() => {
+export const STableCellHead = styled(TableCell)(() => {
   const { currentTheme } = useCustomTheme();
   return {
     color: currentTheme.textSecondary,
     textAlign: 'left',
+    borderBottom: 'none',
   };
 });
 
-const STableCell = styled(TableCell)(() => {
+export const STableCell = styled(TableCell)(() => {
   const { currentTheme } = useCustomTheme();
   return {
     color: currentTheme.textPrimary,
     textAlign: 'left',
+    border: 'none',
   };
 });
 
-const LogoCell = styled(TableCell)(() => {
+export const LogoCell = styled(TableCell)(() => {
   const { currentTheme } = useCustomTheme();
   return {
     color: currentTheme.textPrimary,
@@ -143,14 +142,14 @@ const LogoCell = styled(TableCell)(() => {
   };
 });
 
-const ChainAvatar = styled(Avatar)(() => {
+export const ChainAvatar = styled(Avatar)(() => {
   return {
     width: '2rem',
     height: '2rem',
   };
 });
 
-const TokenAvatar = styled(Avatar)(() => {
+export const TokenAvatar = styled(Avatar)(() => {
   const { currentTheme } = useCustomTheme();
   return {
     width: '1.5rem',
