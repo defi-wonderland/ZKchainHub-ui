@@ -1,28 +1,33 @@
 import { styled } from '@mui/material/styles';
-import { IconButton, Box } from '@mui/material';
+import { IconButton, Box, useMediaQuery } from '@mui/material';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
 import Image from 'next/image';
 
-import { BasicSelect, SearchBar, Gas, SBox } from '~/components';
 import { useCustomTheme } from '~/hooks/useContext/useTheme';
 import { getConfig } from '~/config';
-
-import LogoDark from '~/assets/icons/logoDark.svg';
-import LogoLight from '~/assets/icons/logoLight.svg';
-import LightMode from '~/assets/icons/lightMode.svg';
-import DarkMode from '~/assets/icons/darkMode.svg';
+import { MobileHeader } from './MobileHeader';
+import { DesktopHeader } from './DesktopHeader';
 
 const { DEFAULT_LANG } = getConfig();
+
+export interface HeaderProps {
+  theme: 'light' | 'dark';
+  goToHome: () => void;
+  handleChangeLanguage: (value: string) => void;
+  localesMap: Record<string, string>;
+  changeTheme: () => void;
+}
 
 export const Header = () => {
   const { changeTheme, theme } = useCustomTheme();
   const {
     t,
-    i18n: { changeLanguage, language },
+    i18n: { changeLanguage },
   } = useTranslation();
   const router = useRouter();
   const { locales, pathname, query } = router;
+  const isMobile = useMediaQuery('(max-width:600px)');
 
   const localesMap = locales ? Object.fromEntries(locales.map((locale) => [locale, t(`LOCALES.${locale}`)])) : {};
 
@@ -42,32 +47,30 @@ export const Header = () => {
     changeLanguage(locale);
   };
 
-  const handleLogoClick = () => {
+  const goToHome = () => {
     router.push('/');
   };
 
-  return (
-    <StyledHeader>
-      <LogoContainer onClick={handleLogoClick} role='button' aria-label='Navigate to home'>
-        <Logo src={theme === 'dark' ? LogoDark : LogoLight} alt='ZK Chain Hub' />
-      </LogoContainer>
-      <SBox>
-        <Gas />
-        <SearchBar />
-        <BasicSelect
-          value={t(`LOCALES.${language}`)}
-          setValue={handleChangeLanguage}
-          list={Object.values(localesMap)}
-        />
-        <SIconButton onClick={changeTheme}>
-          {theme === 'dark' ? <Image src={LightMode} alt='light mode' /> : <Image src={DarkMode} alt='dark mode' />}
-        </SIconButton>
-      </SBox>
-    </StyledHeader>
+  return isMobile ? (
+    <MobileHeader
+      theme={theme}
+      goToHome={goToHome}
+      handleChangeLanguage={handleChangeLanguage}
+      localesMap={localesMap}
+      changeTheme={changeTheme}
+    />
+  ) : (
+    <DesktopHeader
+      theme={theme}
+      goToHome={goToHome}
+      handleChangeLanguage={handleChangeLanguage}
+      localesMap={localesMap}
+      changeTheme={changeTheme}
+    />
   );
 };
 
-const StyledHeader = styled('header')({
+export const StyledHeader = styled('header')({
   display: 'flex',
   height: '5.5rem',
   padding: '1rem',
@@ -76,20 +79,20 @@ const StyledHeader = styled('header')({
   width: '100%',
 });
 
-const LogoContainer = styled(Box)({
+export const LogoContainer = styled(Box)({
   display: 'flex',
   alignItems: 'center',
   height: '100%',
   flexShrink: 0,
 });
 
-const Logo = styled(Image)({
+export const Logo = styled(Image)({
   width: '13rem',
   height: 'auto',
   maxHeight: '100%',
 });
 
-const SIconButton = styled(IconButton)(() => {
+export const SIconButton = styled(IconButton)(() => {
   const { currentTheme } = useCustomTheme();
   return {
     color: `${currentTheme.textPrimary}`,

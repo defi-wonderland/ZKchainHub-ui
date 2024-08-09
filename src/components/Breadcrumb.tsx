@@ -53,6 +53,7 @@ export const Breadcrumb = ({ isChain }: BreadcrumbProps) => {
 const BreadcrumbNav = styled('nav')({
   display: 'flex',
   alignItems: 'center',
+  marginBottom: '1.5rem',
 });
 
 const BreadcrumbLink = styled(Link)(() => {

@@ -17,7 +17,7 @@ export const FeeParams = () => {
   const { chainData } = useData();
 
   return (
-    <>
+    <article>
       <STitle>{t('CHAIN.FEEPARAMS.title')} </STitle>
       <DataContainer>
         <InfoBox
@@ -56,6 +56,6 @@ export const FeeParams = () => {
           alt='max-icon'
         />
       </DataContainer>
-    </>
+    </article>
   );
 };

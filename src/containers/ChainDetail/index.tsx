@@ -8,8 +8,11 @@ import { Breadcrumb } from '~/components';
 export const ChainDetail = () => {
   return (
     <ChainContainer>
-      <Breadcrumb isChain={true} />
-      <ChainMetadata />
+      <Box>
+        <Breadcrumb isChain={true} />
+        <ChainMetadata />
+      </Box>
+
       <ChainDescription />
     </ChainContainer>
   );

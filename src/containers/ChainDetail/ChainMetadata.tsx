@@ -1,4 +1,4 @@
-import { Avatar, Box, Button, Typography, styled } from '@mui/material';
+import { Avatar, Box, Button, Typography, styled, useMediaQuery } from '@mui/material';
 import { useTranslation } from 'next-i18next';
 import Image from 'next/image';
 
@@ -92,6 +92,7 @@ export const ChainMetadata = () => {
 
 const MetadataContainer = styled(Box)(() => {
   const { currentTheme, theme } = useCustomTheme();
+
   return {
     background: theme === 'dark' ? currentTheme.backgroundTertiary : currentTheme.backgroundSecondary,
     borderRadius: currentTheme.borderRadius,
@@ -100,8 +101,10 @@ const MetadataContainer = styled(Box)(() => {
 });
 
 const FirstRow = styled(Box)(() => {
+  const isMobile = useMediaQuery('(max-width:600px)');
+
   return {
-    display: 'flex',
+    display: isMobile ? 'grid' : 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
     padding: '1.5rem 1rem',
@@ -110,8 +113,14 @@ const FirstRow = styled(Box)(() => {
 
 const SecondRow = styled(Box)(() => {
   const { currentTheme } = useCustomTheme();
+  const isMobile = useMediaQuery('(max-width:600px)');
+
   return {
-    display: 'flex',
+    display: isMobile ? 'grid' : 'flex',
+    alignItems: 'center',
+    justifyContent: isMobile ? 'space-between' : 'flex-start',
+    gap: currentTheme.gap,
+    gridTemplateColumns: isMobile ? 'repeat(2, 1fr)' : 'none',
     width: '100%',
     borderTop: currentTheme.border,
   };
@@ -127,6 +136,7 @@ const ChainIdentity = styled(Box)(() => {
 
 const MetadataButton = styled(Button)(() => {
   const { currentTheme, theme } = useCustomTheme();
+
   return {
     background: theme === 'dark' ? currentTheme.backgroundSecondary : currentTheme.backgroundTertiary,
     borderRadius: currentTheme.borderRadius,
@@ -146,6 +156,7 @@ const MetadataButton = styled(Button)(() => {
 
 const AddNetworkBtn = styled(Button)(() => {
   const { currentTheme } = useCustomTheme();
+
   return {
     background: currentTheme.primary[500],
     borderRadius: currentTheme.borderRadius,
@@ -175,16 +186,21 @@ const WebIcon = styled(Image)({
 
 const ButtonsContainer = styled(Box)(() => {
   const { currentTheme } = useCustomTheme();
+  const isMobile = useMediaQuery('(max-width:600px)');
+
   return {
-    display: 'flex',
+    display: isMobile ? 'grid' : 'flex',
     alignItems: 'center',
-    justifyContent: 'flex-end',
+    justifyContent: isMobile ? 'space-between' : 'flex-end',
     gap: currentTheme.gap,
+    gridTemplateColumns: isMobile ? 'repeat(2, 1fr)' : 'none',
+    marginTop: isMobile ? '1rem' : 0,
   };
 });
 
 export const ChainName = styled(Box)(() => {
   const { currentTheme } = useCustomTheme();
+
   return {
     fontSize: '1.5rem',
     fontWeight: 700,
@@ -195,6 +211,7 @@ export const ChainName = styled(Box)(() => {
 
 export const ChainId = styled(Box)(() => {
   const { currentTheme } = useCustomTheme();
+
   return {
     fontSize: '1rem',
     fontWeight: 400,
@@ -205,6 +222,7 @@ export const ChainId = styled(Box)(() => {
 
 export const ChainIdValue = styled('span')(() => {
   const { currentTheme } = useCustomTheme();
+
   return {
     color: currentTheme.textPrimary,
   };
@@ -212,6 +230,7 @@ export const ChainIdValue = styled('span')(() => {
 
 const MetadataItem = styled(Box)(() => {
   const { currentTheme } = useCustomTheme();
+
   return {
     display: 'flex',
     alignItems: 'center',
@@ -227,6 +246,7 @@ const MetadataItem = styled(Box)(() => {
 
 const Label = styled(Typography)(() => {
   const { currentTheme } = useCustomTheme();
+
   return {
     fontSize: '0.875rem',
     lineHeight: '1.25rem',
@@ -237,6 +257,7 @@ const Label = styled(Typography)(() => {
 
 const Value = styled(Typography)(() => {
   const { currentTheme } = useCustomTheme();
+
   return {
     fontSize: '1rem',
     lineHeight: '1.5rem',
