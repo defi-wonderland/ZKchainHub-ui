@@ -70,13 +70,15 @@ export const Header = () => {
   );
 };
 
-export const StyledHeader = styled('header')({
-  display: 'flex',
-  height: '5.5rem',
-  padding: '1rem',
-  alignItems: 'center',
-  justifyContent: 'space-between',
-  width: '100%',
+export const StyledHeader = styled('header')(() => {
+  const { currentTheme } = useCustomTheme();
+  return {
+    display: 'flex',
+    padding: currentTheme.padding,
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    width: '100%',
+  };
 });
 
 export const LogoContainer = styled(Box)({
@@ -95,11 +97,11 @@ export const Logo = styled(Image)({
 export const SIconButton = styled(IconButton)(() => {
   const { currentTheme } = useCustomTheme();
   return {
-    color: `${currentTheme.textPrimary}`,
-    backgroundColor: `${currentTheme.backgroundSecondary}`,
-    borderRadius: `${currentTheme.borderRadius}`,
-    padding: '1rem',
-    gap: '0.5rem',
+    color: currentTheme.textPrimary,
+    backgroundColor: currentTheme.backgroundSecondary,
+    borderRadius: currentTheme.borderRadius,
+    padding: currentTheme.padding,
+    gap: currentTheme.gap,
     width: '3.5rem',
     height: '3.5rem',
   };

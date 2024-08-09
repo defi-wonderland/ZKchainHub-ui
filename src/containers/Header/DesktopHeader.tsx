@@ -1,10 +1,9 @@
 import { useTranslation } from 'next-i18next';
 import Image from 'next/image';
 
-import { StyledHeader, LogoContainer, Logo, SIconButton } from '~/containers';
-import { HeaderProps } from '.';
-
+import { StyledHeader, LogoContainer, Logo, SIconButton, HeaderProps } from '~/containers';
 import { BasicSelect, SearchBar, Gas, SBox } from '~/components';
+
 import LogoDark from '~/assets/icons/logoDark.svg';
 import LogoLight from '~/assets/icons/logoLight.svg';
 import LightMode from '~/assets/icons/lightMode.svg';

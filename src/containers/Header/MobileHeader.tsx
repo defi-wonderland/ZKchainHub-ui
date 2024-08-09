@@ -1,26 +1,25 @@
 import React from 'react';
 import { styled } from '@mui/material/styles';
-import { Box, IconButton, Drawer, List, ListItem } from '@mui/material';
-import MenuIcon from '@mui/icons-material/Menu';
+import { Box, IconButton, Drawer, List, ListItem, Typography } from '@mui/material';
 import { useTranslation } from 'next-i18next';
 import Image from 'next/image';
+
+import { StyledHeader, LogoContainer, Logo, HeaderProps } from '~/containers';
+import { BasicSelect, Gas } from '~/components';
+import { useCustomTheme } from '~/hooks';
 
 import LogoDark from '~/assets/icons/logoDark.svg';
 import LogoLight from '~/assets/icons/logoLight.svg';
 import LightMode from '~/assets/icons/lightMode.svg';
 import DarkMode from '~/assets/icons/darkMode.svg';
-import { BasicSelect, Gas, Icon } from '~/components';
-import { useCustomTheme } from '~/hooks';
 import SearchDark from '~/assets/icons/searchDark.svg';
 import SearchLight from '~/assets/icons/searchLight.svg';
+import MenuDark from '~/assets/icons/menuDark.svg';
+import MenuLight from '~/assets/icons/menuLight.svg';
+import CloseDark from '~/assets/icons/closeDark.svg';
+import CloseLight from '~/assets/icons/closeLight.svg';
 
-interface MobileHeaderProps {
-  theme: string;
-  goToHome: () => void;
-  handleChangeLanguage: (value: string) => void;
-  localesMap: Record<string, string>;
-  changeTheme: () => void;
-}
+interface MobileHeaderProps extends HeaderProps {}
 
 export const MobileHeader = ({ theme, goToHome, handleChangeLanguage, localesMap, changeTheme }: MobileHeaderProps) => {
   const {
@@ -40,15 +39,25 @@ export const MobileHeader = ({ theme, goToHome, handleChangeLanguage, localesMap
         <Logo src={theme === 'dark' ? LogoDark : LogoLight} alt='ZK Chain Hub' />
       </LogoContainer>
       <IconsContainer>
-        <SearchIconButton>
-          <Icon darkIcon={SearchDark} lightIcon={SearchLight} alt='Search' size={20} />
-        </SearchIconButton>
-        <IconButton onClick={toggleDrawer(true)} aria-label='open menu'>
-          <MenuIcon />
-        </IconButton>
+        <SIconButton>
+          {theme === 'dark' ? (
+            <Image src={SearchDark} alt='search-icon' />
+          ) : (
+            <Image src={SearchLight} alt='search-icon' />
+          )}
+        </SIconButton>
+        <SIconButton onClick={toggleDrawer(true)}>
+          {theme === 'dark' ? <Image src={MenuDark} alt='menu-icon' /> : <Image src={MenuLight} alt='menu-icon' />}
+        </SIconButton>
       </IconsContainer>
-      <Drawer anchor='right' open={drawerOpen} onClose={toggleDrawer(false)}>
+      <Menu anchor='right' open={drawerOpen} onClose={toggleDrawer(false)}>
         <DrawerContent>
+          <DrawerHeader>
+            <Typography>{t('HOME.menu')}</Typography>
+            <SIconButton onClick={toggleDrawer(false)} aria-label='close menu'>
+              <Image src={theme === 'dark' ? CloseDark : CloseLight} alt='close icon' />
+            </SIconButton>
+          </DrawerHeader>
           <List>
             <ListItem>
               <Gas />
@@ -71,58 +80,57 @@ export const MobileHeader = ({ theme, goToHome, handleChangeLanguage, localesMap
             </ListItem>
           </List>
         </DrawerContent>
-      </Drawer>
+      </Menu>
     </StyledHeader>
   );
 };
 
 export default MobileHeader;
 
-// Styled components
-const StyledHeader = styled('header')({
-  display: 'flex',
-  height: '5.5rem',
-  padding: '1rem',
-  alignItems: 'center',
-  justifyContent: 'space-between',
-  width: '100%',
-});
-
-const LogoContainer = styled(Box)({
-  display: 'flex',
-  alignItems: 'center',
-  height: '100%',
-  flexShrink: 0,
-});
-
-const Logo = styled(Image)({
-  width: '10rem',
-  height: 'auto',
-});
-
-const IconsContainer = styled(Box)({
-  display: 'flex',
-  alignItems: 'center',
-  gap: '1rem',
-});
-
-const SearchIconButton = styled(IconButton)({
-  padding: 0,
+const IconsContainer = styled(Box)(() => {
+  const { currentTheme } = useCustomTheme();
+  return {
+    display: 'flex',
+    alignItems: 'center',
+    gap: currentTheme.gap,
+  };
 });
 
 const SIconButton = styled(IconButton)(() => {
   const { currentTheme } = useCustomTheme();
   return {
-    color: `${currentTheme.textPrimary}`,
-    backgroundColor: `${currentTheme.backgroundSecondary}`,
-    borderRadius: `${currentTheme.borderRadius}`,
-    padding: '1rem',
+    color: currentTheme.textPrimary,
+    backgroundColor: currentTheme.backgroundSecondary,
+    borderRadius: currentTheme.borderRadius,
+    padding: currentTheme.padding,
     width: '3.5rem',
     height: '3.5rem',
   };
 });
 
-const DrawerContent = styled(Box)({
-  width: '250px',
-  padding: '1rem',
+const Menu = styled(Drawer)(() => {
+  return {
+    width: '100%',
+  };
 });
+
+const DrawerContent = styled(Box)(() => {
+  const { currentTheme } = useCustomTheme();
+  return {
+    width: '100%',
+    height: '100%',
+    backgroundColor: currentTheme.backgroundPrimary,
+    padding: currentTheme.padding,
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+  };
+});
+
+const DrawerHeader = styled(Box)(() => ({
+  width: '100%',
+  display: 'flex',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+  boxSizing: 'border-box',
+}));

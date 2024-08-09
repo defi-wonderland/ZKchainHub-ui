@@ -16,12 +16,12 @@ export const TvlContentBox = ({ avatar, token, total, tokenName, isLast }: TvlCo
       <TopBox>
         <TokenLogo src={avatar} alt={token} isLast={isLast || false} />
         <TextBox>
-          <TokenName>{tokenName}</TokenName>
-          <TokenTicker>{token}</TokenTicker>
+          <TokenName isLast={isLast || false}>{tokenName}</TokenName>
+          <TokenTicker isLast={isLast || false}>{token}</TokenTicker>
         </TextBox>
       </TopBox>
 
-      <TvlAmount isLast={isLast || false}>{formatDataNumber(total, 0, true)}</TvlAmount>
+      <TvlAmount isLast={isLast ? isLast : false}>{formatDataNumber(total, 0, true)}</TvlAmount>
     </ContentBox>
   );
 };
@@ -33,6 +33,7 @@ const ContentBox = styled(Box)({
   alignItems: 'flex-start',
   zIndex: 1,
   width: '100%',
+  height: '100%',
 });
 
 const TopBox = styled(Box)(() => {
@@ -54,32 +55,32 @@ const TokenLogo = styled(Avatar)<TvlProps>(({ isLast }) => ({
 }));
 
 const TvlAmount = styled(Typography)<TvlProps>(({ isLast }) => ({
-  fontSize: `${isLast ? '0.85rem' : '1rem'}`,
+  fontSize: `${isLast ? '0.75rem' : '0.875rem'}`,
   fontWeight: 400,
 }));
 
 const TextBox = styled(Box)(() => {
-  const { currentTheme } = useCustomTheme();
   return {
     display: 'flex',
     alignItems: 'center',
     flexWrap: 'wrap',
-    gap: currentTheme.gap,
   };
 });
 
-const TokenName = styled(Typography)({
-  fontSize: '0.85rem',
+const TokenName = styled(Typography)<TvlProps>(({ isLast }) => ({
+  fontSize: `${isLast ? '0.75rem' : '0.875rem'}`,
   fontWeight: 400,
   whiteSpace: 'nowrap',
-});
+  margin: '0',
+}));
 
-const TokenTicker = styled(Typography)(() => {
+const TokenTicker = styled(Typography)<TvlProps>(({ isLast }) => {
   const { currentTheme } = useCustomTheme();
   return {
-    fontSize: '0.85rem',
+    fontSize: `${isLast ? '0.75rem' : '0.875rem'}`,
     fontWeight: 400,
     color: currentTheme.textSecondary,
     whiteSpace: 'nowrap',
+    margin: '0',
   };
 });

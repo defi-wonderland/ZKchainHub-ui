@@ -55,11 +55,11 @@ const MobileTvlContainer = ({ tvl }: TotalValueLockedProps) => {
 
       {/* Fifth item: half width */}
       <Grid item container xs={12} spacing={0.5}>
-        {renderTvlContent(tvl[4], 4, '5rem', 6)}
+        {renderTvlContent(tvl[4], 4, '5rem', 6, true, true)}
 
-        {/* Sixth item: two-thirds width */}
+        {/* Sixth item: two-thirds width +  others remaining */}
         <Grid item container xs={6} spacing={0.5}>
-          {renderTvlContent(tvl[5], 5, '5rem', 9)}
+          {renderTvlContent(tvl[5], 5, '5rem', 9, true, true)}
           <Grid item xs={3}>
             <GridContainer height='5rem'>
               <OthersBox>
@@ -99,18 +99,23 @@ const DesktopTvlContainer = ({ tvl }: TotalValueLockedProps) => {
 
   return (
     <TvlContainer container spacing={0.5}>
+      {/* First item: full width */}
       {renderTvlContent(tvl[0], 0, '12rem', 12)}
 
       <Grid item container xs={12} spacing={0.5}>
+        {/* Second item: half width */}
         {renderTvlContent(tvl[1], 1, '12rem', 6)}
 
         <Grid item container xs={6} spacing={0.5}>
+          {/* Third and fourth items: one-third width each*/}
           {tvl.slice(2, 4).map((data, index) => renderTvlContent(data, index + 2, '12rem', 4, true))}
 
           <Grid item container xs={4} direction='column'>
+            {/* Fifth item: one-third width and half height */}
             {renderTvlContent(tvl[4], 4, '5.85rem', 6, true)}
 
             <Grid item container xs={6} spacing={0.5}>
+              {/* Sixth item: three-fourths width and halft height + others remaining width same height*/}
               {renderTvlContent(tvl[5], 5, '5.85rem', 9, true, true)}
               <Grid item xs={3}>
                 <GridContainer height='5.85rem'>
