@@ -4,8 +4,9 @@ import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
 import Image from 'next/image';
 
-import { useCustomTheme } from '~/hooks/useContext/useTheme';
+import { useCustomTheme, useStateContext } from '~/hooks';
 import { getConfig } from '~/config';
+import { SearchBar } from '~/components';
 import { MobileHeader } from './MobileHeader';
 import { DesktopHeader } from './DesktopHeader';
 
@@ -26,6 +27,7 @@ export const Header = () => {
     i18n: { changeLanguage },
   } = useTranslation();
   const router = useRouter();
+  const { isSearch } = useStateContext();
   const { locales, pathname, query } = router;
   const isMobile = useMediaQuery('(max-width:600px)');
 
@@ -51,7 +53,9 @@ export const Header = () => {
     router.push('/');
   };
 
-  return isMobile ? (
+  return isSearch ? (
+    <SearchBar />
+  ) : isMobile ? (
     <MobileHeader
       theme={theme}
       goToHome={goToHome}

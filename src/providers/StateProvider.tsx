@@ -9,6 +9,9 @@ type ContextType = {
 
   searchTerm: string;
   setSearchTerm: (val: string) => void;
+
+  isSearch: boolean;
+  setIsSearch: (val: boolean) => void;
 };
 
 interface StateProps {
@@ -21,6 +24,7 @@ export const StateProvider = ({ children }: StateProps) => {
   const [loading, setLoading] = useState<boolean>(false);
   const [isError, setIsError] = useState<boolean>(false);
   const [searchTerm, setSearchTerm] = useState<string>('');
+  const [isSearch, setIsSearch] = useState<boolean>(false);
 
   return (
     <StateContext.Provider
@@ -31,6 +35,8 @@ export const StateProvider = ({ children }: StateProps) => {
         setIsError,
         searchTerm,
         setSearchTerm,
+        isSearch,
+        setIsSearch,
       }}
     >
       {children}

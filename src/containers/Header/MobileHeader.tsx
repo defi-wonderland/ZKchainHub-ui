@@ -96,7 +96,7 @@ const IconsContainer = styled(Box)(() => {
   };
 });
 
-const SIconButton = styled(IconButton)(() => {
+export const SIconButton = styled(IconButton)(() => {
   const { currentTheme } = useCustomTheme();
   return {
     color: currentTheme.textPrimary,
