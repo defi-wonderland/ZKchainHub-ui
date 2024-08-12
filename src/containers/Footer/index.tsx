@@ -3,7 +3,6 @@ import { styled } from '@mui/material/styles';
 import { Box, Typography } from '@mui/material';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useMediaQuery } from '@mui/material';
 
 import WonderlandDark from '~/assets/icons/wonderlandDark.svg';
 import WonderlandLight from '~/assets/icons/wonderlandLight.svg';
@@ -41,17 +40,22 @@ export const Footer = () => {
   );
 };
 
-const FooterContainer = styled('footer')(() => {
+export const FooterContainer = styled('footer')(({ theme }) => {
   const { currentTheme } = useCustomTheme();
-  const isMobile = useMediaQuery('(max-width:600px)');
 
   return {
-    display: isMobile ? 'grid' : 'flex',
+    display: 'flex',
     padding: currentTheme.padding,
     alignItems: 'center',
-    justifyContent: isMobile ? 'center' : 'space-between',
+    justifyContent: 'space-between',
     width: '100%',
-    gap: isMobile ? '2rem' : '0',
+    gap: '0',
+
+    [theme.breakpoints.down('sm')]: {
+      display: 'grid',
+      justifyContent: 'center',
+      gap: '2rem',
+    },
   };
 });
 

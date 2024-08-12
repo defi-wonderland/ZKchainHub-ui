@@ -12,7 +12,12 @@ export const TotalValueLocked = ({ tvl }: TotalValueLockedProps) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
-  return isMobile ? <MobileTvlContainer tvl={tvl} /> : <DesktopTvlContainer tvl={tvl} />;
+  return (
+    <>
+      {isMobile && <MobileTvlContainer tvl={tvl} />}
+      {!isMobile && <DesktopTvlContainer tvl={tvl} />}
+    </>
+  );
 };
 
 const MobileTvlContainer = ({ tvl }: TotalValueLockedProps) => {

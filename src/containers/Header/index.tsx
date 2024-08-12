@@ -53,24 +53,28 @@ export const Header = () => {
     router.push('/');
   };
 
-  return isSearch ? (
-    <SearchBar />
-  ) : isMobile ? (
-    <MobileHeader
-      theme={theme}
-      goToHome={goToHome}
-      handleChangeLanguage={handleChangeLanguage}
-      localesMap={localesMap}
-      changeTheme={changeTheme}
-    />
-  ) : (
-    <DesktopHeader
-      theme={theme}
-      goToHome={goToHome}
-      handleChangeLanguage={handleChangeLanguage}
-      localesMap={localesMap}
-      changeTheme={changeTheme}
-    />
+  return (
+    <>
+      {isSearch && <SearchBar />}
+      {isMobile && !isSearch && (
+        <MobileHeader
+          theme={theme}
+          goToHome={goToHome}
+          handleChangeLanguage={handleChangeLanguage}
+          localesMap={localesMap}
+          changeTheme={changeTheme}
+        />
+      )}
+      {!isMobile && !isSearch && (
+        <DesktopHeader
+          theme={theme}
+          goToHome={goToHome}
+          handleChangeLanguage={handleChangeLanguage}
+          localesMap={localesMap}
+          changeTheme={changeTheme}
+        />
+      )}
+    </>
   );
 };
 

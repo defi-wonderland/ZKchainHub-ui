@@ -1,6 +1,5 @@
 import { Grid, Typography, styled, Box } from '@mui/material';
 import { useTranslation } from 'next-i18next';
-import { useMediaQuery } from '@mui/material';
 
 import { InfoBox } from '~/components';
 import { useData, useCustomTheme } from '~/hooks';
@@ -100,16 +99,19 @@ export const ChainInformation = () => {
   );
 };
 
-export const DataContainer = styled(Box)(() => {
+export const DataContainer = styled(Box)(({ theme: muiTheme }) => {
   const { currentTheme, theme } = useCustomTheme();
-  const isMobile = useMediaQuery('(max-width:600px)');
 
   return {
     background: theme === 'dark' ? currentTheme.backgroundTertiary : currentTheme.backgroundSecondary,
     borderRadius: currentTheme.borderRadius,
     border: currentTheme.border,
     display: 'grid',
-    gridTemplateColumns: isMobile ? 'repeat(1, 1fr)' : 'repeat(4, 1fr)',
+    gridTemplateColumns: 'repeat(4, 1fr)',
+
+    [muiTheme.breakpoints.down('sm')]: {
+      gridTemplateColumns: 'repeat(1, 1fr)',
+    },
   };
 });
 
