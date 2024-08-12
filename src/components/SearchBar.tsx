@@ -1,5 +1,5 @@
 import { useTranslation } from 'next-i18next';
-import { styled, TextField, InputAdornment } from '@mui/material';
+import { styled, TextField, InputAdornment, Box } from '@mui/material';
 import Image from 'next/image';
 
 import SearchDark from '~/assets/icons/searchDark.svg';
@@ -20,7 +20,7 @@ export const SearchBar = () => {
     setSearchTerm(value);
   };
   return (
-    <>
+    <SearchContainer>
       <StyledTextField
         variant='outlined'
         value={searchTerm}
@@ -36,15 +36,28 @@ export const SearchBar = () => {
         }}
       />
       {isSearch && (
-        <>
-          <SIconButton onClick={() => setIsSearch(false)} aria-label='close-search'>
-            <Image src={theme === 'dark' ? CloseDark : CloseLight} alt='close icon' />
-          </SIconButton>
-        </>
+        <SIconButton onClick={() => setIsSearch(false)} aria-label='close-search'>
+          <Image src={theme === 'dark' ? CloseDark : CloseLight} alt='close icon' />
+        </SIconButton>
       )}
-    </>
+    </SearchContainer>
   );
 };
+
+const SearchContainer = styled(Box)(() => {
+  const { currentTheme } = useCustomTheme();
+  const { isSearch } = useStateContext();
+
+  return {
+    display: 'flex',
+    ...(isSearch && {
+      width: '100%',
+      padding: currentTheme.padding,
+      justifyContent: 'space-between',
+      gap: currentTheme.gap,
+    }),
+  };
+});
 
 const StyledTextField = styled(TextField)(() => {
   const { theme, currentTheme } = useCustomTheme();
@@ -72,7 +85,8 @@ const StyledTextField = styled(TextField)(() => {
         border: 'none',
       },
       '&.Mui-focused fieldset': {
-        border: 'none',
+        border: `0.0625rem solid ${currentTheme.textPrimary}`,
+        borderRadius: currentTheme.borderRadius,
       },
     },
   };
