@@ -1,4 +1,4 @@
-import { Avatar, Box, Button, Typography, styled, useMediaQuery } from '@mui/material';
+import { Avatar, Box, Button, Typography, styled } from '@mui/material';
 import { useTranslation } from 'next-i18next';
 import Image from 'next/image';
 
@@ -100,29 +100,31 @@ const MetadataContainer = styled(Box)(() => {
   };
 });
 
-const FirstRow = styled(Box)(() => {
-  const isMobile = useMediaQuery('(max-width:600px)');
+const FirstRow = styled(Box)(({ theme }) => ({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+  padding: '1.5rem 1rem',
+  [theme.breakpoints.down('sm')]: {
+    display: 'grid',
+  },
+}));
 
-  return {
-    display: isMobile ? 'grid' : 'flex',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    padding: '1.5rem 1rem',
-  };
-});
-
-const SecondRow = styled(Box)(() => {
+const SecondRow = styled(Box)(({ theme }) => {
   const { currentTheme } = useCustomTheme();
-  const isMobile = useMediaQuery('(max-width:600px)');
 
   return {
-    display: isMobile ? 'grid' : 'flex',
+    display: 'flex',
     alignItems: 'center',
-    justifyContent: isMobile ? 'space-between' : 'flex-start',
+    justifyContent: 'flex-start',
     gap: currentTheme.gap,
-    gridTemplateColumns: isMobile ? 'repeat(2, 1fr)' : 'none',
     width: '100%',
     borderTop: currentTheme.border,
+    [theme.breakpoints.down('sm')]: {
+      display: 'grid',
+      justifyContent: 'space-between',
+      gridTemplateColumns: 'repeat(2, 1fr)',
+    },
   };
 });
 
@@ -184,17 +186,21 @@ const WebIcon = styled(Image)({
   height: '1.25rem',
 });
 
-const ButtonsContainer = styled(Box)(() => {
+const ButtonsContainer = styled(Box)(({ theme }) => {
   const { currentTheme } = useCustomTheme();
-  const isMobile = useMediaQuery('(max-width:600px)');
 
   return {
-    display: isMobile ? 'grid' : 'flex',
+    display: 'flex',
     alignItems: 'center',
-    justifyContent: isMobile ? 'space-between' : 'flex-end',
+    justifyContent: 'flex-end',
     gap: currentTheme.gap,
-    gridTemplateColumns: isMobile ? 'repeat(2, 1fr)' : 'none',
-    marginTop: isMobile ? '1rem' : 0,
+    marginTop: 0,
+    [theme.breakpoints.down('sm')]: {
+      display: 'grid',
+      justifyContent: 'space-between',
+      gridTemplateColumns: 'repeat(2, 1fr)',
+      marginTop: '1rem',
+    },
   };
 });
 

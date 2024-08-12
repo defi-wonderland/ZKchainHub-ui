@@ -1,5 +1,5 @@
 import { useTranslation } from 'next-i18next';
-import { Box, Typography, styled, useMediaQuery } from '@mui/material';
+import { Box, Typography, styled } from '@mui/material';
 import Image from 'next/image';
 
 import ZkLogoDark from '~/assets/icons/zkLogoDark.svg';
@@ -22,18 +22,22 @@ export const TitleBanner = () => {
   );
 };
 
-const TitleBox = styled(Box)(() => {
+const TitleBox = styled(Box)(({ theme }) => {
   const { currentTheme } = useCustomTheme();
-  const isMobile = useMediaQuery('(max-width:600px)');
 
   return {
-    display: isMobile ? 'grid' : 'flex',
-    gridTemplateColumns: isMobile ? 'auto 1fr' : 'none',
+    display: 'flex',
     alignItems: 'center',
     alignSelf: 'flex-start',
     gap: currentTheme.gap,
-    justifyContent: isMobile ? 'start' : 'center',
-    textAlign: isMobile ? 'left' : 'center',
+    justifyContent: 'center',
+    textAlign: 'center',
+    [theme.breakpoints.down('sm')]: {
+      display: 'grid',
+      gridTemplateColumns: 'auto 1fr',
+      justifyContent: 'start',
+      textAlign: 'left',
+    },
   };
 });
 
@@ -48,14 +52,15 @@ const Bold = styled('span')({
   fontWeight: 700,
 });
 
-const Subtitle = styled(Typography)(() => {
-  const isMobile = useMediaQuery('(max-width:600px)');
-
+const Subtitle = styled(Typography)(({ theme }) => {
   return {
     fontSize: '3rem',
     fontWeight: 700,
     lineHeight: '4rem',
     letterSpacing: '-0.03em',
-    gridColumn: isMobile ? 'span 2' : 'auto',
+    gridColumn: 'auto',
+    [theme.breakpoints.down('sm')]: {
+      gridColumn: 'span 2',
+    },
   };
 });

@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
 import Image from 'next/image';
 
-import { useCustomTheme } from '~/hooks/useContext/useTheme';
+import { useCustomTheme } from '~/hooks';
 import { getConfig } from '~/config';
 import { MobileHeader } from './MobileHeader';
 import { DesktopHeader } from './DesktopHeader';
@@ -51,22 +51,27 @@ export const Header = () => {
     router.push('/');
   };
 
-  return isMobile ? (
-    <MobileHeader
-      theme={theme}
-      goToHome={goToHome}
-      handleChangeLanguage={handleChangeLanguage}
-      localesMap={localesMap}
-      changeTheme={changeTheme}
-    />
-  ) : (
-    <DesktopHeader
-      theme={theme}
-      goToHome={goToHome}
-      handleChangeLanguage={handleChangeLanguage}
-      localesMap={localesMap}
-      changeTheme={changeTheme}
-    />
+  return (
+    <>
+      {isMobile && (
+        <MobileHeader
+          theme={theme}
+          goToHome={goToHome}
+          handleChangeLanguage={handleChangeLanguage}
+          localesMap={localesMap}
+          changeTheme={changeTheme}
+        />
+      )}
+      {!isMobile && (
+        <DesktopHeader
+          theme={theme}
+          goToHome={goToHome}
+          handleChangeLanguage={handleChangeLanguage}
+          localesMap={localesMap}
+          changeTheme={changeTheme}
+        />
+      )}
+    </>
   );
 };
 
