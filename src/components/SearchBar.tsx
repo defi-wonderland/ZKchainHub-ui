@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 import SearchDark from '~/assets/icons/searchDark.svg';
 import SearchLight from '~/assets/icons/searchLight.svg';
-import { useCustomTheme, useStateContext } from '~/hooks';
+import { useCustomTheme, useSearchContext } from '~/hooks';
 import { SIconButton } from '~/containers';
 
 import CloseDark from '~/assets/icons/closeDark.svg';
@@ -12,13 +12,14 @@ import CloseLight from '~/assets/icons/closeLight.svg';
 
 export const SearchBar = () => {
   const { t } = useTranslation();
-  const { searchTerm, setSearchTerm, setIsSearch, isSearch } = useStateContext();
+  const { searchTerm, setSearchTerm, setIsSearch, isSearch, handleSearchOn } = useSearchContext();
   const { theme } = useCustomTheme();
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
     setSearchTerm(value);
   };
+
   return (
     <SearchContainer>
       <StyledTextField
@@ -26,7 +27,7 @@ export const SearchBar = () => {
         value={searchTerm}
         onChange={handleChange}
         placeholder={t('HOME.DASHBOARD.search')}
-        onClick={() => setIsSearch(true)}
+        onClick={handleSearchOn}
         InputProps={{
           startAdornment: (
             <InputAdornment position='start'>
@@ -46,7 +47,7 @@ export const SearchBar = () => {
 
 const SearchContainer = styled(Box)(() => {
   const { currentTheme } = useCustomTheme();
-  const { isSearch } = useStateContext();
+  const { isSearch } = useSearchContext();
 
   return {
     display: 'flex',
@@ -61,7 +62,7 @@ const SearchContainer = styled(Box)(() => {
 
 const StyledTextField = styled(TextField)(() => {
   const { theme, currentTheme } = useCustomTheme();
-  const { isSearch } = useStateContext();
+  const { isSearch } = useSearchContext();
 
   return {
     width: isSearch ? '95%' : '15rem',

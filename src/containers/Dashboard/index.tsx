@@ -1,13 +1,13 @@
 import { useTranslation } from 'next-i18next';
 
 import { NotFound, DataTable, Title } from '~/components';
-import { useData, useStateContext } from '~/hooks';
+import { useData, useSearchContext } from '~/hooks';
 import { StyledSection } from '~/containers';
 
 export const Dashboard = () => {
   const { t } = useTranslation();
   const { ecosystemData } = useData();
-  const { searchTerm } = useStateContext();
+  const { searchTerm } = useSearchContext();
 
   const filteredChains = ecosystemData?.zkChains.filter((chain) => {
     const chainIdStr = String(chain.chainId);

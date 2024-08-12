@@ -6,7 +6,7 @@ export const useCustomTheme = () => {
   const context = useContext(ThemeContext);
 
   if (context === undefined) {
-    throw new Error('useTheme must be used within a StateProvider');
+    throw new Error('useTheme must be used within a ThemeProvider');
   }
 
   return context;
