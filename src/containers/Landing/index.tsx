@@ -3,20 +3,13 @@ import { useMediaQuery } from '@mui/material';
 
 import { Dashboard, LockedAssets } from '~/containers';
 import { TitleBanner } from '~/components';
-import { useStateContext } from '~/hooks';
 
 export const Landing = () => {
-  const { isSearch } = useStateContext();
   return (
     <LandingContainer>
-      {isSearch && <Dashboard />}
-      {!isSearch && (
-        <>
-          <TitleBanner />
-          <LockedAssets />
-          <Dashboard />
-        </>
-      )}
+      <TitleBanner />
+      <LockedAssets />
+      <Dashboard />
     </LandingContainer>
   );
 };
