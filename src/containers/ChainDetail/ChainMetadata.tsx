@@ -92,6 +92,7 @@ export const ChainMetadata = () => {
 
 const MetadataContainer = styled(Box)(() => {
   const { currentTheme, theme } = useCustomTheme();
+
   return {
     background: theme === 'dark' ? currentTheme.backgroundTertiary : currentTheme.backgroundSecondary,
     borderRadius: currentTheme.borderRadius,
@@ -99,21 +100,31 @@ const MetadataContainer = styled(Box)(() => {
   };
 });
 
-const FirstRow = styled(Box)(() => {
+const FirstRow = styled(Box)(({ theme }) => ({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+  padding: '1.5rem 1rem',
+  [theme.breakpoints.down('sm')]: {
+    display: 'grid',
+  },
+}));
+
+const SecondRow = styled(Box)(({ theme }) => {
+  const { currentTheme } = useCustomTheme();
+
   return {
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'space-between',
-    padding: '1.5rem 1rem',
-  };
-});
-
-const SecondRow = styled(Box)(() => {
-  const { currentTheme } = useCustomTheme();
-  return {
-    display: 'flex',
+    justifyContent: 'flex-start',
+    gap: currentTheme.gap,
     width: '100%',
     borderTop: currentTheme.border,
+    [theme.breakpoints.down('sm')]: {
+      display: 'grid',
+      justifyContent: 'space-between',
+      gridTemplateColumns: 'repeat(2, 1fr)',
+    },
   };
 });
 
@@ -127,6 +138,7 @@ const ChainIdentity = styled(Box)(() => {
 
 const MetadataButton = styled(Button)(() => {
   const { currentTheme, theme } = useCustomTheme();
+
   return {
     background: theme === 'dark' ? currentTheme.backgroundSecondary : currentTheme.backgroundTertiary,
     borderRadius: currentTheme.borderRadius,
@@ -146,6 +158,7 @@ const MetadataButton = styled(Button)(() => {
 
 const AddNetworkBtn = styled(Button)(() => {
   const { currentTheme } = useCustomTheme();
+
   return {
     background: currentTheme.primary[500],
     borderRadius: currentTheme.borderRadius,
@@ -173,18 +186,27 @@ const WebIcon = styled(Image)({
   height: '1.25rem',
 });
 
-const ButtonsContainer = styled(Box)(() => {
+const ButtonsContainer = styled(Box)(({ theme }) => {
   const { currentTheme } = useCustomTheme();
+
   return {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'flex-end',
     gap: currentTheme.gap,
+    marginTop: 0,
+    [theme.breakpoints.down('sm')]: {
+      display: 'grid',
+      justifyContent: 'space-between',
+      gridTemplateColumns: 'repeat(2, 1fr)',
+      marginTop: '1rem',
+    },
   };
 });
 
 export const ChainName = styled(Box)(() => {
   const { currentTheme } = useCustomTheme();
+
   return {
     fontSize: '1.5rem',
     fontWeight: 700,
@@ -195,6 +217,7 @@ export const ChainName = styled(Box)(() => {
 
 export const ChainId = styled(Box)(() => {
   const { currentTheme } = useCustomTheme();
+
   return {
     fontSize: '1rem',
     fontWeight: 400,
@@ -205,6 +228,7 @@ export const ChainId = styled(Box)(() => {
 
 export const ChainIdValue = styled('span')(() => {
   const { currentTheme } = useCustomTheme();
+
   return {
     color: currentTheme.textPrimary,
   };
@@ -212,6 +236,7 @@ export const ChainIdValue = styled('span')(() => {
 
 const MetadataItem = styled(Box)(() => {
   const { currentTheme } = useCustomTheme();
+
   return {
     display: 'flex',
     alignItems: 'center',
@@ -227,6 +252,7 @@ const MetadataItem = styled(Box)(() => {
 
 const Label = styled(Typography)(() => {
   const { currentTheme } = useCustomTheme();
+
   return {
     fontSize: '0.875rem',
     lineHeight: '1.25rem',
@@ -237,6 +263,7 @@ const Label = styled(Typography)(() => {
 
 const Value = styled(Typography)(() => {
   const { currentTheme } = useCustomTheme();
+
   return {
     fontSize: '1rem',
     lineHeight: '1.5rem',

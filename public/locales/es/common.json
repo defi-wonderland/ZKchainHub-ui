@@ -5,6 +5,7 @@
     "gasPrice": "Precio del gas L1",
     "transfer": "Transferencia ERC-20",
     "home": "Inicio",
+    "menu": "Menú",
     "LOCKEDASSETS": {
       "lockedAssets": "Activos bloqueados",
       "lockedAssetsDescription": "Activos bloqueados en el ecosistema de Elastic Chain",

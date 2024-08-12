@@ -13,14 +13,17 @@ export const Landing = () => {
   );
 };
 
-const LandingContainer = styled('main')({
+const LandingContainer = styled('main')(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
-  padding: '0 8rem',
+  padding: '0 7rem',
   alignItems: 'center',
   justifyContent: 'center',
   width: '100%',
   gap: '4rem',
   marginTop: '4rem',
   marginBottom: '4rem',
-});
+  [theme.breakpoints.down('sm')]: {
+    padding: '0 1rem',
+  },
+}));

@@ -2,6 +2,7 @@ import { useTranslation } from 'next-i18next';
 
 import { NotFound, DataTable, Title } from '~/components';
 import { useData, useStateContext } from '~/hooks';
+import { StyledSection } from '~/containers';
 
 export const Dashboard = () => {
   const { t } = useTranslation();
@@ -22,13 +23,13 @@ export const Dashboard = () => {
   const availableChains = filteredChains?.length > 0;
 
   return (
-    <section>
+    <StyledSection>
       <header>
         <Title title={t('HOME.DASHBOARD.title')} />
       </header>
 
       {availableChains && <DataTable chains={filteredChains} />}
       {!availableChains && <NotFound text={t('HOME.DASHBOARD.notFound')} />}
-    </section>
+    </StyledSection>
   );
 };

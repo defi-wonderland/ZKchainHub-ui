@@ -78,7 +78,7 @@ export const DataTable = ({ chains }: TableProps) => {
 export const STableContainer = styled(TableContainer)(() => {
   const { currentTheme } = useCustomTheme();
   return {
-    width: '75rem',
+    width: '100%',
     borderRadius: currentTheme.borderRadius,
     border: currentTheme.border,
     overflow: 'hidden',

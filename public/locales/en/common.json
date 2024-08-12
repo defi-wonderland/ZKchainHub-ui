@@ -5,6 +5,7 @@
     "gasPrice": "L1 Gas Price",
     "transfer": "ERC-20 Transfer",
     "home": "Home",
+    "menu": "Menu",
     "LOCKEDASSETS": {
       "lockedAssets": "Locked assets",
       "lockedAssetsDescription": "Locked assets in Elastic Chain Ecosystem",

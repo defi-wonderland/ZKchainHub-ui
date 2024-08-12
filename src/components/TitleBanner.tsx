@@ -22,7 +22,7 @@ export const TitleBanner = () => {
   );
 };
 
-const TitleBox = styled(Box)(() => {
+const TitleBox = styled(Box)(({ theme }) => {
   const { currentTheme } = useCustomTheme();
 
   return {
@@ -30,6 +30,14 @@ const TitleBox = styled(Box)(() => {
     alignItems: 'center',
     alignSelf: 'flex-start',
     gap: currentTheme.gap,
+    justifyContent: 'center',
+    textAlign: 'center',
+    [theme.breakpoints.down('sm')]: {
+      display: 'grid',
+      gridTemplateColumns: 'auto 1fr',
+      justifyContent: 'start',
+      textAlign: 'left',
+    },
   };
 });
 
@@ -44,9 +52,15 @@ const Bold = styled('span')({
   fontWeight: 700,
 });
 
-const Subtitle = styled(Typography)(() => ({
-  fontSize: '3rem',
-  fontWeight: 700,
-  lineHeight: '4rem',
-  letterSpacing: '-0.03em',
-}));
+const Subtitle = styled(Typography)(({ theme }) => {
+  return {
+    fontSize: '3rem',
+    fontWeight: 700,
+    lineHeight: '4rem',
+    letterSpacing: '-0.03em',
+    gridColumn: 'auto',
+    [theme.breakpoints.down('sm')]: {
+      gridColumn: 'span 2',
+    },
+  };
+});

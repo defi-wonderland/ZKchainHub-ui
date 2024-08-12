@@ -7,20 +7,26 @@ import { Breadcrumb } from '~/components';
 export const ChainDetail = () => {
   return (
     <ChainContainer>
-      <Breadcrumb isChain={true} />
-      <ChainMetadata />
+      <Box>
+        <Breadcrumb isChain={true} />
+        <ChainMetadata />
+      </Box>
+
       <ChainDescription />
     </ChainContainer>
   );
 };
 
-const ChainContainer = styled(Box)(() => {
-  return {
-    width: '85%',
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '4rem',
-    marginTop: '4rem',
-    marginBottom: '4rem',
-  };
-});
+export const ChainContainer = styled(Box)(({ theme }) => ({
+  width: '100%',
+  padding: '0 7rem',
+  display: 'flex',
+  flexDirection: 'column',
+  gap: '4rem',
+  marginTop: '4rem',
+  marginBottom: '4rem',
+
+  [theme.breakpoints.down('sm')]: {
+    padding: '0 1rem',
+  },
+}));

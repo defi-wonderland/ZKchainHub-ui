@@ -40,16 +40,22 @@ export const Footer = () => {
   );
 };
 
-const FooterContainer = styled('footer')(() => {
+export const FooterContainer = styled('footer')(({ theme }) => {
   const { currentTheme } = useCustomTheme();
 
   return {
     display: 'flex',
-    height: '5.5rem',
     padding: currentTheme.padding,
     alignItems: 'center',
     justifyContent: 'space-between',
     width: '100%',
+    gap: '0',
+
+    [theme.breakpoints.down('sm')]: {
+      display: 'grid',
+      justifyContent: 'center',
+      gap: '2rem',
+    },
   };
 });
 

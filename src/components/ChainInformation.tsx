@@ -99,14 +99,19 @@ export const ChainInformation = () => {
   );
 };
 
-export const DataContainer = styled(Box)(() => {
+export const DataContainer = styled(Box)(({ theme: muiTheme }) => {
   const { currentTheme, theme } = useCustomTheme();
+
   return {
     background: theme === 'dark' ? currentTheme.backgroundTertiary : currentTheme.backgroundSecondary,
     borderRadius: currentTheme.borderRadius,
     border: currentTheme.border,
     display: 'grid',
     gridTemplateColumns: 'repeat(4, 1fr)',
+
+    [muiTheme.breakpoints.down('sm')]: {
+      gridTemplateColumns: 'repeat(1, 1fr)',
+    },
   };
 });
 
