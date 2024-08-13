@@ -21,22 +21,21 @@ export const Dashboard = () => {
 
   const availableChains = filteredChains?.length > 0;
 
+  const showResults = isSearch && availableChains && searchTerm;
+  const enterSearchTerm = isSearch && !searchTerm;
+
   return (
     <DashboardContainer>
       <header>
         {!isSearch && <h2>{t('HOME.DASHBOARD.title')}</h2>}
 
-        {isSearch && availableChains && (
-          <>
-            {searchTerm ? (
-              <SearchLabel>{`${t(
-                'HOME.DASHBOARD.searchResults',
-              )} '${searchTerm}' (${filteredChains?.length})`}</SearchLabel>
-            ) : (
-              <SearchLabel>{t('HOME.DASHBOARD.enterSearchTerm')}</SearchLabel>
-            )}
-          </>
+        {showResults && (
+          <SearchLabel>{`${t(
+            'HOME.DASHBOARD.searchResults',
+          )} '${searchTerm}' (${filteredChains?.length})`}</SearchLabel>
         )}
+
+        {enterSearchTerm && <SearchLabel>{t('HOME.DASHBOARD.enterSearchTerm')}</SearchLabel>}
       </header>
 
       {availableChains && <DataTable chains={filteredChains} />}
