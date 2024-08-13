@@ -1,18 +1,27 @@
 import { Box, styled } from '@mui/material';
 
+import { useData } from '~/hooks';
 import { ChainMetadata } from './ChainMetadata';
 import { ChainDescription } from './ChainDescription';
+import { SkeletonChainDetail } from './SkeletonChainDetail';
 import { Breadcrumb } from '~/components';
 
 export const ChainDetail = () => {
+  const { isChainLoading } = useData();
+
   return (
     <ChainContainer>
-      <Box>
-        <Breadcrumb isChain={true} />
-        <ChainMetadata />
-      </Box>
+      {isChainLoading && <SkeletonChainDetail />}
+      {!isChainLoading && (
+        <>
+          <Box>
+            <Breadcrumb isChain={true} />
+            <ChainMetadata />
+          </Box>
 
-      <ChainDescription />
+          <ChainDescription />
+        </>
+      )}
     </ChainContainer>
   );
 };
