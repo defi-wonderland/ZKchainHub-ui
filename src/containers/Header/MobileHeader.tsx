@@ -26,7 +26,7 @@ export const MobileHeader = ({ theme, goToHome, handleChangeLanguage, localesMap
     t,
     i18n: { language },
   } = useTranslation();
-  const { handleSearchOn } = useSearchContext();
+  const { navigateToSearch } = useSearchContext();
 
   const [drawerOpen, setDrawerOpen] = React.useState(false);
 
@@ -40,7 +40,7 @@ export const MobileHeader = ({ theme, goToHome, handleChangeLanguage, localesMap
         <Logo src={theme === 'dark' ? LogoDark : LogoLight} alt='ZK Chain Hub' />
       </LogoContainer>
       <IconsContainer>
-        <SIconButton onClick={handleSearchOn}>
+        <SIconButton onClick={navigateToSearch}>
           {theme === 'dark' ? (
             <Image src={SearchDark} alt='search-icon' />
           ) : (
