@@ -6,7 +6,7 @@ import Image from 'next/image';
 
 import { StyledHeader, LogoContainer, Logo, HeaderProps } from '~/containers';
 import { BasicSelect, Gas } from '~/components';
-import { useCustomTheme } from '~/hooks';
+import { useCustomTheme, useSearchContext } from '~/hooks';
 
 import LogoDark from '~/assets/icons/logoDark.svg';
 import LogoLight from '~/assets/icons/logoLight.svg';
@@ -26,6 +26,7 @@ export const MobileHeader = ({ theme, goToHome, handleChangeLanguage, localesMap
     t,
     i18n: { language },
   } = useTranslation();
+  const { navigateToSearch } = useSearchContext();
 
   const [drawerOpen, setDrawerOpen] = React.useState(false);
 
@@ -39,7 +40,7 @@ export const MobileHeader = ({ theme, goToHome, handleChangeLanguage, localesMap
         <Logo src={theme === 'dark' ? LogoDark : LogoLight} alt='ZK Chain Hub' />
       </LogoContainer>
       <IconsContainer>
-        <SIconButton>
+        <SIconButton onClick={navigateToSearch}>
           {theme === 'dark' ? (
             <Image src={SearchDark} alt='search-icon' />
           ) : (
@@ -96,7 +97,7 @@ const IconsContainer = styled(Box)(() => {
   };
 });
 
-const SIconButton = styled(IconButton)(() => {
+export const SIconButton = styled(IconButton)(() => {
   const { currentTheme } = useCustomTheme();
   return {
     color: currentTheme.textPrimary,

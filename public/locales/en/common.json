@@ -6,6 +6,7 @@
     "transfer": "ERC-20 Transfer",
     "home": "Home",
     "menu": "Menu",
+    "search": "Search",
     "LOCKEDASSETS": {
       "lockedAssets": "Locked assets",
       "lockedAssetsDescription": "Locked assets in Elastic Chain Ecosystem",
@@ -20,9 +21,11 @@
       "tvl": "TVL (L1)",
       "type": "Type",
       "search": "Search (Chain)",
-      "notFound": "Chain not found",
       "noRPC": "No RPC",
-      "noMetadata": "No Metadata"
+      "noMetadata": "No Metadata",
+      "searchResults": "Search results",
+      "enterSearchTerm": "Enter the name or chain ID",
+      "notFound": "No results found"
     }
   },
   "CHAIN": {

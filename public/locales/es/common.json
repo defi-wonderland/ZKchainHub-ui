@@ -6,6 +6,7 @@
     "transfer": "Transferencia ERC-20",
     "home": "Inicio",
     "menu": "Menú",
+    "search": "Búsqueda",
     "LOCKEDASSETS": {
       "lockedAssets": "Activos bloqueados",
       "lockedAssetsDescription": "Activos bloqueados en el ecosistema de Elastic Chain",
@@ -20,9 +21,11 @@
       "tvl": "TVL (L1)",
       "type": "Tipo",
       "search": "Buscar (Cadena)",
-      "notFound": "Cadena no encontrada",
       "noRPC": "Sin RPC",
-      "noMetadata": "Sin Metadata"
+      "noMetadata": "Sin Metadata",
+      "searchResults": "Resultados de la búsqueda",
+      "enterSearchTerm": "Ingrese el nombre o ID de la cadena",
+      "notFound": "No se encontraron resultados"
     }
   },
   "CHAIN": {

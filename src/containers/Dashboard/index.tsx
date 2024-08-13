@@ -1,19 +1,18 @@
 import { useTranslation } from 'next-i18next';
+import { Typography, styled } from '@mui/material';
 
-import { NotFound, DataTable, Title } from '~/components';
-import { useData, useStateContext } from '~/hooks';
-import { StyledSection } from '~/containers';
+import { DataTable } from '~/components';
+import { useData, useSearchContext, useCustomTheme } from '~/hooks';
 
 export const Dashboard = () => {
   const { t } = useTranslation();
   const { ecosystemData } = useData();
-  const { searchTerm } = useStateContext();
+  const { searchTerm, isSearch } = useSearchContext();
 
   const filteredChains = ecosystemData?.zkChains.filter((chain) => {
     const chainIdStr = String(chain.chainId);
     const formattedSearchTerm = String(searchTerm).toLowerCase();
 
-    // Check if either chain name or chain ID matches the search term
     const matchesName = chain.chainName.toLowerCase().includes(formattedSearchTerm);
     const matchesId = chainIdStr.includes(formattedSearchTerm);
 
@@ -22,14 +21,53 @@ export const Dashboard = () => {
 
   const availableChains = filteredChains?.length > 0;
 
+  const showResults = isSearch && availableChains && searchTerm;
+  const enterSearchTerm = isSearch && !searchTerm;
+
   return (
-    <StyledSection>
+    <DashboardContainer>
       <header>
-        <Title title={t('HOME.DASHBOARD.title')} />
+        {!isSearch && <h2>{t('HOME.DASHBOARD.title')}</h2>}
+
+        {showResults && (
+          <SearchLabel>{`${t(
+            'HOME.DASHBOARD.searchResults',
+          )} '${searchTerm}' (${filteredChains?.length})`}</SearchLabel>
+        )}
+
+        {enterSearchTerm && <SearchLabel>{t('HOME.DASHBOARD.enterSearchTerm')}</SearchLabel>}
       </header>
 
       {availableChains && <DataTable chains={filteredChains} />}
-      {!availableChains && <NotFound text={t('HOME.DASHBOARD.notFound')} />}
-    </StyledSection>
+      {!availableChains && <SearchLabel>{t('HOME.DASHBOARD.notFound')}</SearchLabel>}
+    </DashboardContainer>
   );
 };
+
+const DashboardContainer = styled('section')(({ theme }) => {
+  const { isSearch } = useSearchContext();
+
+  return {
+    width: '100%',
+    ...(isSearch && {
+      padding: '0 7rem',
+      minHeight: 'calc(100vh - 11rem)',
+      [theme.breakpoints.down('sm')]: {
+        padding: '0 1rem',
+      },
+    }),
+  };
+});
+
+const SearchLabel = styled(Typography)(() => {
+  const { currentTheme } = useCustomTheme();
+
+  return {
+    color: currentTheme.textPrimary,
+    fontSize: '1rem',
+    fontWeight: 400,
+    lineHeight: '1.5rem',
+    textAlign: 'center',
+    margin: '1.5rem 0',
+  };
+});

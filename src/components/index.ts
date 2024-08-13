@@ -11,7 +11,6 @@ export * from './RPC';
 export * from './TVL';
 export * from './ChainInformation';
 export * from './BasicSelect';
-export * from './NotFound';
 export * from './Gas';
 export * from './TvlContentBox';
 export * from './Breadcrumb';

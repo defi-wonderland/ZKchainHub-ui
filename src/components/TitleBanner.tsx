@@ -1,5 +1,5 @@
 import { useTranslation } from 'next-i18next';
-import { Box, Typography, styled } from '@mui/material';
+import { Box, Typography, styled, useMediaQuery } from '@mui/material';
 import Image from 'next/image';
 
 import ZkLogoDark from '~/assets/icons/zkLogoDark.svg';
@@ -24,9 +24,11 @@ export const TitleBanner = () => {
 
 const TitleBox = styled(Box)(({ theme }) => {
   const { currentTheme } = useCustomTheme();
+  const isMobile = useMediaQuery('(max-width:600px)');
 
   return {
-    display: 'flex',
+    display: isMobile ? 'grid' : 'flex',
+    gridTemplateColumns: isMobile ? 'auto 1fr' : 'none',
     alignItems: 'center',
     alignSelf: 'flex-start',
     gap: currentTheme.gap,
