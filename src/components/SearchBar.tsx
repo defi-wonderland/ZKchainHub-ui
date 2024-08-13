@@ -12,7 +12,7 @@ import CloseLight from '~/assets/icons/closeLight.svg';
 
 export const SearchBar = () => {
   const { t } = useTranslation();
-  const { searchTerm, setSearchTerm, setIsSearch, isSearch, handleSearchOn } = useSearchContext();
+  const { searchTerm, setSearchTerm, closeSearch, isSearch, navigateToSearch } = useSearchContext();
   const { theme } = useCustomTheme();
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -27,7 +27,7 @@ export const SearchBar = () => {
         value={searchTerm}
         onChange={handleChange}
         placeholder={t('HOME.DASHBOARD.search')}
-        onClick={handleSearchOn}
+        onClick={navigateToSearch}
         InputProps={{
           startAdornment: (
             <InputAdornment position='start'>
@@ -37,7 +37,7 @@ export const SearchBar = () => {
         }}
       />
       {isSearch && (
-        <SIconButton onClick={() => setIsSearch(false)} aria-label='close-search'>
+        <SIconButton onClick={closeSearch} aria-label='close-search'>
           <Image src={theme === 'dark' ? CloseDark : CloseLight} alt='close icon' />
         </SIconButton>
       )}
