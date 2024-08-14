@@ -1,6 +1,6 @@
 import React from 'react';
 import { styled } from '@mui/material/styles';
-import { Box, IconButton, Drawer, List, ListItem, Typography } from '@mui/material';
+import { Box, IconButton, Drawer, List, ListItem, Typography, Button } from '@mui/material';
 import { useTranslation } from 'next-i18next';
 import Image from 'next/image';
 
@@ -53,39 +53,44 @@ export const MobileHeader = ({ theme, goToHome, handleChangeLanguage, localesMap
           {theme === 'dark' ? <Image src={MenuDark} alt='menu-icon' /> : <Image src={MenuLight} alt='menu-icon' />}
         </SIconButton>
       </IconsContainer>
-
-      <Menu anchor='right' open={drawerOpen} onClose={toggleDrawer(false)}>
+      <Menu
+        open={drawerOpen}
+        onClose={toggleDrawer(false)}
+        PaperProps={{
+          style: {
+            width: '100%',
+          },
+        }}
+      >
         <DrawerContent>
           <DrawerHeader>
-            <Typography>{t('HOME.menu')}</Typography>
+            <MenuLabel>{t('HEADER.menu')}</MenuLabel>
             <SIconButton onClick={toggleDrawer(false)} aria-label='close menu'>
               <Image src={theme === 'dark' ? CloseDark : CloseLight} alt='close icon' />
             </SIconButton>
           </DrawerHeader>
-
-          <List>
-            <ListItem>
+          <MenuList>
+            <MenuListItem>
               <Gas />
-            </ListItem>
-
-            <ListItem>
+            </MenuListItem>
+            <MenuListItem>
               <BasicSelect
                 value={t(`LOCALES.${language}`)}
                 setValue={handleChangeLanguage}
                 list={Object.values(localesMap)}
               />
-            </ListItem>
-
-            <ListItem>
-              <SIconButton onClick={changeTheme}>
+            </MenuListItem>
+            <MenuListItem>
+              <ThemeButton onClick={changeTheme}>
+                {theme === 'dark' ? t('HEADER.lightMode') : t('HEADER.darkMode')}
                 {theme === 'dark' ? (
                   <Image src={LightMode} alt='light mode' />
                 ) : (
                   <Image src={DarkMode} alt='dark mode' />
                 )}
-              </SIconButton>
-            </ListItem>
-          </List>
+              </ThemeButton>
+            </MenuListItem>
+          </MenuList>
         </DrawerContent>
       </Menu>
     </StyledHeader>
@@ -141,3 +146,45 @@ const DrawerHeader = styled(Box)(() => ({
   alignItems: 'center',
   boxSizing: 'border-box',
 }));
+
+const MenuLabel = styled(Typography)(() => {
+  const { currentTheme } = useCustomTheme();
+  return {
+    color: currentTheme.textPrimary,
+    fontSize: '1.875rem',
+  };
+});
+
+const MenuList = styled(List)(() => {
+  const { currentTheme } = useCustomTheme();
+  return {
+    padding: currentTheme.padding,
+    width: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+  };
+});
+
+const MenuListItem = styled(ListItem)(() => {
+  return {
+    justifyContent: 'center',
+  };
+});
+
+const ThemeButton = styled(Button)(() => {
+  const { currentTheme } = useCustomTheme();
+  return {
+    width: '100%',
+    justifyContent: 'space-between',
+    padding: currentTheme.padding,
+    alignItems: 'center',
+    backgroundColor: currentTheme.backgroundSecondary,
+    borderRadius: currentTheme.borderRadius,
+    textTransform: 'none',
+    fontSize: '1rem',
+    color: currentTheme.textPrimary,
+    '&:hover': {
+      backgroundColor: `${currentTheme.backgroundSecondary}`,
+    },
+  };
+});

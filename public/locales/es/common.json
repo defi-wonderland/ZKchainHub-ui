@@ -1,12 +1,17 @@
 {
+  "HEADER": {
+    "lightMode": "Modo claro",
+    "darkMode": "Modo oscuro",
+    "menu": "Menú",
+    "search": "Búsqueda",
+    "gasPrice": "Precio del gas L1",
+    "transfer": "Transferencia ERC-20"
+  },
   "HOME": {
     "title": "ZKsync",
     "subtitle": "Ecosistema",
-    "gasPrice": "Precio del gas L1",
-    "transfer": "Transferencia ERC-20",
+
     "home": "Inicio",
-    "menu": "Menú",
-    "search": "Búsqueda",
     "LOCKEDASSETS": {
       "lockedAssets": "Activos bloqueados",
       "lockedAssetsDescription": "Activos bloqueados en el ecosistema de Elastic Chain",
