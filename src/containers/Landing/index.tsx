@@ -2,13 +2,22 @@ import { styled } from '@mui/material/styles';
 
 import { Dashboard, LockedAssets } from '~/containers';
 import { TitleBanner } from '~/components';
+import { useData } from '~/hooks';
+import { SkeletonLanding } from './SkeletonLanding';
 
 export const Landing = () => {
+  const { isEcosystemLoading } = useData();
+
   return (
     <LandingContainer>
-      <TitleBanner />
-      <LockedAssets />
-      <Dashboard />
+      {isEcosystemLoading && <SkeletonLanding />}
+      {!isEcosystemLoading && (
+        <>
+          <TitleBanner />
+          <LockedAssets />
+          <Dashboard />
+        </>
+      )}
     </LandingContainer>
   );
 };
