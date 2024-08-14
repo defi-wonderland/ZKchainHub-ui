@@ -23,7 +23,7 @@ const Search = () => {
 
   return (
     <>
-      <CustomHead title={t('HOME.search')} />
+      <CustomHead title={t('HEADER.search')} />
       <Dashboard />
     </>
   );

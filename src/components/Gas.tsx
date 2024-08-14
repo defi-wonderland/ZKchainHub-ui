@@ -20,11 +20,11 @@ export const Gas = () => {
           <Image src={theme === 'dark' ? GasDark : GasLight} alt='gas' />
           <Box>
             <SBox>
-              <GasLabel>{t('HOME.gasPrice')}:</GasLabel>
+              <GasLabel>{t('HEADER.gasPrice')}:</GasLabel>
               <GasValueText>10 wei</GasValueText>
             </SBox>
             <SBox>
-              <GasLabel>{t('HOME.transfer')}:</GasLabel>
+              <GasLabel>{t('HEADER.transfer')}:</GasLabel>
               <GasValueText>$10</GasValueText>
             </SBox>
           </Box>
@@ -34,7 +34,7 @@ export const Gas = () => {
   );
 };
 
-const GasContainer = styled(Box)(() => {
+const GasContainer = styled(Box)(({ theme }) => {
   const { currentTheme } = useCustomTheme();
 
   return {
@@ -42,6 +42,11 @@ const GasContainer = styled(Box)(() => {
     alignItems: 'center',
     gap: currentTheme.gap,
     padding: '0.5rem 1rem',
+
+    [theme.breakpoints.down('sm')]: {
+      display: 'grid',
+      justifyItems: 'center',
+    },
   };
 });
 
