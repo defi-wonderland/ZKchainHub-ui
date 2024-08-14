@@ -32,7 +32,7 @@ export const BasicSelect = ({ list, value, setValue, disabled, dataTest }: Basic
   };
 
   const endIcon = disabled ? null : (
-    <Image src={theme === 'dark' ? arrowDownDark : arrowDownLight} alt='arrow-down' width={16} height={16} />
+    <Image src={theme === 'dark' ? arrowDownDark : arrowDownLight} alt='arrow-down' width={24} height={24} />
   );
 
   return (
@@ -61,36 +61,45 @@ export const BasicSelect = ({ list, value, setValue, disabled, dataTest }: Basic
         }}
       >
         {list.map((explorer) => (
-          <MenuItem key={explorer} value={explorer} onClick={() => selectItem(explorer)}>
+          <SMenuItem key={explorer} value={explorer} onClick={() => selectItem(explorer)}>
             {explorer}
-          </MenuItem>
+          </SMenuItem>
         ))}
       </StyledMenu>
     </SBox>
   );
 };
 
-export const SBox = styled(Box)(() => {
+export const SBox = styled(Box)(({ theme }) => {
   const { currentTheme } = useCustomTheme();
   return {
     display: 'flex',
     gap: currentTheme.gap,
     alignItems: 'center',
+    [theme.breakpoints.down('sm')]: {
+      width: '100%',
+    },
   };
 });
 
-const MenuButton = styled(Button)(() => {
+const MenuButton = styled(Button)(({ theme }) => {
   const { currentTheme } = useCustomTheme();
   return {
     width: '7.5rem',
     height: '3.5rem',
-    backgroundColor: `${currentTheme.backgroundSecondary}`,
-    borderRadius: `${currentTheme.borderRadius}`,
+    backgroundColor: currentTheme.backgroundSecondary,
+    borderRadius: currentTheme.borderRadius,
     textTransform: 'none',
     fontSize: '1rem',
-    color: `${currentTheme.textPrimary}`,
+    color: currentTheme.textPrimary,
     '&:hover': {
-      backgroundColor: `${currentTheme.backgroundSecondary}`,
+      backgroundColor: currentTheme.backgroundSecondary,
+    },
+    [theme.breakpoints.down('sm')]: {
+      width: '100%',
+      justifyContent: 'space-between',
+      padding: currentTheme.padding,
+      alignItems: 'center',
     },
   };
 });
@@ -113,18 +122,22 @@ const StyledMenu = styled((props: MenuProps) => (
   return {
     '& .MuiPaper-root': {
       marginTop: '0.4rem',
-      width: '7.5rem',
+      borderRadius: currentTheme.borderRadius,
+      backgroundColor: currentTheme.backgroundSecondary,
 
       '& .MuiMenu-list': {
         padding: '0.4rem 0',
       },
 
       '& .MuiMenuItem-root': {
-        padding: '1.2rem 1.6rem',
+        padding: '1rem 2rem',
         gap: '0.8rem',
+        fontSize: '1rem',
+        borderRadius: currentTheme.borderRadius,
 
         '&:hover': {
-          backgroundColor: currentTheme.backgroundSecondary,
+          backgroundColor: currentTheme.backgroundTertiary,
+          borderRadius: currentTheme.borderRadius,
         },
 
         '&:active': {
@@ -133,15 +146,24 @@ const StyledMenu = styled((props: MenuProps) => (
       },
 
       '@media (max-width: 600px)': {
-        minWidth: 'calc(100% - 7.4rem)',
         ul: {
           padding: '0.2rem 0',
         },
-
+        '& .MuiMenu-list': {
+          width: '21rem',
+        },
         '& .MuiMenuItem-root': {
-          fontSize: '1.4rem',
+          fontSize: '1rem',
         },
       },
     },
+  };
+});
+
+export const SMenuItem = styled(MenuItem)(() => {
+  const { currentTheme } = useCustomTheme();
+  return {
+    fontSize: '1rem',
+    borderRadius: currentTheme.borderRadius,
   };
 });
