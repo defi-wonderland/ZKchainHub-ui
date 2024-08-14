@@ -1,7 +1,7 @@
 import { useTranslation } from 'next-i18next';
 import { Typography, styled } from '@mui/material';
 
-import { DataTable } from '~/components';
+import { ChainTable } from '~/components';
 import { useData, useSearchContext, useCustomTheme } from '~/hooks';
 
 export const Dashboard = () => {
@@ -38,7 +38,7 @@ export const Dashboard = () => {
         {enterSearchTerm && <SearchLabel>{t('HOME.DASHBOARD.enterSearchTerm')}</SearchLabel>}
       </header>
 
-      {availableChains && <DataTable chains={filteredChains} />}
+      {availableChains && <ChainTable chains={filteredChains} />}
       {!availableChains && <SearchLabel>{t('HOME.DASHBOARD.notFound')}</SearchLabel>}
     </DashboardContainer>
   );

@@ -1,7 +1,7 @@
 import { useTranslation } from 'next-i18next';
 import { Table, Typography } from '@mui/material';
 
-import { useData } from '~/hooks';
+import { TotalValueLockedProps } from '~/types';
 import {
   STableContainer,
   STableHead,
@@ -14,13 +14,12 @@ import {
   STitle,
 } from '~/components';
 
-export const TVL = () => {
+export const TokensTable = ({ tvl }: TotalValueLockedProps) => {
   const { t } = useTranslation();
-  const { chainData } = useData();
-  const tvl = chainData?.tvl || [];
+
   return (
     <article>
-      <STitle>{t('CHAIN.TVL.title')}</STitle>
+      <STitle>{t('TOKENS.title')}</STitle>
       <STableContainer>
         <Table>
           <STableHead>
@@ -42,6 +41,7 @@ export const TVL = () => {
                 </LogoCell>
 
                 <STableCell>${token.price.toLocaleString()}</STableCell>
+
                 <STableCell>${((token.total * token.price) / 1e18).toLocaleString()}</STableCell>
               </STableRow>
             ))}

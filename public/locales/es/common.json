@@ -67,6 +67,9 @@
     },
     "backButton": "Volver"
   },
+  "TOKENS": {
+    "title": "Tokens"
+  },
   "FOOTER": {
     "docs": "Documentación",
     "github": "GitHub",
