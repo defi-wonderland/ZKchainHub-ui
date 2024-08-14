@@ -53,6 +53,7 @@ export const MobileHeader = ({ theme, goToHome, handleChangeLanguage, localesMap
           {theme === 'dark' ? <Image src={MenuDark} alt='menu-icon' /> : <Image src={MenuLight} alt='menu-icon' />}
         </SIconButton>
       </IconsContainer>
+
       <Menu
         open={drawerOpen}
         onClose={toggleDrawer(false)}
@@ -69,10 +70,12 @@ export const MobileHeader = ({ theme, goToHome, handleChangeLanguage, localesMap
               <Image src={theme === 'dark' ? CloseDark : CloseLight} alt='close icon' />
             </SIconButton>
           </DrawerHeader>
+
           <MenuList>
             <MenuListItem>
               <Gas />
             </MenuListItem>
+
             <MenuListItem>
               <BasicSelect
                 value={t(`LOCALES.${language}`)}
@@ -80,6 +83,7 @@ export const MobileHeader = ({ theme, goToHome, handleChangeLanguage, localesMap
                 list={Object.values(localesMap)}
               />
             </MenuListItem>
+
             <MenuListItem>
               <ThemeButton onClick={changeTheme}>
                 {theme === 'dark' ? t('HEADER.lightMode') : t('HEADER.darkMode')}
