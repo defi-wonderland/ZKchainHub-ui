@@ -1,6 +1,6 @@
 export * from './Theme';
 export * from './CustomHead';
-export * from './Table';
+export * from './ChainTable';
 export * from './SearchBar';
 export * from './TotalValueLocked';
 export * from './Title';

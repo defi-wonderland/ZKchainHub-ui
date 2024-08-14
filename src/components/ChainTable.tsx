@@ -21,7 +21,7 @@ interface TableProps {
   chains: EcosystemChainData[];
 }
 
-export const DataTable = ({ chains }: TableProps) => {
+export const ChainTable = ({ chains }: TableProps) => {
   const { t } = useTranslation();
   const router = useRouter();
 

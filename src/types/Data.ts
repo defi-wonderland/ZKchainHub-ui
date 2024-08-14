@@ -62,6 +62,7 @@ export interface TvlData {
   token: string;
   tokenName: string;
   total: number;
+  price: number;
   imageUrl: string;
 }
 
@@ -71,4 +72,7 @@ export interface ChainTvl {
   total: number;
   imageUrl: string;
   price: number;
+}
+export interface TotalValueLockedProps {
+  tvl: TvlData[];
 }
