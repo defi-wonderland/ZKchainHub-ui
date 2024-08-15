@@ -14,7 +14,7 @@ export const LockedAssets = () => {
   const goToTokensPage = () => {
     router.push('/tokens');
   };
-  console.log(ecosystemData.l1Tvl);
+
   return (
     <StyledSection>
       {ecosystemData && (
