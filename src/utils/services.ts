@@ -16,7 +16,7 @@ export const fetchEcosystemData = async () => {
   if (!res.ok) {
     throw new Error('Failed to fetch ecosystem data');
   }
-  return res.json();
+  return await res.json();
 };
 
 export const fetchChainData = async (chainId: number) => {
@@ -29,5 +29,5 @@ export const fetchChainData = async (chainId: number) => {
   if (!res.ok) {
     throw new Error('Failed to fetch chain data');
   }
-  return res.json();
+  return await res.json();
 };
