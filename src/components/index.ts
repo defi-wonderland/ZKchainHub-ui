@@ -15,3 +15,5 @@ export * from './Gas';
 export * from './TvlContentBox';
 export * from './Breadcrumb';
 export * from './Icon';
+export * from './DesktopTvlContainer';
+export * from './MobileTvlContainer';

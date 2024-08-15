@@ -29,7 +29,7 @@ export const Header = () => {
   const router = useRouter();
   const { isSearch } = useSearchContext();
   const { locales, pathname, query } = router;
-  const isMobile = useMediaQuery('(max-width:600px)');
+  const isMobile = useMediaQuery('(max-width:900px)');
 
   const localesMap = locales ? Object.fromEntries(locales.map((locale) => [locale, t(`LOCALES.${locale}`)])) : {};
 
