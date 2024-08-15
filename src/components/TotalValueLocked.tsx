@@ -35,9 +35,9 @@ const MobileTvlContainer = ({ tvl }: TotalValueLockedProps) => {
       <GridContainer imageUrl={data.imageUrl} height={height} smallCard={smallCard}>
         <TvlContentBox
           avatar={data.imageUrl}
-          token={data.token}
-          total={data.total}
-          tokenName={data.tokenName}
+          token={data.symbol}
+          total={data.amountUsd}
+          tokenName={data.name}
           isLast={isLast}
         />
       </GridContainer>
@@ -93,9 +93,9 @@ const DesktopTvlContainer = ({ tvl }: TotalValueLockedProps) => {
       <GridContainer imageUrl={data.imageUrl} height={height} smallCard={smallCard}>
         <TvlContentBox
           avatar={data.imageUrl}
-          token={data.token}
-          total={data.total}
-          tokenName={data.tokenName}
+          token={data.symbol}
+          total={data.amountUsd}
+          tokenName={data.name}
           isLast={isLast}
         />
       </GridContainer>

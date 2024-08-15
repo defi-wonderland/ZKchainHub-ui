@@ -70,7 +70,7 @@ export const ChainInformation = () => {
 
         <InfoBox
           title={t('CHAIN.CHAININFORMATION.totalBatchesExecuted')}
-          description={chainData?.batchesInfo.proved}
+          description={chainData?.batchesInfo.executed}
           darkIcon={BlockDark}
           lightIcon={BlockLight}
           size={22}

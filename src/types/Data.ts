@@ -4,7 +4,7 @@ export interface ChainData {
   batchesInfo: {
     commited: number;
     verified: number;
-    proved: number;
+    executed: number;
   };
   feeParams: {
     batchOverheadL1Gas: number;
@@ -59,16 +59,16 @@ export interface EcosystemData {
 }
 
 export interface TvlData {
-  token: string;
-  tokenName: string;
-  total: number;
+  symbol: string;
+  name: string;
+  amountUsd: number;
   imageUrl: string;
 }
 
 export interface ChainTvl {
-  token: string;
-  tokenName: string;
-  total: number;
+  symbol: string;
+  name: string;
+  amountUsd: number;
   imageUrl: string;
   price: number;
 }

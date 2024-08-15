@@ -56,7 +56,7 @@ export const DataProvider = ({ children }: DataProps) => {
   }, [isEcosystemError, isChainError, router]);
 
   const totalL1TVL = (ecosystemData?.l1Tvl || []).reduce((accumulator: number, token: TvlData) => {
-    return accumulator + (token.total || 0);
+    return accumulator + (token.amountUsd || 0);
   }, 0);
 
   return (
