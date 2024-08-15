@@ -10,6 +10,7 @@ import {
   TableBody,
   Typography,
   Avatar,
+  Box,
 } from '@mui/material';
 
 import { EcosystemChainData } from '~/types';
@@ -35,7 +36,7 @@ export const ChainTable = ({ chains }: TableProps) => {
         {/* Table titles */}
         <STableHead>
           <STableRow>
-            <STableCellHead sx={{ width: '60%' }}>{t('HOME.DASHBOARD.chain')}</STableCellHead>
+            <TableCellHeadFirst sx={{ width: '60%' }}>{t('HOME.DASHBOARD.chain')}</TableCellHeadFirst>
             <STableCellHead sx={{ width: '10%' }}>{t('HOME.DASHBOARD.chainId')}</STableCellHead>
             <STableCellHead sx={{ width: '10%' }}>{t('HOME.DASHBOARD.nativeToken')}</STableCellHead>
             <STableCellHead sx={{ width: '10%' }}>{t('HOME.DASHBOARD.tvl')}</STableCellHead>
@@ -49,12 +50,14 @@ export const ChainTable = ({ chains }: TableProps) => {
             return (
               <STableRow key={index} onClick={() => handleChainNavigation(data.chainId)}>
                 {/* Chain Name with Logo and Tags */}
-                <LogoCell sx={{ width: '60%' }}>
+                <FirstCellWithLogo>
                   <ChainAvatar alt={`${data.chainName} logo`} src={data.iconUrl} />
-                  <Typography>{data.chainName}</Typography>
-                  {!data.rpc && <InfoTag information={t('HOME.DASHBOARD.noRPC')} />}
-                  {!data.metadata && <InfoTag information={t('HOME.DASHBOARD.noMetadata')} />}
-                </LogoCell>
+                  <ChainName>{data.chainName}</ChainName>
+                  <InfoTagsContainer>
+                    {!data.rpc && <InfoTag information={t('HOME.DASHBOARD.noRPC')} />}
+                    {!data.metadata && <InfoTag information={t('HOME.DASHBOARD.noMetadata')} />}
+                  </InfoTagsContainer>
+                </FirstCellWithLogo>
 
                 <STableCell sx={{ width: '10%' }}>{data.chainId}</STableCell>
 
@@ -81,7 +84,16 @@ export const STableContainer = styled(TableContainer)(() => {
     width: '100%',
     borderRadius: currentTheme.borderRadius,
     border: currentTheme.border,
-    overflow: 'hidden',
+    overflow: 'auto',
+
+    // Hide scrollbar for WebKit browsers
+    '&::-webkit-scrollbar': {
+      display: 'none',
+    },
+
+    // Hide scrollbar for Firefox
+    scrollbarWidth: 'none',
+    '-ms-overflow-style': 'none', // Hide scrollbar for Internet Explorer and Edge
   };
 });
 
@@ -121,12 +133,46 @@ export const STableCellHead = styled(TableCell)(() => {
   };
 });
 
-export const STableCell = styled(TableCell)(() => {
+export const TableCellHeadFirst = styled(TableCell)(() => {
+  const { currentTheme } = useCustomTheme();
+  return {
+    color: currentTheme.textSecondary,
+    textAlign: 'left',
+    borderBottom: 'none',
+    position: 'sticky',
+    left: 0,
+    zIndex: 1,
+    backgroundColor: currentTheme.backgroundTertiary,
+  };
+});
+
+export const STableCell = styled(TableCell)(({ theme }) => {
   const { currentTheme } = useCustomTheme();
   return {
     color: currentTheme.textPrimary,
     textAlign: 'left',
     border: 'none',
+    fontSize: '1rem',
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '0.875rem',
+    },
+  };
+});
+
+export const FirstCellWithLogo = styled(TableCell)(() => {
+  const { currentTheme } = useCustomTheme();
+  return {
+    color: currentTheme.textPrimary,
+    display: 'flex',
+    alignItems: 'center',
+    gap: currentTheme.gap,
+    border: 'none',
+    textAlign: 'left',
+    position: 'sticky',
+    left: 0,
+    backgroundColor: currentTheme.backgroundSecondary,
+    zIndex: 1,
+    minWidth: 'max-content',
   };
 });
 
@@ -155,5 +201,30 @@ export const TokenAvatar = styled(Avatar)(() => {
     width: '1.5rem',
     height: '1.5rem',
     backgroundColor: currentTheme.emptyBackground,
+  };
+});
+
+export const ChainName = styled(Typography)(({ theme }) => {
+  const { currentTheme } = useCustomTheme();
+  return {
+    fontSize: '1rem',
+    color: currentTheme.textPrimary,
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '0.875rem',
+    },
+  };
+});
+
+export const InfoTagsContainer = styled(Box)(({ theme }) => {
+  const { currentTheme } = useCustomTheme();
+  return {
+    fontSize: '1rem',
+    color: currentTheme.textPrimary,
+    display: 'flex',
+    gap: currentTheme.gap,
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '0.875rem',
+      display: 'grid',
+    },
   };
 });
