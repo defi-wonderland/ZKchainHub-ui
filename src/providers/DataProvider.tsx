@@ -6,8 +6,8 @@ import { ChainData, EcosystemData, TvlData } from '~/types';
 import { fetchEcosystemData, fetchChainData } from '~/utils';
 
 type ContextType = {
-  selectedChainId?: number;
-  setSelectedChainId: (val: number) => void;
+  selectedChainId?: string;
+  setSelectedChainId: (val: string) => void;
 
   isEcosystemLoading: boolean;
   isChainLoading: boolean;
@@ -26,7 +26,7 @@ interface DataProps {
 export const DataContext = createContext({} as ContextType);
 
 export const DataProvider = ({ children }: DataProps) => {
-  const [selectedChainId, setSelectedChainId] = useState<number>();
+  const [selectedChainId, setSelectedChainId] = useState<string>();
   const router = useRouter();
 
   const {
@@ -56,7 +56,7 @@ export const DataProvider = ({ children }: DataProps) => {
   }, [isEcosystemError, isChainError, router]);
 
   const totalL1TVL = (ecosystemData?.l1Tvl || []).reduce((accumulator: number, token: TvlData) => {
-    return accumulator + (token.amountUsd || 0);
+    return accumulator + (Number(token.amountUsd) || 0);
   }, 0);
 
   return (

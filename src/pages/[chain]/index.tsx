@@ -25,7 +25,8 @@ const Chain = ({ chain }: InferGetStaticPropsType<typeof getStaticProps>) => {
 
   return (
     <>
-      <CustomHead title={chain?.chainName} />
+      {/* TODO REPLACE WITH CHAIN NAME */}
+      <CustomHead title={chain?.baseToken.name} />
       <ChainDetail />
     </>
   );
@@ -49,7 +50,7 @@ export const getStaticProps: GetStaticProps<ChainProps> = async ({ params, local
   const ecosystemData = await fetchEcosystemData();
   const chains = ecosystemData.zkChains;
   const chainId = parseInt(params?.chain as string);
-  const chain = chains.find((chain: EcosystemChainData) => chain.chainId === chainId);
+  const chain = chains.find((chain: EcosystemChainData) => chain.chainId === chainId.toString());
 
   if (!chain) {
     return { notFound: true };

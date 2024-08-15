@@ -13,7 +13,8 @@ export const Dashboard = () => {
     const chainIdStr = String(chain.chainId);
     const formattedSearchTerm = String(searchTerm).toLowerCase();
 
-    const matchesName = chain.chainName.toLowerCase().includes(formattedSearchTerm);
+    // TODO: REPLACE WITH CHAIN NAME
+    const matchesName = chain.baseToken.name.toLowerCase().includes(formattedSearchTerm);
     const matchesId = chainIdStr.includes(formattedSearchTerm);
 
     return matchesName || matchesId;

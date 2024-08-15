@@ -26,7 +26,7 @@ export const ChainTable = ({ chains }: TableProps) => {
   const { t } = useTranslation();
   const router = useRouter();
 
-  const handleChainNavigation = (id: number) => {
+  const handleChainNavigation = (id: string) => {
     router.push(`/${id}`);
   };
 
@@ -51,8 +51,9 @@ export const ChainTable = ({ chains }: TableProps) => {
               <STableBodyRow key={index} onClick={() => handleChainNavigation(data.chainId)}>
                 {/* Chain Name with Logo and Tags */}
                 <FirstCellWithLogo>
-                  <ChainAvatar alt={`${data.chainName} logo`} src={data.iconUrl} />
-                  <ChainName>{data.chainName}</ChainName>
+                  {/* TODO: INSTEAD OF BASE TOKEN IS CHAIN DATA */}
+                  <ChainAvatar alt={`${data.baseToken.name} logo`} src={data.baseToken.imageUrl} />
+                  <ChainName>{data.baseToken.name}</ChainName>
                   <InfoTagsContainer>
                     {!data.rpc && <InfoTag information={t('HOME.DASHBOARD.noRPC')} />}
                     {!data.metadata && <InfoTag information={t('HOME.DASHBOARD.noMetadata')} />}
@@ -62,8 +63,8 @@ export const ChainTable = ({ chains }: TableProps) => {
                 <STableCell sx={{ width: '10%' }}>{data.chainId}</STableCell>
 
                 <LogoCell sx={{ width: '10%' }}>
-                  <TokenAvatar alt={`${data.nativeToken} logo`} src={data.tokenImgUrl} />
-                  <Typography>{data.nativeToken}</Typography>
+                  <TokenAvatar alt={`${data.baseToken.symbol} logo`} src={data.baseToken.imageUrl} />
+                  <Typography>{data.baseToken.symbol}</Typography>
                 </LogoCell>
 
                 <STableCell sx={{ width: '10%' }}>{formatDataNumber(data.tvl, 0, true)}</STableCell>
