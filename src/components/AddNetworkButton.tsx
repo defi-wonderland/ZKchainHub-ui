@@ -2,35 +2,30 @@ import { styled, Button } from '@mui/material';
 import { useTranslation } from 'next-i18next';
 import { useConnectModal } from '@rainbow-me/rainbowkit';
 import { useAccount } from 'wagmi';
+import { useRouter } from 'next/router';
 import { Image } from '@mui/icons-material';
 
-import { useCustomTheme } from '~/hooks';
+import { useCustomTheme, useData } from '~/hooks';
 import { addNetwork } from '~/utils';
 // import Add from '~/assets/icons/add.svg';
 
 export const AddNetworkButton = () => {
+  const router = useRouter();
+  const { chain } = router.query;
   const { t } = useTranslation();
   const { isConnected } = useAccount();
   const { openConnectModal } = useConnectModal();
-  // const { chainData } = useData();
+  const { chainData } = useData();
 
   const handleAddNetwork = async () => {
     await addNetwork({
-      chainId: '1',
-      chainName: 'Ethereum',
-      rpcUrls: ['https://mainnet.infura.io/v3/'],
-      token: 'ETH',
-      symbol: 'ETH',
-      decimals: '18',
-      explorerUrl: 'https://etherscan.io/',
-
-      //   chainId: '1',
-      //   chainName: chainData?.metadata.name,
-      //   rpcUrls: [...chainData?.publicRpcs],
-      //   token: chainData?.baseToken.name,
-      //   symbol: chainData?.baseToken.symbol,
-      //   decimals: chainData?.baseToken.decimals,
-      //   explorerUrl: chainData?.metadata.explorerUrl,
+      chainId: chain as string,
+      chainName: chainData?.metadata.name,
+      rpcUrls: chainData?.publicRpcs,
+      token: chainData?.baseToken.name,
+      symbol: chainData?.baseToken.symbol,
+      decimals: chainData?.baseToken.decimals,
+      explorerUrl: chainData?.metadata.explorerUrl,
     });
   };
 
