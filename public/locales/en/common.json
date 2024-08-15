@@ -74,6 +74,9 @@
   "TOKENS": {
     "title": "Tokens"
   },
+  "WALLET": {
+    "connection": "Connect Wallet"
+  },
   "FOOTER": {
     "docs": "Documentation",
     "github": "GitHub",

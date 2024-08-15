@@ -81,6 +81,9 @@
     "madeWithLove": "Hecho con",
     "by": "por"
   },
+  "WALLET":{
+    "connection": "Conectar Wallet"
+  },
   "LOCALES": {
     "en": "Inglés",
     "es": "Español"
