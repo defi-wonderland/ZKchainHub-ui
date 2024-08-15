@@ -8,3 +8,4 @@ export * from './ChainDetail';
 export * from './ChainDetail/ChainDescription';
 export * from './ChainDetail/ChainMetadata';
 export * from './Tokens';
+export * from './ErrorContainer';

@@ -81,6 +81,10 @@
     "madeWithLove": "Hecho con",
     "by": "por"
   },
+  "ERROR": {
+    "title": "Error",
+    "message": "Lo sentimos, algo salió mal. Por favor, inténtelo de nuevo más tarde."
+  },
   "LOCALES": {
     "en": "Inglés",
     "es": "Español"
