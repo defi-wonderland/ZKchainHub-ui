@@ -113,5 +113,8 @@ export const SIconButton = styled(IconButton)(() => {
     gap: currentTheme.gap,
     width: '3.5rem',
     height: '3.5rem',
+    '&:hover': {
+      backgroundColor: currentTheme.backgroundHover,
+    },
   };
 });
