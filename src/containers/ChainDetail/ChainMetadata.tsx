@@ -82,7 +82,7 @@ export const ChainMetadata = () => {
         </MetadataItem>
 
         <MetadataItem>
-          <NativeTokenAvatar src={data?.baseToken.imageUrl} alt={data?.baseToken.symbol} />
+          <NativeTokenAvatar src={data?.baseToken.imageUrl || ''} alt={data?.baseToken.symbol} />
           <Box>
             <Label>{t('CHAIN.nativeToken')}</Label>
             <Value>{data?.baseToken.symbol}</Value>

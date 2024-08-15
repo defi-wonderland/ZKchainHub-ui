@@ -28,7 +28,7 @@ const Chain = ({ chain }: InferGetStaticPropsType<typeof getStaticProps>) => {
 
   return (
     <>
-      <CustomHead title={chain.metadata?.name || `ZK Chain ${chain.chainId}`} />
+      <CustomHead title={chain?.chainId} />
       <ChainDetail />
     </>
   );

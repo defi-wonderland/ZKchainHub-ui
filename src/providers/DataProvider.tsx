@@ -49,7 +49,7 @@ export const DataProvider = ({ children }: DataProps) => {
       if (selectedChainId) {
         return fetchChainData(selectedChainId);
       } else {
-        return Promise.resolve(undefined); // Handle case where selectedChainId is undefined
+        return Promise.resolve(undefined);
       }
     },
     enabled: !!selectedChainId, // Only fetch chain data if selectedChainId is defined
