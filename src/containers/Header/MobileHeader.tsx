@@ -39,6 +39,7 @@ export const MobileHeader = ({ theme, goToHome, handleChangeLanguage, localesMap
       <LogoContainer onClick={goToHome} role='button' aria-label='Navigate to home'>
         <Logo src={theme === 'dark' ? LogoDark : LogoLight} alt='ZK Chain Hub' />
       </LogoContainer>
+
       <IconsContainer>
         <SIconButton onClick={navigateToSearch}>
           {theme === 'dark' ? (
@@ -47,10 +48,12 @@ export const MobileHeader = ({ theme, goToHome, handleChangeLanguage, localesMap
             <Image src={SearchLight} alt='search-icon' />
           )}
         </SIconButton>
+
         <SIconButton onClick={toggleDrawer(true)}>
           {theme === 'dark' ? <Image src={MenuDark} alt='menu-icon' /> : <Image src={MenuLight} alt='menu-icon' />}
         </SIconButton>
       </IconsContainer>
+
       <Menu
         open={drawerOpen}
         onClose={toggleDrawer(false)}
@@ -67,10 +70,12 @@ export const MobileHeader = ({ theme, goToHome, handleChangeLanguage, localesMap
               <Image src={theme === 'dark' ? CloseDark : CloseLight} alt='close icon' />
             </SIconButton>
           </DrawerHeader>
+
           <MenuList>
             <MenuListItem>
               <Gas />
             </MenuListItem>
+
             <MenuListItem>
               <BasicSelect
                 value={t(`LOCALES.${language}`)}
@@ -78,6 +83,7 @@ export const MobileHeader = ({ theme, goToHome, handleChangeLanguage, localesMap
                 list={Object.values(localesMap)}
               />
             </MenuListItem>
+
             <MenuListItem>
               <ThemeButton onClick={changeTheme}>
                 {theme === 'dark' ? t('HEADER.lightMode') : t('HEADER.darkMode')}

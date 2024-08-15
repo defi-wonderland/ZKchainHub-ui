@@ -1,12 +1,9 @@
 import { Box, Typography, Grid, styled, useMediaQuery, useTheme } from '@mui/material';
 import { useTranslation } from 'next-i18next';
-import { TvlData } from '~/types';
+
+import { TvlData, TotalValueLockedProps } from '~/types';
 import { TvlContentBox } from '~/components';
 import { useCustomTheme } from '~/hooks';
-
-interface TotalValueLockedProps {
-  tvl: TvlData[];
-}
 
 export const TotalValueLocked = ({ tvl }: TotalValueLockedProps) => {
   const theme = useTheme();

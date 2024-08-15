@@ -1,7 +1,7 @@
 import { useTranslation } from 'next-i18next';
 import { Table, Typography } from '@mui/material';
 
-import { useData } from '~/hooks';
+import { TotalValueLockedProps } from '~/types';
 import {
   STableContainer,
   STableHead,
@@ -9,24 +9,22 @@ import {
   STableCellHead,
   STableCell,
   STableBody,
-  FirstCellWithLogo,
+  LogoCell,
   TokenAvatar,
   STitle,
-  TableCellHeadFirst,
 } from '~/components';
 
-export const TVL = () => {
+export const TokensTable = ({ tvl }: TotalValueLockedProps) => {
   const { t } = useTranslation();
-  const { chainData } = useData();
-  const tvl = chainData?.tvl || [];
+
   return (
     <article>
-      <STitle>{t('CHAIN.TVL.title')}</STitle>
+      <STitle>{t('TOKENS.title')}</STitle>
       <STableContainer>
         <Table>
           <STableHead>
             <STableRow>
-              <TableCellHeadFirst>{t('CHAIN.TVL.chain')}</TableCellHeadFirst>
+              <STableCellHead>{t('CHAIN.TVL.chain')}</STableCellHead>
               <STableCellHead>{t('CHAIN.TVL.price')}</STableCellHead>
               <STableCellHead>{t('CHAIN.TVL.tvl')}</STableCellHead>
             </STableRow>
@@ -35,13 +33,15 @@ export const TVL = () => {
           <STableBody>
             {tvl.map((token, index) => (
               <STableRow key={index}>
-                <FirstCellWithLogo>
+                <LogoCell>
                   <TokenAvatar alt={token.tokenName} src={token.imageUrl} />
                   <Typography>
                     {token.tokenName} ({token.token})
                   </Typography>
-                </FirstCellWithLogo>
+                </LogoCell>
+
                 <STableCell>${token.price.toLocaleString()}</STableCell>
+
                 <STableCell>${((token.total * token.price) / 1e18).toLocaleString()}</STableCell>
               </STableRow>
             ))}
