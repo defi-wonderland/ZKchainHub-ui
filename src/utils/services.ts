@@ -6,6 +6,8 @@ const { API_URL } = getConfig();
 
 const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
+console.log('Fetching backend data from:', API_URL);
+
 export const fetchEcosystemData = async () => {
   // temporary for mock data
   if (!API_URL) {
