@@ -19,6 +19,7 @@ export const TvlContentBox = ({ avatar, token, total, tokenName, isLast }: TvlCo
     <ContentBox>
       <TopBox>
         <TokenLogo src={avatar} alt={token} isLast={isLast || false} />
+
         <TextBox>
           <TokenName isLast={isLast || false}>{tokenName}</TokenName>
           <TokenTicker isLast={isLast || false}>{token}</TokenTicker>
