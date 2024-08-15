@@ -25,8 +25,7 @@ const Chain = ({ chain }: InferGetStaticPropsType<typeof getStaticProps>) => {
 
   return (
     <>
-      {/* TODO REPLACE WITH CHAIN NAME */}
-      <CustomHead title={chain?.baseToken.name} />
+      <CustomHead title={chain.metadata?.name || `ZK Chain ${chain.chainId}`} />
       <ChainDetail />
     </>
   );

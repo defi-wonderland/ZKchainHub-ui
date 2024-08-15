@@ -52,7 +52,13 @@ export interface EcosystemChainData {
     decimals: 18;
   };
   tvl: string;
-  metadata: boolean;
+  metadata?: {
+    iconUrl: string;
+    name: string;
+    publicRpcs: string[];
+    explorerUrl: string;
+    launchDate: number;
+  };
   rpc: boolean;
 }
 

@@ -51,9 +51,9 @@ export const ChainTable = ({ chains }: TableProps) => {
               <STableBodyRow key={index} onClick={() => handleChainNavigation(data.chainId)}>
                 {/* Chain Name with Logo and Tags */}
                 <FirstCellWithLogo>
-                  {/* TODO: INSTEAD OF BASE TOKEN IS CHAIN DATA */}
-                  <ChainAvatar alt={`${data.baseToken.name} logo`} src={data.baseToken.imageUrl} />
-                  <ChainName>{data.baseToken.name}</ChainName>
+                  <ChainAvatar alt={`${data.chainId}`} src={data.metadata?.iconUrl} />
+                  <ChainName>{data.metadata?.name ? data.metadata.name : `ZK Chain ${data.chainId}`}</ChainName>
+
                   <InfoTagsContainer>
                     {!data.rpc && <InfoTag information={t('HOME.DASHBOARD.noRPC')} />}
                     {!data.metadata && <InfoTag information={t('HOME.DASHBOARD.noMetadata')} />}

@@ -1,9 +1,9 @@
 {
   "l1Tvl": [
     {
-      "amount": "118419.573191144427197224",
-      "amountUsd": "299764110.247586842107518508552",
-      "price": "2531.373",
+      "amount": "118306.55939191423985395",
+      "amountUsd": "300833113.49886311078510011665",
+      "price": "2542.827",
       "name": "Ethereum",
       "symbol": "ETH",
       "contractAddress": null,
@@ -13,8 +13,8 @@
     },
     {
       "amount": "56310048.030096",
-      "amountUsd": "56141117.886005712",
-      "price": "0.997",
+      "amountUsd": "56366358.078126096",
+      "price": "1.001",
       "name": "USDC",
       "symbol": "USDC",
       "contractAddress": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
@@ -24,8 +24,8 @@
     },
     {
       "amount": "998459864.823799773445941598",
-      "amountUsd": "10983058.513061797507905357578",
-      "price": "0.011",
+      "amountUsd": "11981518.377885597281351299176",
+      "price": "0.012",
       "name": "Koi",
       "symbol": "KOI",
       "contractAddress": "0x9D14BcE1dADdf408d77295BB1be9b343814f44DE",
@@ -35,8 +35,8 @@
     },
     {
       "amount": "9472627.999218",
-      "amountUsd": "9453682.743219564",
-      "price": "0.998",
+      "amountUsd": "9482100.627217218",
+      "price": "1.001",
       "name": "Tether USD",
       "symbol": "USDT",
       "contractAddress": "0xdAC17F958D2ee523a2206206994597C13D831ec7",
@@ -46,8 +46,8 @@
     },
     {
       "amount": "113.67749192",
-      "amountUsd": "6473916.45425268776",
-      "price": "56949.853",
+      "amountUsd": "6457843.93470259472",
+      "price": "56808.466",
       "name": "Wrapped BTC",
       "symbol": "WBTC",
       "contractAddress": "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599",
@@ -57,8 +57,8 @@
     },
     {
       "amount": "132452368.754496583511107126",
-      "amountUsd": "1854333.162562952169155499764",
-      "price": "0.014",
+      "amountUsd": "1721880.793808455585644392638",
+      "price": "0.013",
       "name": "HYCO",
       "symbol": "HYCO",
       "contractAddress": "0x77F76483399Dc6328456105B1db23e2Aca455bf9",
@@ -79,8 +79,8 @@
     },
     {
       "amount": "257.706060883787096756",
-      "amountUsd": "726782.890610517254058367956",
-      "price": "2820.201",
+      "amountUsd": "730177.652550539381483934744",
+      "price": "2833.374",
       "name": "Rocket Pool ETH",
       "symbol": "rETH",
       "contractAddress": "0xae78736Cd615f374D3085123A210448E74Fc6393",
@@ -101,8 +101,8 @@
     },
     {
       "amount": "709393.663223743840780868",
-      "amountUsd": "707974.875897296353099306264",
-      "price": "0.998",
+      "amountUsd": "709393.663223743840780868",
+      "price": "1",
       "name": "Dai Stablecoin",
       "symbol": "DAI",
       "contractAddress": "0x6B175474E89094C44Da98b954EedeAC495271d0F",
@@ -123,8 +123,8 @@
     },
     {
       "amount": "162910.961709234801235986",
-      "amountUsd": "161607.674015560922826098112",
-      "price": "0.992",
+      "amountUsd": "162585.139785816331633514028",
+      "price": "0.998",
       "name": "LUSD Stablecoin",
       "symbol": "LUSD",
       "contractAddress": "0x5f98805A4E8be255a32880FDeC7F6728C6568bA0",
@@ -134,8 +134,8 @@
     },
     {
       "amount": "769116.258069049173770643",
-      "amountUsd": "123058.60129104786780330288",
-      "price": "0.16",
+      "amountUsd": "123827.717549116916977073523",
+      "price": "0.161",
       "name": "Symbiosis",
       "symbol": "SIS",
       "contractAddress": "0xd38BB40815d2B0c2d2c866e0c72c5728ffC76dd9",
@@ -145,8 +145,8 @@
     },
     {
       "amount": "34.07328120799622273",
-      "amountUsd": "92913.0675948365799135278",
-      "price": "2726.86",
+      "amountUsd": "93326.64908213923806502454",
+      "price": "2738.998",
       "name": "Coinbase Wrapped Staked ETH",
       "symbol": "cbETH",
       "contractAddress": "0xBe9895146f7AF43049ca1c1AE358B0541Ea49704",
@@ -178,8 +178,8 @@
     },
     {
       "amount": "290.508016952",
-      "amountUsd": "40397.173313294264",
-      "price": "139.057",
+      "amountUsd": "40900.62370667208",
+      "price": "140.79",
       "name": "Wrapped SOL (Wormhole)",
       "symbol": "SOL",
       "contractAddress": "0xD31a59c85aE9D8edEFeC411D448f90841571b89c",
@@ -188,9 +188,9 @@
       "decimals": 9
     },
     {
-      "amount": "4069.036217336",
-      "amountUsd": "26204.59323964384",
-      "price": "6.44",
+      "amount": "4028.076528447",
+      "amountUsd": "26339.592419514933",
+      "price": "6.539",
       "name": "Wrapped TON Coin",
       "symbol": "TONCOIN",
       "contractAddress": "0x582d872A1B094FC48F5DE31D3B73F2D9bE47def1",
@@ -200,8 +200,8 @@
     },
     {
       "amount": "23546.536039530998897252",
-      "amountUsd": "23405.256823293812903868488",
-      "price": "0.994",
+      "amountUsd": "23570.082575570529896149252",
+      "price": "1.001",
       "name": "Curve.Fi USD Stablecoin",
       "symbol": "crvUSD",
       "contractAddress": "0xf939E0A03FB07F59A73314E73794Be0E57ac1b4E",
@@ -211,8 +211,8 @@
     },
     {
       "amount": "8.989236054015567327",
-      "amountUsd": "22740.367090632963180833691",
-      "price": "2529.733",
+      "amountUsd": "22847.294053495478354188356",
+      "price": "2541.628",
       "name": "Wrapped Ether",
       "symbol": "WETH",
       "contractAddress": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
@@ -233,8 +233,8 @@
     },
     {
       "amount": "5.423689884062204153",
-      "amountUsd": "16139.76212009346649645587",
-      "price": "2975.79",
+      "amountUsd": "16213.876842359176516206615",
+      "price": "2989.455",
       "name": "Wrapped liquid staked Ether 2.0",
       "symbol": "wstETH",
       "contractAddress": "0x7f39C581F595B53c5cb19bD0b3f8dA6c935E2Ca0",
@@ -244,8 +244,8 @@
     },
     {
       "amount": "34056.984148728150579544",
-      "amountUsd": "13077.881913111609822544896",
-      "price": "0.384",
+      "amountUsd": "13009.767944814153521385808",
+      "price": "0.382",
       "name": "Bella",
       "symbol": "BEL",
       "contractAddress": "0xA91ac63D040dEB1b7A5E4d4134aD23eb0ba07e14",
@@ -255,8 +255,8 @@
     },
     {
       "amount": "46220.536588230241212891",
-      "amountUsd": "11277.810927528178855945404",
-      "price": "0.244",
+      "amountUsd": "11324.031464116409097158295",
+      "price": "0.245",
       "name": "1INCH Token",
       "symbol": "1INCH",
       "contractAddress": "0x111111111117dC0aa78b770fA6A738034120C302",
@@ -277,8 +277,8 @@
     },
     {
       "amount": "43034.765060388679856659",
-      "amountUsd": "7229.840530145298215918712",
-      "price": "0.168",
+      "amountUsd": "7315.91006026607557563203",
+      "price": "0.17",
       "name": "Maverick Token",
       "symbol": "MAV",
       "contractAddress": "0x7448c7456a97769F6cD04F1E83A4a23cCdC46aBD",
@@ -288,8 +288,8 @@
     },
     {
       "amount": "4874.863543072452577322",
-      "amountUsd": "7190.42372603186755154995",
-      "price": "1.475",
+      "amountUsd": "7244.047225005664529900492",
+      "price": "1.486",
       "name": "Worldcoin",
       "symbol": "WLD",
       "contractAddress": "0x163f8C2467924be0ae7B5347228CABF260318753",
@@ -310,8 +310,8 @@
     },
     {
       "amount": "0.1",
-      "amountUsd": "5689.0901",
-      "price": "56890.901",
+      "amountUsd": "5675.4499",
+      "price": "56754.499",
       "name": "tBTC v2",
       "symbol": "tBTC",
       "contractAddress": "0x18084fbA666a33d37592fA2633fD49a74DD93a88",
@@ -321,8 +321,8 @@
     },
     {
       "amount": "1.607308526702602644",
-      "amountUsd": "4134.786719165704978266204",
-      "price": "2572.491",
+      "amountUsd": "4156.075520601880950285984",
+      "price": "2585.736",
       "name": "rsETH",
       "symbol": "rsETH",
       "contractAddress": "0xA1290d69c65A6Fe4DF752f95823fae25cB99e5A7",
@@ -332,8 +332,8 @@
     },
     {
       "amount": "35.167061181353626164",
-      "amountUsd": "3749.371394911198207101024",
-      "price": "106.616",
+      "amountUsd": "3755.806967107385920689036",
+      "price": "106.799",
       "name": "Aave Token",
       "symbol": "AAVE",
       "contractAddress": "0x7Fc66500c84A76Ad7e9c93437bFc5Ac33E2DDaE9",
@@ -343,8 +343,8 @@
     },
     {
       "amount": "312.082999060002117307",
-      "amountUsd": "3133.625393561481259879587",
-      "price": "10.041",
+      "amountUsd": "3143.299966532341325516104",
+      "price": "10.072",
       "name": "ChainLink Token",
       "symbol": "LINK",
       "contractAddress": "0x514910771AF9Ca656af840dff83E8264EcF986CA",
@@ -354,8 +354,8 @@
     },
     {
       "amount": "154.058620754243125866",
-      "amountUsd": "2744.862445978349773554522",
-      "price": "17.817",
+      "amountUsd": "2615.91538040704827720468",
+      "price": "16.98",
       "name": "Metaverse Index",
       "symbol": "MVI",
       "contractAddress": "0x72e364F2ABdC788b7E918bc238B21f109Cd634D7",
@@ -365,8 +365,8 @@
     },
     {
       "amount": "33",
-      "amountUsd": "1780.482",
-      "price": "53.954",
+      "amountUsd": "1821.369",
+      "price": "55.193",
       "name": "Tellor Tributes",
       "symbol": "TRB",
       "contractAddress": "0x88dF592F8eb5D7Bd38bFeF7dEb0fBc02cf3778a0",
@@ -376,8 +376,8 @@
     },
     {
       "amount": "0.639944048220845643",
-      "amountUsd": "1642.337686640869178745411",
-      "price": "2566.377",
+      "amountUsd": "1651.358977888638439774782",
+      "price": "2580.474",
       "name": "Renzo Restaked ETH",
       "symbol": "Renzo Restaked ETH",
       "contractAddress": "0xbf5495Efe5DB9ce00f80364C8B423567e58d2110",
@@ -387,8 +387,8 @@
     },
     {
       "amount": "4093.979328418030008295",
-      "amountUsd": "1629.40377271037594330141",
-      "price": "0.398",
+      "amountUsd": "1633.497752038793973309705",
+      "price": "0.399",
       "name": "Matic Token",
       "symbol": "MATIC",
       "contractAddress": "0x7D1AfA7B718fb893dB30A3aBc0Cfc608AaCfeBB0",
@@ -420,8 +420,8 @@
     },
     {
       "amount": "5985.542511355987510812",
-      "amountUsd": "861.918121635262201556928",
-      "price": "0.144",
+      "amountUsd": "867.90366414661818906774",
+      "price": "0.145",
       "name": "WOO",
       "symbol": "WOO",
       "contractAddress": "0x4691937a7508860F876c9c0a2a617E7d9E945D4B",
@@ -453,8 +453,8 @@
     },
     {
       "amount": "0.201",
-      "amountUsd": "528.160263",
-      "price": "2627.663",
+      "amountUsd": "532.432317",
+      "price": "2648.917",
       "name": "mETH",
       "symbol": "mETH",
       "contractAddress": "0xd5F7838F5C461fefF7FE49ea5ebaF7728bB0ADfa",
@@ -464,8 +464,8 @@
     },
     {
       "amount": "42.412842071038840242",
-      "amountUsd": "446.81929121839418194947",
-      "price": "10.535",
+      "amountUsd": "442.15387859057990952285",
+      "price": "10.425",
       "name": "Rocket Pool",
       "symbol": "RPL",
       "contractAddress": "0xD33526068D116cE69F19A9ee46F0bd304F21A51f",
@@ -485,8 +485,8 @@
       "decimals": 18
     },
     {
-      "amount": "0.000014110846294792",
-      "amountUsd": "0.000004952907049471992",
+      "amount": "0.000014104615563706",
+      "amountUsd": "0.000004950720062860806",
       "price": "0.351",
       "name": "Storj",
       "symbol": "STORJ",
@@ -540,7 +540,7 @@
       "decimals": 18
     }
   ],
-  "ethGasInfo": { "gasPrice": "6639107560", "erc20Transfer": "34853", "ethTransfer": "21000" },
+  "ethGasInfo": { "gasPrice": "2811768091", "erc20Transfer": "34853", "ethTransfer": "21000" },
   "zkChains": [
     {
       "chainId": "324",
@@ -554,8 +554,14 @@
         "imageUrl": "https://coin-images.coingecko.com/coins/images/279/large/ethereum.png?1696501628",
         "decimals": 18
       },
-      "tvl": "387014978.224906928203165540566",
-      "metadata": true,
+      "tvl": "389188998.253667604685659703935",
+      "metadata": {
+        "iconUrl": "https://s2.coinmarketcap.com/static/img/coins/64x64/24091.png",
+        "name": "ZKsyncERA",
+        "publicRpcs": ["https://mainnet.era.zksync.io", "https://zksync.drpc.org", "https://zksync.meowrpc.com"],
+        "explorerUrl": "https://explorer.zksync.io/",
+        "launchDate": 1679626800
+      },
       "rpc": false
     },
     {
@@ -570,8 +576,14 @@
         "imageUrl": "https://coin-images.coingecko.com/coins/images/279/large/ethereum.png?1696501628",
         "decimals": 18
       },
-      "tvl": "1795450.23124894154",
-      "metadata": true,
+      "tvl": "1802056.74192740728",
+      "metadata": {
+        "iconUrl": "https://s3.coinmarketcap.com/static-gravity/image/84e1ec1257dd4a6da6ee5584338a2460.jpeg",
+        "name": "Cronos",
+        "publicRpcs": ["https://mainnet.zkevm.cronos.org"],
+        "explorerUrl": "https://explorer.zkevm.cronos.org/",
+        "launchDate": 1679626800
+      },
       "rpc": false
     }
   ]
