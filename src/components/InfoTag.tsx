@@ -13,7 +13,7 @@ export const InfoTag = ({ information }: InfoTagProps) => {
   const { theme } = useCustomTheme();
   return (
     <InfoTagContainer>
-      <Image src={theme === 'dark' ? informationIconDark : informationIconLight} alt={information} />
+      <InfoIcon src={theme === 'dark' ? informationIconDark : informationIconLight} alt={information} />
       <InfoText>{information}</InfoText>
     </InfoTagContainer>
   );
@@ -25,20 +25,31 @@ const InfoTagContainer = styled(Box)(() => {
   return {
     display: 'flex',
     alignItems: 'center',
-    fontSize: '0.7rem',
     gap: currentTheme.gap,
     backgroundColor: currentTheme.warningBackground,
     borderRadius: currentTheme.borderRadius,
     padding: '0.1rem 0.5rem 0.1rem 0.1rem',
     border: currentTheme.warningBorder,
+    width: 'max-content',
   };
 });
 
-const InfoText = styled(Typography)(() => {
+const InfoText = styled(Typography)(({ theme }) => {
   const { currentTheme } = useCustomTheme();
 
   return {
     fontSize: '0.7rem',
     color: currentTheme.warningText,
+    [theme.breakpoints.down('sm')]: {
+      fontSize: '0.5rem',
+    },
+  };
+});
+
+const InfoIcon = styled(Image)(({ theme }) => {
+  return {
+    [theme.breakpoints.down('sm')]: {
+      width: '1rem',
+    },
   };
 });

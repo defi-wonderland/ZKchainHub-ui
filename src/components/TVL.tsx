@@ -9,10 +9,11 @@ import {
   STableCellHead,
   STableCell,
   STableBody,
-  LogoCell,
+  FirstCellWithLogo,
   TokenAvatar,
   STitle,
   STableBodyRow,
+  TableCellHeadFirst,
 } from '~/components';
 
 export const TVL = () => {
@@ -26,7 +27,7 @@ export const TVL = () => {
         <Table>
           <STableHead>
             <STableRow>
-              <STableCellHead>{t('CHAIN.TVL.chain')}</STableCellHead>
+              <TableCellHeadFirst>{t('CHAIN.TVL.chain')}</TableCellHeadFirst>
               <STableCellHead>{t('CHAIN.TVL.price')}</STableCellHead>
               <STableCellHead>{t('CHAIN.TVL.tvl')}</STableCellHead>
             </STableRow>
@@ -35,13 +36,12 @@ export const TVL = () => {
           <STableBody>
             {tvl.map((token, index) => (
               <STableBodyRow key={index}>
-                <LogoCell>
+                <FirstCellWithLogo>
                   <TokenAvatar alt={token.name} src={token.imageUrl} />
                   <Typography>
                     {token.name} ({token.symbol})
                   </Typography>
-                </LogoCell>
-
+                </FirstCellWithLogo>
                 <STableCell>${token.price.toLocaleString()}</STableCell>
                 <STableCell>${((token.amountUsd * token.price) / 1e18).toLocaleString()}</STableCell>
               </STableBodyRow>
