@@ -94,6 +94,7 @@ export const LogoContainer = styled(Box)({
   alignItems: 'center',
   height: '100%',
   flexShrink: 0,
+  cursor: 'pointer',
 });
 
 export const Logo = styled(Image)({
