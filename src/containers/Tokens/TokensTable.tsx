@@ -12,6 +12,7 @@ import {
   LogoCell,
   TokenAvatar,
   STitle,
+  STableBodyRow,
 } from '~/components';
 
 export const TokensTable = ({ tvl }: TotalValueLockedProps) => {
@@ -32,7 +33,7 @@ export const TokensTable = ({ tvl }: TotalValueLockedProps) => {
 
           <STableBody>
             {tvl.map((token, index) => (
-              <STableRow key={index}>
+              <STableBodyRow key={index}>
                 <LogoCell>
                   <TokenAvatar alt={token.name} src={token.imageUrl} />
                   <Typography>
@@ -43,7 +44,7 @@ export const TokensTable = ({ tvl }: TotalValueLockedProps) => {
                 <STableCell>${token.price.toLocaleString()}</STableCell>
 
                 <STableCell>${((token.amountUsd * token.price) / 1e18).toLocaleString()}</STableCell>
-              </STableRow>
+              </STableBodyRow>
             ))}
           </STableBody>
         </Table>
