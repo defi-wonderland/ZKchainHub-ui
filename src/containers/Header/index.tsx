@@ -29,7 +29,7 @@ export const Header = () => {
   const router = useRouter();
   const { isSearch } = useSearchContext();
   const { locales, pathname, query } = router;
-  const isMobile = useMediaQuery('(max-width:600px)');
+  const isMobile = useMediaQuery('(max-width:900px)');
 
   const localesMap = locales ? Object.fromEntries(locales.map((locale) => [locale, t(`LOCALES.${locale}`)])) : {};
 
@@ -94,6 +94,7 @@ export const LogoContainer = styled(Box)({
   alignItems: 'center',
   height: '100%',
   flexShrink: 0,
+  cursor: 'pointer',
 });
 
 export const Logo = styled(Image)({
@@ -112,5 +113,8 @@ export const SIconButton = styled(IconButton)(() => {
     gap: currentTheme.gap,
     width: '3.5rem',
     height: '3.5rem',
+    '&:hover': {
+      backgroundColor: currentTheme.backgroundHover,
+    },
   };
 });

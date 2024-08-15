@@ -2,58 +2,58 @@
   "chainType": "Rollup",
   "tvl": [
     {
-      "token": "ETH",
-      "tokenName": "Ethereum",
-      "total": 557596566000,
+      "symbol": "ETH",
+      "name": "Ethereum",
+      "amountUsd": 557596566000,
       "price": 3500,
       "imageUrl": "https://dynamic-assets.coinbase.com/dbb4b4983bde81309ddab83eb598358eb44375b930b94687ebe38bc22e52c3b2125258ffb8477a5ef22e33d6bd72e32a506c391caa13af64c00e46613c3e5806/asset_icons/4113b082d21cc5fab17fc8f2d19fb996165bcce635e6900f7fc2d57c4ef33ae9.png"
     },
     {
-      "token": "USDT",
-      "tokenName": "Tether USD",
-      "total": 114493849618,
+      "symbol": "USDT",
+      "name": "Tether USD",
+      "amountUsd": 114493849618,
       "price": 3500,
       "imageUrl": "https://www.cryptomkt.com/static/landing/img/crypto-pages/trending/usdt.svg"
     },
     {
-      "token": "USDC",
-      "tokenName": "Bridged USD",
-      "total": 34115209093,
+      "symbol": "USDC",
+      "name": "Bridged USD",
+      "amountUsd": 34115209093,
       "price": 3500,
       "imageUrl": "https://assets.coingecko.com/coins/images/6319/standard/usdc.png?1696506694"
     },
     {
-      "token": "KOI",
-      "tokenName": "Koi Finance",
-      "total": 24115209093,
+      "symbol": "KOI",
+      "name": "Koi Finance",
+      "amountUsd": 24115209093,
       "price": 3500,
       "imageUrl": "https://assets.coingecko.com/coins/images/35766/standard/Koi_logo.png?1709782399"
     },
     {
-      "token": "WBTC",
-      "tokenName": "Wrapped BTC",
-      "total": 12620248,
+      "symbol": "WBTC",
+      "name": "Wrapped BTC",
+      "amountUsd": 12620248,
       "price": 3500,
       "imageUrl": "https://assets.coingecko.com/coins/images/7598/standard/wrapped_bitcoin_wbtc.png?1696507857"
     },
     {
-      "token": "wstETH",
-      "tokenName": "Lido wstETH",
-      "total": 3552439,
+      "symbol": "wstETH",
+      "name": "Lido wstETH",
+      "amountUsd": 3552439,
       "price": 3500,
       "imageUrl": "https://assets.coingecko.com/coins/images/18834/standard/wstETH.png?1696518295"
     },
     {
-      "token": "cbETH",
-      "tokenName": "Curve cbETH",
-      "total": 2552439,
+      "symbol": "cbETH",
+      "name": "Curve cbETH",
+      "amountUsd": 2552439,
       "price": 3500,
       "imageUrl": "https://assets.coingecko.com/coins/images/27008/standard/cbeth.png?1709186989"
     },
     {
-      "token": "BAL",
-      "tokenName": "Balancer",
-      "total": 1552439,
+      "symbol": "BAL",
+      "name": "Balancer",
+      "amountUsd": 1552439,
       "price": 3500,
       "imageUrl": "https://coin-images.coingecko.com/coins/images/671/large/balancer.png"
     }
@@ -61,7 +61,7 @@
   "batchesInfo": {
     "commited": 100,
     "verified": 90,
-    "proved": 80
+    "executed": 80
   },
   "feeParams": {
     "batchOverheadL1Gas": 50000,

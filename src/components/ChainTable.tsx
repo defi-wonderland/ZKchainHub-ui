@@ -48,7 +48,7 @@ export const ChainTable = ({ chains }: TableProps) => {
         <STableBody>
           {chains?.map((data, index) => {
             return (
-              <STableRow key={index} onClick={() => handleChainNavigation(data.chainId)}>
+              <STableBodyRow key={index} onClick={() => handleChainNavigation(data.chainId)}>
                 {/* Chain Name with Logo and Tags */}
                 <FirstCellWithLogo>
                   <ChainAvatar alt={`${data.chainName} logo`} src={data.iconUrl} />
@@ -69,7 +69,7 @@ export const ChainTable = ({ chains }: TableProps) => {
                 <STableCell sx={{ width: '10%' }}>{formatDataNumber(data.tvl, 0, true)}</STableCell>
 
                 <STableCell sx={{ width: '10%' }}>{data.chainType}</STableCell>
-              </STableRow>
+              </STableBodyRow>
             );
           })}
         </STableBody>
@@ -119,8 +119,21 @@ export const STableRow = styled(TableRow)(() => {
     '&:not(:last-child)': {
       border: currentTheme.border,
     },
-    cursor: 'pointer',
     transition: currentTheme.transition,
+  };
+});
+
+export const STableBodyRow = styled(TableRow)(() => {
+  const { currentTheme } = useCustomTheme();
+  return {
+    cursor: 'pointer',
+    '&:not(:last-child)': {
+      border: currentTheme.border,
+    },
+    transition: currentTheme.transition,
+    '&:hover': {
+      backgroundColor: currentTheme.backgroundHover,
+    },
   };
 });
 

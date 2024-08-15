@@ -93,7 +93,7 @@ const MenuButton = styled(Button)(({ theme }) => {
     fontSize: '1rem',
     color: currentTheme.textPrimary,
     '&:hover': {
-      backgroundColor: currentTheme.backgroundSecondary,
+      backgroundColor: currentTheme.backgroundHover,
     },
     [theme.breakpoints.down('sm')]: {
       width: '100%',

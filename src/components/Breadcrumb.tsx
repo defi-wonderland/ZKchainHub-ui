@@ -65,6 +65,9 @@ const BreadcrumbLink = styled(Link)(() => {
     textDecoration: 'none',
     fontSize: '0.875rem',
     lineHeight: '1.25rem',
+    '&:hover': {
+      textDecoration: 'underline',
+    },
   };
 });
 

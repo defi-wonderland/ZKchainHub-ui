@@ -10,6 +10,10 @@ interface TvlContentBoxProps {
   isLast?: boolean;
 }
 
+interface TvlProps {
+  isLast: boolean;
+}
+
 export const TvlContentBox = ({ avatar, token, total, tokenName, isLast }: TvlContentBoxProps) => {
   return (
     <ContentBox>
@@ -45,10 +49,6 @@ const TopBox = styled(Box)(() => {
     width: '100%',
   };
 });
-
-interface TvlProps {
-  isLast: boolean;
-}
 
 const TokenLogo = styled(Avatar)<TvlProps>(({ isLast }) => ({
   width: `${isLast ? '1.25rem' : '2.5rem'}`,

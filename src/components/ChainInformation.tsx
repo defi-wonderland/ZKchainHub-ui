@@ -1,4 +1,4 @@
-import { Grid, Typography, styled, Box } from '@mui/material';
+import { Typography, styled, Box } from '@mui/material';
 import { useTranslation } from 'next-i18next';
 
 import { InfoBox } from '~/components';
@@ -70,7 +70,7 @@ export const ChainInformation = () => {
 
         <InfoBox
           title={t('CHAIN.CHAININFORMATION.totalBatchesExecuted')}
-          description={chainData?.batchesInfo.proved}
+          description={chainData?.batchesInfo.executed}
           darkIcon={BlockDark}
           lightIcon={BlockLight}
           size={22}
@@ -112,16 +112,6 @@ export const DataContainer = styled(Box)(({ theme: muiTheme }) => {
     [muiTheme.breakpoints.down('sm')]: {
       gridTemplateColumns: 'repeat(1, 1fr)',
     },
-  };
-});
-
-export const GridContainer = styled(Grid)(() => {
-  const { currentTheme } = useCustomTheme();
-  return {
-    width: '100%',
-    borderRadius: 'inherit',
-    overflow: 'hidden',
-    border: currentTheme.border,
   };
 });
 
