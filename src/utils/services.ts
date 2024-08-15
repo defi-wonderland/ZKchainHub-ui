@@ -6,13 +6,15 @@ const { API_URL } = getConfig();
 
 const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
+console.log('Fetching backend data from:', API_URL);
+
 export const fetchEcosystemData = async () => {
   // temporary for mock data
   if (!API_URL) {
     await delay(2000); // Simulate 2 seconds delay
     return Promise.resolve(ecosystemMockData);
   }
-  const res = await fetch(`${API_URL}/ecosystem`);
+  const res = await fetch(`${API_URL}/metrics/ecosystem`);
   if (!res.ok) {
     throw new Error('Failed to fetch ecosystem data');
   }
