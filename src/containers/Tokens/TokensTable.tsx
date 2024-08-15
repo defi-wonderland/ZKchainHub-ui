@@ -34,15 +34,15 @@ export const TokensTable = ({ tvl }: TotalValueLockedProps) => {
             {tvl.map((token, index) => (
               <STableRow key={index}>
                 <LogoCell>
-                  <TokenAvatar alt={token.tokenName} src={token.imageUrl} />
+                  <TokenAvatar alt={token.name} src={token.imageUrl} />
                   <Typography>
-                    {token.tokenName} ({token.token})
+                    {token.name} ({token.symbol})
                   </Typography>
                 </LogoCell>
 
                 <STableCell>${token.price.toLocaleString()}</STableCell>
 
-                <STableCell>${((token.total * token.price) / 1e18).toLocaleString()}</STableCell>
+                <STableCell>${((token.amountUsd * token.price) / 1e18).toLocaleString()}</STableCell>
               </STableRow>
             ))}
           </STableBody>
