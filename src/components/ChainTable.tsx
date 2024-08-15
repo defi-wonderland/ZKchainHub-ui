@@ -147,16 +147,18 @@ export const STableCellHead = styled(TableCell)(() => {
   };
 });
 
-export const TableCellHeadFirst = styled(TableCell)(() => {
+export const TableCellHeadFirst = styled(TableCell)(({ theme }) => {
   const { currentTheme } = useCustomTheme();
   return {
     color: currentTheme.textSecondary,
     textAlign: 'left',
     borderBottom: 'none',
-    position: 'sticky',
-    left: 0,
-    zIndex: 1,
-    backgroundColor: currentTheme.backgroundTertiary,
+    [theme.breakpoints.down('sm')]: {
+      position: 'sticky',
+      left: 0,
+      zIndex: 1,
+      backgroundColor: currentTheme.backgroundTertiary,
+    },
   };
 });
 
@@ -173,7 +175,7 @@ export const STableCell = styled(TableCell)(({ theme }) => {
   };
 });
 
-export const FirstCellWithLogo = styled(TableCell)(() => {
+export const FirstCellWithLogo = styled(TableCell)(({ theme }) => {
   const { currentTheme } = useCustomTheme();
   return {
     color: currentTheme.textPrimary,
@@ -182,11 +184,13 @@ export const FirstCellWithLogo = styled(TableCell)(() => {
     gap: currentTheme.gap,
     border: 'none',
     textAlign: 'left',
-    position: 'sticky',
-    left: 0,
-    backgroundColor: currentTheme.backgroundSecondary,
-    zIndex: 1,
     minWidth: 'max-content',
+    [theme.breakpoints.down('sm')]: {
+      position: 'sticky',
+      left: 0,
+      backgroundColor: currentTheme.backgroundSecondary,
+      zIndex: 1,
+    },
   };
 });
 
