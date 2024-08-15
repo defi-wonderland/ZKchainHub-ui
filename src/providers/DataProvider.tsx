@@ -45,8 +45,14 @@ export const DataProvider = ({ children }: DataProps) => {
     refetch: refetchChainData,
   } = useQuery({
     queryKey: ['chainData', selectedChainId],
-    queryFn: () => fetchChainData(selectedChainId!),
-    enabled: !!selectedChainId,
+    queryFn: () => {
+      if (selectedChainId) {
+        return fetchChainData(selectedChainId);
+      } else {
+        return Promise.resolve(undefined); // Handle case where selectedChainId is undefined
+      }
+    },
+    enabled: !!selectedChainId, // Only fetch chain data if selectedChainId is defined
   });
 
   useEffect(() => {

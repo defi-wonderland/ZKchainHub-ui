@@ -56,7 +56,7 @@ export const ChainTable = ({ chains }: TableProps) => {
 
                   <InfoTagsContainer>
                     {!data.rpc && <InfoTag information={t('HOME.DASHBOARD.noRPC')} />}
-                    {!data.metadata && <InfoTag information={t('HOME.DASHBOARD.noMetadata')} />}
+                    {data.metadata === undefined && <InfoTag information={t('HOME.DASHBOARD.noMetadata')} />}
                   </InfoTagsContainer>
                 </FirstCellWithLogo>
 
