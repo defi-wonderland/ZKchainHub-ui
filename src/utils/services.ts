@@ -21,15 +21,40 @@ export const fetchEcosystemData = async () => {
   return await res.json();
 };
 
-export const fetchChainData = async (chainId: number) => {
+export const fetchChainData = async (chainId: string) => {
   // temporary for mock data
   if (!API_URL) {
     await delay(2000); // Simulate 2 seconds delay
     return Promise.resolve(chainMockData);
   }
-  const res = await fetch(`${API_URL}/zkchain/${chainId}`);
+  const res = await fetch(`${API_URL}/metrics/zkchain/${chainId}`);
   if (!res.ok) {
     throw new Error('Failed to fetch chain data');
   }
   return await res.json();
 };
+
+export async function checkRpcStatus(rpcUrl: string): Promise<boolean> {
+  try {
+    // Ping the RPC endpoint with a basic request
+    const response = await fetch(rpcUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        jsonrpc: '2.0',
+        id: 1,
+        method: 'web3_clientVersion', // A basic method that should be supported by most RPC endpoints
+        params: [],
+      }),
+    });
+
+    // If the response is successful and contains a valid result, return true
+    const data = await response.json();
+    return response.ok && !!data.result;
+  } catch (error) {
+    // If there is an error or the endpoint is not responding, return false
+    return false;
+  }
+}

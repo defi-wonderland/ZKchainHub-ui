@@ -1,5 +1,6 @@
 import { Avatar, Box, Button, Typography, styled } from '@mui/material';
 import { useTranslation } from 'next-i18next';
+import { useRouter } from 'next/router';
 import Image from 'next/image';
 
 import { useCustomTheme, useData } from '~/hooks';
@@ -20,6 +21,8 @@ import SettingsLight from '~/assets/icons/settingsLight.svg';
 
 export const ChainMetadata = () => {
   const { t } = useTranslation();
+  const router = useRouter();
+  const { chain } = router.query;
   const { chainData } = useData();
   const { theme } = useCustomTheme();
   const data = chainData?.metadata;
@@ -29,17 +32,17 @@ export const ChainMetadata = () => {
     <MetadataContainer>
       <FirstRow>
         <ChainIdentity>
-          <Avatar src={data?.iconUrl} alt={data?.chainName} sx={{ width: 72, height: 72 }} />
+          <Avatar src={data?.iconUrl} alt={data?.name} sx={{ width: 72, height: 72 }} />
           <Box>
-            <ChainName>{data?.chainName}</ChainName>
+            <ChainName>{data?.name}</ChainName>
             <ChainId>
-              {t('CHAIN.chainId')}: <ChainIdValue>{data?.chainId}</ChainIdValue>
+              {t('CHAIN.chainId')}: <ChainIdValue>{chain}</ChainIdValue>
             </ChainId>
           </Box>
         </ChainIdentity>
 
         <ButtonsContainer>
-          <MetadataButton variant='contained' href={data?.websiteUrl}>
+          <MetadataButton variant='contained' href={data?.explorerUrl}>
             <WebIcon src={dark ? WebDark : WebLight} alt='web icon' />
             {t('CHAIN.website')}
             <SIcon src={dark ? LinkDark : LinkLight} alt='link icon' />
@@ -74,15 +77,15 @@ export const ChainMetadata = () => {
             <Label variant='subtitle1' color='textSecondary' gutterBottom>
               {t('CHAIN.environment')}
             </Label>
-            <Value>{data?.environment}</Value>
+            <Value>{data?.chainType}</Value>
           </Box>
         </MetadataItem>
 
         <MetadataItem>
-          <NativeTokenAvatar src={data?.nativeTokenIconUrl} alt={data?.nativeToken} />
+          <NativeTokenAvatar src={data?.baseToken.imageUrl || ''} alt={data?.baseToken.symbol} />
           <Box>
             <Label>{t('CHAIN.nativeToken')}</Label>
-            <Value>{data?.nativeToken}</Value>
+            <Value>{data?.baseToken.symbol}</Value>
           </Box>
         </MetadataItem>
       </SecondRow>

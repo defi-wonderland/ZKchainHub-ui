@@ -21,7 +21,7 @@ export const Breadcrumb = ({ isChain }: BreadcrumbProps) => {
 
   const breadcrumbItems = pathNames.map((path, index) => {
     const isLast = index === pathNames.length - 1;
-    const displayName = isChain && isLast ? chainData?.metadata?.chainName || path : path;
+    const displayName = isChain && isLast ? chainData?.metadata?.name || path : path;
     const href = `/${pathNames.slice(0, index + 1).join('/')}`;
 
     return {

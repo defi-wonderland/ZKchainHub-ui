@@ -11,22 +11,25 @@ export interface ChainData {
     maxPubdataPerBatch: number;
     maxL2GasPerBatch: number;
     priorityTxMaxPubdata: number;
-    minimalL2GasPrice: number;
+    minimalL2GasPrice: string;
   };
   metadata: {
+    name: string;
     iconUrl: string;
-    chainName: string;
-    chainId: number;
-    publicRpcs: {
-      url: string;
-      status: boolean;
-    }[];
-    websiteUrl: string;
+    publicRpcs: string[];
     explorerUrl: string;
     launchDate: number;
-    environment: string;
-    nativeTokenIconUrl: string;
-    nativeToken: string;
+    chainType: string;
+    baseToken: {
+      name: string;
+      symbol: string;
+      contractAddress: string | null;
+      coingeckoId: string;
+      type: string;
+      imageUrl: string;
+      decimals: number;
+    };
+    tokenImgUrl: string;
   };
   l2ChainInfo: {
     tps: number;
@@ -37,14 +40,25 @@ export interface ChainData {
 }
 
 export interface EcosystemChainData {
-  chainName: string;
-  chainId: number;
-  iconUrl: string;
-  nativeToken: string;
-  tokenImgUrl: string;
-  tvl: number;
+  chainId: string;
   chainType: string;
-  metadata: boolean;
+  baseToken: {
+    name: string;
+    symbol: string;
+    contractAddress: string | null;
+    coingeckoId: string;
+    type: string;
+    imageUrl: string;
+    decimals: 18;
+  };
+  tvl: string;
+  metadata?: {
+    iconUrl: string;
+    name: string;
+    publicRpcs: string[];
+    explorerUrl: string;
+    launchDate: number;
+  };
   rpc: boolean;
 }
 
@@ -59,11 +73,15 @@ export interface EcosystemData {
 }
 
 export interface TvlData {
-  symbol: string;
+  amount: string;
+  amountUsd: string;
+  price: string;
   name: string;
-  amountUsd: number;
-  price: number;
+  symbol: string;
+  contractAddress: string | null;
+  type: string;
   imageUrl: string;
+  decimals: number;
 }
 
 export interface ChainTvl {
