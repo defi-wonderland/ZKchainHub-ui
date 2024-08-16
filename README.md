@@ -37,7 +37,7 @@ $ cp .env.example .env
 $ pnpm run start
 ```
 
-To verify ZKchainHub UI is running open http://localhost:3001 in your browser
+To verify ZKchainHub UI is running open http://localhost:5173 in your browser
 
 ## Development
 
