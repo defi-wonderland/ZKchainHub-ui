@@ -1,9 +1,16 @@
 import { getConfig } from '~/config';
+import ecosystemMockData from '~/data/ecosystemMockData.json';
+import chainMockData from '~/data/chainMockData.json';
+
 const { API_URL } = getConfig();
 
 console.log('Fetching backend data from:', API_URL);
 
 export const fetchEcosystemData = async () => {
+  if (!API_URL) {
+    console.log('API_URL not set');
+    return Promise.resolve(ecosystemMockData);
+  }
   const res = await fetch(`${API_URL}/metrics/ecosystem`);
   if (!res.ok) {
     throw new Error('Failed to fetch ecosystem data');
@@ -12,6 +19,10 @@ export const fetchEcosystemData = async () => {
 };
 
 export const fetchChainData = async (chainId: string) => {
+  if (!API_URL) {
+    console.log('API_URL not set');
+    return Promise.resolve(chainMockData);
+  }
   const res = await fetch(`${API_URL}/metrics/zkchain/${chainId}`);
   if (!res.ok) {
     throw new Error('Failed to fetch chain data');
