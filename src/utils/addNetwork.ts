@@ -4,15 +4,15 @@ interface AddNetwork {
   rpcUrls: string[];
   token: string;
   symbol: string;
-  decimals: string;
+  decimals: number;
   explorerUrl: string;
 }
 
 export const addNetwork = async ({ chainId, chainName, rpcUrls, token, symbol, decimals, explorerUrl }: AddNetwork) => {
   const networkData = {
-    chainId: `0x${chainId}`,
+    chainId: chainId,
     chainName: chainName,
-    rpcUrls: [...rpcUrls],
+    rpcUrls: [rpcUrls],
     nativeCurrency: {
       name: token,
       symbol: symbol,
