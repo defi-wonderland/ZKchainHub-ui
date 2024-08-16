@@ -1,7 +1,7 @@
 import { useTranslation } from 'next-i18next';
 import { Table, Typography } from '@mui/material';
 
-import { TotalValueLockedProps } from '~/types';
+import { TotalValueLockedProps, TvlData } from '~/types';
 import {
   STableContainer,
   STableHead,
@@ -14,6 +14,7 @@ import {
   STitle,
   STableBodyRow,
 } from '~/components';
+import { formatDataNumber } from '~/utils';
 
 export const TokensTable = ({ tvl }: TotalValueLockedProps) => {
   const { t } = useTranslation();
@@ -25,27 +26,27 @@ export const TokensTable = ({ tvl }: TotalValueLockedProps) => {
         <Table>
           <STableHead>
             <STableRow>
-              <STableCellHead>{t('CHAIN.TVL.chain')}</STableCellHead>
+              <STableCellHead>{t('CHAIN.TVL.token')}</STableCellHead>
               <STableCellHead>{t('CHAIN.TVL.price')}</STableCellHead>
               <STableCellHead>{t('CHAIN.TVL.tvl')}</STableCellHead>
             </STableRow>
           </STableHead>
 
           <STableBody>
-            {tvl.map((token, index) => (
-              <STableBodyRow key={index}>
-                <LogoCell>
-                  <TokenAvatar alt={token.name} src={token.imageUrl} />
-                  <Typography>
-                    {token.name} ({token.symbol})
-                  </Typography>
-                </LogoCell>
-
-                <STableCell>${token.price.toLocaleString()}</STableCell>
-
-                <STableCell>${((Number(token.amountUsd) * Number(token.price)) / 1e18).toLocaleString()}</STableCell>
-              </STableBodyRow>
-            ))}
+            {tvl
+              .sort((a, b) => parseFloat(b.amountUsd) - parseFloat(a.amountUsd))
+              .map((token: TvlData, index) => (
+                <STableBodyRow key={index}>
+                  <LogoCell>
+                    <TokenAvatar alt={token.name} src={token.imageUrl} />
+                    <Typography>
+                      {token.name} ({token.symbol})
+                    </Typography>
+                  </LogoCell>
+                  <STableCell>{formatDataNumber(token.price, 0, true)}</STableCell>
+                  <STableCell>{formatDataNumber(token.amountUsd, 0, true)}</STableCell>
+                </STableBodyRow>
+              ))}
           </STableBody>
         </Table>
       </STableContainer>

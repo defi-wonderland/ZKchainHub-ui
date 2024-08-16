@@ -34,7 +34,7 @@ const TitleBox = styled(Box)(({ theme }) => {
     gap: currentTheme.gap,
     justifyContent: 'center',
     textAlign: 'center',
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       display: 'grid',
       gridTemplateColumns: 'auto 1fr',
       justifyContent: 'start',
@@ -61,7 +61,7 @@ const Subtitle = styled(Typography)(({ theme }) => {
     lineHeight: '4rem',
     letterSpacing: '-0.03em',
     gridColumn: 'auto',
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       gridColumn: 'span 2',
     },
   };

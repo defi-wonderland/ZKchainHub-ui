@@ -51,7 +51,7 @@ export const FooterContainer = styled('footer')(({ theme }) => {
     width: '100%',
     gap: '0',
 
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       display: 'grid',
       justifyContent: 'center',
       gap: '2rem',

@@ -40,6 +40,7 @@
     "environment": "Entorno",
     "nativeToken": "Token nativo",
     "addNetwork": "Agregar red",
+    "networkAdded": "Red agregada",
     "chainId": "ID de cadena",
     "CHAININFORMATION": {
       "title": "Información de la cadena",
@@ -56,6 +57,7 @@
       "title": "TVL de ZKchain",
       "chain": "Cadena",
       "price": "Precio",
+      "token": "Token",
       "tvl": "TVL"
     },
     "RPC": {
@@ -80,6 +82,9 @@
     "github": "GitHub",
     "madeWithLove": "Hecho con",
     "by": "por"
+  },
+  "WALLET": {
+    "connection": "Conectar Wallet"
   },
   "ERROR": {
     "title": "Error",

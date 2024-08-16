@@ -39,6 +39,7 @@
     "environment": "Environment",
     "nativeToken": "Native token",
     "addNetwork": "Add network",
+    "networkAdded": "Network added",
     "chainId": "Chain ID",
     "CHAININFORMATION": {
       "title": "Chain information",
@@ -54,6 +55,7 @@
     "TVL": {
       "title": "ZKchain TVL",
       "chain": "Chain",
+      "token": "Token",
       "price": "Price",
       "tvl": "TVL"
     },
@@ -74,13 +76,16 @@
   "TOKENS": {
     "title": "Tokens"
   },
+  "WALLET": {
+    "connection": "Connect Wallet"
+  },
   "FOOTER": {
     "docs": "Documentation",
     "github": "GitHub",
     "madeWith": "Made with",
     "by": "by"
   },
-  "ERROR":{
+  "ERROR": {
     "title": "Error",
     "message": "An error occurred while fetching the data. Please try again later."
   },

@@ -40,7 +40,7 @@ const InfoText = styled(Typography)(({ theme }) => {
   return {
     fontSize: '0.7rem',
     color: currentTheme.warningText,
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       fontSize: '0.5rem',
     },
   };
@@ -48,7 +48,7 @@ const InfoText = styled(Typography)(({ theme }) => {
 
 const InfoIcon = styled(Image)(({ theme }) => {
   return {
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       width: '1rem',
     },
   };

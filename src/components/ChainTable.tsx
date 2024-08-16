@@ -153,7 +153,7 @@ export const TableCellHeadFirst = styled(TableCell)(({ theme }) => {
     color: currentTheme.textSecondary,
     textAlign: 'left',
     borderBottom: 'none',
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       position: 'sticky',
       left: 0,
       zIndex: 1,
@@ -169,7 +169,7 @@ export const STableCell = styled(TableCell)(({ theme }) => {
     textAlign: 'left',
     border: 'none',
     fontSize: '1rem',
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       fontSize: '0.875rem',
     },
   };
@@ -185,7 +185,7 @@ export const FirstCellWithLogo = styled(TableCell)(({ theme }) => {
     border: 'none',
     textAlign: 'left',
     minWidth: 'max-content',
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       position: 'sticky',
       left: 0,
       backgroundColor: currentTheme.backgroundSecondary,
@@ -227,7 +227,7 @@ export const ChainName = styled(Typography)(({ theme }) => {
   return {
     fontSize: '1rem',
     color: currentTheme.textPrimary,
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       fontSize: '0.875rem',
     },
   };
@@ -240,7 +240,7 @@ export const InfoTagsContainer = styled(Box)(({ theme }) => {
     color: currentTheme.textPrimary,
     display: 'flex',
     gap: currentTheme.gap,
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       fontSize: '0.875rem',
       display: 'grid',
     },

@@ -76,7 +76,7 @@ export const SBox = styled(Box)(({ theme }) => {
     display: 'flex',
     gap: currentTheme.gap,
     alignItems: 'center',
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       width: '100%',
     },
   };
@@ -95,7 +95,7 @@ const MenuButton = styled(Button)(({ theme }) => {
     '&:hover': {
       backgroundColor: currentTheme.backgroundHover,
     },
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       width: '100%',
       justifyContent: 'space-between',
       padding: currentTheme.padding,

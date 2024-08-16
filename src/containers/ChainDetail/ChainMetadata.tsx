@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 import { useCustomTheme, useData } from '~/hooks';
 import { formatTimestampToDate } from '~/utils';
-import { Icon } from '~/components';
+import { Icon, AddNetworkButton } from '~/components';
 
 import WebDark from '~/assets/icons/webDark.svg';
 import WebLight from '~/assets/icons/webLight.svg';
@@ -13,7 +13,6 @@ import LinkDark from '~/assets/icons/linkDark.svg';
 import LinkLight from '~/assets/icons/linkLight.svg';
 import BlockDark from '~/assets/icons/whiteBlockDark.svg';
 import BlockLight from '~/assets/icons/blackBlockLight.svg';
-import Add from '~/assets/icons/add.svg';
 import ClockDark from '~/assets/icons/clockDark.svg';
 import ClockLight from '~/assets/icons/clockLight.svg';
 import SettingsDark from '~/assets/icons/settingsDark.svg';
@@ -25,16 +24,16 @@ export const ChainMetadata = () => {
   const { chain } = router.query;
   const { chainData } = useData();
   const { theme } = useCustomTheme();
-  const data = chainData?.metadata;
+  const chainMetadata = chainData?.metadata;
   const dark = theme === 'dark';
 
   return (
     <MetadataContainer>
       <FirstRow>
         <ChainIdentity>
-          <Avatar src={data?.iconUrl} alt={data?.name} sx={{ width: 72, height: 72 }} />
+          <Avatar src={chainMetadata?.iconUrl} alt={chainMetadata?.name} sx={{ width: 72, height: 72 }} />
           <Box>
-            <ChainName>{data?.name}</ChainName>
+            <ChainName>{chainMetadata?.name}</ChainName>
             <ChainId>
               {t('CHAIN.chainId')}: <ChainIdValue>{chain}</ChainIdValue>
             </ChainId>
@@ -42,24 +41,22 @@ export const ChainMetadata = () => {
         </ChainIdentity>
 
         <ButtonsContainer>
-          <MetadataButton variant='contained' href={data?.explorerUrl}>
+          <MetadataButton variant='contained' href={chainMetadata?.explorerUrl}>
             <WebIcon src={dark ? WebDark : WebLight} alt='web icon' />
             {t('CHAIN.website')}
             <SIcon src={dark ? LinkDark : LinkLight} alt='link icon' />
           </MetadataButton>
 
-          <MetadataButton variant='contained' href={data?.explorerUrl}>
+          <MetadataButton variant='contained' href={chainMetadata?.explorerUrl}>
             <SIcon src={dark ? BlockDark : BlockLight} alt='block icon' />
             {t('CHAIN.explorer')}
             <SIcon src={dark ? LinkDark : LinkLight} alt='link icon' />
           </MetadataButton>
 
-          <AddNetworkBtn variant='contained'>
-            <SIcon src={Add} alt='add icon' />
-            {t('CHAIN.addNetwork')}
-          </AddNetworkBtn>
+          <AddNetworkButton />
         </ButtonsContainer>
       </FirstRow>
+
       <SecondRow>
         <MetadataItem>
           <Icon darkIcon={ClockDark} lightIcon={ClockLight} alt={t('CHAIN.launchDate')} size={48} />
@@ -67,7 +64,7 @@ export const ChainMetadata = () => {
             <Label variant='subtitle1' color='textSecondary' gutterBottom>
               {t('CHAIN.launchDate')}
             </Label>
-            <Value>{formatTimestampToDate(data?.launchDate)}</Value>
+            <Value>{formatTimestampToDate(chainMetadata?.launchDate)}</Value>
           </Box>
         </MetadataItem>
 
@@ -77,15 +74,15 @@ export const ChainMetadata = () => {
             <Label variant='subtitle1' color='textSecondary' gutterBottom>
               {t('CHAIN.environment')}
             </Label>
-            <Value>{data?.chainType}</Value>
+            <Value>{chainData?.chainType}</Value>
           </Box>
         </MetadataItem>
 
         <MetadataItem>
-          <NativeTokenAvatar src={data?.baseToken.imageUrl || ''} alt={data?.baseToken.symbol} />
+          <NativeTokenAvatar src={chainData?.baseToken.imageUrl || ''} alt={chainData?.baseToken.symbol} />
           <Box>
             <Label>{t('CHAIN.nativeToken')}</Label>
-            <Value>{data?.baseToken.symbol}</Value>
+            <Value>{chainData?.baseToken.symbol}</Value>
           </Box>
         </MetadataItem>
       </SecondRow>
@@ -108,7 +105,7 @@ const FirstRow = styled(Box)(({ theme }) => ({
   alignItems: 'center',
   justifyContent: 'space-between',
   padding: '1.5rem 1rem',
-  [theme.breakpoints.down('sm')]: {
+  [theme.breakpoints.down('md')]: {
     display: 'grid',
   },
 }));
@@ -123,7 +120,7 @@ const SecondRow = styled(Box)(({ theme }) => {
     gap: currentTheme.gap,
     width: '100%',
     borderTop: currentTheme.border,
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       display: 'grid',
       justifyContent: 'space-between',
       gridTemplateColumns: 'repeat(2, 1fr)',
@@ -159,26 +156,6 @@ const MetadataButton = styled(Button)(() => {
   };
 });
 
-const AddNetworkBtn = styled(Button)(() => {
-  const { currentTheme } = useCustomTheme();
-
-  return {
-    background: currentTheme.primary[500],
-    borderRadius: currentTheme.borderRadius,
-    padding: currentTheme.padding,
-    color: '#fff',
-    textTransform: 'none',
-    fontSize: '1rem',
-    gap: '0.5rem',
-    lineHeight: '1.5rem',
-    boxShadow: 'none',
-    '&:hover': {
-      background: currentTheme.primary[300],
-      boxShadow: 'none',
-    },
-  };
-});
-
 const SIcon = styled(Image)({
   width: '1.5rem',
   height: '1.5rem',
@@ -198,7 +175,7 @@ const ButtonsContainer = styled(Box)(({ theme }) => {
     justifyContent: 'flex-end',
     gap: currentTheme.gap,
     marginTop: 0,
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       display: 'grid',
       justifyContent: 'space-between',
       gridTemplateColumns: 'repeat(2, 1fr)',

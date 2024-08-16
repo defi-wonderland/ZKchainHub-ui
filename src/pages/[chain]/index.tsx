@@ -22,8 +22,6 @@ const Chain = ({ chain }: InferGetStaticPropsType<typeof getStaticProps>) => {
     if (chain.chainId) {
       setSelectedChainId(chain.chainId);
     }
-
-    refetchChainData({ throwOnError: true, cancelRefetch: false });
   }, [chain?.chainId, setSelectedChainId, refetchChainData]);
 
   return (
