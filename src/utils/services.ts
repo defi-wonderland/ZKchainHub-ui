@@ -1,7 +1,6 @@
 import { getConfig } from '~/config';
 import ecosystemMockData from '~/data/ecosystemMockData.json';
 import chainMockData from '~/data/chainMockData.json';
-
 const { API_URL } = getConfig();
 
 console.log('Fetching backend data from:', API_URL);
@@ -13,14 +12,14 @@ export const fetchEcosystemData = async () => {
   }
   const res = await fetch(`${API_URL}/metrics/ecosystem`);
   if (!res.ok) {
-    throw new Error('Failed to fetch ecosystem data');
+    throw new Error('Failed to fetch ecosystem data. App is being rendered with Mock data');
   }
   return await res.json();
 };
 
 export const fetchChainData = async (chainId: string) => {
   if (!API_URL) {
-    console.log('API_URL not set');
+    console.log('API_URL not set. App is being rendered with Mock data');
     return Promise.resolve(chainMockData);
   }
   const res = await fetch(`${API_URL}/metrics/zkchain/${chainId}`);
