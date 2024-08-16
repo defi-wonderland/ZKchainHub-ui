@@ -1,5 +1,14 @@
 export interface ChainData {
   chainType: string;
+  baseToken: {
+    name: string;
+    symbol: string;
+    contractAddress: string | null;
+    coingeckoId: string;
+    type: string;
+    imageUrl: string;
+    decimals: number;
+  };
   tvl: ChainTvl[];
   batchesInfo: {
     commited: number;
@@ -20,15 +29,6 @@ export interface ChainData {
     explorerUrl: string;
     launchDate: number;
     chainType: string;
-    baseToken: {
-      name: string;
-      symbol: string;
-      contractAddress: string | null;
-      coingeckoId: string;
-      type: string;
-      imageUrl: string;
-      decimals: number;
-    };
     tokenImgUrl: string;
   };
   l2ChainInfo: {
@@ -87,7 +87,7 @@ export interface TvlData {
 export interface ChainTvl {
   symbol: string;
   name: string;
-  amountUsd: number;
+  amountUsd: string;
   imageUrl: string;
   price: number;
 }

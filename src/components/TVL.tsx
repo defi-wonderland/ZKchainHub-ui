@@ -15,6 +15,7 @@ import {
   STableBodyRow,
   TableCellHeadFirst,
 } from '~/components';
+import { formatDataNumber } from '~/utils';
 
 export const TVL = () => {
   const { t } = useTranslation();
@@ -27,25 +28,28 @@ export const TVL = () => {
         <Table>
           <STableHead>
             <STableRow>
-              <TableCellHeadFirst>{t('CHAIN.TVL.chain')}</TableCellHeadFirst>
+              <TableCellHeadFirst>{t('CHAIN.TVL.token')}</TableCellHeadFirst>
               <STableCellHead>{t('CHAIN.TVL.price')}</STableCellHead>
               <STableCellHead>{t('CHAIN.TVL.tvl')}</STableCellHead>
             </STableRow>
           </STableHead>
 
           <STableBody>
-            {tvl.map((token, index) => (
-              <STableBodyRow key={index}>
-                <FirstCellWithLogo>
-                  <TokenAvatar alt={token.name} src={token.imageUrl} />
-                  <Typography>
-                    {token.name} ({token.symbol})
-                  </Typography>
-                </FirstCellWithLogo>
-                <STableCell>${token.price.toLocaleString()}</STableCell>
-                <STableCell>${((token.amountUsd * token.price) / 1e18).toLocaleString()}</STableCell>
-              </STableBodyRow>
-            ))}
+            {tvl
+              //FIXME: Use bignumber here
+              .sort((a, b) => parseFloat(b.amountUsd) - parseFloat(a.amountUsd))
+              .map((token, index) => (
+                <STableBodyRow key={index}>
+                  <FirstCellWithLogo>
+                    <TokenAvatar alt={token.name} src={token.imageUrl} />
+                    <Typography>
+                      {token.name} ({token.symbol})
+                    </Typography>
+                  </FirstCellWithLogo>
+                  <STableCell>{formatDataNumber(token.price, 0, true)}</STableCell>
+                  <STableCell>{formatDataNumber(token.amountUsd, 0, true)}</STableCell>
+                </STableBodyRow>
+              ))}
           </STableBody>
         </Table>
       </STableContainer>

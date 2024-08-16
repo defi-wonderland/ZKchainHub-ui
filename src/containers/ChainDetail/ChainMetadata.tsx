@@ -25,16 +25,16 @@ export const ChainMetadata = () => {
   const { chain } = router.query;
   const { chainData } = useData();
   const { theme } = useCustomTheme();
-  const data = chainData?.metadata;
+  const chainMetadata = chainData?.metadata;
   const dark = theme === 'dark';
 
   return (
     <MetadataContainer>
       <FirstRow>
         <ChainIdentity>
-          <Avatar src={data?.iconUrl} alt={data?.name} sx={{ width: 72, height: 72 }} />
+          <Avatar src={chainMetadata?.iconUrl} alt={chainMetadata?.name} sx={{ width: 72, height: 72 }} />
           <Box>
-            <ChainName>{data?.name}</ChainName>
+            <ChainName>{chainMetadata?.name}</ChainName>
             <ChainId>
               {t('CHAIN.chainId')}: <ChainIdValue>{chain}</ChainIdValue>
             </ChainId>
@@ -42,13 +42,13 @@ export const ChainMetadata = () => {
         </ChainIdentity>
 
         <ButtonsContainer>
-          <MetadataButton variant='contained' href={data?.explorerUrl}>
+          <MetadataButton variant='contained' href={chainMetadata?.explorerUrl}>
             <WebIcon src={dark ? WebDark : WebLight} alt='web icon' />
             {t('CHAIN.website')}
             <SIcon src={dark ? LinkDark : LinkLight} alt='link icon' />
           </MetadataButton>
 
-          <MetadataButton variant='contained' href={data?.explorerUrl}>
+          <MetadataButton variant='contained' href={chainMetadata?.explorerUrl}>
             <SIcon src={dark ? BlockDark : BlockLight} alt='block icon' />
             {t('CHAIN.explorer')}
             <SIcon src={dark ? LinkDark : LinkLight} alt='link icon' />
@@ -67,7 +67,7 @@ export const ChainMetadata = () => {
             <Label variant='subtitle1' color='textSecondary' gutterBottom>
               {t('CHAIN.launchDate')}
             </Label>
-            <Value>{formatTimestampToDate(data?.launchDate)}</Value>
+            <Value>{formatTimestampToDate(chainMetadata?.launchDate)}</Value>
           </Box>
         </MetadataItem>
 
@@ -77,15 +77,14 @@ export const ChainMetadata = () => {
             <Label variant='subtitle1' color='textSecondary' gutterBottom>
               {t('CHAIN.environment')}
             </Label>
-            <Value>{data?.chainType}</Value>
+            <Value>{chainData?.chainType}</Value>
           </Box>
         </MetadataItem>
 
         <MetadataItem>
-          <NativeTokenAvatar src={data?.baseToken.imageUrl || ''} alt={data?.baseToken.symbol} />
+          <NativeTokenAvatar src={chainData?.baseToken.imageUrl || ''} alt={chainData?.baseToken.symbol} />
           <Box>
-            <Label>{t('CHAIN.nativeToken')}</Label>
-            <Value>{data?.baseToken.symbol}</Value>
+            <Label>{t('CHAIN.nativeToken')}</Label>T<Value>{chainData?.baseToken.symbol}</Value>
           </Box>
         </MetadataItem>
       </SecondRow>
