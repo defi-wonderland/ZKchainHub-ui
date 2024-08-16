@@ -82,6 +82,9 @@
     "madeWithLove": "Hecho con",
     "by": "por"
   },
+  "WALLET": {
+    "connection": "Conectar Wallet"
+  },
   "ERROR": {
     "title": "Error",
     "message": "Lo sentimos, algo salió mal. Por favor, inténtelo de nuevo más tarde."

@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 import { useCustomTheme, useData } from '~/hooks';
 import { formatTimestampToDate } from '~/utils';
-import { Icon } from '~/components';
+import { Icon, AddNetworkButton } from '~/components';
 
 import WebDark from '~/assets/icons/webDark.svg';
 import WebLight from '~/assets/icons/webLight.svg';
@@ -13,7 +13,6 @@ import LinkDark from '~/assets/icons/linkDark.svg';
 import LinkLight from '~/assets/icons/linkLight.svg';
 import BlockDark from '~/assets/icons/whiteBlockDark.svg';
 import BlockLight from '~/assets/icons/blackBlockLight.svg';
-import Add from '~/assets/icons/add.svg';
 import ClockDark from '~/assets/icons/clockDark.svg';
 import ClockLight from '~/assets/icons/clockLight.svg';
 import SettingsDark from '~/assets/icons/settingsDark.svg';
@@ -54,10 +53,7 @@ export const ChainMetadata = () => {
             <SIcon src={dark ? LinkDark : LinkLight} alt='link icon' />
           </MetadataButton>
 
-          <AddNetworkBtn variant='contained'>
-            <SIcon src={Add} alt='add icon' />
-            {t('CHAIN.addNetwork')}
-          </AddNetworkBtn>
+          <AddNetworkButton />
         </ButtonsContainer>
       </FirstRow>
       <SecondRow>
@@ -153,26 +149,6 @@ const MetadataButton = styled(Button)(() => {
     lineHeight: '1.5rem',
     '&:hover': {
       background: theme === 'dark' ? currentTheme.neutral[800] : currentTheme.neutral[300],
-      boxShadow: 'none',
-    },
-  };
-});
-
-const AddNetworkBtn = styled(Button)(() => {
-  const { currentTheme } = useCustomTheme();
-
-  return {
-    background: currentTheme.primary[500],
-    borderRadius: currentTheme.borderRadius,
-    padding: currentTheme.padding,
-    color: '#fff',
-    textTransform: 'none',
-    fontSize: '1rem',
-    gap: '0.5rem',
-    lineHeight: '1.5rem',
-    boxShadow: 'none',
-    '&:hover': {
-      background: currentTheme.primary[300],
       boxShadow: 'none',
     },
   };
