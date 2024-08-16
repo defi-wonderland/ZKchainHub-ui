@@ -1,10 +1,10 @@
+import { useState } from 'react';
 import { styled, Button } from '@mui/material';
 import { useTranslation } from 'next-i18next';
 import { useConnectModal } from '@rainbow-me/rainbowkit';
 import { useAccount } from 'wagmi';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
-import { useState } from 'react';
 
 import { useCustomTheme, useData } from '~/hooks';
 import { addNetwork } from '~/utils';

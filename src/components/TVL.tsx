@@ -36,7 +36,6 @@ export const TVL = () => {
 
           <STableBody>
             {tvl
-              //FIXME: Use bignumber here
               .sort((a, b) => parseFloat(b.amountUsd) - parseFloat(a.amountUsd))
               .map((token, index) => (
                 <STableBodyRow key={index}>

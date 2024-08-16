@@ -7,7 +7,6 @@ export const formatTimestampToDate = (timestamp: number): string => {
 };
 
 export function formatDataNumber(input: string | number, formatDecimal = 3, currency?: boolean, compact?: boolean) {
-  //FIXME: use bignumber here to avoid floating point issues
   const res: number = Number.parseFloat(input.toString());
 
   if (res === 0 || isNaN(res)) return `${currency ? '$0' : '0'}`;

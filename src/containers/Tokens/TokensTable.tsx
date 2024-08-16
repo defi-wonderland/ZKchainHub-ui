@@ -34,7 +34,6 @@ export const TokensTable = ({ tvl }: TotalValueLockedProps) => {
 
           <STableBody>
             {tvl
-              //FIXME: Use bignumber here
               .sort((a, b) => parseFloat(b.amountUsd) - parseFloat(a.amountUsd))
               .map((token: TvlData, index) => (
                 <STableBodyRow key={index}>
