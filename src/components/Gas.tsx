@@ -43,7 +43,7 @@ const GasContainer = styled(Box)(({ theme }) => {
     gap: currentTheme.gap,
     padding: '0.5rem 1rem',
 
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       display: 'grid',
       justifyItems: 'center',
     },

@@ -33,7 +33,7 @@ const LandingContainer = styled('main')(({ theme }) => ({
   marginTop: '4rem',
   marginBottom: '4rem',
   minHeight: 'calc(100vh - 19rem)',
-  [theme.breakpoints.down('sm')]: {
+  [theme.breakpoints.down('md')]: {
     padding: '0 1rem',
     minHeight: 'calc(100vh - 23rem)',
   },

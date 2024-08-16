@@ -109,7 +109,7 @@ export const DataContainer = styled(Box)(({ theme: muiTheme }) => {
     display: 'grid',
     gridTemplateColumns: 'repeat(4, 1fr)',
 
-    [muiTheme.breakpoints.down('sm')]: {
+    [muiTheme.breakpoints.down('md')]: {
       gridTemplateColumns: 'repeat(1, 1fr)',
     },
   };

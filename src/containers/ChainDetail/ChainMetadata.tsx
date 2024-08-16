@@ -56,6 +56,7 @@ export const ChainMetadata = () => {
           <AddNetworkButton />
         </ButtonsContainer>
       </FirstRow>
+
       <SecondRow>
         <MetadataItem>
           <Icon darkIcon={ClockDark} lightIcon={ClockLight} alt={t('CHAIN.launchDate')} size={48} />
@@ -80,7 +81,8 @@ export const ChainMetadata = () => {
         <MetadataItem>
           <NativeTokenAvatar src={chainData?.baseToken.imageUrl || ''} alt={chainData?.baseToken.symbol} />
           <Box>
-            <Label>{t('CHAIN.nativeToken')}</Label>T<Value>{chainData?.baseToken.symbol}</Value>
+            <Label>{t('CHAIN.nativeToken')}</Label>
+            <Value>{chainData?.baseToken.symbol}</Value>
           </Box>
         </MetadataItem>
       </SecondRow>
@@ -103,7 +105,7 @@ const FirstRow = styled(Box)(({ theme }) => ({
   alignItems: 'center',
   justifyContent: 'space-between',
   padding: '1.5rem 1rem',
-  [theme.breakpoints.down('sm')]: {
+  [theme.breakpoints.down('md')]: {
     display: 'grid',
   },
 }));
@@ -118,7 +120,7 @@ const SecondRow = styled(Box)(({ theme }) => {
     gap: currentTheme.gap,
     width: '100%',
     borderTop: currentTheme.border,
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       display: 'grid',
       justifyContent: 'space-between',
       gridTemplateColumns: 'repeat(2, 1fr)',
@@ -173,7 +175,7 @@ const ButtonsContainer = styled(Box)(({ theme }) => {
     justifyContent: 'flex-end',
     gap: currentTheme.gap,
     marginTop: 0,
-    [theme.breakpoints.down('sm')]: {
+    [theme.breakpoints.down('md')]: {
       display: 'grid',
       justifyContent: 'space-between',
       gridTemplateColumns: 'repeat(2, 1fr)',
