@@ -54,6 +54,7 @@
     "TVL": {
       "title": "ZKchain TVL",
       "chain": "Chain",
+      "token": "Token",
       "price": "Price",
       "tvl": "TVL"
     },
@@ -83,7 +84,7 @@
     "madeWith": "Made with",
     "by": "by"
   },
-  "ERROR":{
+  "ERROR": {
     "title": "Error",
     "message": "An error occurred while fetching the data. Please try again later."
   },
