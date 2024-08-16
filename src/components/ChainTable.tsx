@@ -26,7 +26,7 @@ export const ChainTable = ({ chains }: TableProps) => {
   const { t } = useTranslation();
   const router = useRouter();
 
-  const handleChainNavigation = (id: number) => {
+  const handleChainNavigation = (id: string) => {
     router.push(`/${id}`);
   };
 
@@ -51,19 +51,20 @@ export const ChainTable = ({ chains }: TableProps) => {
               <STableBodyRow key={index} onClick={() => handleChainNavigation(data.chainId)}>
                 {/* Chain Name with Logo and Tags */}
                 <FirstCellWithLogo>
-                  <ChainAvatar alt={`${data.chainName} logo`} src={data.iconUrl} />
-                  <ChainName>{data.chainName}</ChainName>
+                  <ChainAvatar alt={`${data.chainId}`} src={data.metadata?.iconUrl} />
+                  <ChainName>{data.metadata?.name ? data.metadata.name : `ZK Chain ${data.chainId}`}</ChainName>
+
                   <InfoTagsContainer>
                     {!data.rpc && <InfoTag information={t('HOME.DASHBOARD.noRPC')} />}
-                    {!data.metadata && <InfoTag information={t('HOME.DASHBOARD.noMetadata')} />}
+                    {data.metadata === undefined && <InfoTag information={t('HOME.DASHBOARD.noMetadata')} />}
                   </InfoTagsContainer>
                 </FirstCellWithLogo>
 
                 <STableCell sx={{ width: '10%' }}>{data.chainId}</STableCell>
 
                 <LogoCell sx={{ width: '10%' }}>
-                  <TokenAvatar alt={`${data.nativeToken} logo`} src={data.tokenImgUrl} />
-                  <Typography>{data.nativeToken}</Typography>
+                  <TokenAvatar alt={`${data.baseToken.symbol} logo`} src={data.baseToken.imageUrl} />
+                  <Typography>{data.baseToken.symbol}</Typography>
                 </LogoCell>
 
                 <STableCell sx={{ width: '10%' }}>{formatDataNumber(data.tvl, 0, true)}</STableCell>
@@ -146,16 +147,18 @@ export const STableCellHead = styled(TableCell)(() => {
   };
 });
 
-export const TableCellHeadFirst = styled(TableCell)(() => {
+export const TableCellHeadFirst = styled(TableCell)(({ theme }) => {
   const { currentTheme } = useCustomTheme();
   return {
     color: currentTheme.textSecondary,
     textAlign: 'left',
     borderBottom: 'none',
-    position: 'sticky',
-    left: 0,
-    zIndex: 1,
-    backgroundColor: currentTheme.backgroundTertiary,
+    [theme.breakpoints.down('sm')]: {
+      position: 'sticky',
+      left: 0,
+      zIndex: 1,
+      backgroundColor: currentTheme.backgroundTertiary,
+    },
   };
 });
 
@@ -172,7 +175,7 @@ export const STableCell = styled(TableCell)(({ theme }) => {
   };
 });
 
-export const FirstCellWithLogo = styled(TableCell)(() => {
+export const FirstCellWithLogo = styled(TableCell)(({ theme }) => {
   const { currentTheme } = useCustomTheme();
   return {
     color: currentTheme.textPrimary,
@@ -181,11 +184,13 @@ export const FirstCellWithLogo = styled(TableCell)(() => {
     gap: currentTheme.gap,
     border: 'none',
     textAlign: 'left',
-    position: 'sticky',
-    left: 0,
-    backgroundColor: currentTheme.backgroundSecondary,
-    zIndex: 1,
     minWidth: 'max-content',
+    [theme.breakpoints.down('sm')]: {
+      position: 'sticky',
+      left: 0,
+      backgroundColor: currentTheme.backgroundSecondary,
+      zIndex: 1,
+    },
   };
 });
 

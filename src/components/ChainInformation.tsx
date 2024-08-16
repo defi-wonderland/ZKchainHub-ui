@@ -10,8 +10,8 @@ import ChainTypeDark from '~/assets/icons/chainTypeDark.svg';
 import ChainTypeLight from '~/assets/icons/chainTypeLight.svg';
 import CheckBlockDark from '~/assets/icons/checkBlockDark.svg';
 import CheckBlockLight from '~/assets/icons/checkBlockLight.svg';
-import SpeedDark from '~/assets/icons/speedDark.svg';
-import SpeedLight from '~/assets/icons/speedLight.svg';
+// import SpeedDark from '~/assets/icons/speedDark.svg';
+// import SpeedLight from '~/assets/icons/speedLight.svg';
 
 export const ChainInformation = () => {
   const { t } = useTranslation();
@@ -32,7 +32,7 @@ export const ChainInformation = () => {
           alt='chain-type-icon'
         />
 
-        <InfoBox
+        {/* <InfoBox
           title={t('CHAIN.CHAININFORMATION.lastBlock')}
           description={chainData?.l2ChainInfo.lastBlock}
           darkIcon={BlockDark}
@@ -57,7 +57,7 @@ export const ChainInformation = () => {
           lightIcon={SpeedLight}
           size={22}
           alt='speed-icon'
-        />
+        /> */}
 
         <InfoBox
           title={t('CHAIN.CHAININFORMATION.totalBatchesCommitted')}
@@ -86,14 +86,14 @@ export const ChainInformation = () => {
           alt='check-block'
         />
 
-        <InfoBox
+        {/* <InfoBox
           title={t('CHAIN.CHAININFORMATION.averageBlockTime')}
           description={chainData?.l2ChainInfo.avgBlockTime}
           darkIcon={SpeedDark}
           lightIcon={SpeedLight}
           size={22}
           alt='speed-icon'
-        />
+        /> */}
       </DataContainer>
     </article>
   );

@@ -83,6 +83,10 @@
     "madeWith": "Made with",
     "by": "by"
   },
+  "ERROR":{
+    "title": "Error",
+    "message": "An error occurred while fetching the data. Please try again later."
+  },
   "LOCALES": {
     "en": "English",
     "es": "Spanish"

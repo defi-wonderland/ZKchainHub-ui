@@ -83,6 +83,9 @@ const AllTokensButton = styled(Button)(() => {
     fontSize: '0.75rem',
     marginTop: '1.5rem',
     alignItems: 'center',
+    '&:hover': {
+      backgroundColor: currentTheme.backgroundHover,
+    },
   };
 });
 

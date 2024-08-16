@@ -19,13 +19,16 @@ const Chain = ({ chain }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { setSelectedChainId, refetchChainData } = useData();
 
   useEffect(() => {
-    setSelectedChainId(chain?.chainId);
+    if (chain.chainId) {
+      setSelectedChainId(chain.chainId);
+    }
+
     refetchChainData({ throwOnError: true, cancelRefetch: false });
   }, [chain?.chainId, setSelectedChainId, refetchChainData]);
 
   return (
     <>
-      <CustomHead title={chain?.chainName} />
+      <CustomHead title={chain?.chainId} />
       <ChainDetail />
     </>
   );
@@ -48,7 +51,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps<ChainProps> = async ({ params, locale }: GetStaticPropsContext) => {
   const ecosystemData = await fetchEcosystemData();
   const chains = ecosystemData.zkChains;
-  const chainId = parseInt(params?.chain as string);
+  const chainId = params?.chain;
   const chain = chains.find((chain: EcosystemChainData) => chain.chainId === chainId);
 
   if (!chain) {

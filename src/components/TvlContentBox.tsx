@@ -5,7 +5,7 @@ import { formatDataNumber } from '~/utils';
 interface TvlContentBoxProps {
   avatar: string;
   token: string;
-  total: number;
+  total: string;
   tokenName: string;
   isLast?: boolean;
 }
