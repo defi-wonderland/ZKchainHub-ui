@@ -1,45 +1,39 @@
-# Web3 React Boilerplate
+# zkChainHub UI 🌐
 
-## Features
+## Description
 
-- Modern React setup with the latest tools and libraries.
-- Boilerplate for building web3-enabled applications.
-- Example unit and integration tests included.
-- Code linting and formatting for clean and maintainable code.
-- GitHub workflows for continuous integration.
+The **ZKchainHub** proposes a decentralized, permissionless platform that provides custom analytics dashboards for ZK ecosystems, empowering chain operators to track and visualize key metrics like TVL, transaction counts, and block details. This allows users to easily explore each chain.
 
-## Setup
+## 📋 Prerequisites
 
-1. Clone this repository.
-2. Copy the `.env.example` file to `.env` and fill in the variables.
-3. Install the project dependencies by running:
+- Ensure you have `pnpm >= 9.0.0` installed.
 
-   ```bash
-   pnpm install
-   ```
+## 💻 WebFlow
 
-## Available Scripts
+The flow of the application is as follows:
 
-Available scripts that can be run using `pnpm`:
+Home Page: The ecosystem page, where data is fetched from `metrics/ecosystem`. From here, you can navigate to all token's TVL data or directly to the Chain Page.
 
-| Script         | Description                                                  |
-| -------------- | ------------------------------------------------------------ |
-| `dev`          | Start the development server using Next.                     |
-| `build`        | Build the project for production.                            |
-| `preview`      | Preview the production build using Next.                     |
-| `lint`         | Run ESLint on the source code to check for coding standards. |
-| `lint:fix`     | Run ESLint and automatically fix code formatting issues.     |
-| `prettier`     | Check code formatting using Prettier.                        |
-| `prettier:fix` | Format code using Prettier and automatically fix issues.     |
-| `format`       | Run Prettier and ESLint to format and fix code issues.       |
-| `format:check` | Check code formatting and linting without making changes.    |
-| `test`         | Run tests using Cypress and Jest                             |
+Chain Page: Accessible via search in the header or by selecting a row in the table. Information is fetched from `metrics/zkchain/:id`.
 
-## Technologies Used
+## 🚀 Installation
 
-This boilerplate leverages the latest technologies, including:
+```bash
+$ pnpm install
+```
 
-- [NextJS](https://nextjs.org/)
-- [Wagmi](https://wagmi.sh/)
-- [Viem](https://viem.sh/)
-- [Rainbowkit](https://www.rainbowkit.com/)
+## 🏃 Running the app
+
+```bash
+$ pnpm run start
+```
+
+## Aditional comments
+
+The backend will typically run on `http://localhost:3000`. Make sure to update your .env file with the correct API base URL:
+
+`NEXT_PUBLIC_API_BASE_URL=<your_api_base_url>`
+
+## 💻 Conventional Commits
+
+We follow the Conventional Commits [specification](https://www.conventionalcommits.org/en/v1.0.0/#specification).
