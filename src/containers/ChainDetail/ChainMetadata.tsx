@@ -1,4 +1,4 @@
-import { Avatar, Box, Button, Typography, styled } from '@mui/material';
+import { Avatar, Box, Typography, styled } from '@mui/material';
 import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
@@ -41,13 +41,13 @@ export const ChainMetadata = () => {
         </ChainIdentity>
 
         <ButtonsContainer>
-          <MetadataButton variant='contained' href={chainMetadata?.explorerUrl}>
+          <MetadataButton href={chainMetadata?.explorerUrl} target='_blank'>
             <WebIcon src={dark ? WebDark : WebLight} alt='web icon' />
             {t('CHAIN.website')}
             <SIcon src={dark ? LinkDark : LinkLight} alt='link icon' />
           </MetadataButton>
 
-          <MetadataButton variant='contained' href={chainMetadata?.explorerUrl}>
+          <MetadataButton href={chainMetadata?.explorerUrl} target='_blank'>
             <SIcon src={dark ? BlockDark : BlockLight} alt='block icon' />
             {t('CHAIN.explorer')}
             <SIcon src={dark ? LinkDark : LinkLight} alt='link icon' />
@@ -136,10 +136,13 @@ const ChainIdentity = styled(Box)(() => {
   };
 });
 
-const MetadataButton = styled(Button)(() => {
+const MetadataButton = styled('a')(() => {
   const { currentTheme, theme } = useCustomTheme();
 
   return {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
     background: theme === 'dark' ? currentTheme.backgroundSecondary : currentTheme.backgroundTertiary,
     borderRadius: currentTheme.borderRadius,
     padding: currentTheme.padding,
@@ -149,6 +152,7 @@ const MetadataButton = styled(Button)(() => {
     fontSize: '1rem',
     gap: '0.5rem',
     lineHeight: '1.5rem',
+    textDecoration: 'none',
     '&:hover': {
       background: theme === 'dark' ? currentTheme.neutral[800] : currentTheme.neutral[300],
       boxShadow: 'none',
