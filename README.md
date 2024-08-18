@@ -1,4 +1,4 @@
-# zkChainHub UI 🌐
+# ZKchainHub UI 🌐
 
 ## Description
 
@@ -22,18 +22,32 @@ Chain Page: Accessible via search in the header or by selecting a row in the tab
 $ pnpm install
 ```
 
+## ⚙️ Setting up env variables
+
+- Create `.env` file in the `root` folder and copy paste `.env.example` content in there.
+```
+$ cp .env.example .env
+```
+- Set up `NEXT_PUBLIC_API_BASE_URL` with ZKchainHub Backend API url. It will typically run on `http://localhost:3000`
+- (Optionally) Set `NEXT_PUBLIC_PROJECT_ID` with your [Wallet Connect](https://walletconnect.com/) ProjectID
+
 ## 🏃 Running the app
 
 ```bash
 $ pnpm run start
 ```
 
-## Aditional comments
+To verify ZKchainHub UI is running open http://localhost:5173 in your browser
 
-The backend will typically run on `http://localhost:3000`. Make sure to update your .env file with the correct API base URL:
+## Development
 
-`NEXT_PUBLIC_API_BASE_URL=<your_api_base_url>`
-
-## 💻 Conventional Commits
-
+### 💻 Conventional Commits
 We follow the Conventional Commits [specification](https://www.conventionalcommits.org/en/v1.0.0/#specification).
+
+## Contributing
+
+ZKchainHub was built with ❤️ by [Wonderland](https://defi.sucks).
+
+Wonderland is a team of top Web3 researchers, developers, and operators who believe that the future needs to be open-source, permissionless, and decentralized.
+
+[DeFi sucks](https://defi.sucks), but Wonderland is here to make it better.
