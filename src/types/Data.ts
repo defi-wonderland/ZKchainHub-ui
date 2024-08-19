@@ -11,9 +11,9 @@ export interface ChainData {
   };
   tvl: ChainTvl[];
   batchesInfo: {
-    commited: number;
-    verified: number;
-    executed: number;
+    commited: string;
+    verified: string;
+    executed: string;
   };
   feeParams: {
     batchOverheadL1Gas: number;
@@ -28,10 +28,10 @@ export interface ChainData {
     publicRpcs: string[];
     explorerUrl: string;
     launchDate: number;
-    chainType: string;
-    tokenImgUrl: string;
+    chainType?: string;
+    tokenImgUrl?: string;
   };
-  l2ChainInfo: {
+  l2ChainInfo?: {
     tps: number;
     avgBlockTime: number;
     lastBlock: number;
@@ -49,7 +49,7 @@ export interface EcosystemChainData {
     coingeckoId: string;
     type: string;
     imageUrl: string;
-    decimals: 18;
+    decimals: number;
   };
   tvl: string;
   metadata?: {
@@ -65,9 +65,9 @@ export interface EcosystemChainData {
 export interface EcosystemData {
   l1Tvl: TvlData[];
   ethGasInfo: {
-    gasPrice: number;
-    ethTransfer: number;
-    erc20Transfer: number;
+    gasPrice: string;
+    ethTransfer: string;
+    erc20Transfer: string;
   };
   zkChains: EcosystemChainData[];
 }
@@ -89,7 +89,7 @@ export interface ChainTvl {
   name: string;
   amountUsd: string;
   imageUrl: string;
-  price: number;
+  price: string;
 }
 export interface TotalValueLockedProps {
   tvl: TvlData[];
