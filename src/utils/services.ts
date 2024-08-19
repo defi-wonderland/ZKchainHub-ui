@@ -36,15 +36,17 @@ export const checkRpcStatus = async (rpcUrl: string): Promise<boolean> => {
       body: JSON.stringify({
         jsonrpc: '2.0',
         id: 1,
-        method: 'web3_clientVersion',
+        method: 'web3_clientVersion', // A basic method that should be supported by most RPC endpoints
         params: [],
       }),
     });
 
     const data = await response.json();
+    // If the response is successful and contains a valid result, return true
     return response.ok && !!data.result;
   } catch (error) {
     console.error('Error checking RPC status:', error);
+    // If there is an error or the endpoint is not responding, return false
     return false;
   }
 };
