@@ -72,7 +72,7 @@ const TokenName = styled(Typography)<TvlProps>(({ isLast }) => ({
   fontSize: `${isLast ? '0.75rem' : '0.875rem'}`,
   fontWeight: 400,
   whiteSpace: 'nowrap',
-  margin: '0',
+  margin: '0 0.25rem 0 0',
 }));
 
 const TokenTicker = styled(Typography)<TvlProps>(({ isLast }) => {

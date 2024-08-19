@@ -28,7 +28,7 @@ export const SkeletonChainDetail = () => {
         <Skeleton variant='rectangular' width='100%' height={80} sx={{ borderRadius: 4, marginBottom: 2 }} />
       </Box>
 
-      {/* ZKChain TVL Skeleton */}
+      {/* TVL Skeleton */}
       <Box>
         <Skeleton variant='text' width='40%' height={60} sx={{ marginBottom: 2, borderRadius: 4 }} />
         <Box>
