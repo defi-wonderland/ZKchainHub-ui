@@ -68,6 +68,7 @@ export interface EcosystemData {
     gasPrice: string;
     ethTransfer: string;
     erc20Transfer: string;
+    ethPrice: string;
   };
   zkChains: EcosystemChainData[];
 }
