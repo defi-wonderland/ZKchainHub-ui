@@ -1,42 +1,38 @@
 import { getConfig } from '~/config';
 import ecosystemMockData from '~/data/ecosystemMockData.json';
 import chainMockData from '~/data/chainMockData.json';
+import { ChainData, EcosystemData } from '~/types';
+
 const { API_URL } = getConfig();
 
-console.log('Fetching backend data from:', API_URL);
+const fetchData = async (url: string, mockData: EcosystemData | ChainData) => {
+  if (!API_URL) return mockData;
+
+  try {
+    const response = await fetch(url);
+    if (!response.ok) throw new Error('Network response was not ok');
+    return await response.json();
+  } catch (error) {
+    console.error(`Error fetching data from ${url}:`, error);
+    throw error;
+  }
+};
 
 export const fetchEcosystemData = async () => {
-  if (!API_URL) {
-    console.log('API_URL not set');
-    return Promise.resolve(ecosystemMockData);
-  }
-  const res = await fetch(`${API_URL}/metrics/ecosystem`);
-  if (!res.ok) {
-    throw new Error('Failed to fetch ecosystem data. App is being rendered with Mock data');
-  }
-  return await res.json();
+  const url = `${API_URL}/metrics/ecosystem`;
+  return fetchData(url, ecosystemMockData);
 };
 
 export const fetchChainData = async (chainId: string) => {
-  if (!API_URL) {
-    console.log('API_URL not set. App is being rendered with Mock data');
-    return Promise.resolve(chainMockData);
-  }
-  const res = await fetch(`${API_URL}/metrics/zkchain/${chainId}`);
-  if (!res.ok) {
-    throw new Error('Failed to fetch chain data');
-  }
-  return await res.json();
+  const url = `${API_URL}/metrics/zkchain/${chainId}`;
+  return fetchData(url, chainMockData);
 };
 
-export async function checkRpcStatus(rpcUrl: string): Promise<boolean> {
+export const checkRpcStatus = async (rpcUrl: string): Promise<boolean> => {
   try {
-    // Ping the RPC endpoint with a basic request
     const response = await fetch(rpcUrl, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         jsonrpc: '2.0',
         id: 1,
@@ -45,11 +41,12 @@ export async function checkRpcStatus(rpcUrl: string): Promise<boolean> {
       }),
     });
 
-    // If the response is successful and contains a valid result, return true
     const data = await response.json();
+    // If the response is successful and contains a valid result, return true
     return response.ok && !!data.result;
   } catch (error) {
+    console.error('Error checking RPC status:', error);
     // If there is an error or the endpoint is not responding, return false
     return false;
   }
-}
+};

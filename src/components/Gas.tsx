@@ -10,7 +10,7 @@ import { SBox } from '~/components';
 export const Gas = () => {
   const { theme } = useCustomTheme();
   const { t } = useTranslation();
-  const { isEcosystemLoading } = useData();
+  const { isEcosystemLoading, ecosystemData } = useData();
 
   return (
     <GasContainer>
@@ -21,11 +21,11 @@ export const Gas = () => {
           <Box>
             <SBox>
               <GasLabel>{t('HEADER.gasPrice')}:</GasLabel>
-              <GasValueText>10 wei</GasValueText>
+              <GasValueText>{ecosystemData.ethGasInfo.gasPrice} wei</GasValueText>
             </SBox>
             <SBox>
               <GasLabel>{t('HEADER.transfer')}:</GasLabel>
-              <GasValueText>$10</GasValueText>
+              <GasValueText>$ {ecosystemData.ethGasInfo.erc20Transfer}</GasValueText>
             </SBox>
           </Box>
         </>

@@ -13,7 +13,6 @@
     "home": "Home",
     "LOCKEDASSETS": {
       "lockedAssets": "Locked assets",
-      "lockedAssetsDescription": "Locked assets in Elastic Chain Ecosystem",
       "others": "Others",
       "allTokens": "All tokens"
     },
@@ -53,7 +52,7 @@
       "averageBlockTime": "Average block time"
     },
     "TVL": {
-      "title": "ZKchain TVL",
+      "title": "TVL",
       "chain": "Chain",
       "token": "Token",
       "price": "Price",
@@ -77,7 +76,8 @@
     "title": "Tokens"
   },
   "WALLET": {
-    "connection": "Connect Wallet"
+    "connection": "Connect Wallet",
+    "connectTooltip": "Connect your wallet to add this network"
   },
   "FOOTER": {
     "docs": "Documentation",

@@ -32,7 +32,7 @@ export const Footer = () => {
           <Image src={theme === 'dark' ? HeartDark : HeartLight} alt='Wonderland' />
           <Typography>{t('FOOTER.by')}</Typography>
         </SBox>
-        <Link href='https://defi.sucks'>
+        <Link href='https://defi.sucks' target='_blank'>
           <Image src={theme === 'dark' ? WonderlandDark : WonderlandLight} alt='Wonderland' />
         </Link>
       </Subtitle>

@@ -14,7 +14,6 @@
     "home": "Inicio",
     "LOCKEDASSETS": {
       "lockedAssets": "Activos bloqueados",
-      "lockedAssetsDescription": "Activos bloqueados en el ecosistema de Elastic Chain",
       "others": "Otros",
       "allTokens": "Todos los tokens"
     },
@@ -54,7 +53,7 @@
       "averageBlockTime": "Tiempo promedio de bloque"
     },
     "TVL": {
-      "title": "TVL de ZKchain",
+      "title": "TVL",
       "chain": "Cadena",
       "price": "Precio",
       "token": "Token",
@@ -84,7 +83,8 @@
     "by": "por"
   },
   "WALLET": {
-    "connection": "Conectar Wallet"
+    "connection": "Conectar Wallet",
+    "connectTooltip": "Conecta tu wallet para agregar esta red"
   },
   "ERROR": {
     "title": "Error",

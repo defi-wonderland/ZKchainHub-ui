@@ -62,10 +62,12 @@ export const ChainTable = ({ chains }: TableProps) => {
 
                 <STableCell sx={{ width: '10%' }}>{data.chainId}</STableCell>
 
-                <LogoCell sx={{ width: '10%' }}>
-                  <TokenAvatar alt={`${data.baseToken.symbol} logo`} src={data.baseToken.imageUrl} />
-                  <Typography>{data.baseToken.symbol}</Typography>
-                </LogoCell>
+                <STableCell sx={{ width: '10%' }}>
+                  <LogoCell>
+                    <TokenAvatar alt={`${data.baseToken.symbol} logo`} src={data.baseToken.imageUrl} />
+                    <Typography>{data.baseToken.symbol}</Typography>
+                  </LogoCell>
+                </STableCell>
 
                 <STableCell sx={{ width: '10%' }}>{formatDataNumber(data.tvl, 0, true)}</STableCell>
 
@@ -94,7 +96,7 @@ export const STableContainer = styled(TableContainer)(() => {
 
     // Hide scrollbar for Firefox
     scrollbarWidth: 'none',
-    '-ms-overflow-style': 'none', // Hide scrollbar for Internet Explorer and Edge
+    msOverflowStyle: 'none', // Hide scrollbar for Internet Explorer and Edge
   };
 });
 
@@ -124,7 +126,7 @@ export const STableRow = styled(TableRow)(() => {
   };
 });
 
-export const STableBodyRow = styled(TableRow)(() => {
+export const STableBodyRow = styled(TableRow)(({ theme }) => {
   const { currentTheme } = useCustomTheme();
   return {
     cursor: 'pointer',
@@ -132,8 +134,10 @@ export const STableBodyRow = styled(TableRow)(() => {
       border: currentTheme.border,
     },
     transition: currentTheme.transition,
-    '&:hover': {
-      backgroundColor: currentTheme.backgroundHover,
+    [theme.breakpoints.up('md')]: {
+      '&:hover': {
+        backgroundColor: currentTheme.backgroundHover,
+      },
     },
   };
 });
@@ -194,15 +198,12 @@ export const FirstCellWithLogo = styled(TableCell)(({ theme }) => {
   };
 });
 
-export const LogoCell = styled(TableCell)(() => {
+export const LogoCell = styled(Box)(() => {
   const { currentTheme } = useCustomTheme();
   return {
-    color: currentTheme.textPrimary,
     display: 'flex',
     alignItems: 'center',
     gap: currentTheme.gap,
-    border: 'none',
-    textAlign: 'left',
   };
 });
 
@@ -217,7 +218,8 @@ export const TokenAvatar = styled(Avatar)(() => {
   const { currentTheme } = useCustomTheme();
   return {
     width: '1.5rem',
-    height: '1.5rem',
+    height: 'auto',
+    verticalAlign: 'middle',
     backgroundColor: currentTheme.emptyBackground,
   };
 });

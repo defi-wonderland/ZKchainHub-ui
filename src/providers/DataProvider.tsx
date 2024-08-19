@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect, ReactNode } from 'react';
+import { createContext, useState, useEffect, ReactNode, useMemo, useCallback } from 'react';
 import { useQuery, UseQueryResult } from '@tanstack/react-query';
 import { useRouter } from 'next/router';
 
@@ -27,6 +27,7 @@ export const DataContext = createContext({} as ContextType);
 
 export const DataProvider = ({ children }: DataProps) => {
   const [selectedChainId, setSelectedChainId] = useState<string>('');
+  const [hasNavigatedToError, setHasNavigatedToError] = useState<boolean>(false);
   const router = useRouter();
 
   const {
@@ -36,6 +37,7 @@ export const DataProvider = ({ children }: DataProps) => {
   } = useQuery({
     queryKey: ['ecosystem'],
     queryFn: fetchEcosystemData,
+    retry: false,
   });
 
   const {
@@ -47,13 +49,21 @@ export const DataProvider = ({ children }: DataProps) => {
     queryKey: ['chainData', selectedChainId],
     queryFn: () => fetchChainData(selectedChainId!),
     enabled: !!selectedChainId, // Only fetch chain data if selectedChainId is defined
+    retry: false,
   });
 
-  useEffect(() => {
-    if (isEcosystemError || isChainError) {
+  const hasError = useMemo(() => isEcosystemError || isChainError, [isEcosystemError, isChainError]);
+
+  const handleNavigationToError = useCallback(() => {
+    if (hasError && !hasNavigatedToError) {
+      setHasNavigatedToError(true);
       router.push('/error');
     }
-  }, [isEcosystemError, isChainError, router]);
+  }, [hasError, hasNavigatedToError, router]);
+
+  useEffect(() => {
+    handleNavigationToError();
+  }, [handleNavigationToError]);
 
   const totalL1TVL = (ecosystemData?.l1Tvl || []).reduce((accumulator: number, token: TvlData) => {
     return accumulator + (Number(token.amountUsd) || 0);

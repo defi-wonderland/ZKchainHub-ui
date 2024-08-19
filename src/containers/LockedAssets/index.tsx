@@ -22,7 +22,6 @@ export const LockedAssets = () => {
           <LockedAssetsContainer>
             <Box>
               <Title>{t('HOME.LOCKEDASSETS.lockedAssets')}</Title>
-              <Subtitle>{t('HOME.LOCKEDASSETS.lockedAssetsDescription')}</Subtitle>
             </Box>
 
             <TitleAmount>{formatDataNumber(totalL1TVL, 0, true, true)}</TitleAmount>
@@ -53,16 +52,6 @@ const Title = styled(Typography)(() => ({
   fontSize: '1.5rem',
   lineHeight: '2rem',
 }));
-
-const Subtitle = styled(Typography)(() => {
-  const { currentTheme } = useCustomTheme();
-  return {
-    fontSize: '0.9rem',
-    fontWeight: 400,
-    lineHeight: '1.25rem',
-    color: currentTheme.textSecondary,
-  };
-});
 
 const TitleAmount = styled(Typography)(() => ({
   fontSize: '2.25rem',

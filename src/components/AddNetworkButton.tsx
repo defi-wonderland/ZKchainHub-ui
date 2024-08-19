@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { styled, Button } from '@mui/material';
+import { styled, Button, Tooltip } from '@mui/material';
 import { useTranslation } from 'next-i18next';
 import { useConnectModal } from '@rainbow-me/rainbowkit';
 import { useAccount } from 'wagmi';
@@ -12,7 +12,7 @@ import Add from '~/assets/icons/add.svg';
 
 export const AddNetworkButton = () => {
   const router = useRouter();
-  const { chain } = router.query; // Ensure this is a valid chain ID
+  const { chain } = router.query;
   const { t } = useTranslation();
   const { isConnected } = useAccount();
   const { openConnectModal } = useConnectModal();
@@ -45,7 +45,13 @@ export const AddNetworkButton = () => {
 
   return (
     <>
-      {!isConnected && <BlueButton onClick={openConnectModal}>{t('WALLET.connection')}</BlueButton>}
+      {!isConnected && (
+        <>
+          <STooltip title={t('WALLET.connectTooltip')}>
+            <BlueButton onClick={openConnectModal}>{t('WALLET.connection')} </BlueButton>
+          </STooltip>
+        </>
+      )}
       {isConnected && !isNetworkAdded && (
         <BlueButton variant='contained' onClick={handleAddNetwork}>
           <StyledIcon src={Add} alt='Add' />
@@ -82,6 +88,15 @@ const BlueButton = styled(Button)(() => {
       background: currentTheme.primary[900],
       color: currentTheme.textSecondary,
     },
+  };
+});
+
+const STooltip = styled(Tooltip)(() => {
+  const { currentTheme } = useCustomTheme();
+
+  return {
+    borderRadius: currentTheme.borderRadius,
+    padding: currentTheme.padding,
   };
 });
 
