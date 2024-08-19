@@ -27,5 +27,5 @@ jobs:
         with:
           build: pnpm build
           start: pnpm start
-          wait-on: 'http://localhost:3000'
+          wait-on: 'http://localhost:5173'
           command: pnpm test
