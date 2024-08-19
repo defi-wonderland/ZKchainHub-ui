@@ -59,11 +59,13 @@ export const weiToGwei = (wei: string): number => {
   // Convert BigInt to string with 2 decimal places
   const gwei = Number(gweiBigInt) + Number(weiBigInt % BigInt(1e9)) / 1e9;
 
-  return Math.round(gwei);
+  return Math.round(gwei * 100) / 100;
 };
 
 export const calculateUSDGas = (txGas: bigint, gasPriceInWei: bigint, etherPrice: number): number => {
   const txGasInWei = BigInt(txGas) * BigInt(gasPriceInWei);
+  console.log(txGasInWei);
   const txCostInEther = Number(txGasInWei) / 1e18;
-  return Math.round(txCostInEther * etherPrice);
+  console.log(txCostInEther * etherPrice);
+  return Math.round(txCostInEther * etherPrice * 100) / 100;
 };

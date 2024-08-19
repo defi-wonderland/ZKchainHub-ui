@@ -19,6 +19,7 @@ export const Gas = () => {
   useEffect(() => {
     if (!isEcosystemLoading && ecosystemData?.ethGasInfo) {
       const { erc20Transfer, gasPrice, ethPrice } = ecosystemData.ethGasInfo;
+      console.log(erc20Transfer, gasPrice, ethPrice);
       const erc20USD = calculateUSDGas(BigInt(erc20Transfer), BigInt(gasPrice), Number(ethPrice));
       setErc20inUSD(erc20USD);
     }
