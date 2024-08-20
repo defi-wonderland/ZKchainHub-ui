@@ -10,12 +10,14 @@ import ChainTypeDark from '~/assets/icons/chainTypeDark.svg';
 import ChainTypeLight from '~/assets/icons/chainTypeLight.svg';
 import CheckBlockDark from '~/assets/icons/checkBlockDark.svg';
 import CheckBlockLight from '~/assets/icons/checkBlockLight.svg';
-// import SpeedDark from '~/assets/icons/speedDark.svg';
-// import SpeedLight from '~/assets/icons/speedLight.svg';
+import SpeedDark from '~/assets/icons/speedDark.svg';
+import SpeedLight from '~/assets/icons/speedLight.svg';
 
 export const ChainInformation = () => {
   const { t } = useTranslation();
   const { chainData } = useData();
+
+  const getDescription = (data: string | number | undefined) => data ?? t('CHAIN.CHAININFORMATION.notAvailable');
 
   return (
     <article>
@@ -25,16 +27,18 @@ export const ChainInformation = () => {
       <DataContainer>
         <ChainInfoCard
           title={t('CHAIN.CHAININFORMATION.chainType')}
-          description={chainData?.chainType}
+          description={getDescription(chainData?.chainType)}
+          isDataAvailable={!!chainData?.chainType}
           darkIcon={ChainTypeDark}
           lightIcon={ChainTypeLight}
           size={22}
           alt='chain-type-icon'
         />
 
-        {/* <ChainInfoCard
+        <ChainInfoCard
           title={t('CHAIN.CHAININFORMATION.lastBlock')}
-          description={chainData?.l2ChainInfo.lastBlock}
+          description={getDescription(chainData?.l2ChainInfo?.lastBlock)}
+          isDataAvailable={!!chainData?.l2ChainInfo?.lastBlock}
           darkIcon={BlockDark}
           lightIcon={BlockLight}
           size={22}
@@ -43,7 +47,8 @@ export const ChainInformation = () => {
 
         <ChainInfoCard
           title={t('CHAIN.CHAININFORMATION.lastBlockVerified')}
-          description={chainData?.l2ChainInfo.lastBlockVerified}
+          description={getDescription(chainData?.l2ChainInfo?.lastBlockVerified)}
+          isDataAvailable={!!chainData?.l2ChainInfo?.lastBlockVerified}
           darkIcon={CheckBlockDark}
           lightIcon={CheckBlockLight}
           size={22}
@@ -52,16 +57,18 @@ export const ChainInformation = () => {
 
         <ChainInfoCard
           title={t('CHAIN.CHAININFORMATION.transactionsPerSecond')}
-          description={chainData?.l2ChainInfo.tps}
+          description={getDescription(chainData?.l2ChainInfo?.tps)}
+          isDataAvailable={!!chainData?.l2ChainInfo?.tps}
           darkIcon={SpeedDark}
           lightIcon={SpeedLight}
           size={22}
           alt='speed-icon'
-        /> */}
+        />
 
         <ChainInfoCard
           title={t('CHAIN.CHAININFORMATION.totalBatchesCommitted')}
-          description={chainData?.batchesInfo.commited}
+          description={getDescription(chainData?.batchesInfo?.commited)}
+          isDataAvailable={!!chainData?.batchesInfo?.commited}
           darkIcon={BlockDark}
           lightIcon={BlockLight}
           size={22}
@@ -70,7 +77,8 @@ export const ChainInformation = () => {
 
         <ChainInfoCard
           title={t('CHAIN.CHAININFORMATION.totalBatchesExecuted')}
-          description={chainData?.batchesInfo.executed}
+          description={getDescription(chainData?.batchesInfo?.executed)}
+          isDataAvailable={!!chainData?.batchesInfo?.executed}
           darkIcon={BlockDark}
           lightIcon={BlockLight}
           size={22}
@@ -79,21 +87,23 @@ export const ChainInformation = () => {
 
         <ChainInfoCard
           title={t('CHAIN.CHAININFORMATION.totalBatchesVerified')}
-          description={chainData?.batchesInfo.verified}
+          description={getDescription(chainData?.batchesInfo?.verified)}
+          isDataAvailable={!!chainData?.batchesInfo?.verified}
           darkIcon={CheckBlockDark}
           lightIcon={CheckBlockLight}
           size={22}
           alt='check-block'
         />
 
-        {/* <ChainInfoCard
+        <ChainInfoCard
           title={t('CHAIN.CHAININFORMATION.averageBlockTime')}
-          description={chainData?.l2ChainInfo.avgBlockTime}
+          description={getDescription(chainData?.l2ChainInfo?.avgBlockTime)}
+          isDataAvailable={!!chainData?.l2ChainInfo?.avgBlockTime}
           darkIcon={SpeedDark}
           lightIcon={SpeedLight}
           size={22}
           alt='speed-icon'
-        /> */}
+        />
       </DataContainer>
     </article>
   );

@@ -16,13 +16,16 @@ export const FeeParams = () => {
   const { t } = useTranslation();
   const { chainData } = useData();
 
+  const getDescription = (data: string | number | undefined) => data ?? t('CHAIN.CHAININFORMATION.notAvailable');
+
   return (
     <article>
       <STitle>{t('CHAIN.FEEPARAMS.title')} </STitle>
       <DataContainer>
         <ChainInfoCard
           title={t('CHAIN.FEEPARAMS.batch')}
-          description={chainData?.feeParams.batchOverheadL1Gas}
+          description={getDescription(chainData?.feeParams.batchOverheadL1Gas)}
+          isDataAvailable={!!chainData?.feeParams.batchOverheadL1Gas}
           darkIcon={TagDark}
           lightIcon={TagLight}
           size={20}
@@ -31,7 +34,8 @@ export const FeeParams = () => {
 
         <ChainInfoCard
           title={t('CHAIN.FEEPARAMS.compute')}
-          description={chainData?.feeParams.maxPubdataPerBatch}
+          description={getDescription(chainData?.feeParams.maxPubdataPerBatch)}
+          isDataAvailable={!!chainData?.feeParams.maxPubdataPerBatch}
           darkIcon={BlockDark}
           lightIcon={BlockLight}
           size={20}
@@ -39,8 +43,9 @@ export const FeeParams = () => {
         />
 
         <ChainInfoCard
-          title={t('CHAIN.FEEPARAMS.maxGasBatch')}
-          description={chainData?.feeParams.maxL2GasPerBatch}
+          title={t('CHAIN.FEEPARAMS.lastBlockVerified')}
+          description={getDescription(chainData?.l2ChainInfo?.lastBlockVerified)}
+          isDataAvailable={!!chainData?.l2ChainInfo?.lastBlockVerified}
           darkIcon={CheckBlockDark}
           lightIcon={CheckBlockLight}
           size={20}
@@ -49,7 +54,8 @@ export const FeeParams = () => {
 
         <ChainInfoCard
           title={t('CHAIN.FEEPARAMS.maxGasBatch')}
-          description={chainData?.feeParams.maxL2GasPerBatch}
+          description={getDescription(chainData?.feeParams.maxL2GasPerBatch)}
+          isDataAvailable={!!chainData?.feeParams.maxL2GasPerBatch}
           darkIcon={MaxDark}
           lightIcon={MaxLight}
           size={20}

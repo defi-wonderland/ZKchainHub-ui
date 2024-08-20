@@ -49,7 +49,8 @@
       "totalBatchesCommitted": "Total batches committed",
       "totalBatchesExecuted": "Total batches executed",
       "totalBatchesVerified": "Total batches verified",
-      "averageBlockTime": "Average block time"
+      "averageBlockTime": "Average block time",
+      "notAvailable": "Not available"
     },
     "TVL": {
       "title": "TVL",
@@ -68,7 +69,8 @@
       "title": "Fee params",
       "batch": "Batch Overhead L1 Gas",
       "compute": "Compute Overhead Part",
-      "maxGasBatch": "Max Gas per Batch"
+      "maxGasBatch": "Max Gas per Batch",
+      "lastBlockVerified": "Last block verified"
     },
     "backButton": "Go back"
   },

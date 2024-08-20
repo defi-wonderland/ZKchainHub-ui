@@ -50,7 +50,8 @@
       "totalBatchesCommitted": "Total de lotes comprometidos",
       "totalBatchesExecuted": "Total de lotes ejecutados",
       "totalBatchesVerified": "Total de lotes verificados",
-      "averageBlockTime": "Tiempo promedio de bloque"
+      "averageBlockTime": "Tiempo promedio de bloque",
+      "notAvailable": "No disponible"
     },
     "TVL": {
       "title": "TVL",
@@ -69,7 +70,8 @@
       "title": "Parámetros de gas",
       "batch": "Sobrecarga de lote L1 Gas",
       "compute": "Parte de sobrecarga de cómputo",
-      "maxGasBatch": "Máximo gas por lote"
+      "maxGasBatch": "Máximo gas por lote",
+      "lastBlockVerified": "Último bloque verificado"
     },
     "backButton": "Volver"
   },
