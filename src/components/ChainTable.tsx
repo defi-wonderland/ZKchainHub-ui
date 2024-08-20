@@ -55,7 +55,10 @@ export const ChainTable = ({ chains }: TableProps) => {
                   <ChainName>{data.metadata?.name ? data.metadata.name : `ZK Chain ${data.chainId}`}</ChainName>
 
                   <InfoTagsContainer>
-                    {!data.rpc && <InfoTag information={t('HOME.DASHBOARD.noRPC')} />}
+                    {/* 
+                      TEMPORARY REMOVE RPC TAGS
+                      {!data.rpc && <InfoTag information={t('HOME.DASHBOARD.noRPC')} />} 
+                    */}
                     {data.metadata === undefined && <InfoTag information={t('HOME.DASHBOARD.noMetadata')} />}
                   </InfoTagsContainer>
                 </FirstCellWithLogo>
