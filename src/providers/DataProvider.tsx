@@ -1,9 +1,10 @@
 import { createContext, useState, useEffect, ReactNode, useMemo, useCallback } from 'react';
 import { useQuery, UseQueryResult } from '@tanstack/react-query';
 import { useRouter } from 'next/router';
+import { formatGwei } from 'viem';
 
 import { ChainData, EcosystemData, TvlData } from '~/types';
-import { fetchEcosystemData, fetchChainData } from '~/utils';
+import { fetchEcosystemData, fetchChainData, calculateUSDGas } from '~/utils';
 
 type ContextType = {
   selectedChainId: string;
@@ -17,6 +18,8 @@ type ContextType = {
   chainData: ChainData;
 
   totalL1TVL: number;
+  erc20USD: number;
+  gasPriceInGwei: string;
 };
 
 interface DataProps {
@@ -69,6 +72,20 @@ export const DataProvider = ({ children }: DataProps) => {
     return accumulator + (Number(token.amountUsd) || 0);
   }, 0);
 
+  const formatGas = useCallback(() => {
+    if (ecosystemData) {
+      const { erc20Transfer, gasPrice, ethPrice } = ecosystemData.ethGasInfo;
+
+      const erc20USD = calculateUSDGas(BigInt(erc20Transfer), BigInt(gasPrice), Number(ethPrice));
+      const gasPriceInGwei = Number(formatGwei(BigInt(gasPrice))).toFixed(2);
+
+      return { erc20USD, gasPriceInGwei };
+    }
+    return { erc20USD: 0, gasPriceInGwei: '0' };
+  }, [ecosystemData]);
+
+  const { erc20USD, gasPriceInGwei } = useMemo(() => formatGas(), [formatGas]);
+
   return (
     <DataContext.Provider
       value={{
@@ -80,6 +97,8 @@ export const DataProvider = ({ children }: DataProps) => {
         chainData,
         refetchChainData,
         totalL1TVL,
+        erc20USD,
+        gasPriceInGwei,
       }}
     >
       {children}

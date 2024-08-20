@@ -49,23 +49,8 @@ export const formatSmallNumber = (value: number) => {
   return result.replace(/\.?0+$/, '');
 };
 
-export const weiToGwei = (wei: string): number => {
-  // Convert string to BigInt for precision
-  const weiBigInt = BigInt(wei);
-
-  // Convert wei to gwei (1 gwei = 1e9 wei)
-  const gweiBigInt = weiBigInt / BigInt(1e9);
-
-  // Convert BigInt to string with 2 decimal places
-  const gwei = Number(gweiBigInt) + Number(weiBigInt % BigInt(1e9)) / 1e9;
-
-  return Math.round(gwei * 100) / 100;
-};
-
 export const calculateUSDGas = (txGas: bigint, gasPriceInWei: bigint, etherPrice: number): number => {
   const txGasInWei = BigInt(txGas) * BigInt(gasPriceInWei);
-  console.log(txGasInWei);
   const txCostInEther = Number(txGasInWei) / 1e18;
-  console.log(txCostInEther * etherPrice);
   return Math.round(txCostInEther * etherPrice * 100) / 100;
 };
