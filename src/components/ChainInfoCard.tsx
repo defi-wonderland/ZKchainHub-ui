@@ -10,9 +10,18 @@ interface ChainInfoCardProps {
   lightIcon: string;
   size: number;
   alt: string;
+  isDataAvailable: boolean;
 }
 
-export const ChainInfoCard = ({ title, description, darkIcon, lightIcon, size, alt }: ChainInfoCardProps) => {
+export const ChainInfoCard = ({
+  title,
+  description,
+  darkIcon,
+  lightIcon,
+  size,
+  alt,
+  isDataAvailable,
+}: ChainInfoCardProps) => {
   return (
     <StyledCard>
       <CardContent>
@@ -23,7 +32,7 @@ export const ChainInfoCard = ({ title, description, darkIcon, lightIcon, size, a
           </Label>
         </LabelContainer>
 
-        <Description>{description}</Description>
+        <Description isDataAvailable={isDataAvailable}>{description}</Description>
       </CardContent>
     </StyledCard>
   );
@@ -60,13 +69,14 @@ const Label = styled(Typography)(() => {
   };
 });
 
-const Description = styled(Typography)(() => {
+const Description = styled(Typography)<{ isDataAvailable: boolean }>((props) => {
   const { currentTheme } = useCustomTheme();
+
   return {
-    fontSize: '1.5rem',
+    fontSize: props.isDataAvailable ? '1.5rem' : '1rem',
     lineHeight: '2rem',
     fontWeight: 400,
-    color: currentTheme.textPrimary,
+    color: props.isDataAvailable ? currentTheme.textPrimary : currentTheme.textSecondary,
     marginTop: '0.5rem',
   };
 });
