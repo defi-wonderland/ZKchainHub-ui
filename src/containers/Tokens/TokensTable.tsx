@@ -1,5 +1,5 @@
 import { useTranslation } from 'next-i18next';
-import { Table, Typography } from '@mui/material';
+import { Table, Typography, Box } from '@mui/material';
 
 import { TotalValueLockedProps, TvlData } from '~/types';
 import {
@@ -9,10 +9,11 @@ import {
   STableCellHead,
   STableCell,
   STableBody,
-  LogoCell,
   TokenAvatar,
   STitle,
   STableBodyRow,
+  FirstCellWithLogo,
+  TableCellHeadFirst,
 } from '~/components';
 import { formatDataNumber } from '~/utils';
 
@@ -20,15 +21,15 @@ export const TokensTable = ({ tvl }: TotalValueLockedProps) => {
   const { t } = useTranslation();
 
   return (
-    <article>
+    <Box>
       <STitle>{t('TOKENS.title')}</STitle>
       <STableContainer>
         <Table>
           <STableHead>
             <STableRow>
-              <STableCellHead>{t('CHAIN.TVL.token')}</STableCellHead>
-              <STableCellHead>{t('CHAIN.TVL.price')}</STableCellHead>
-              <STableCellHead>{t('CHAIN.TVL.tvl')}</STableCellHead>
+              <TableCellHeadFirst sx={{ width: '40%' }}>{t('CHAIN.TVL.token')}</TableCellHeadFirst>
+              <STableCellHead sx={{ width: '30%' }}>{t('CHAIN.TVL.price')}</STableCellHead>
+              <STableCellHead sx={{ width: '30%' }}>{t('CHAIN.TVL.tvl')}</STableCellHead>
             </STableRow>
           </STableHead>
 
@@ -37,19 +38,19 @@ export const TokensTable = ({ tvl }: TotalValueLockedProps) => {
               .sort((a, b) => parseFloat(b.amountUsd) - parseFloat(a.amountUsd))
               .map((token: TvlData, index) => (
                 <STableBodyRow key={index}>
-                  <LogoCell>
+                  <FirstCellWithLogo>
                     <TokenAvatar alt={token.name} src={token.imageUrl} />
                     <Typography>
                       {token.name} ({token.symbol})
                     </Typography>
-                  </LogoCell>
-                  <STableCell>{formatDataNumber(token.price, 0, true)}</STableCell>
-                  <STableCell>{formatDataNumber(token.amountUsd, 0, true)}</STableCell>
+                  </FirstCellWithLogo>
+                  <STableCell sx={{ width: '30%' }}>{formatDataNumber(token.price, 0, true)}</STableCell>
+                  <STableCell sx={{ width: '30%' }}>{formatDataNumber(token.amountUsd, 0, true)}</STableCell>
                 </STableBodyRow>
               ))}
           </STableBody>
         </Table>
       </STableContainer>
-    </article>
+    </Box>
   );
 };
