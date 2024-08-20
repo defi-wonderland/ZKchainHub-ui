@@ -31,7 +31,7 @@ export const AddNetworkButton = () => {
         chainId: chain as string,
         chainName: chainData?.metadata.name,
         rpcUrls: chainData?.metadata.publicRpcs,
-        token: chainData?.baseToken.name,
+        name: chainData?.baseToken.name,
         symbol: chainData?.baseToken.symbol,
         decimals: chainData?.baseToken.decimals,
         explorerUrl: chainData?.metadata.explorerUrl,

@@ -2,21 +2,21 @@ interface AddNetwork {
   chainId: string;
   chainName: string;
   rpcUrls: string[];
-  token: string;
+  name: string;
   symbol: string;
   decimals: number;
   explorerUrl: string;
 }
 
-export const addNetwork = async ({ chainId, chainName, rpcUrls, token, symbol, decimals, explorerUrl }: AddNetwork) => {
+export const addNetwork = async ({ chainId, chainName, rpcUrls, name, symbol, decimals, explorerUrl }: AddNetwork) => {
   const networkData = {
-    chainId: chainId,
-    chainName: chainName,
+    chainId,
+    chainName,
     rpcUrls: [rpcUrls],
     nativeCurrency: {
-      name: token,
-      symbol: symbol,
-      decimals: decimals,
+      name,
+      symbol,
+      decimals,
     },
     blockExplorerUrls: [explorerUrl],
   };
