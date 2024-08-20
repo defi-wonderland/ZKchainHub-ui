@@ -540,7 +540,7 @@
       "decimals": 18
     }
   ],
-  "ethGasInfo": { "gasPrice": "2811768091", "erc20Transfer": "34853", "ethTransfer": "21000" },
+  "ethGasInfo": { "gasPrice": "2811768091", "erc20Transfer": "34853", "ethTransfer": "21000", "ethPrice": "2609.988" },
   "zkChains": [
     {
       "chainId": "324",

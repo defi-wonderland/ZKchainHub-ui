@@ -48,3 +48,9 @@ export const formatSmallNumber = (value: number) => {
   // Trim any trailing zeros from the result
   return result.replace(/\.?0+$/, '');
 };
+
+export const calculateUSDGas = (txGas: bigint, gasPriceInWei: bigint, etherPrice: number): number => {
+  const txGasInWei = BigInt(txGas) * BigInt(gasPriceInWei);
+  const txCostInEther = Number(txGasInWei) / 1e18;
+  return Math.round(txCostInEther * etherPrice * 100) / 100;
+};
