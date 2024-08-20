@@ -1,7 +1,7 @@
 import { Typography, styled, Box } from '@mui/material';
 import { useTranslation } from 'next-i18next';
 
-import { InfoBox } from '~/components';
+import { ChainInfoCard } from '~/components';
 import { useData, useCustomTheme } from '~/hooks';
 
 import BlockDark from '~/assets/icons/blockDark.svg';
@@ -23,7 +23,7 @@ export const ChainInformation = () => {
         {t('CHAIN.CHAININFORMATION.title')}
       </STitle>
       <DataContainer>
-        <InfoBox
+        <ChainInfoCard
           title={t('CHAIN.CHAININFORMATION.chainType')}
           description={chainData?.chainType}
           darkIcon={ChainTypeDark}
@@ -32,7 +32,7 @@ export const ChainInformation = () => {
           alt='chain-type-icon'
         />
 
-        {/* <InfoBox
+        {/* <ChainInfoCard
           title={t('CHAIN.CHAININFORMATION.lastBlock')}
           description={chainData?.l2ChainInfo.lastBlock}
           darkIcon={BlockDark}
@@ -41,7 +41,7 @@ export const ChainInformation = () => {
           alt='block-icon'
         />
 
-        <InfoBox
+        <ChainInfoCard
           title={t('CHAIN.CHAININFORMATION.lastBlockVerified')}
           description={chainData?.l2ChainInfo.lastBlockVerified}
           darkIcon={CheckBlockDark}
@@ -50,7 +50,7 @@ export const ChainInformation = () => {
           alt='check-block-icon'
         />
 
-        <InfoBox
+        <ChainInfoCard
           title={t('CHAIN.CHAININFORMATION.transactionsPerSecond')}
           description={chainData?.l2ChainInfo.tps}
           darkIcon={SpeedDark}
@@ -59,7 +59,7 @@ export const ChainInformation = () => {
           alt='speed-icon'
         /> */}
 
-        <InfoBox
+        <ChainInfoCard
           title={t('CHAIN.CHAININFORMATION.totalBatchesCommitted')}
           description={chainData?.batchesInfo.commited}
           darkIcon={BlockDark}
@@ -68,7 +68,7 @@ export const ChainInformation = () => {
           alt='block'
         />
 
-        <InfoBox
+        <ChainInfoCard
           title={t('CHAIN.CHAININFORMATION.totalBatchesExecuted')}
           description={chainData?.batchesInfo.executed}
           darkIcon={BlockDark}
@@ -77,7 +77,7 @@ export const ChainInformation = () => {
           alt='block'
         />
 
-        <InfoBox
+        <ChainInfoCard
           title={t('CHAIN.CHAININFORMATION.totalBatchesVerified')}
           description={chainData?.batchesInfo.verified}
           darkIcon={CheckBlockDark}
@@ -86,7 +86,7 @@ export const ChainInformation = () => {
           alt='check-block'
         />
 
-        {/* <InfoBox
+        {/* <ChainInfoCard
           title={t('CHAIN.CHAININFORMATION.averageBlockTime')}
           description={chainData?.l2ChainInfo.avgBlockTime}
           darkIcon={SpeedDark}

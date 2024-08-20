@@ -2,16 +2,16 @@ import { Box, Typography, Grid, styled, useMediaQuery, useTheme } from '@mui/mat
 
 import { TotalValueLockedProps } from '~/types';
 import { useCustomTheme } from '~/hooks';
-import { MobileTvlContainer, DesktopTvlContainer } from '~/components';
+import { MobileTvlContainer, DesktopTVLGraph } from '~/components';
 
-export const TotalValueLocked = ({ tvl }: TotalValueLockedProps) => {
+export const TVLGraph = ({ tvl }: TotalValueLockedProps) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
   return (
     <>
       {isMobile && <MobileTvlContainer tvl={tvl} />}
-      {!isMobile && <DesktopTvlContainer tvl={tvl} />}
+      {!isMobile && <DesktopTVLGraph tvl={tvl} />}
     </>
   );
 };

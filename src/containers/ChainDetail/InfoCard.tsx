@@ -1,4 +1,4 @@
-import { InfoBox } from '~/components';
+import { ChainInfoCard } from '~/components';
 
 import BlockDark from '~/assets/icons/blockDark.svg';
 import BlockLight from '~/assets/icons/blockLight.svg';
@@ -12,7 +12,7 @@ export const InfoCard = ({ title }: InfoCardProps) => {
     <section>
       <h2>{title}</h2>
       <div>
-        <InfoBox
+        <ChainInfoCard
           title='Website'
           description='https://www.example.com'
           darkIcon={BlockDark}

@@ -6,7 +6,7 @@ import ZkLogoDark from '~/assets/icons/zkLogoDark.svg';
 import ZkLogoLight from '~/assets/icons/zkLogoLight.svg';
 import { useCustomTheme } from '~/hooks';
 
-export const TitleBanner = () => {
+export const EcosystemTitle = () => {
   const { t } = useTranslation();
   const { theme } = useCustomTheme();
 
