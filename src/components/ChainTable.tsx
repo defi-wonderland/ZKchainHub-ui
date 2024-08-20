@@ -194,6 +194,7 @@ export const FirstCellWithLogo = styled(TableCell)(({ theme }) => {
       left: 0,
       backgroundColor: currentTheme.backgroundSecondary,
       zIndex: 1,
+      minWidth: '17rem',
     },
   };
 });

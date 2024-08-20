@@ -13,7 +13,7 @@ const TokensPage = () => {
 
   return (
     <>
-      <CustomHead title={t('HOME.search')} />
+      <CustomHead title={t('TOKENS.title')} />
       <Tokens />
     </>
   );
