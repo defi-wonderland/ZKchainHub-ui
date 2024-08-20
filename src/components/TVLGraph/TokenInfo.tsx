@@ -2,7 +2,7 @@ import { Box, Avatar, Typography, styled } from '@mui/material';
 import { useCustomTheme } from '~/hooks';
 import { formatDataNumber } from '~/utils';
 
-interface TvlContentBoxProps {
+interface TokenInfoProps {
   avatar: string;
   token: string;
   total: string;
@@ -14,7 +14,7 @@ interface TvlProps {
   isLast: boolean;
 }
 
-export const TvlContentBox = ({ avatar, token, total, tokenName, isLast }: TvlContentBoxProps) => {
+export const TokenInfo = ({ avatar, token, total, tokenName, isLast }: TokenInfoProps) => {
   return (
     <ContentBox>
       <TopBox>

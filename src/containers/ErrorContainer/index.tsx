@@ -2,14 +2,14 @@ import { Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { useTranslation } from 'next-i18next';
 
-import { Title } from '~/components';
+import { STitle } from '~/components';
 
 export const ErrorContainer = () => {
   const { t } = useTranslation();
 
   return (
     <ErrorPageContainer>
-      <Title title={t('ERROR.title')} />
+      <STitle>{t('ERROR.title')}</STitle>
       <Typography>{t('ERROR.message')}</Typography>
     </ErrorPageContainer>
   );

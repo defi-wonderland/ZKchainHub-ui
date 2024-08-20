@@ -17,7 +17,7 @@ import {
 } from '~/components';
 import { formatDataNumber } from '~/utils';
 
-export const TVL = () => {
+export const TVLTable = () => {
   const { t } = useTranslation();
   const { chainData } = useData();
   const tvl = chainData?.tvl || [];

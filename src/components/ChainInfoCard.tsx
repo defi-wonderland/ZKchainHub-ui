@@ -3,7 +3,7 @@ import { Card, CardContent, Typography, styled, Box } from '@mui/material';
 import { useCustomTheme } from '~/hooks';
 import { Icon } from './Icon';
 
-interface InfoBoxProps {
+interface ChainInfoCardProps {
   title: string;
   description: string | number;
   darkIcon: string;
@@ -12,7 +12,7 @@ interface InfoBoxProps {
   alt: string;
 }
 
-export const InfoBox = ({ title, description, darkIcon, lightIcon, size, alt }: InfoBoxProps) => {
+export const ChainInfoCard = ({ title, description, darkIcon, lightIcon, size, alt }: ChainInfoCardProps) => {
   return (
     <StyledCard>
       <CardContent>

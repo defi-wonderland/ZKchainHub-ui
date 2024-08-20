@@ -1,6 +1,6 @@
 import { useTranslation } from 'next-i18next';
 
-import { InfoBox, STitle, DataContainer } from '~/components';
+import { ChainInfoCard, STitle, DataContainer } from '~/components';
 import { useData } from '~/hooks';
 
 import BlockDark from '~/assets/icons/blockDark.svg';
@@ -20,7 +20,7 @@ export const FeeParams = () => {
     <article>
       <STitle>{t('CHAIN.FEEPARAMS.title')} </STitle>
       <DataContainer>
-        <InfoBox
+        <ChainInfoCard
           title={t('CHAIN.FEEPARAMS.batch')}
           description={chainData?.feeParams.batchOverheadL1Gas}
           darkIcon={TagDark}
@@ -29,7 +29,7 @@ export const FeeParams = () => {
           alt='tag-icon'
         />
 
-        <InfoBox
+        <ChainInfoCard
           title={t('CHAIN.FEEPARAMS.compute')}
           description={chainData?.feeParams.maxPubdataPerBatch}
           darkIcon={BlockDark}
@@ -38,7 +38,7 @@ export const FeeParams = () => {
           alt='block-icon'
         />
 
-        <InfoBox
+        <ChainInfoCard
           title={t('CHAIN.FEEPARAMS.maxGasBatch')}
           description={chainData?.feeParams.maxL2GasPerBatch}
           darkIcon={CheckBlockDark}
@@ -47,7 +47,7 @@ export const FeeParams = () => {
           alt='check-block-icon'
         />
 
-        <InfoBox
+        <ChainInfoCard
           title={t('CHAIN.FEEPARAMS.maxGasBatch')}
           description={chainData?.feeParams.maxL2GasPerBatch}
           darkIcon={MaxDark}

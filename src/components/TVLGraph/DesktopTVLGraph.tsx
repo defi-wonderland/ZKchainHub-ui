@@ -2,9 +2,9 @@ import { Grid } from '@mui/material';
 import { useTranslation } from 'next-i18next';
 
 import { TvlData, TotalValueLockedProps } from '~/types';
-import { TvlContentBox, GridContainer, TvlContainer, OthersText, OthersBox } from '~/components';
+import { TokenInfo, GridContainer, TvlContainer, OthersText, OthersBox } from '~/components';
 
-export const DesktopTvlContainer = ({ tvl }: TotalValueLockedProps) => {
+export const DesktopTVLGraph = ({ tvl }: TotalValueLockedProps) => {
   const { t } = useTranslation();
 
   const renderTvlContent = (
@@ -17,7 +17,7 @@ export const DesktopTvlContainer = ({ tvl }: TotalValueLockedProps) => {
   ) => (
     <Grid item xs={xs} key={index}>
       <GridContainer imageUrl={data.imageUrl} height={height} smallCard={smallCard}>
-        <TvlContentBox
+        <TokenInfo
           avatar={data.imageUrl}
           token={data.symbol}
           total={data.amountUsd}

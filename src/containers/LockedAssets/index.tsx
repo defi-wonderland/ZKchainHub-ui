@@ -2,7 +2,7 @@ import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
 import { Box, Typography, styled, Button } from '@mui/material';
 
-import { TotalValueLocked } from '~/components';
+import { TVLGraph } from '~/components';
 import { useData, useCustomTheme } from '~/hooks';
 import { formatDataNumber } from '~/utils';
 
@@ -27,7 +27,7 @@ export const LockedAssets = () => {
             <TitleAmount>{formatDataNumber(totalL1TVL, 0, true, true)}</TitleAmount>
           </LockedAssetsContainer>
 
-          <TotalValueLocked tvl={ecosystemData.l1Tvl} />
+          <TVLGraph tvl={ecosystemData.l1Tvl} />
           <ButtonContainer>
             <AllTokensButton onClick={goToTokensPage}> {t('HOME.LOCKEDASSETS.allTokens')} </AllTokensButton>{' '}
           </ButtonContainer>
