@@ -9,11 +9,11 @@ export const Gas = () => {
   const { isEcosystemLoading, erc20USD, gasPriceInGwei } = useData();
 
   return (
-    <GasContainer>
+    <GasContainer aria-live='polite' aria-busy={isEcosystemLoading}>
       {isEcosystemLoading && <Skeleton variant='rectangular' width={175} height={50} sx={{ borderRadius: 4 }} />}
       {!isEcosystemLoading && (
         <>
-          <Icon icon='gas' alt='gas-icon' size={24} />
+          <Icon icon='gas' alt='Gas price icon' size={24} />
           <Box>
             <SBox>
               <GasLabel>{t('HEADER.gasPrice')}:</GasLabel>

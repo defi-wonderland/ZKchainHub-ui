@@ -36,11 +36,21 @@ export const ChainTable = ({ chains }: TableProps) => {
         {/* Table titles */}
         <STableHead>
           <STableRow>
-            <TableCellHeadFirst sx={{ width: '60%' }}>{t('HOME.DASHBOARD.chain')}</TableCellHeadFirst>
-            <STableCellHead sx={{ width: '10%' }}>{t('HOME.DASHBOARD.chainId')}</STableCellHead>
-            <STableCellHead sx={{ width: '10%' }}>{t('HOME.DASHBOARD.nativeToken')}</STableCellHead>
-            <STableCellHead sx={{ width: '10%' }}>{t('HOME.DASHBOARD.tvl')}</STableCellHead>
-            <STableCellHead sx={{ width: '10%' }}>{t('HOME.DASHBOARD.type')}</STableCellHead>
+            <TableCellHeadFirst sx={{ width: '60%' }} scope='col'>
+              {t('HOME.DASHBOARD.chain')}
+            </TableCellHeadFirst>
+            <STableCellHead sx={{ width: '10%' }} scope='col'>
+              {t('HOME.DASHBOARD.chainId')}
+            </STableCellHead>
+            <STableCellHead sx={{ width: '10%' }} scope='col'>
+              {t('HOME.DASHBOARD.nativeToken')}
+            </STableCellHead>
+            <STableCellHead sx={{ width: '10%' }} scope='col'>
+              {t('HOME.DASHBOARD.tvl')}
+            </STableCellHead>
+            <STableCellHead sx={{ width: '10%' }} scope='col'>
+              {t('HOME.DASHBOARD.type')}
+            </STableCellHead>
           </STableRow>
         </STableHead>
 
@@ -48,17 +58,26 @@ export const ChainTable = ({ chains }: TableProps) => {
         <STableBody>
           {chains?.map((data, index) => {
             return (
-              <STableBodyRow key={index} onClick={() => handleChainNavigation(data.chainId)}>
+              <STableBodyRow
+                key={index}
+                onClick={() => handleChainNavigation(data.chainId)}
+                onKeyDown={(event) => {
+                  if (event.key === 'Enter' || event.key === ' ') {
+                    handleChainNavigation(data.chainId);
+                  }
+                }}
+                tabIndex={0}
+                role='button' // Indicate that the row is interactive
+                aria-label={`Navigate to ${data.metadata?.name || `ZK Chain ${data.chainId}`}`}
+              >
                 {/* Chain Name with Logo and Tags */}
                 <FirstCellWithLogo>
-                  <ChainAvatar alt={`${data.chainId}`} src={data.metadata?.iconUrl} />
+                  <ChainAvatar alt={`${data.chainId} logo`} src={data.metadata?.iconUrl} />
                   <ChainName>{data.metadata?.name ? data.metadata.name : `ZK Chain ${data.chainId}`}</ChainName>
 
                   <InfoTagsContainer>
-                    {/* 
-                      TEMPORARY REMOVE RPC TAGS
-                      {!data.rpc && <InfoTag information={t('HOME.DASHBOARD.noRPC')} />} 
-                    */}
+                    {!data.rpc && <InfoTag information={t('HOME.DASHBOARD.noRPC')} />}
+
                     {data.metadata === undefined && <InfoTag information={t('HOME.DASHBOARD.noMetadata')} />}
                   </InfoTagsContainer>
                 </FirstCellWithLogo>

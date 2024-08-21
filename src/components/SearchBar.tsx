@@ -1,3 +1,4 @@
+import { useEffect, useCallback } from 'react';
 import { useTranslation } from 'next-i18next';
 import { styled, TextField, InputAdornment, Box } from '@mui/material';
 
@@ -14,6 +15,24 @@ export const SearchBar = () => {
     setSearchTerm(value);
   };
 
+  const closeSearchHandler = useCallback(() => {
+    closeSearch();
+  }, [closeSearch]);
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape' && isSearch) {
+        closeSearchHandler(); // Call closeSearch when Esc is pressed
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isSearch, closeSearchHandler]);
+
   return (
     <SearchContainer>
       <StyledTextField
@@ -22,17 +41,18 @@ export const SearchBar = () => {
         onChange={handleChange}
         placeholder={t('HOME.DASHBOARD.search')}
         onClick={navigateToSearch}
+        aria-label={t('HOME.DASHBOARD.search')}
         InputProps={{
           startAdornment: (
             <InputAdornment position='start'>
-              <Icon icon='search' alt='search-icon' size={24} />
+              <Icon icon='search' alt='Search icon' size={24} />
             </InputAdornment>
           ),
         }}
       />
       {isSearch && (
         <SIconButton onClick={closeSearch} aria-label='close-search'>
-          <Icon icon='close' alt='close-icon' size={24} />
+          <Icon icon='close' alt='Close search icon' size={24} />
         </SIconButton>
       )}
     </SearchContainer>

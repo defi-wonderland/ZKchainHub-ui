@@ -12,7 +12,7 @@ export const EcosystemTitle = () => {
 
   return (
     <TitleBox>
-      <Image src={theme === 'dark' ? ZkLogoDark : ZkLogoLight} alt='zkLogo' />
+      <Image src={theme === 'dark' ? ZkLogoDark : ZkLogoLight} alt='ZKsync logo' />
       <Title>
         <Bold>{t('HOME.title').slice(0, 2)}</Bold>
         {t('HOME.title').slice(2)}
