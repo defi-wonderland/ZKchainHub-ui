@@ -20,7 +20,7 @@ export const ChainInformation = () => {
           title={t('CHAIN.CHAININFORMATION.chainType')}
           description={getDescription(chainData?.chainType)}
           isDataAvailable={!!chainData?.chainType}
-          icon={'chainType'}
+          icon='chainType'
           size={22}
           alt='chain-type-icon'
         />
@@ -29,7 +29,7 @@ export const ChainInformation = () => {
           title={t('CHAIN.CHAININFORMATION.lastBlock')}
           description={getDescription(chainData?.l2ChainInfo?.lastBlock)}
           isDataAvailable={!!chainData?.l2ChainInfo?.lastBlock}
-          icon={'block'}
+          icon='block'
           size={22}
           alt='block-icon'
         />
@@ -38,7 +38,7 @@ export const ChainInformation = () => {
           title={t('CHAIN.CHAININFORMATION.lastBlockVerified')}
           description={getDescription(chainData?.l2ChainInfo?.lastBlockVerified)}
           isDataAvailable={!!chainData?.l2ChainInfo?.lastBlockVerified}
-          icon={'checkBlock'}
+          icon='checkBlock'
           size={22}
           alt='check-block-icon'
         />
@@ -47,7 +47,7 @@ export const ChainInformation = () => {
           title={t('CHAIN.CHAININFORMATION.transactionsPerSecond')}
           description={getDescription(chainData?.l2ChainInfo?.tps)}
           isDataAvailable={!!chainData?.l2ChainInfo?.tps}
-          icon={'speed'}
+          icon='speed'
           size={22}
           alt='speed-icon'
         />
@@ -56,7 +56,7 @@ export const ChainInformation = () => {
           title={t('CHAIN.CHAININFORMATION.totalBatchesCommitted')}
           description={getDescription(chainData?.batchesInfo?.commited)}
           isDataAvailable={!!chainData?.batchesInfo?.commited}
-          icon={'block'}
+          icon='block'
           size={22}
           alt='block'
         />
@@ -65,7 +65,7 @@ export const ChainInformation = () => {
           title={t('CHAIN.CHAININFORMATION.totalBatchesExecuted')}
           description={getDescription(chainData?.batchesInfo?.executed)}
           isDataAvailable={!!chainData?.batchesInfo?.executed}
-          icon={'block'}
+          icon='block'
           size={22}
           alt='block'
         />
@@ -74,7 +74,7 @@ export const ChainInformation = () => {
           title={t('CHAIN.CHAININFORMATION.totalBatchesVerified')}
           description={getDescription(chainData?.batchesInfo?.verified)}
           isDataAvailable={!!chainData?.batchesInfo?.verified}
-          icon={'checkBlock'}
+          icon='checkBlock'
           size={22}
           alt='check-block'
         />
@@ -83,7 +83,7 @@ export const ChainInformation = () => {
           title={t('CHAIN.CHAININFORMATION.averageBlockTime')}
           description={getDescription(chainData?.l2ChainInfo?.avgBlockTime)}
           isDataAvailable={!!chainData?.l2ChainInfo?.avgBlockTime}
-          icon={'speed'}
+          icon='speed'
           size={22}
           alt='speed-icon'
         />

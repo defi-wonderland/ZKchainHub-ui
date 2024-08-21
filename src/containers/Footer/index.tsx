@@ -18,14 +18,14 @@ export const Footer = () => {
       <SBox>
         <FooterButton>{t('FOOTER.docs')}</FooterButton>
         <FooterButton>
-          <Icon icon={'github'} alt='github' size={24} />
+          <Icon icon='github' alt='github' size={24} />
           <Typography>{t('FOOTER.github')}</Typography>
         </FooterButton>
       </SBox>
       <Subtitle>
         <SBox>
           <Typography>{t('FOOTER.madeWith')}</Typography>
-          <Icon icon={'heart'} alt='heart' size={24} />
+          <Icon icon='heart' alt='heart' size={24} />
           <Typography>{t('FOOTER.by')}</Typography>
         </SBox>
         <Link href='https://defi.sucks' target='_blank'>

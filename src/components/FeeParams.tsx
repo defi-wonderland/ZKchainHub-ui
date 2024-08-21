@@ -17,7 +17,7 @@ export const FeeParams = () => {
           title={t('CHAIN.FEEPARAMS.batch')}
           description={getDescription(chainData?.feeParams.batchOverheadL1Gas)}
           isDataAvailable={!!chainData?.feeParams.batchOverheadL1Gas}
-          icon={'tag'}
+          icon='tag'
           size={20}
           alt='tag-icon'
         />
@@ -26,7 +26,7 @@ export const FeeParams = () => {
           title={t('CHAIN.FEEPARAMS.compute')}
           description={getDescription(chainData?.feeParams.maxPubdataPerBatch)}
           isDataAvailable={!!chainData?.feeParams.maxPubdataPerBatch}
-          icon={'block'}
+          icon='block'
           size={20}
           alt='block-icon'
         />
@@ -35,7 +35,7 @@ export const FeeParams = () => {
           title={t('CHAIN.FEEPARAMS.lastBlockVerified')}
           description={getDescription(chainData?.l2ChainInfo?.lastBlockVerified)}
           isDataAvailable={!!chainData?.l2ChainInfo?.lastBlockVerified}
-          icon={'checkBlock'}
+          icon='checkBlock'
           size={20}
           alt='check-block-icon'
         />
@@ -44,7 +44,7 @@ export const FeeParams = () => {
           title={t('CHAIN.FEEPARAMS.maxGasBatch')}
           description={getDescription(chainData?.feeParams.maxL2GasPerBatch)}
           isDataAvailable={!!chainData?.feeParams.maxL2GasPerBatch}
-          icon={'max'}
+          icon='max'
           size={20}
           alt='max-icon'
         />

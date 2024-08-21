@@ -34,7 +34,7 @@ export const DesktopHeader = ({
           list={Object.values(localesMap)}
         />
         <SIconButton onClick={changeTheme}>
-          <Icon icon={'mode'} alt='mode-icon' size={24} />
+          <Icon icon='mode' alt='mode-icon' size={24} />
         </SIconButton>
       </SBox>
     </StyledHeader>

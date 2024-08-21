@@ -53,7 +53,7 @@ export const AddNetworkButton = () => {
       )}
       {isConnected && !isNetworkAdded && (
         <BlueButton variant='contained' onClick={handleAddNetwork}>
-          <Icon icon={'add'} alt='Add' size={24} />
+          <Icon icon='add' alt='Add' size={24} />
           {t('CHAIN.addNetwork')}
         </BlueButton>
       )}

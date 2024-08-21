@@ -28,15 +28,15 @@ export const ChainMetadata = () => {
 
         <ButtonsContainer>
           <MetadataButton href={chainMetadata?.explorerUrl} target='_blank'>
-            <Icon icon={'web'} alt='web-icon' size={20} />
+            <Icon icon='web' alt='web-icon' size={20} />
             {t('CHAIN.website')}
-            <Icon icon={'link'} alt='link-icon' size={24} />
+            <Icon icon='link' alt='link-icon' size={24} />
           </MetadataButton>
 
           <MetadataButton href={chainMetadata?.explorerUrl} target='_blank'>
-            <Icon icon={'block'} alt='block-icon' size={24} />
+            <Icon icon='block' alt='block-icon' size={24} />
             {t('CHAIN.explorer')}
-            <Icon icon={'link'} alt='link-icon' size={24} />
+            <Icon icon='link' alt='link-icon' size={24} />
           </MetadataButton>
 
           <AddNetworkButton />
@@ -45,7 +45,7 @@ export const ChainMetadata = () => {
 
       <SecondRow>
         <MetadataItem>
-          <Icon icon={'clock'} alt={t('CHAIN.launchDate')} size={48} />
+          <Icon icon='clock' alt={t('CHAIN.launchDate')} size={48} />
           <Box>
             <Label variant='subtitle1' color='textSecondary' gutterBottom>
               {t('CHAIN.launchDate')}
@@ -55,7 +55,7 @@ export const ChainMetadata = () => {
         </MetadataItem>
 
         <MetadataItem>
-          <Icon icon={'settings'} alt={t('CHAIN.environment')} size={48} />
+          <Icon icon='settings' alt={t('CHAIN.environment')} size={48} />
           <Box>
             <Label variant='subtitle1' color='textSecondary' gutterBottom>
               {t('CHAIN.environment')}

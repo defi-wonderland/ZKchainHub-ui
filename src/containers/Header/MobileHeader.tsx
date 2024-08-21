@@ -33,11 +33,11 @@ export const MobileHeader = ({ theme, goToHome, handleChangeLanguage, localesMap
 
       <IconsContainer>
         <SIconButton onClick={navigateToSearch}>
-          <Icon icon={'search'} alt='search-icon' size={24} />
+          <Icon icon='search' alt='search-icon' size={24} />
         </SIconButton>
 
         <SIconButton onClick={toggleDrawer(true)}>
-          <Icon icon={'menu'} alt='menu-icon' size={24} />
+          <Icon icon='menu' alt='menu-icon' size={24} />
         </SIconButton>
       </IconsContainer>
 
@@ -54,7 +54,7 @@ export const MobileHeader = ({ theme, goToHome, handleChangeLanguage, localesMap
           <DrawerHeader>
             <MenuLabel>{t('HEADER.menu')}</MenuLabel>
             <SIconButton onClick={toggleDrawer(false)} aria-label='close menu'>
-              <Icon icon={'close'} alt='close-icon' size={24} />
+              <Icon icon='close' alt='close-icon' size={24} />
             </SIconButton>
           </DrawerHeader>
 
@@ -74,7 +74,7 @@ export const MobileHeader = ({ theme, goToHome, handleChangeLanguage, localesMap
             <MenuListItem>
               <ThemeButton onClick={changeTheme}>
                 {theme === 'dark' ? t('HEADER.lightMode') : t('HEADER.darkMode')}
-                <Icon icon={'mode'} alt='mode-icon' size={24} />
+                <Icon icon='mode' alt='mode-icon' size={24} />
               </ThemeButton>
             </MenuListItem>
           </MenuList>

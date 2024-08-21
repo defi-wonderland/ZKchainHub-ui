@@ -28,7 +28,7 @@ export const BasicSelect = ({ list, value, setValue, disabled, dataTest }: Basic
     setValue(explorer);
   };
 
-  const endIcon = disabled ? null : <Icon icon={'arrowDown'} alt='arrow-down' size={24} />;
+  const endIcon = disabled ? null : <Icon icon='arrowDown' alt='arrow-down' size={24} />;
 
   return (
     <SBox>
