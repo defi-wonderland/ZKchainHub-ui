@@ -1,19 +1,13 @@
 import { useTranslation } from 'next-i18next';
 import { styled, TextField, InputAdornment, Box } from '@mui/material';
-import Image from 'next/image';
 
-import SearchDark from '~/assets/icons/searchDark.svg';
-import SearchLight from '~/assets/icons/searchLight.svg';
 import { useCustomTheme, useSearchContext } from '~/hooks';
 import { SIconButton } from '~/containers';
-
-import CloseDark from '~/assets/icons/closeDark.svg';
-import CloseLight from '~/assets/icons/closeLight.svg';
+import { Icon } from '~/components';
 
 export const SearchBar = () => {
   const { t } = useTranslation();
   const { searchTerm, setSearchTerm, closeSearch, isSearch, navigateToSearch } = useSearchContext();
-  const { theme } = useCustomTheme();
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
@@ -31,14 +25,14 @@ export const SearchBar = () => {
         InputProps={{
           startAdornment: (
             <InputAdornment position='start'>
-              <Image src={theme === 'dark' ? SearchDark : SearchLight} alt='search' />
+              <Icon icon='search' alt='search-icon' size={24} />
             </InputAdornment>
           ),
         }}
       />
       {isSearch && (
         <SIconButton onClick={closeSearch} aria-label='close-search'>
-          <Image src={theme === 'dark' ? CloseDark : CloseLight} alt='close icon' />
+          <Icon icon='close' alt='close-icon' size={24} />
         </SIconButton>
       )}
     </SearchContainer>

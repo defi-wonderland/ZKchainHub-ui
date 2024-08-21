@@ -6,27 +6,18 @@ import { Icon } from './Icon';
 interface ChainInfoCardProps {
   title: string;
   description: string | number;
-  darkIcon: string;
-  lightIcon: string;
+  icon: string;
   size: number;
   alt: string;
   isDataAvailable: boolean;
 }
 
-export const ChainInfoCard = ({
-  title,
-  description,
-  darkIcon,
-  lightIcon,
-  size,
-  alt,
-  isDataAvailable,
-}: ChainInfoCardProps) => {
+export const ChainInfoCard = ({ title, description, icon, size, alt, isDataAvailable }: ChainInfoCardProps) => {
   return (
     <StyledCard>
       <CardContent>
         <LabelContainer>
-          <Icon darkIcon={darkIcon} lightIcon={lightIcon} size={size} alt={alt} />
+          <Icon icon={icon} size={size} alt={alt} />
           <Label variant='subtitle1' color='textSecondary' gutterBottom>
             {title}
           </Label>

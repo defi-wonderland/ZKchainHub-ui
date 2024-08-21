@@ -3,15 +3,6 @@ import { useTranslation } from 'next-i18next';
 import { ChainInfoCard, STitle, DataContainer } from '~/components';
 import { useData } from '~/hooks';
 
-import BlockDark from '~/assets/icons/blockDark.svg';
-import BlockLight from '~/assets/icons/blockLight.svg';
-import TagDark from '~/assets/icons/tagDark.svg';
-import TagLight from '~/assets/icons/tagLight.svg';
-import MaxDark from '~/assets/icons/maxDark.svg';
-import MaxLight from '~/assets/icons/maxLight.svg';
-import CheckBlockDark from '~/assets/icons/checkBlockDark.svg';
-import CheckBlockLight from '~/assets/icons/checkBlockLight.svg';
-
 export const FeeParams = () => {
   const { t } = useTranslation();
   const { chainData } = useData();
@@ -26,8 +17,7 @@ export const FeeParams = () => {
           title={t('CHAIN.FEEPARAMS.batch')}
           description={getDescription(chainData?.feeParams.batchOverheadL1Gas)}
           isDataAvailable={!!chainData?.feeParams.batchOverheadL1Gas}
-          darkIcon={TagDark}
-          lightIcon={TagLight}
+          icon={'tag'}
           size={20}
           alt='tag-icon'
         />
@@ -36,8 +26,7 @@ export const FeeParams = () => {
           title={t('CHAIN.FEEPARAMS.compute')}
           description={getDescription(chainData?.feeParams.maxPubdataPerBatch)}
           isDataAvailable={!!chainData?.feeParams.maxPubdataPerBatch}
-          darkIcon={BlockDark}
-          lightIcon={BlockLight}
+          icon={'block'}
           size={20}
           alt='block-icon'
         />
@@ -46,8 +35,7 @@ export const FeeParams = () => {
           title={t('CHAIN.FEEPARAMS.lastBlockVerified')}
           description={getDescription(chainData?.l2ChainInfo?.lastBlockVerified)}
           isDataAvailable={!!chainData?.l2ChainInfo?.lastBlockVerified}
-          darkIcon={CheckBlockDark}
-          lightIcon={CheckBlockLight}
+          icon={'checkBlock'}
           size={20}
           alt='check-block-icon'
         />
@@ -56,8 +44,7 @@ export const FeeParams = () => {
           title={t('CHAIN.FEEPARAMS.maxGasBatch')}
           description={getDescription(chainData?.feeParams.maxL2GasPerBatch)}
           isDataAvailable={!!chainData?.feeParams.maxL2GasPerBatch}
-          darkIcon={MaxDark}
-          lightIcon={MaxLight}
+          icon={'max'}
           size={20}
           alt='max-icon'
         />

@@ -1,14 +1,10 @@
 import { Typography, Box, styled, Skeleton } from '@mui/material';
-import Image from 'next/image';
 import { useTranslation } from 'next-i18next';
 
-import GasLight from '~/assets/icons/gasLight.svg';
-import GasDark from '~/assets/icons/gasDark.svg';
 import { useCustomTheme, useData } from '~/hooks';
-import { SBox } from '~/components';
+import { SBox, Icon } from '~/components';
 
 export const Gas = () => {
-  const { theme } = useCustomTheme();
   const { t } = useTranslation();
   const { isEcosystemLoading, erc20USD, gasPriceInGwei } = useData();
 
@@ -17,7 +13,7 @@ export const Gas = () => {
       {isEcosystemLoading && <Skeleton variant='rectangular' width={175} height={50} sx={{ borderRadius: 4 }} />}
       {!isEcosystemLoading && (
         <>
-          <Image src={theme === 'dark' ? GasDark : GasLight} alt='gas' />
+          <Icon icon='gas' alt='gas-icon' size={24} />
           <Box>
             <SBox>
               <GasLabel>{t('HEADER.gasPrice')}:</GasLabel>

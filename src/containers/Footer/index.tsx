@@ -6,12 +6,8 @@ import Link from 'next/link';
 
 import WonderlandDark from '~/assets/icons/wonderlandDark.svg';
 import WonderlandLight from '~/assets/icons/wonderlandLight.svg';
-import HeartDark from '~/assets/icons/heartDark.svg';
-import HeartLight from '~/assets/icons/heartLight.svg';
-import GithubDark from '~/assets/icons/githubDark.svg';
-import GithubLight from '~/assets/icons/githubLight.svg';
 import { useCustomTheme } from '~/hooks';
-import { SBox } from '~/components';
+import { SBox, Icon } from '~/components';
 
 export const Footer = () => {
   const { t } = useTranslation();
@@ -22,14 +18,14 @@ export const Footer = () => {
       <SBox>
         <FooterButton>{t('FOOTER.docs')}</FooterButton>
         <FooterButton>
-          <Image src={theme === 'dark' ? GithubDark : GithubLight} alt='github' />
+          <Icon icon={'github'} alt='github' size={24} />
           <Typography>{t('FOOTER.github')}</Typography>
         </FooterButton>
       </SBox>
       <Subtitle>
         <SBox>
           <Typography>{t('FOOTER.madeWith')}</Typography>
-          <Image src={theme === 'dark' ? HeartDark : HeartLight} alt='Wonderland' />
+          <Icon icon={'heart'} alt='heart' size={24} />
           <Typography>{t('FOOTER.by')}</Typography>
         </SBox>
         <Link href='https://defi.sucks' target='_blank'>

@@ -1,13 +1,10 @@
 import { useTranslation } from 'next-i18next';
-import Image from 'next/image';
 
 import { StyledHeader, LogoContainer, Logo, SIconButton, HeaderProps } from '~/containers';
-import { BasicSelect, SearchBar, Gas, SBox } from '~/components';
+import { BasicSelect, SearchBar, Gas, SBox, Icon } from '~/components';
 
 import LogoDark from '~/assets/icons/logoDark.svg';
 import LogoLight from '~/assets/icons/logoLight.svg';
-import LightMode from '~/assets/icons/lightMode.svg';
-import DarkMode from '~/assets/icons/darkMode.svg';
 
 interface DesktopHeaderProps extends HeaderProps {}
 
@@ -37,7 +34,7 @@ export const DesktopHeader = ({
           list={Object.values(localesMap)}
         />
         <SIconButton onClick={changeTheme}>
-          {theme === 'dark' ? <Image src={LightMode} alt='light mode' /> : <Image src={DarkMode} alt='dark mode' />}
+          <Icon icon={'mode'} alt='mode-icon' size={24} />
         </SIconButton>
       </SBox>
     </StyledHeader>

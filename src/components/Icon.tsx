@@ -1,24 +1,17 @@
 import Image from 'next/image';
 
 import { useCustomTheme } from '~/hooks';
+import { iconPaths } from '~/data';
 
 interface IconProps {
-  darkIcon: string;
-  lightIcon: string;
+  icon: keyof typeof iconPaths;
   size: number;
   alt: string;
 }
 
-export const Icon = ({ darkIcon, lightIcon, size, alt }: IconProps) => {
+export const Icon = ({ icon, size, alt }: IconProps) => {
   const { theme } = useCustomTheme();
+  const iconSrc = theme === 'dark' ? iconPaths[icon]?.dark.src : iconPaths[icon]?.light.src;
 
-  return (
-    <>
-      {theme === 'dark' ? (
-        <Image src={darkIcon} alt={alt} width={size} height={size} />
-      ) : (
-        <Image src={lightIcon} alt={alt} width={size} height={size} />
-      )}
-    </>
-  );
+  return <Image src={iconSrc} alt={alt} width={size} height={size} />;
 };
