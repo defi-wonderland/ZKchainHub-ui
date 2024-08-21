@@ -36,21 +36,23 @@ export const RPC = () => {
     <article>
       <STitle>{t('CHAIN.RPC.title')}</STitle>
       <DataContainer>
-        {rpcIsLoading
-          ? Array.from({ length: 4 }).map((_, index) => (
-              <RPCBox key={index}>
-                <Skeleton variant='circular' width={20} height={20} />
-                <Skeleton variant='text' width='100%' />
-              </RPCBox>
-            ))
-          : rpcData.map((rpc, index) => (
-              <RPCBox key={index}>
-                <Tooltip title={rpc.status ? t('CHAIN.RPC.statusActive') : t('CHAIN.RPC.statusInactive')}>
-                  {rpc.status ? <CheckIcon color='success' /> : <CancelIcon color='error' />}
-                </Tooltip>
-                <RPCUrl>{rpc.url}</RPCUrl>
-              </RPCBox>
-            ))}
+        {rpcIsLoading &&
+          Array.from({ length: 4 }).map((_, index) => (
+            <RPCBox key={index}>
+              <Skeleton variant='circular' width={20} height={20} />
+              <Skeleton variant='text' width='100%' />
+            </RPCBox>
+          ))}
+
+        {!rpcIsLoading &&
+          rpcData.map((rpc, index) => (
+            <RPCBox key={index}>
+              <Tooltip title={rpc.status ? t('CHAIN.RPC.statusActive') : t('CHAIN.RPC.statusInactive')}>
+                {rpc.status ? <CheckIcon color='success' /> : <CancelIcon color='error' />}
+              </Tooltip>
+              <RPCUrl>{rpc.url}</RPCUrl>
+            </RPCBox>
+          ))}
       </DataContainer>
     </article>
   );
