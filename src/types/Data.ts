@@ -95,3 +95,17 @@ export interface ChainTvl {
 export interface TotalValueLockedProps {
   tvl: TvlData[];
 }
+export interface IconPaths {
+  [key: string]: {
+    light: IconImage;
+    dark: IconImage;
+  };
+}
+
+export interface IconImage {
+  src: string;
+  height: number;
+  width: number;
+  blurWidth?: number;
+  blurHeight?: number;
+}

@@ -2,22 +2,13 @@ import React from 'react';
 import { styled } from '@mui/material/styles';
 import { Box, IconButton, Drawer, List, ListItem, Typography, Button } from '@mui/material';
 import { useTranslation } from 'next-i18next';
-import Image from 'next/image';
 
 import { StyledHeader, LogoContainer, Logo, HeaderProps } from '~/containers';
-import { BasicSelect, Gas } from '~/components';
+import { BasicSelect, Gas, Icon } from '~/components';
 import { useCustomTheme, useSearchContext } from '~/hooks';
 
 import LogoDark from '~/assets/icons/logoDark.svg';
 import LogoLight from '~/assets/icons/logoLight.svg';
-import LightMode from '~/assets/icons/lightMode.svg';
-import DarkMode from '~/assets/icons/darkMode.svg';
-import SearchDark from '~/assets/icons/searchDark.svg';
-import SearchLight from '~/assets/icons/searchLight.svg';
-import MenuDark from '~/assets/icons/menuDark.svg';
-import MenuLight from '~/assets/icons/menuLight.svg';
-import CloseDark from '~/assets/icons/closeDark.svg';
-import CloseLight from '~/assets/icons/closeLight.svg';
 
 interface MobileHeaderProps extends HeaderProps {}
 
@@ -42,15 +33,11 @@ export const MobileHeader = ({ theme, goToHome, handleChangeLanguage, localesMap
 
       <IconsContainer>
         <SIconButton onClick={navigateToSearch}>
-          {theme === 'dark' ? (
-            <Image src={SearchDark} alt='search-icon' />
-          ) : (
-            <Image src={SearchLight} alt='search-icon' />
-          )}
+          <Icon icon='search' alt='search-icon' size={24} />
         </SIconButton>
 
         <SIconButton onClick={toggleDrawer(true)}>
-          {theme === 'dark' ? <Image src={MenuDark} alt='menu-icon' /> : <Image src={MenuLight} alt='menu-icon' />}
+          <Icon icon='menu' alt='menu-icon' size={24} />
         </SIconButton>
       </IconsContainer>
 
@@ -67,7 +54,7 @@ export const MobileHeader = ({ theme, goToHome, handleChangeLanguage, localesMap
           <DrawerHeader>
             <MenuLabel>{t('HEADER.menu')}</MenuLabel>
             <SIconButton onClick={toggleDrawer(false)} aria-label='close menu'>
-              <Image src={theme === 'dark' ? CloseDark : CloseLight} alt='close icon' />
+              <Icon icon='close' alt='close-icon' size={24} />
             </SIconButton>
           </DrawerHeader>
 
@@ -87,11 +74,7 @@ export const MobileHeader = ({ theme, goToHome, handleChangeLanguage, localesMap
             <MenuListItem>
               <ThemeButton onClick={changeTheme}>
                 {theme === 'dark' ? t('HEADER.lightMode') : t('HEADER.darkMode')}
-                {theme === 'dark' ? (
-                  <Image src={LightMode} alt='light mode' />
-                ) : (
-                  <Image src={DarkMode} alt='dark mode' />
-                )}
+                <Icon icon='mode' alt='mode-icon' size={24} />
               </ThemeButton>
             </MenuListItem>
           </MenuList>

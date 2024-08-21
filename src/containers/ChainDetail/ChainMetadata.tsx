@@ -1,31 +1,17 @@
 import { Avatar, Box, Typography, styled } from '@mui/material';
 import { useTranslation } from 'next-i18next';
 import { useRouter } from 'next/router';
-import Image from 'next/image';
 
 import { useCustomTheme, useData } from '~/hooks';
 import { formatTimestampToDate } from '~/utils';
 import { Icon, AddNetworkButton } from '~/components';
-
-import WebDark from '~/assets/icons/webDark.svg';
-import WebLight from '~/assets/icons/webLight.svg';
-import LinkDark from '~/assets/icons/linkDark.svg';
-import LinkLight from '~/assets/icons/linkLight.svg';
-import BlockDark from '~/assets/icons/whiteBlockDark.svg';
-import BlockLight from '~/assets/icons/blackBlockLight.svg';
-import ClockDark from '~/assets/icons/clockDark.svg';
-import ClockLight from '~/assets/icons/clockLight.svg';
-import SettingsDark from '~/assets/icons/settingsDark.svg';
-import SettingsLight from '~/assets/icons/settingsLight.svg';
 
 export const ChainMetadata = () => {
   const { t } = useTranslation();
   const router = useRouter();
   const { chain } = router.query;
   const { chainData } = useData();
-  const { theme } = useCustomTheme();
   const chainMetadata = chainData?.metadata;
-  const dark = theme === 'dark';
 
   return (
     <MetadataContainer>
@@ -42,15 +28,15 @@ export const ChainMetadata = () => {
 
         <ButtonsContainer>
           <MetadataButton href={chainMetadata?.explorerUrl} target='_blank'>
-            <WebIcon src={dark ? WebDark : WebLight} alt='web icon' />
+            <Icon icon='web' alt='web-icon' size={20} />
             {t('CHAIN.website')}
-            <SIcon src={dark ? LinkDark : LinkLight} alt='link icon' />
+            <Icon icon='link' alt='link-icon' size={24} />
           </MetadataButton>
 
           <MetadataButton href={chainMetadata?.explorerUrl} target='_blank'>
-            <SIcon src={dark ? BlockDark : BlockLight} alt='block icon' />
+            <Icon icon='block' alt='block-icon' size={24} />
             {t('CHAIN.explorer')}
-            <SIcon src={dark ? LinkDark : LinkLight} alt='link icon' />
+            <Icon icon='link' alt='link-icon' size={24} />
           </MetadataButton>
 
           <AddNetworkButton />
@@ -59,7 +45,7 @@ export const ChainMetadata = () => {
 
       <SecondRow>
         <MetadataItem>
-          <Icon darkIcon={ClockDark} lightIcon={ClockLight} alt={t('CHAIN.launchDate')} size={48} />
+          <Icon icon='clock' alt={t('CHAIN.launchDate')} size={48} />
           <Box>
             <Label variant='subtitle1' color='textSecondary' gutterBottom>
               {t('CHAIN.launchDate')}
@@ -69,7 +55,7 @@ export const ChainMetadata = () => {
         </MetadataItem>
 
         <MetadataItem>
-          <Icon darkIcon={SettingsDark} lightIcon={SettingsLight} alt={t('CHAIN.environment')} size={48} />
+          <Icon icon='settings' alt={t('CHAIN.environment')} size={48} />
           <Box>
             <Label variant='subtitle1' color='textSecondary' gutterBottom>
               {t('CHAIN.environment')}
@@ -158,16 +144,6 @@ const MetadataButton = styled('a')(() => {
       boxShadow: 'none',
     },
   };
-});
-
-const SIcon = styled(Image)({
-  width: '1.5rem',
-  height: '1.5rem',
-});
-
-const WebIcon = styled(Image)({
-  width: '1.25rem',
-  height: '1.25rem',
 });
 
 const ButtonsContainer = styled(Box)(({ theme }) => {

@@ -4,11 +4,10 @@ import { useTranslation } from 'next-i18next';
 import { useConnectModal } from '@rainbow-me/rainbowkit';
 import { useAccount } from 'wagmi';
 import { useRouter } from 'next/router';
-import Image from 'next/image';
 
 import { useCustomTheme, useData } from '~/hooks';
 import { addNetwork } from '~/utils';
-import Add from '~/assets/icons/add.svg';
+import { Icon } from '~/components';
 
 export const AddNetworkButton = () => {
   const router = useRouter();
@@ -31,7 +30,7 @@ export const AddNetworkButton = () => {
         chainId: chain as string,
         chainName: chainData?.metadata.name,
         rpcUrls: chainData?.metadata.publicRpcs,
-        token: chainData?.baseToken.name,
+        name: chainData?.baseToken.name,
         symbol: chainData?.baseToken.symbol,
         decimals: chainData?.baseToken.decimals,
         explorerUrl: chainData?.metadata.explorerUrl,
@@ -54,7 +53,7 @@ export const AddNetworkButton = () => {
       )}
       {isConnected && !isNetworkAdded && (
         <BlueButton variant='contained' onClick={handleAddNetwork}>
-          <StyledIcon src={Add} alt='Add' />
+          <Icon icon='add' alt='Add' size={24} />
           {t('CHAIN.addNetwork')}
         </BlueButton>
       )}
@@ -98,9 +97,4 @@ const STooltip = styled(Tooltip)(() => {
     borderRadius: currentTheme.borderRadius,
     padding: currentTheme.padding,
   };
-});
-
-const StyledIcon = styled(Image)({
-  width: '1.5rem',
-  height: '1.5rem',
 });

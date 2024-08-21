@@ -25,6 +25,7 @@ export const SearchProvider = ({ children }: StateProps) => {
   const navigateToSearch = useCallback(() => {
     setPreviousPage(router.asPath); // Save the current page before navigating to search
     router.push('/search');
+    setSearchTerm('');
   }, [router]);
 
   const closeSearch = useCallback(() => {

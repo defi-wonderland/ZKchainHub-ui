@@ -4,15 +4,6 @@ import { useTranslation } from 'next-i18next';
 import { ChainInfoCard } from '~/components';
 import { useData, useCustomTheme } from '~/hooks';
 
-import BlockDark from '~/assets/icons/blockDark.svg';
-import BlockLight from '~/assets/icons/blockLight.svg';
-import ChainTypeDark from '~/assets/icons/chainTypeDark.svg';
-import ChainTypeLight from '~/assets/icons/chainTypeLight.svg';
-import CheckBlockDark from '~/assets/icons/checkBlockDark.svg';
-import CheckBlockLight from '~/assets/icons/checkBlockLight.svg';
-import SpeedDark from '~/assets/icons/speedDark.svg';
-import SpeedLight from '~/assets/icons/speedLight.svg';
-
 export const ChainInformation = () => {
   const { t } = useTranslation();
   const { chainData } = useData();
@@ -29,8 +20,7 @@ export const ChainInformation = () => {
           title={t('CHAIN.CHAININFORMATION.chainType')}
           description={getDescription(chainData?.chainType)}
           isDataAvailable={!!chainData?.chainType}
-          darkIcon={ChainTypeDark}
-          lightIcon={ChainTypeLight}
+          icon='chainType'
           size={22}
           alt='chain-type-icon'
         />
@@ -39,8 +29,7 @@ export const ChainInformation = () => {
           title={t('CHAIN.CHAININFORMATION.lastBlock')}
           description={getDescription(chainData?.l2ChainInfo?.lastBlock)}
           isDataAvailable={!!chainData?.l2ChainInfo?.lastBlock}
-          darkIcon={BlockDark}
-          lightIcon={BlockLight}
+          icon='block'
           size={22}
           alt='block-icon'
         />
@@ -49,8 +38,7 @@ export const ChainInformation = () => {
           title={t('CHAIN.CHAININFORMATION.lastBlockVerified')}
           description={getDescription(chainData?.l2ChainInfo?.lastBlockVerified)}
           isDataAvailable={!!chainData?.l2ChainInfo?.lastBlockVerified}
-          darkIcon={CheckBlockDark}
-          lightIcon={CheckBlockLight}
+          icon='checkBlock'
           size={22}
           alt='check-block-icon'
         />
@@ -59,8 +47,7 @@ export const ChainInformation = () => {
           title={t('CHAIN.CHAININFORMATION.transactionsPerSecond')}
           description={getDescription(chainData?.l2ChainInfo?.tps)}
           isDataAvailable={!!chainData?.l2ChainInfo?.tps}
-          darkIcon={SpeedDark}
-          lightIcon={SpeedLight}
+          icon='speed'
           size={22}
           alt='speed-icon'
         />
@@ -69,8 +56,7 @@ export const ChainInformation = () => {
           title={t('CHAIN.CHAININFORMATION.totalBatchesCommitted')}
           description={getDescription(chainData?.batchesInfo?.commited)}
           isDataAvailable={!!chainData?.batchesInfo?.commited}
-          darkIcon={BlockDark}
-          lightIcon={BlockLight}
+          icon='block'
           size={22}
           alt='block'
         />
@@ -79,8 +65,7 @@ export const ChainInformation = () => {
           title={t('CHAIN.CHAININFORMATION.totalBatchesExecuted')}
           description={getDescription(chainData?.batchesInfo?.executed)}
           isDataAvailable={!!chainData?.batchesInfo?.executed}
-          darkIcon={BlockDark}
-          lightIcon={BlockLight}
+          icon='block'
           size={22}
           alt='block'
         />
@@ -89,8 +74,7 @@ export const ChainInformation = () => {
           title={t('CHAIN.CHAININFORMATION.totalBatchesVerified')}
           description={getDescription(chainData?.batchesInfo?.verified)}
           isDataAvailable={!!chainData?.batchesInfo?.verified}
-          darkIcon={CheckBlockDark}
-          lightIcon={CheckBlockLight}
+          icon='checkBlock'
           size={22}
           alt='check-block'
         />
@@ -99,8 +83,7 @@ export const ChainInformation = () => {
           title={t('CHAIN.CHAININFORMATION.averageBlockTime')}
           description={getDescription(chainData?.l2ChainInfo?.avgBlockTime)}
           isDataAvailable={!!chainData?.l2ChainInfo?.avgBlockTime}
-          darkIcon={SpeedDark}
-          lightIcon={SpeedLight}
+          icon='speed'
           size={22}
           alt='speed-icon'
         />
