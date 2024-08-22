@@ -41,6 +41,10 @@ import SmallArrowLight from '~/assets/icons/smallArrowLight.svg';
 import ArrowDownDark from '~/assets/icons/arrowDownDark.svg';
 import ArrowDownLight from '~/assets/icons/arrowDownLight.svg';
 import Add from '~/assets/icons/add.svg';
+import CheckDark from '~/assets/icons/checkDark.svg';
+import CheckLight from '~/assets/icons/checkLight.svg';
+import ErrorDark from '~/assets/icons/errorDark.svg';
+import ErrorLight from '~/assets/icons/errorLight.svg';
 
 export const iconPaths: IconPaths = {
   block: {
@@ -126,5 +130,13 @@ export const iconPaths: IconPaths = {
   add: {
     dark: Add,
     light: Add,
+  },
+  check: {
+    dark: CheckDark,
+    light: CheckLight,
+  },
+  error: {
+    dark: ErrorDark,
+    light: ErrorLight,
   },
 } as const;

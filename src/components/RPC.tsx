@@ -1,10 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useTranslation } from 'next-i18next';
 import { Box, Typography, Tooltip, styled, Skeleton } from '@mui/material';
-import { CheckCircle as CheckIcon, Cancel as CancelIcon } from '@mui/icons-material';
 
 import { useData, useCustomTheme } from '~/hooks';
-import { DataContainer, STitle } from '~/components';
+import { DataContainer, STitle, Icon } from '~/components';
 import { checkRpcStatus } from '~/utils';
 
 export const RPC = () => {
@@ -35,7 +34,7 @@ export const RPC = () => {
   return (
     <article>
       <STitle>{t('CHAIN.RPC.title')}</STitle>
-      <DataContainer>
+      <DataContainer aria-live='polite' aria-busy={rpcIsLoading}>
         {rpcIsLoading &&
           Array.from({ length: 4 }).map((_, index) => (
             <RPCBox key={index}>
@@ -46,9 +45,16 @@ export const RPC = () => {
 
         {!rpcIsLoading &&
           rpcData.map((rpc, index) => (
-            <RPCBox key={index}>
+            <RPCBox
+              key={index}
+              aria-label={`${rpc.url} - ${rpc.status ? t('CHAIN.RPC.statusActive') : t('CHAIN.RPC.statusInactive')}`}
+            >
               <Tooltip title={rpc.status ? t('CHAIN.RPC.statusActive') : t('CHAIN.RPC.statusInactive')}>
-                {rpc.status ? <CheckIcon color='success' /> : <CancelIcon color='error' />}
+                {rpc.status ? (
+                  <Icon icon='check' alt='Check icon representing active RPC' size={20} />
+                ) : (
+                  <Icon icon='error' alt='Error icon representing inactive RPC' size={20} />
+                )}
               </Tooltip>
               <RPCUrl>{rpc.url}</RPCUrl>
             </RPCBox>
