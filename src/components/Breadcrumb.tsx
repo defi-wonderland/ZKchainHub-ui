@@ -38,7 +38,10 @@ export const Breadcrumb = ({ isChain }: BreadcrumbProps) => {
 
       {breadcrumbItems.map(({ key, isLast, displayName, href }) => (
         <BreadcrumbItem key={key}>
-          <ArrowIcon src={theme === 'dark' ? SmallArrowDark : SmallArrowLight} alt='arrow' />
+          <ArrowIcon
+            src={theme === 'dark' ? SmallArrowDark : SmallArrowLight}
+            alt='Arrow icon indicating next breadcrumb'
+          />
           {isLast ? (
             <BreadcrumbCurrent aria-current='page'>{displayName}</BreadcrumbCurrent>
           ) : (

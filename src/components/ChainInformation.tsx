@@ -15,14 +15,14 @@ export const ChainInformation = () => {
       <STitle variant='h5' gutterBottom>
         {t('CHAIN.CHAININFORMATION.title')}
       </STitle>
-      <DataContainer>
+      <DataContainer role='region' aria-labelledby='chain-info'>
         <ChainInfoCard
           title={t('CHAIN.CHAININFORMATION.chainType')}
           description={getDescription(chainData?.chainType, notAvailable)}
           isDataAvailable={!!chainData?.chainType}
           icon='chainType'
           size={22}
-          alt='chain-type-icon'
+          alt='Icon representing a type of chain'
         />
 
         <ChainInfoCard
@@ -31,7 +31,7 @@ export const ChainInformation = () => {
           isDataAvailable={!!chainData?.l2ChainInfo?.lastBlock}
           icon='block'
           size={22}
-          alt='block-icon'
+          alt='Block icon representing the last block'
         />
 
         <ChainInfoCard
@@ -40,7 +40,7 @@ export const ChainInformation = () => {
           isDataAvailable={!!chainData?.l2ChainInfo?.lastBlockVerified}
           icon='checkBlock'
           size={22}
-          alt='check-block-icon'
+          alt='Checked block icon indicating the last verified block'
         />
 
         <ChainInfoCard
@@ -49,7 +49,7 @@ export const ChainInformation = () => {
           isDataAvailable={!!chainData?.l2ChainInfo?.tps}
           icon='speed'
           size={22}
-          alt='speed-icon'
+          alt='Speed icon  representing transactions per second'
         />
 
         <ChainInfoCard
@@ -58,7 +58,7 @@ export const ChainInformation = () => {
           isDataAvailable={!!chainData?.batchesInfo?.commited}
           icon='block'
           size={22}
-          alt='block'
+          alt='Block icon  representing total batches committed'
         />
 
         <ChainInfoCard
@@ -67,7 +67,7 @@ export const ChainInformation = () => {
           isDataAvailable={!!chainData?.batchesInfo?.executed}
           icon='block'
           size={22}
-          alt='block'
+          alt='Block icon representing total batches executed'
         />
 
         <ChainInfoCard
@@ -76,7 +76,7 @@ export const ChainInformation = () => {
           isDataAvailable={!!chainData?.batchesInfo?.verified}
           icon='checkBlock'
           size={22}
-          alt='check-block'
+          alt='Checked block icon representing total batches verified'
         />
 
         <ChainInfoCard
@@ -85,7 +85,7 @@ export const ChainInformation = () => {
           isDataAvailable={!!chainData?.l2ChainInfo?.avgBlockTime}
           icon='speed'
           size={22}
-          alt='speed-icon'
+          alt='Speed icon representing average block time'
         />
       </DataContainer>
     </article>

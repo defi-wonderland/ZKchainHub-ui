@@ -14,16 +14,18 @@ interface ChainInfoCardProps {
 
 export const ChainInfoCard = ({ title, description, icon, size, alt, isDataAvailable }: ChainInfoCardProps) => {
   return (
-    <StyledCard>
+    <StyledCard aria-labelledby={`title-${title}`} aria-describedby={`description-${title}`}>
       <CardContent>
         <LabelContainer>
           <Icon icon={icon} size={size} alt={alt} />
-          <Label variant='subtitle1' color='textSecondary' gutterBottom>
+          <Label id={`title-${title}`} variant='subtitle1' color='textSecondary' gutterBottom>
             {title}
           </Label>
         </LabelContainer>
 
-        <Description isDataAvailable={isDataAvailable}>{description}</Description>
+        <Description id={`description-${title}`} available={isDataAvailable ? 'true' : 'false'}>
+          {description}
+        </Description>
       </CardContent>
     </StyledCard>
   );
@@ -60,14 +62,14 @@ const Label = styled(Typography)(() => {
   };
 });
 
-const Description = styled(Typography)<{ isDataAvailable: boolean }>((props) => {
+const Description = styled(Typography)(({ available }: { available: string }) => {
   const { currentTheme } = useCustomTheme();
 
   return {
-    fontSize: props.isDataAvailable ? '1.5rem' : '1rem',
+    fontSize: available === 'true' ? '1.5rem' : '1rem',
     lineHeight: '2rem',
     fontWeight: 400,
-    color: props.isDataAvailable ? currentTheme.textPrimary : currentTheme.textSecondary,
+    color: available === 'true' ? currentTheme.textPrimary : currentTheme.textSecondary,
     marginTop: '0.5rem',
   };
 });

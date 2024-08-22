@@ -19,7 +19,7 @@ export const FeeParams = () => {
           isDataAvailable={!!chainData?.feeParams.batchOverheadL1Gas}
           icon='tag'
           size={20}
-          alt='tag-icon'
+          alt='Batch overhead gas tag icon'
         />
 
         <ChainInfoCard
@@ -28,7 +28,7 @@ export const FeeParams = () => {
           isDataAvailable={!!chainData?.feeParams.maxPubdataPerBatch}
           icon='block'
           size={20}
-          alt='block-icon'
+          alt='Maximum pubdata per batch block icon'
         />
 
         <ChainInfoCard
@@ -37,7 +37,7 @@ export const FeeParams = () => {
           isDataAvailable={!!chainData?.l2ChainInfo?.lastBlockVerified}
           icon='checkBlock'
           size={20}
-          alt='check-block-icon'
+          alt='Last verified block check icon'
         />
 
         <ChainInfoCard
@@ -46,7 +46,7 @@ export const FeeParams = () => {
           isDataAvailable={!!chainData?.feeParams.maxL2GasPerBatch}
           icon='max'
           size={20}
-          alt='max-icon'
+          alt='Maximum gas per batch icon'
         />
       </DataContainer>
     </article>
