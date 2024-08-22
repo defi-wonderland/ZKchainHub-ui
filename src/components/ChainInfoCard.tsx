@@ -23,7 +23,7 @@ export const ChainInfoCard = ({ title, description, icon, size, alt, isDataAvail
           </Label>
         </LabelContainer>
 
-        <Description id={`description-${title}`} isDataAvailable={isDataAvailable}>
+        <Description id={`description-${title}`} available={isDataAvailable ? 'true' : 'false'}>
           {description}
         </Description>
       </CardContent>
@@ -62,14 +62,14 @@ const Label = styled(Typography)(() => {
   };
 });
 
-const Description = styled(Typography)(({ isDataAvailable }: { isDataAvailable: boolean }) => {
+const Description = styled(Typography)(({ available }: { available: string }) => {
   const { currentTheme } = useCustomTheme();
 
   return {
-    fontSize: isDataAvailable ? '1.5rem' : '1rem',
+    fontSize: available === 'true' ? '1.5rem' : '1rem',
     lineHeight: '2rem',
     fontWeight: 400,
-    color: isDataAvailable ? currentTheme.textPrimary : currentTheme.textSecondary,
+    color: available === 'true' ? currentTheme.textPrimary : currentTheme.textSecondary,
     marginTop: '0.5rem',
   };
 });
