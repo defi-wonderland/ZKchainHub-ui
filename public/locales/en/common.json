@@ -60,10 +60,13 @@
       "tvl": "TVL"
     },
     "RPC": {
-      "title": "RPC",
+      "title": "RPCs",
+      "subtitle": "Statuses",
       "status": "Status",
       "statusActive": "Active",
-      "statusInactive": "Inactive"
+      "statusInactive": "Inactive",
+      "showMore": "Show more",
+      "showLess": "Show less"
     },
     "FEEPARAMS": {
       "title": "Fee params",
