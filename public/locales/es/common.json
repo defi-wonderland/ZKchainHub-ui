@@ -58,7 +58,8 @@
       "chain": "Cadena",
       "price": "Precio",
       "token": "Token",
-      "tvl": "TVL"
+      "tvl": "TVL",
+      "address": "Dirección del contrato"
     },
     "RPC": {
       "title": "RPCs",

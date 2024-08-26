@@ -57,7 +57,8 @@
       "chain": "Chain",
       "token": "Token",
       "price": "Price",
-      "tvl": "TVL"
+      "tvl": "TVL",
+      "address": "Contract Address"
     },
     "RPC": {
       "title": "RPCs",

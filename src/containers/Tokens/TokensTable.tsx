@@ -14,8 +14,9 @@ import {
   STableBodyRow,
   FirstCellWithLogo,
   TableCellHeadFirst,
+  NotAvailable,
 } from '~/components';
-import { formatDataNumber } from '~/utils';
+import { formatDataNumber, truncateAddress } from '~/utils';
 
 export const TokensTable = ({ tvl }: TotalValueLockedProps) => {
   const { t } = useTranslation();
@@ -27,9 +28,11 @@ export const TokensTable = ({ tvl }: TotalValueLockedProps) => {
         <Table>
           <STableHead>
             <STableRow>
-              <TableCellHeadFirst sx={{ width: '40%' }}>{t('CHAIN.TVL.token')}</TableCellHeadFirst>
-              <STableCellHead sx={{ width: '30%' }}>{t('CHAIN.TVL.price')}</STableCellHead>
-              <STableCellHead sx={{ width: '30%' }}>{t('CHAIN.TVL.tvl')}</STableCellHead>
+              <TableCellHeadFirst>{t('CHAIN.TVL.token')}</TableCellHeadFirst>
+
+              <STableCellHead scope='col'>{t('CHAIN.TVL.address')}</STableCellHead>
+              <STableCellHead>{t('CHAIN.TVL.price')}</STableCellHead>
+              <STableCellHead>{t('CHAIN.TVL.tvl')}</STableCellHead>
             </STableRow>
           </STableHead>
 
@@ -44,8 +47,21 @@ export const TokensTable = ({ tvl }: TotalValueLockedProps) => {
                       {token.name} ({token.symbol})
                     </Typography>
                   </FirstCellWithLogo>
-                  <STableCell sx={{ width: '30%' }}>{formatDataNumber(token.price, 0, true)}</STableCell>
-                  <STableCell sx={{ width: '30%' }}>{formatDataNumber(token.amountUsd, 0, true)}</STableCell>
+
+                  <STableCell>
+                    {token.contractAddress && <Typography>{truncateAddress(token.contractAddress || '')}</Typography>}
+                    {!token.contractAddress && <NotAvailable>{t('CHAIN.CHAININFORMATION.notAvailable')}</NotAvailable>}
+                  </STableCell>
+
+                  <STableCell>
+                    {token.price && formatDataNumber(token.price, 0, true)}
+                    {!token.price && <NotAvailable>{t('CHAIN.CHAININFORMATION.notAvailable')}</NotAvailable>}
+                  </STableCell>
+
+                  <STableCell>
+                    {token.amountUsd && formatDataNumber(token.amountUsd, 0, true)}
+                    {!token.amountUsd && <NotAvailable>{t('CHAIN.CHAININFORMATION.notAvailable')}</NotAvailable>}
+                  </STableCell>
                 </STableBodyRow>
               ))}
           </STableBody>

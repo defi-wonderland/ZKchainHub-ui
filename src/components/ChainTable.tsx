@@ -11,6 +11,7 @@ import {
   Typography,
   Avatar,
   Box,
+  Link,
 } from '@mui/material';
 
 import { EcosystemChainData } from '~/types';
@@ -40,13 +41,13 @@ export const ChainTable = ({ chains }: TableProps) => {
               {t('HOME.DASHBOARD.chain')}
             </TableCellHeadFirst>
             <STableCellHead sx={{ width: '10%' }} scope='col'>
-              {t('HOME.DASHBOARD.chainId')}
-            </STableCellHead>
-            <STableCellHead sx={{ width: '10%' }} scope='col'>
               {t('HOME.DASHBOARD.nativeToken')}
             </STableCellHead>
             <STableCellHead sx={{ width: '10%' }} scope='col'>
               {t('HOME.DASHBOARD.tvl')}
+            </STableCellHead>
+            <STableCellHead sx={{ width: '10%' }} scope='col'>
+              {t('HOME.DASHBOARD.chainId')}
             </STableCellHead>
             <STableCellHead sx={{ width: '10%' }} scope='col'>
               {t('HOME.DASHBOARD.type')}
@@ -230,6 +231,16 @@ export const LogoCell = styled(Box)(() => {
   };
 });
 
+export const ContractCell = styled(Link)(() => {
+  const { currentTheme } = useCustomTheme();
+  return {
+    display: 'flex',
+    alignItems: 'center',
+    gap: currentTheme.gap,
+    color: currentTheme.textPrimary,
+  };
+});
+
 export const ChainAvatar = styled(Avatar)(() => {
   return {
     width: '2rem',
@@ -263,6 +274,17 @@ export const ChainName = styled(Typography)(({ theme }) => {
   return {
     fontSize: '1rem',
     color: currentTheme.textPrimary,
+    [theme.breakpoints.down('md')]: {
+      fontSize: '0.875rem',
+    },
+  };
+});
+
+export const NotAvailable = styled(Typography)(({ theme }) => {
+  const { currentTheme } = useCustomTheme();
+  return {
+    fontSize: '1rem',
+    color: currentTheme.textSecondary,
     [theme.breakpoints.down('md')]: {
       fontSize: '0.875rem',
     },
