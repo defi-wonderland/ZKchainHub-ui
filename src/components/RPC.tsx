@@ -3,7 +3,7 @@ import { useTranslation } from 'next-i18next';
 import { Box, Typography, Tooltip, styled, Skeleton, Button } from '@mui/material';
 
 import { useData, useCustomTheme } from '~/hooks';
-import { DataContainer, STitle, Icon } from '~/components';
+import { DataContainer, STitle, Icon, NotAvailable } from '~/components';
 import { checkRpcStatus } from '~/utils';
 
 export const RPC = () => {
@@ -76,12 +76,20 @@ export const RPC = () => {
               <RPCUrl>{rpc.url}</RPCUrl>
             </RPCBox>
           ))}
+
+        {!rpcIsLoading && rpcData.length === 0 && (
+          <RPCBox>
+            <NotAvailable>{t('CHAIN.CHAININFORMATION.notAvailable')}</NotAvailable>
+          </RPCBox>
+        )}
       </DataContainer>
 
       {showMoreButton && (
         <RPCButtonContainer>
           <RPCButton onClick={() => setShowAll(!showAll)}>
-            {showAll ? t('CHAIN.RPC.showLess') : t('CHAIN.RPC.showMore')}
+            {showAll && t('CHAIN.RPC.showLess')}
+
+            {!showAll && t('CHAIN.RPC.showMore')}
           </RPCButton>
         </RPCButtonContainer>
       )}
