@@ -9,7 +9,7 @@ export interface ChainData {
     imageUrl: string;
     decimals: number;
   };
-  tvl: ChainTvl[];
+  tvl: TvlData[];
   batchesInfo: {
     commited: string;
     verified: string;
@@ -85,13 +85,6 @@ export interface TvlData {
   decimals: number;
 }
 
-export interface ChainTvl {
-  symbol: string;
-  name: string;
-  amountUsd: string;
-  imageUrl: string;
-  price: string;
-}
 export interface TotalValueLockedProps {
   tvl: TvlData[];
 }
