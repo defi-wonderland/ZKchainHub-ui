@@ -16,3 +16,7 @@ export const getDescription = (data: string | number | undefined, notAvailable: 
   // Fallback: return notAvailable message
   return notAvailable;
 };
+
+export const truncateAddress = (address: string) => {
+  return `${address.slice(0, 6)}...${address.slice(-4)}`;
+};
