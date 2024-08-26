@@ -248,17 +248,6 @@ export const ChainAvatar = styled(Avatar)(() => {
   };
 });
 
-export const NotAvailable = styled(Typography)(({ theme }) => {
-  const { currentTheme } = useCustomTheme();
-  return {
-    fontSize: '1rem',
-    color: currentTheme.textSecondary,
-    [theme.breakpoints.down('md')]: {
-      fontSize: '0.875rem',
-    },
-  };
-});
-
 export const TokenAvatar = styled(Avatar)(() => {
   const { currentTheme } = useCustomTheme();
   return {

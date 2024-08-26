@@ -561,7 +561,7 @@
   "metadata": {
     "iconUrl": "https://s2.coinmarketcap.com/static/img/coins/64x64/24091.png",
     "name": "ZKsyncERA",
-    "publicRpcs": ["https://mainnet.era.zksync.io", "https://zksync.drpc.org", "https://zksync.meowrpc.com"],
+    "publicRpcs": ["https://mainnet.era.zksync.io", "https://zksync.drpc.org", "https://zksync.meowrpc.com", "https://invalidRpc.com", "https://extraRpc.com"],
     "explorerUrl": "https://explorer.zksync.io/",
     "launchDate": 1679626800
   }

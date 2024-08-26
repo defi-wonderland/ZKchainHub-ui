@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { useTranslation } from 'next-i18next';
 import { Box, Typography, Tooltip, styled, Skeleton, Button } from '@mui/material';
 
@@ -32,8 +32,13 @@ export const RPC = () => {
     updateRpcStatuses();
   }, [chainData]);
 
-  const visibleRpcData = showAll ? rpcData : rpcData.slice(0, 4); // Show first 4 or all based on showAll state
-  const showMoreButton = rpcData.length > 4 && !rpcIsLoading;
+  const visibleRpcData = useMemo(() => {
+    return showAll ? rpcData : rpcData.slice(0, 4);
+  }, [showAll, rpcData]);
+
+  const showMoreButton = useMemo(() => {
+    return rpcData.length > 4 && !rpcIsLoading;
+  }, [rpcData, rpcIsLoading]);
 
   return (
     <article>
