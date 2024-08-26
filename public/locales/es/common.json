@@ -62,10 +62,13 @@
       "address": "Dirección del contrato"
     },
     "RPC": {
-      "title": "RPC",
+      "title": "RPCs",
+      "subtitle": "Estados",
       "status": "Estado",
       "statusActive": "Activo",
-      "statusInactive": "Inactivo"
+      "statusInactive": "Inactivo",
+      "showMore": "Mostrar más",
+      "showLess": "Mostrar menos"
     },
     "FEEPARAMS": {
       "title": "Parámetros de gas",
