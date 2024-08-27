@@ -1,21 +1,18 @@
 import { expect } from '@jest/globals';
-
 import { fetchEcosystemData, fetchChainData, checkRpcStatus } from '~/utils/services';
 import ecosystemMockData from '~/data/ecosystemMockData.json';
 import chainMockData from '~/data/chainMockData.json';
-import { getConfig } from '~/config';
+import { getConfig } from '~/config/';
 
-// Mock the global fetch function
 global.fetch = jest.fn();
 
-// Mock getConfig
 jest.mock('../config', () => ({
   getConfig: jest.fn(),
 }));
 
-describe('Data Fetching Utils', () => {
-  const mockApiUrl = 'http://mock-api-url.com';
+const mockApiUrl = 'http://mock-api-url.com';
 
+describe('Data Fetching Utils', () => {
   beforeEach(() => {
     jest.clearAllMocks();
     (getConfig as jest.Mock).mockReturnValue({ API_URL: mockApiUrl });
@@ -38,6 +35,7 @@ describe('Data Fetching Utils', () => {
       });
 
       const result = await fetchEcosystemData();
+      expect(fetch).toHaveBeenCalledTimes(1);
       expect(fetch).toHaveBeenCalledWith(`${mockApiUrl}/metrics/ecosystem`);
       expect(result).toEqual(mockResponse);
     });
@@ -47,6 +45,7 @@ describe('Data Fetching Utils', () => {
       (fetch as jest.Mock).mockRejectedValueOnce(new Error('Fetch failed'));
 
       await expect(fetchEcosystemData()).rejects.toThrow('Fetch failed');
+      expect(fetch).toHaveBeenCalledTimes(1);
     });
   });
 
@@ -69,6 +68,7 @@ describe('Data Fetching Utils', () => {
       });
 
       const result = await fetchChainData(chainId);
+      expect(fetch).toHaveBeenCalledTimes(1);
       expect(fetch).toHaveBeenCalledWith(`${mockApiUrl}/metrics/zkchain/${chainId}`);
       expect(result).toEqual(mockResponse);
     });
@@ -78,6 +78,7 @@ describe('Data Fetching Utils', () => {
       (fetch as jest.Mock).mockRejectedValueOnce(new Error('Fetch failed'));
 
       await expect(fetchChainData(chainId)).rejects.toThrow('Fetch failed');
+      expect(fetch).toHaveBeenCalledTimes(1);
     });
   });
 
@@ -98,6 +99,7 @@ describe('Data Fetching Utils', () => {
       });
 
       const result = await checkRpcStatus(rpcUrl);
+      expect(fetch).toHaveBeenCalledTimes(1);
       expect(fetch).toHaveBeenCalledWith(rpcUrl, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -110,6 +112,7 @@ describe('Data Fetching Utils', () => {
       (fetch as jest.Mock).mockRejectedValueOnce(new Error('RPC failed'));
 
       const result = await checkRpcStatus(rpcUrl);
+      expect(fetch).toHaveBeenCalledTimes(1);
       expect(result).toBe(false);
     });
 
@@ -121,6 +124,7 @@ describe('Data Fetching Utils', () => {
       });
 
       const result = await checkRpcStatus(rpcUrl);
+      expect(fetch).toHaveBeenCalledTimes(1);
       expect(result).toBe(false);
     });
   });

@@ -3,9 +3,16 @@ import ecosystemMockData from '~/data/ecosystemMockData.json';
 import chainMockData from '~/data/chainMockData.json';
 import { ChainData, EcosystemData } from '~/types';
 
-const { API_URL } = getConfig();
+/**
+ * Fetch data from the API or return mock data if API_URL is not set.
+ * @param endpoint - The API endpoint to fetch data from.
+ * @param mockData - The mock data to return if API_URL is not set.
+ * @returns The fetched data or mock data.
+ */
+const fetchData = async (endpoint: string, mockData: EcosystemData | ChainData) => {
+  const { API_URL } = getConfig();
+  const url = `${API_URL}${endpoint}`;
 
-const fetchData = async (url: string, mockData: EcosystemData | ChainData) => {
   if (!API_URL) return mockData;
 
   try {
@@ -18,16 +25,28 @@ const fetchData = async (url: string, mockData: EcosystemData | ChainData) => {
   }
 };
 
+/**
+ * Fetch ecosystem data from the API or return mock data.
+ * @returns The ecosystem data.
+ */
 export const fetchEcosystemData = async () => {
-  const url = `${API_URL}/metrics/ecosystem`;
-  return fetchData(url, ecosystemMockData);
+  return fetchData('/metrics/ecosystem', ecosystemMockData);
 };
 
+/**
+ * Fetch chain data from the API or return mock data.
+ * @param chainId - The ID of the chain to fetch data for.
+ * @returns The chain data.
+ */
 export const fetchChainData = async (chainId: string) => {
-  const url = `${API_URL}/metrics/zkchain/${chainId}`;
-  return fetchData(url, chainMockData);
+  return fetchData(`/metrics/zkchain/${chainId}`, chainMockData);
 };
 
+/**
+ * Check the RPC status by sending a request to the RPC URL.
+ * @param rpcUrl - The URL of the RPC endpoint.
+ * @returns True if the RPC is available, false otherwise.
+ */
 export const checkRpcStatus = async (rpcUrl: string): Promise<boolean> => {
   try {
     const response = await fetch(rpcUrl, {
