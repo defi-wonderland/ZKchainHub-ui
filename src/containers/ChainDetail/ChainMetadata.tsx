@@ -20,7 +20,7 @@ export const ChainMetadata = () => {
           <Avatar src={chainMetadata?.iconUrl} alt={chainMetadata?.name} sx={{ width: 72, height: 72 }} />
           <Box>
             <ChainName>{chainMetadata?.name}</ChainName>
-            <ChainId>
+            <ChainId data-test='chain-id'>
               {t('CHAIN.chainId')}: <ChainIdValue>{chain}</ChainIdValue>
             </ChainId>
           </Box>
