@@ -1,10 +1,13 @@
 import { useTranslation } from 'next-i18next';
 
-import { StyledHeader, LogoContainer, Logo, SIconButton, HeaderProps } from '~/containers';
+import { StyledHeader, LogoContainer, Logo, SIconButton, HeaderProps, Testnet } from '~/containers';
 import { BasicSelect, SearchBar, Gas, SBox, Icon } from '~/components';
+import { getConfig } from '~/config';
 
 import LogoDark from '~/assets/icons/logoDark.svg';
 import LogoLight from '~/assets/icons/logoLight.svg';
+
+const { TESTNET_MODE } = getConfig();
 
 interface DesktopHeaderProps extends HeaderProps {}
 
@@ -24,6 +27,7 @@ export const DesktopHeader = ({
     <StyledHeader>
       <LogoContainer onClick={goToHome} role='button' aria-label='Navigate to home'>
         <Logo src={theme === 'dark' ? LogoDark : LogoLight} alt='ZK Chain Hub' />
+        {TESTNET_MODE === 'true' && <Testnet>testnet</Testnet>}
       </LogoContainer>
       <SBox>
         <Gas />
