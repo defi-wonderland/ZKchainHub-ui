@@ -1,5 +1,5 @@
 import { styled } from '@mui/material/styles';
-import { IconButton, Box, useMediaQuery } from '@mui/material';
+import { IconButton, Box, useMediaQuery, Typography } from '@mui/material';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
 import Image from 'next/image';
@@ -89,12 +89,20 @@ export const StyledHeader = styled('header')(() => {
   };
 });
 
-export const LogoContainer = styled(Box)({
-  display: 'flex',
-  alignItems: 'center',
-  height: '100%',
-  flexShrink: 0,
-  cursor: 'pointer',
+export const LogoContainer = styled(Box)(({ theme }) => {
+  const { currentTheme } = useCustomTheme();
+
+  return {
+    display: 'flex',
+    alignItems: 'center',
+    height: '100%',
+    flexShrink: 0,
+    cursor: 'pointer',
+    gap: currentTheme.gap,
+    [theme.breakpoints.down('md')]: {
+      display: 'grid',
+    },
+  };
 });
 
 export const Logo = styled(Image)({
@@ -116,5 +124,18 @@ export const SIconButton = styled(IconButton)(() => {
     '&:hover': {
       backgroundColor: currentTheme.backgroundHover,
     },
+  };
+});
+
+export const Testnet = styled(Typography)(() => {
+  const { currentTheme } = useCustomTheme();
+  return {
+    color: currentTheme.textPrimary,
+    backgroundColor: currentTheme.backgroundSecondary,
+    borderRadius: currentTheme.borderRadius,
+    padding: '0.25rem 0.75rem',
+    gap: currentTheme.gap,
+    fontWeight: 'bold',
+    width: 'fit-content',
   };
 });

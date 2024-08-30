@@ -23,7 +23,7 @@ export const ChainInfoCard = ({ title, description, icon, size, alt, isDataAvail
           </Label>
         </LabelContainer>
 
-        <Description id={`description-${title}`} available={isDataAvailable ? 'true' : 'false'}>
+        <Description id={`description-${title}`} available={isDataAvailable?.toString()}>
           {description}
         </Description>
       </CardContent>
