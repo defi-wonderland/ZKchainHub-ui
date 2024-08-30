@@ -29,7 +29,7 @@ export const LockedAssets = () => {
 
           <TVLGraph tvl={ecosystemData.l1Tvl} />
           <ButtonContainer>
-            <AllTokensButton onClick={goToTokensPage} data-test='all-tokens-button'>
+            <AllTokensButton onClick={goToTokensPage} data-testid='all-tokens-button'>
               {t('HOME.LOCKEDASSETS.allTokens')}
             </AllTokensButton>
           </ButtonContainer>

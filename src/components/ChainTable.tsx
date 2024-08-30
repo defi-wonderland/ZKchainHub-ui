@@ -32,7 +32,7 @@ export const ChainTable = ({ chains }: TableProps) => {
   };
 
   return (
-    <STableContainer data-test='chains-dashboard'>
+    <STableContainer data-testid='chains-dashboard'>
       <Table>
         {/* Table titles */}
         <STableHead>
@@ -70,7 +70,7 @@ export const ChainTable = ({ chains }: TableProps) => {
                 tabIndex={0}
                 role='button' // Indicate that the row is interactive
                 aria-label={`Navigate to ${data.metadata?.name || `ZK Chain ${data.chainId}`}`}
-                data-test='chain-row'
+                data-testid='chain-row'
               >
                 {/* Chain Name with Logo and Tags */}
                 <FirstCellWithLogo>

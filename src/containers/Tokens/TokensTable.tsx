@@ -23,7 +23,7 @@ export const TokensTable = ({ tvl }: TotalValueLockedProps) => {
 
   return (
     <Box>
-      <STitle data-test='tokens-title'>{t('TOKENS.title')}</STitle>
+      <STitle data-testid='tokens-title'>{t('TOKENS.title')}</STitle>
       <STableContainer>
         <Table>
           <STableHead>
@@ -40,7 +40,7 @@ export const TokensTable = ({ tvl }: TotalValueLockedProps) => {
             {tvl
               .sort((a, b) => parseFloat(b.amountUsd) - parseFloat(a.amountUsd))
               .map((token: TvlData, index) => (
-                <STableBodyRow key={index} data-test='tokens-row'>
+                <STableBodyRow key={index} data-testid='tokens-row'>
                   <FirstCellWithLogo>
                     <TokenAvatar alt={token.name} src={token.imageUrl} />
                     <Typography>

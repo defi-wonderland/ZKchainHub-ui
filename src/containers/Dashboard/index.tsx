@@ -39,7 +39,7 @@ export const Dashboard = () => {
       </header>
 
       {availableChains && <ChainTable chains={filteredChains} />}
-      {!availableChains && <SearchLabel data-test='data-not-found'>{t('HOME.DASHBOARD.notFound')}</SearchLabel>}
+      {!availableChains && <SearchLabel data-testid='data-not-found'>{t('HOME.DASHBOARD.notFound')}</SearchLabel>}
     </DashboardContainer>
   );
 };

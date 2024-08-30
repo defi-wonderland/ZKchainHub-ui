@@ -34,7 +34,7 @@ export const Breadcrumb = ({ isChain }: BreadcrumbProps) => {
 
   return (
     <BreadcrumbNav aria-label='breadcrumb'>
-      <BreadcrumbLink href='/' data-test='home-breadcrumb'>
+      <BreadcrumbLink href='/' data-testid='home-breadcrumb'>
         {t('HOME.home')}
       </BreadcrumbLink>
 

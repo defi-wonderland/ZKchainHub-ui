@@ -42,7 +42,7 @@ export const BasicSelect = ({ list, value, setValue, disabled, dataTest }: Basic
         endIcon={endIcon}
         fullWidth
         disabled={disabled}
-        data-test={dataTest}
+        data-testid={dataTest}
       >
         {value}
       </MenuButton>
