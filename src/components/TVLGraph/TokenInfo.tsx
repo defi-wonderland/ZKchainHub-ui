@@ -7,26 +7,26 @@ interface TokenInfoProps {
   token: string;
   total: string;
   tokenName: string;
-  isLast?: boolean;
+  isLast?: string;
 }
 
 interface TvlProps {
-  isLast: boolean;
+  last?: string;
 }
 
 export const TokenInfo = ({ avatar, token, total, tokenName, isLast }: TokenInfoProps) => {
   return (
     <ContentBox>
       <TopBox>
-        <TokenLogo src={avatar} alt={token} isLast={isLast || false} />
+        <TokenLogo src={avatar} alt={token} last={isLast} />
 
         <TextBox>
-          <TokenName isLast={isLast || false}>{tokenName}</TokenName>
-          <TokenTicker isLast={isLast || false}>{token}</TokenTicker>
+          <TokenName last={isLast}>{tokenName}</TokenName>
+          <TokenTicker last={isLast}>{token}</TokenTicker>
         </TextBox>
       </TopBox>
 
-      <TvlAmount isLast={isLast ? isLast : false}>{formatDataNumber(total, 0, true)}</TvlAmount>
+      {total && <TvlAmount last={isLast}>{formatDataNumber(total, 0, true)}</TvlAmount>}
     </ContentBox>
   );
 };
@@ -50,13 +50,13 @@ const TopBox = styled(Box)(() => {
   };
 });
 
-const TokenLogo = styled(Avatar)<TvlProps>(({ isLast }) => ({
-  width: `${isLast ? '1.25rem' : '2.5rem'}`,
-  height: `${isLast ? '1.25rem' : '2.5rem'}`,
+const TokenLogo = styled(Avatar)<TvlProps>(({ last }) => ({
+  width: `${last === 'true' ? '1.25rem' : '2.5rem'}`,
+  height: `${last === 'true' ? '1.25rem' : '2.5rem'}`,
 }));
 
-const TvlAmount = styled(Typography)<TvlProps>(({ isLast }) => ({
-  fontSize: `${isLast ? '0.75rem' : '0.875rem'}`,
+const TvlAmount = styled(Typography)<TvlProps>(({ last }) => ({
+  fontSize: `${last === 'true' ? '0.75rem' : '0.875rem'}`,
   fontWeight: 400,
 }));
 
@@ -68,17 +68,17 @@ const TextBox = styled(Box)(() => {
   };
 });
 
-const TokenName = styled(Typography)<TvlProps>(({ isLast }) => ({
-  fontSize: `${isLast ? '0.75rem' : '0.875rem'}`,
+const TokenName = styled(Typography)<TvlProps>(({ last }) => ({
+  fontSize: `${last === 'true' ? '0.75rem' : '0.875rem'}`,
   fontWeight: 400,
   whiteSpace: 'nowrap',
   margin: '0 0.25rem 0 0',
 }));
 
-const TokenTicker = styled(Typography)<TvlProps>(({ isLast }) => {
+const TokenTicker = styled(Typography)<TvlProps>(({ last }) => {
   const { currentTheme } = useCustomTheme();
   return {
-    fontSize: `${isLast ? '0.75rem' : '0.875rem'}`,
+    fontSize: `${last === 'true' ? '0.75rem' : '0.875rem'}`,
     fontWeight: 400,
     color: currentTheme.textSecondary,
     whiteSpace: 'nowrap',

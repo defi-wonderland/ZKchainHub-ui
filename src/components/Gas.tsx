@@ -17,11 +17,11 @@ export const Gas = () => {
           <Box>
             <SBox>
               <GasLabel>{t('HEADER.gasPrice')}:</GasLabel>
-              <GasValueText>{gasPriceInGwei} gwei</GasValueText>
+              <GasValueText>{gasPriceInGwei ? `${gasPriceInGwei} gwei` : '-'} </GasValueText>
             </SBox>
             <SBox>
               <GasLabel>{t('HEADER.transfer')}:</GasLabel>
-              <GasValueText>$ {erc20USD}</GasValueText>
+              <GasValueText>{erc20USD ? `$ ${erc20USD}` : '-'}</GasValueText>
             </SBox>
           </Box>
         </>

@@ -1,6 +1,6 @@
 import { useTranslation } from 'next-i18next';
 import { styled } from '@mui/material/styles';
-import { Typography, Button } from '@mui/material';
+import { Typography } from '@mui/material';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -15,13 +15,6 @@ export const Footer = () => {
 
   return (
     <FooterContainer>
-      <SBox>
-        <FooterButton>{t('FOOTER.docs')}</FooterButton>
-        <FooterButton>
-          <Icon icon='github' alt='github' size={24} />
-          <Typography>{t('FOOTER.github')}</Typography>
-        </FooterButton>
-      </SBox>
       <Subtitle>
         <SBox>
           <Typography>{t('FOOTER.madeWith')}</Typography>
@@ -43,7 +36,7 @@ export const FooterContainer = styled('footer')(({ theme }) => {
     display: 'flex',
     padding: currentTheme.padding,
     alignItems: 'center',
-    justifyContent: 'space-between',
+    justifyContent: 'center',
     width: '100%',
     gap: '0',
 
@@ -70,27 +63,6 @@ const Subtitle = styled('div')(() => {
       textDecoration: 'none',
       color: 'inherit',
       cursor: 'pointer',
-    },
-  };
-});
-
-const FooterButton = styled(Button)(() => {
-  const { currentTheme } = useCustomTheme();
-
-  return {
-    display: 'flex',
-    gap: currentTheme.gap,
-    alignItems: 'center',
-    backgroundColor: currentTheme.backgroundSecondary,
-    borderRadius: currentTheme.borderRadius,
-    padding: currentTheme.padding,
-    cursor: 'pointer',
-    color: currentTheme.textPrimary,
-    textTransform: 'none',
-    fontSize: '1rem',
-    height: '3.5rem',
-    '&:hover': {
-      backgroundColor: currentTheme.backgroundHover,
     },
   };
 });
