@@ -23,13 +23,14 @@ export const TvlContainer = styled(Grid)({
 });
 
 export interface GridContainerProps {
-  imageUrl?: string;
+  image?: string;
   height?: string;
-  smallCard?: boolean;
+  small?: string;
 }
 
-export const GridContainer = styled(Grid)(({ imageUrl, height, smallCard }: GridContainerProps) => {
+export const GridContainer = styled(Grid)(({ image, height, small }: GridContainerProps) => {
   const { currentTheme } = useCustomTheme();
+  const smallCard = small === 'true';
   return {
     position: 'relative',
     height: height || 'fit-content',
@@ -43,11 +44,11 @@ export const GridContainer = styled(Grid)(({ imageUrl, height, smallCard }: Grid
     '&::before': {
       content: '""',
       position: 'absolute',
-      top: smallCard ? -20 : -25,
-      left: smallCard ? -50 : -95,
+      top: small ? -20 : -25,
+      left: small ? -50 : -95,
       width: '100%',
       height: '100%',
-      backgroundImage: `url(${imageUrl})`,
+      backgroundImage: `url(${image})`,
       backgroundRepeat: 'no-repeat',
       backgroundSize: smallCard ? '200px' : '400px',
       backgroundPosition: smallCard && 'center',

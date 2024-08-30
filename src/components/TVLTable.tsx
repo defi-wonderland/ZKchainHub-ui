@@ -42,7 +42,11 @@ export const TVLTable = () => {
 
           <STableBody>
             {tvl
-              .sort((a, b) => parseFloat(b.amountUsd) - parseFloat(a.amountUsd))
+              .sort((a, b) => {
+                const amountA = parseFloat(a.amountUsd) || 0;
+                const amountB = parseFloat(b.amountUsd) || 0;
+                return amountB - amountA;
+              })
               .map((token, index) => (
                 <STableBodyRow key={index} tabIndex={0} role='row' aria-label={`${token.name} (${token.symbol})`}>
                   <FirstCellWithLogo>

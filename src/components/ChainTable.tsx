@@ -41,13 +41,13 @@ export const ChainTable = ({ chains }: TableProps) => {
               {t('HOME.DASHBOARD.chain')}
             </TableCellHeadFirst>
             <STableCellHead sx={{ width: '10%' }} scope='col'>
+              {t('HOME.DASHBOARD.chainId')}
+            </STableCellHead>
+            <STableCellHead sx={{ width: '10%' }} scope='col'>
               {t('HOME.DASHBOARD.nativeToken')}
             </STableCellHead>
             <STableCellHead sx={{ width: '10%' }} scope='col'>
               {t('HOME.DASHBOARD.tvl')}
-            </STableCellHead>
-            <STableCellHead sx={{ width: '10%' }} scope='col'>
-              {t('HOME.DASHBOARD.chainId')}
             </STableCellHead>
             <STableCellHead sx={{ width: '10%' }} scope='col'>
               {t('HOME.DASHBOARD.type')}

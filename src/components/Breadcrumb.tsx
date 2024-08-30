@@ -81,6 +81,7 @@ const BreadcrumbItem = styled('span')({
 
 const ArrowIcon = styled(Image)({
   width: '1.25rem',
+  height: '0.75rem',
 });
 
 const BreadcrumbCurrent = styled(Typography)(() => {
