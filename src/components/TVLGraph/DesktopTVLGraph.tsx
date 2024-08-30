@@ -16,13 +16,13 @@ export const DesktopTVLGraph = ({ tvl }: TotalValueLockedProps) => {
     isLast?: boolean,
   ) => (
     <Grid item xs={xs} key={index}>
-      <GridContainer image={data.imageUrl} height={height} small={smallCard ? 'true' : 'false'}>
+      <GridContainer image={data.imageUrl} height={height} small={smallCard?.toString()}>
         <TokenInfo
           avatar={data.imageUrl}
           token={data.symbol}
           total={data.amountUsd}
           tokenName={data.name}
-          isLast={isLast ? 'true' : 'false'}
+          isLast={isLast?.toString()}
         />
       </GridContainer>
     </Grid>
