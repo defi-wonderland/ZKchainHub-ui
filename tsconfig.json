@@ -21,7 +21,7 @@
     "incremental": true,
     "plugins": [{ "name": "next" }],
     "baseUrl": ".",
-    "types": ["cypress"],
+    "types": ["cypress", "jest", "node"],
     "paths": {
       "~/*": ["src/*"]
     }
