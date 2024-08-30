@@ -3,12 +3,15 @@ import { styled } from '@mui/material/styles';
 import { Box, IconButton, Drawer, List, ListItem, Typography, Button } from '@mui/material';
 import { useTranslation } from 'next-i18next';
 
-import { StyledHeader, LogoContainer, Logo, HeaderProps } from '~/containers';
+import { StyledHeader, LogoContainer, Logo, HeaderProps, Testnet } from '~/containers';
 import { BasicSelect, Gas, Icon } from '~/components';
 import { useCustomTheme, useSearchContext } from '~/hooks';
+import { getConfig } from '~/config';
 
 import LogoDark from '~/assets/icons/logoDark.svg';
 import LogoLight from '~/assets/icons/logoLight.svg';
+
+const { TESTNET_MODE } = getConfig();
 
 interface MobileHeaderProps extends HeaderProps {}
 
@@ -29,6 +32,7 @@ export const MobileHeader = ({ theme, goToHome, handleChangeLanguage, localesMap
     <StyledHeader>
       <LogoContainer onClick={goToHome} role='button' aria-label='Navigate to home'>
         <Logo src={theme === 'dark' ? LogoDark : LogoLight} alt='ZK Chain Hub' />
+        {TESTNET_MODE === 'true' && <Testnet>testnet</Testnet>}
       </LogoContainer>
 
       <IconsContainer>

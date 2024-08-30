@@ -29,7 +29,9 @@ $ pnpm install
 $ cp .env.example .env
 ```
 - Set up `NEXT_PUBLIC_API_BASE_URL` with ZKchainHub Backend API url. It will typically run on `http://localhost:3000`
-- (Optionally) Set `NEXT_PUBLIC_PROJECT_ID` with your [Wallet Connect](https://walletconnect.com/) ProjectID
+- (Optionally) 
+    - Set `NEXT_PUBLIC_PROJECT_ID` with your [Wallet Connect](https://walletconnect.com/) ProjectID
+    - Set `TESTNET` with `true` to use testnet mode with testnet backend API URL set up in `NEXT_PUBLIC_API_BASE_URL`
 
 ## 🏃 Running the app
 
