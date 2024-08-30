@@ -23,7 +23,7 @@ export const TokensTable = ({ tvl }: TotalValueLockedProps) => {
 
   return (
     <Box>
-      <STitle>{t('TOKENS.title')}</STitle>
+      <STitle data-testid='tokens-title'>{t('TOKENS.title')}</STitle>
       <STableContainer>
         <Table>
           <STableHead>
@@ -44,7 +44,7 @@ export const TokensTable = ({ tvl }: TotalValueLockedProps) => {
                 return amountB - amountA;
               })
               .map((token: TvlData, index) => (
-                <STableBodyRow key={index}>
+                <STableBodyRow key={index} data-testid='tokens-row'>
                   <FirstCellWithLogo>
                     <TokenAvatar alt={token.name} src={token.imageUrl} />
                     <Typography>

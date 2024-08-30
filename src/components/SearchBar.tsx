@@ -34,7 +34,7 @@ export const SearchBar = () => {
   }, [isSearch, closeSearchHandler]);
 
   return (
-    <SearchContainer>
+    <SearchContainer data-testid='search-bar'>
       <StyledTextField
         variant='outlined'
         value={searchTerm}
