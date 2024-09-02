@@ -6,7 +6,7 @@ import { getDescription } from '~/utils';
 
 export const FeeParams = () => {
   const { t } = useTranslation();
-  const { chainData } = useData();
+  const { chainData, maxL2GasPerBatch } = useData();
   const notAvailable = t('CHAIN.CHAININFORMATION.notAvailable');
 
   return (
@@ -23,7 +23,7 @@ export const FeeParams = () => {
         />
 
         <ChainInfoCard
-          title={t('CHAIN.FEEPARAMS.compute')}
+          title={t('CHAIN.FEEPARAMS.maxPubData')}
           description={getDescription(chainData?.feeParams.maxPubdataPerBatch, notAvailable)}
           isDataAvailable={!!chainData?.feeParams.maxPubdataPerBatch}
           icon='block'
@@ -32,9 +32,9 @@ export const FeeParams = () => {
         />
 
         <ChainInfoCard
-          title={t('CHAIN.FEEPARAMS.lastBlockVerified')}
-          description={getDescription(chainData?.l2ChainInfo?.lastBlockVerified, notAvailable)}
-          isDataAvailable={!!chainData?.l2ChainInfo?.lastBlockVerified}
+          title={t('CHAIN.FEEPARAMS.priorityTxMaxPubdata')}
+          description={getDescription(chainData?.feeParams?.priorityTxMaxPubdata, notAvailable)}
+          isDataAvailable={!!chainData?.feeParams?.priorityTxMaxPubdata}
           icon='checkBlock'
           size={20}
           alt='Last verified block check icon'
@@ -42,8 +42,8 @@ export const FeeParams = () => {
 
         <ChainInfoCard
           title={t('CHAIN.FEEPARAMS.maxGasBatch')}
-          description={getDescription(chainData?.feeParams.maxL2GasPerBatch, notAvailable)}
-          isDataAvailable={!!chainData?.feeParams.maxL2GasPerBatch}
+          description={getDescription(maxL2GasPerBatch, notAvailable)}
+          isDataAvailable={!!maxL2GasPerBatch}
           icon='max'
           size={20}
           alt='Maximum gas per batch icon'
