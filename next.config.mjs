@@ -5,6 +5,7 @@ const nextConfig = {
     locales: ['en', 'es'],
     defaultLocale: 'en',
   },
+  output: 'standalone',
 };
 
 export default nextConfig;
