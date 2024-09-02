@@ -73,9 +73,9 @@
     "FEEPARAMS": {
       "title": "Parámetros de gas",
       "batch": "Sobrecarga de lote L1 Gas",
-      "compute": "Parte de sobrecarga de cómputo",
+      "maxPubData": "Máximos datos públicos por lote",
       "maxGasBatch": "Máximo gas por lote",
-      "lastBlockVerified": "Último bloque verificado"
+      "priorityTxMaxPubdata": "Maximos datos de prioridad"
     },
     "backButton": "Volver"
   },
