@@ -26,7 +26,7 @@ export const DesktopHeader = ({
   return (
     <StyledHeader>
       <LogoContainer onClick={goToHome} role='button' aria-label='Navigate to home'>
-        <Logo src={theme === 'dark' ? LogoDark : LogoLight} alt='ZK Chain Hub' />
+        <Logo src={theme === 'dark' ? LogoDark : LogoLight} alt='ZK Chain Hub' priority={true} />
         {TESTNET_MODE === 'true' && <Testnet>testnet</Testnet>}
       </LogoContainer>
       <SBox>

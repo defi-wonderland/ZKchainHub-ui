@@ -1,7 +1,4 @@
 import { getConfig } from '~/config';
-import ecosystemMockData from '~/data/ecosystemMockData.json';
-import chainMockData from '~/data/chainMockData.json';
-import { ChainData, EcosystemData } from '~/types';
 
 /**
  * Fetch data from the API or return mock data if API_URL is not set.
@@ -9,11 +6,14 @@ import { ChainData, EcosystemData } from '~/types';
  * @param mockData - The mock data to return if API_URL is not set.
  * @returns The fetched data or mock data.
  */
-const fetchData = async (endpoint: string, mockData: EcosystemData | ChainData) => {
+const fetchData = async (endpoint: string) => {
   const { API_URL } = getConfig();
   const url = `${API_URL}${endpoint}`;
 
-  if (!API_URL) return mockData;
+  if (!API_URL) {
+    console.error('Error: API URL is not set');
+    throw new Error('API URL is not set');
+  }
 
   try {
     const response = await fetch(url);
@@ -30,7 +30,7 @@ const fetchData = async (endpoint: string, mockData: EcosystemData | ChainData) 
  * @returns The ecosystem data.
  */
 export const fetchEcosystemData = async () => {
-  return fetchData('/metrics/ecosystem', ecosystemMockData);
+  return fetchData('/metrics/ecosystem');
 };
 
 /**
@@ -39,7 +39,7 @@ export const fetchEcosystemData = async () => {
  * @returns The chain data.
  */
 export const fetchChainData = async (chainId: string) => {
-  return fetchData(`/metrics/zkchain/${chainId}`, chainMockData);
+  return fetchData(`/metrics/zkchain/${chainId}`);
 };
 
 /**
