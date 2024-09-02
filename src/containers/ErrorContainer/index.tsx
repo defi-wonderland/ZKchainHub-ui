@@ -4,13 +4,29 @@ import { useTranslation } from 'next-i18next';
 
 import { STitle } from '~/components';
 
-export const ErrorContainer = () => {
+type ErrorContainerProps = {
+  errorCode?: string;
+};
+
+export const ErrorContainer = ({ errorCode }: ErrorContainerProps) => {
   const { t } = useTranslation();
+  console.log(errorCode);
+
+  const getErrorMessage = () => {
+    switch (errorCode) {
+      case 'API_URL_NOT_SET':
+        return t('ERROR.noApiUrl');
+      case 'NETWORK_ERROR':
+        return t('ERROR.networkError');
+      default:
+        return t('ERROR.errorFetchingData');
+    }
+  };
 
   return (
     <ErrorPageContainer>
       <STitle>{t('ERROR.title')}</STitle>
-      <Typography>{t('ERROR.message')}</Typography>
+      <Typography>{getErrorMessage()}</Typography>
     </ErrorPageContainer>
   );
 };

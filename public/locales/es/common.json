@@ -94,7 +94,9 @@
   },
   "ERROR": {
     "title": "Error",
-    "message": "Lo sentimos, algo salió mal. Por favor, inténtelo de nuevo más tarde."
+    "noApiUrl": "No se encontró la URL de la API. Por favor, agréguela en el archivo .env.",
+    "networkError": "Error de conexión de red. Por favor, inténtelo de nuevo más tarde.",
+    "errorFetchingData": "Lo sentimos, algo salió mal. Por favor, inténtelo de nuevo más tarde."
   },
   "LOCALES": {
     "en": "Inglés",
