@@ -9,7 +9,7 @@ import { fetchEcosystemData } from '~/utils';
 import { ChainDetail } from '~/containers';
 import { getConfig } from '~/config';
 
-const { DEFAULT_LANG, SUPPORTED_LANGUAGES } = getConfig();
+const { DEFAULT_LANG, SUPPORTED_LANGUAGES, API_URL } = getConfig();
 
 interface ChainProps {
   chain: EcosystemChainData;
@@ -33,6 +33,14 @@ const Chain = ({ chain }: InferGetStaticPropsType<typeof getStaticProps>) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
+  if (!API_URL) {
+    console.warn('API URL not set, generating fallback paths.');
+    return {
+      paths: [],
+      fallback: true,
+    };
+  }
+
   const ecosystemData = await fetchEcosystemData();
   const chains = ecosystemData.zkChains;
 
