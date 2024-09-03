@@ -27,8 +27,9 @@ export const DesktopHeader = ({
     <StyledHeader>
       <LogoContainer onClick={goToHome} role='button' aria-label='Navigate to home'>
         <Logo src={theme === 'dark' ? LogoDark : LogoLight} alt='ZK Chain Hub' priority={true} />
-        {TESTNET_MODE === 'true' && <Testnet>testnet</Testnet>}
+        {TESTNET_MODE === 'true' && <Testnet>Testnet</Testnet>}
       </LogoContainer>
+
       <SBox>
         <Gas />
         <SearchBar />
@@ -37,6 +38,7 @@ export const DesktopHeader = ({
           setValue={handleChangeLanguage}
           list={Object.values(localesMap)}
         />
+
         <SIconButton onClick={changeTheme}>
           <Icon icon='mode' alt='mode-icon' size={24} />
         </SIconButton>
