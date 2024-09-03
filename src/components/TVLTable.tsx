@@ -68,7 +68,7 @@ export const TVLTable = () => {
                   </STableCell>
 
                   <STableCell>
-                    {token.price && <Typography>{formatDataNumber(token.price, 0, true)}</Typography>}
+                    {token.price && <Typography>{formatDataNumber(Number(token.price), 0, true)}</Typography>}
 
                     {!token.price && <NotAvailable>{t('CHAIN.CHAININFORMATION.notAvailable')}</NotAvailable>}
                   </STableCell>
