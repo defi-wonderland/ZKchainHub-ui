@@ -25,9 +25,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - uses: pnpm/action-setup@v3
+      - uses: pnpm/action-setup@v4
         with:
-          version: 8
+          version: 9
 
       - name: Install Node
         uses: actions/setup-node@v4
@@ -37,7 +37,7 @@ jobs:
           cache: 'pnpm'
 
       - name: Install project dependencies
-        run: pnpm install --frozen-lockfile --prefer-frozen-lockfile
+        run: pnpm install
 
       - name: Run Prettier
         run: pnpm prettier
