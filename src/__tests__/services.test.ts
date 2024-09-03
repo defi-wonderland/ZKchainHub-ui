@@ -1,7 +1,5 @@
 import { expect } from '@jest/globals';
 import { fetchEcosystemData, fetchChainData, checkRpcStatus } from '~/utils/services';
-import ecosystemMockData from '~/data/ecosystemMockData.json';
-import chainMockData from '~/data/chainMockData.json';
 import { getConfig } from '~/config/';
 
 global.fetch = jest.fn();
@@ -19,11 +17,10 @@ describe('Data Fetching Utils', () => {
   });
 
   describe('fetchEcosystemData', () => {
-    it('should return mock data if API_URL is not set', async () => {
+    it('should throw an error if API_URL is not set', async () => {
       (getConfig as jest.Mock).mockReturnValue({ API_URL: '' });
 
-      const result = await fetchEcosystemData();
-      expect(result).toEqual(ecosystemMockData);
+      await expect(fetchEcosystemData()).rejects.toThrow('API_URL_NOT_SET');
     });
 
     it('should fetch data from the API if API_URL is set', async () => {
@@ -44,7 +41,7 @@ describe('Data Fetching Utils', () => {
       (getConfig as jest.Mock).mockReturnValue({ API_URL: mockApiUrl });
       (fetch as jest.Mock).mockRejectedValueOnce(new Error('Fetch failed'));
 
-      await expect(fetchEcosystemData()).rejects.toThrow('Fetch failed');
+      await expect(fetchEcosystemData()).rejects.toThrow('ERROR_FETCHING_DATA');
       expect(fetch).toHaveBeenCalledTimes(1);
     });
   });
@@ -52,11 +49,12 @@ describe('Data Fetching Utils', () => {
   describe('fetchChainData', () => {
     const chainId = '1234';
 
-    it('should return mock data if API_URL is not set', async () => {
-      (getConfig as jest.Mock).mockReturnValue({ API_URL: '' });
+    it('should throw an error if fetch fails', async () => {
+      (getConfig as jest.Mock).mockReturnValue({ API_URL: mockApiUrl });
+      (fetch as jest.Mock).mockRejectedValueOnce(new Error('Fetch failed'));
 
-      const result = await fetchChainData(chainId);
-      expect(result).toEqual(chainMockData);
+      await expect(fetchEcosystemData()).rejects.toThrow('ERROR_FETCHING_DATA');
+      expect(fetch).toHaveBeenCalledTimes(1);
     });
 
     it('should fetch chain data from the API if API_URL is set', async () => {
@@ -77,7 +75,7 @@ describe('Data Fetching Utils', () => {
       (getConfig as jest.Mock).mockReturnValue({ API_URL: mockApiUrl });
       (fetch as jest.Mock).mockRejectedValueOnce(new Error('Fetch failed'));
 
-      await expect(fetchChainData(chainId)).rejects.toThrow('Fetch failed');
+      await expect(fetchChainData(chainId)).rejects.toThrow('ERROR_FETCHING_DATA');
       expect(fetch).toHaveBeenCalledTimes(1);
     });
   });
