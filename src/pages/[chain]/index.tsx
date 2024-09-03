@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { GetStaticProps, GetStaticPaths, GetStaticPropsContext, InferGetStaticPropsType } from 'next';
-import { useTranslation } from 'next-i18next';
 
 import { EcosystemChainData } from '~/types';
 import { CustomHead } from '~/components';
@@ -13,22 +12,17 @@ import { getConfig } from '~/config';
 const { DEFAULT_LANG, SUPPORTED_LANGUAGES } = getConfig();
 
 interface ChainProps {
-  chain: EcosystemChainData | null;
+  chain: EcosystemChainData;
 }
 
 const Chain = ({ chain }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { setSelectedChainId, refetchChainData } = useData();
-  const { t } = useTranslation();
 
   useEffect(() => {
-    if (chain?.chainId) {
+    if (chain.chainId) {
       setSelectedChainId(chain.chainId);
     }
   }, [chain?.chainId, setSelectedChainId, refetchChainData]);
-
-  if (!chain) {
-    return <div>{t('ERROR.errorFetchingData')}</div>;
-  }
 
   return (
     <>
@@ -39,38 +33,27 @@ const Chain = ({ chain }: InferGetStaticPropsType<typeof getStaticProps>) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  let paths = [];
+  const ecosystemData = await fetchEcosystemData();
+  const chains = ecosystemData.zkChains;
 
-  try {
-    const ecosystemData = await fetchEcosystemData();
-    const chains = ecosystemData.zkChains;
-
-    paths = SUPPORTED_LANGUAGES.flatMap((locale) =>
-      chains.map((chain: EcosystemChainData) => ({
-        params: { chain: chain.chainId.toString() },
-        locale,
-      })),
-    );
-  } catch (error) {
-    console.error('Failed to fetch ecosystem data:', error);
-  }
+  const paths = SUPPORTED_LANGUAGES.flatMap((locale) =>
+    chains.map((chain: EcosystemChainData) => ({
+      params: { chain: chain.chainId.toString() },
+      locale,
+    })),
+  );
 
   return { paths, fallback: true };
 };
 
 export const getStaticProps: GetStaticProps<ChainProps> = async ({ params, locale }: GetStaticPropsContext) => {
-  const chain: EcosystemChainData | null = null;
+  const ecosystemData = await fetchEcosystemData();
+  const chains = ecosystemData.zkChains;
+  const chainId = params?.chain;
+  const chain = chains.find((chain: EcosystemChainData) => chain.chainId === chainId);
 
-  try {
-    const ecosystemData = await fetchEcosystemData();
-    const chains = ecosystemData.zkChains;
-    const chainId = params?.chain;
-    const chain = chains.find((chain: EcosystemChainData) => chain.chainId === chainId);
-    if (!chain) {
-      return { notFound: true };
-    }
-  } catch (error) {
-    console.error('Failed to fetch ecosystem data:', error);
+  if (!chain) {
+    return { notFound: true };
   }
 
   const i18Config = await serverSideTranslations(locale || DEFAULT_LANG, ['common'], null, SUPPORTED_LANGUAGES);
