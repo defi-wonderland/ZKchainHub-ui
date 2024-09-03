@@ -1,22 +1,24 @@
 import { expect } from '@jest/globals';
 
-import { truncateAddress, formatTimestampToDate, formatDataNumber, calculateUSDGas } from '~/utils/format';
+import {
+  truncateAddress,
+  formatTimestampToDate,
+  formatDataNumber,
+  calculateUSDGas,
+  formatSmallNumber,
+} from '~/utils/format';
 
 describe('truncateAddress', () => {
   it('should truncate the address correctly', () => {
     const address = '0x1234567890abcdef1234567890abcdef12345678';
     expect(truncateAddress(address)).toBe('0x1234...5678');
   });
-});
 
-describe('formatTimestampToDate', () => {
   it('should format the timestamp to date correctly', () => {
     const timestamp = 1627580800; // July 29, 2021
     expect(formatTimestampToDate(timestamp)).toBe('7/29/2021'); // The format may vary based on locale
   });
-});
 
-describe('formatDataNumber', () => {
   it('should format a number correctly', () => {
     expect(formatDataNumber(1234.567)).toBe('1,234.567');
     expect(formatDataNumber(0.0001234, 6)).toBe('0.000123');
@@ -28,9 +30,12 @@ describe('formatDataNumber', () => {
     expect(formatDataNumber('not a number')).toBe('0');
     expect(formatDataNumber(0, 2, true)).toBe('$0');
   });
-});
 
-describe('calculateUSDGas', () => {
+  it('should return significant digit from small number', () => {
+    expect(formatSmallNumber(0.00002123333, true)).toBe('$0.0000212');
+    expect(formatDataNumber(0, 2, true)).toBe('$0');
+  });
+
   it('should calculate the USD value of gas correctly', () => {
     const txGas = BigInt(21000);
     const gasPriceInWei = BigInt(1000000000); // 1 Gwei

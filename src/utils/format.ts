@@ -11,7 +11,7 @@ export function formatDataNumber(input: string | number, formatDecimal = 3, curr
 
   if (res === 0 || isNaN(res)) return `${currency ? '$0' : '0'}`;
 
-  if (res < 0.01) return formatSmallNumber(res);
+  if (res < 10) return formatSmallNumber(res, currency);
 
   const userNotation = compact ? 'compact' : 'standard';
   const notation = res > 1e12 ? 'scientific' : userNotation;
@@ -24,9 +24,9 @@ export function formatDataNumber(input: string | number, formatDecimal = 3, curr
   }).format(res);
 }
 
-export const formatSmallNumber = (value: number) => {
+export const formatSmallNumber = (value: number, currency?: boolean) => {
   if (value === 0) {
-    return '0';
+    return currency ? '$0' : '0';
   }
 
   const formattedValue = value.toString();
@@ -45,8 +45,9 @@ export const formatSmallNumber = (value: number) => {
   // Return the number with 3 digits after the last leading zero
   const result = formattedValue.slice(0, numLeadingZeros + 3);
 
-  // Trim any trailing zeros from the result
-  return result.replace(/\.?0+$/, '');
+  const trimmedResult = result.replace(/\.?0+$/, '');
+
+  return currency ? `$${trimmedResult}` : trimmedResult;
 };
 
 export const calculateUSDGas = (txGas: bigint, gasPriceInWei: bigint, etherPrice: number): number => {
