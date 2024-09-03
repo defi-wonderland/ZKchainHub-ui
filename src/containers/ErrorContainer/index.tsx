@@ -10,7 +10,6 @@ type ErrorContainerProps = {
 
 export const ErrorContainer = ({ errorCode }: ErrorContainerProps) => {
   const { t } = useTranslation();
-  console.log(errorCode);
 
   const getErrorMessage = () => {
     switch (errorCode) {
