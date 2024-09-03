@@ -9,7 +9,7 @@ describe('Navigation tests', () => {
     cy.visit('/');
   });
 
-  it.skip('should navigate to search page, type a query, navigate to chain details, and go back to home on breadcrumb', () => {
+  it('should navigate to search page, type a query, navigate to chain details, and go back to home on breadcrumb', () => {
     cy.getByTestId('search-bar').click();
     cy.url().should('include', '/search');
 
@@ -33,7 +33,7 @@ describe('Navigation tests', () => {
     // cy.getByTestId('search-bar').find('input').should('have.value', '');
   });
 
-  it.skip('should navigate to tokens page, on all tokens button click', () => {
+  it('should navigate to tokens page, on all tokens button click', () => {
     cy.getByTestId('all-tokens-button').click();
     cy.url().should('include', '/tokens');
 
@@ -41,7 +41,7 @@ describe('Navigation tests', () => {
     cy.getByTestId('tokens-row').should('be.visible');
   });
 
-  it.skip('should navigate to chain page by clicking on dashboard chain row', () => {
+  it('should navigate to chain page by clicking on dashboard chain row', () => {
     cy.getByTestId('chains-dashboard').should('be.visible');
     cy.getByTestId('chain-row').first().click();
     cy.url().should('include', '/324');
