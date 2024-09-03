@@ -24,7 +24,7 @@ export const TVLTable = () => {
   const { t } = useTranslation();
   const { chainData } = useData();
   const tvl = chainData?.tvl || [];
-  console.log(chainData);
+
   return (
     <article>
       <STitle>{t('CHAIN.TVL.title')}</STitle>
