@@ -1,5 +1,11 @@
 describe('Navigation tests', () => {
   beforeEach(() => {
+    Cypress.env('NEXT_PUBLIC_API_BASE_URL');
+
+    // Intercept the API requests and provide mock responses
+    cy.intercept('GET', '**/metrics/ecosystem', { fixture: 'ecosystemMockData.json' }).as('getEcosystemData');
+    cy.intercept('GET', '**/metrics/zkchain/*', { fixture: 'chainMockData.json' }).as('getChainData');
+
     cy.visit('/');
   });
 
@@ -17,6 +23,10 @@ describe('Navigation tests', () => {
     cy.getByTestId('search-bar').find('input').type('324');
     cy.getByTestId('chain-row').should('be.visible').click();
     cy.url().should('include', '/324');
+
+    // Wait for the mock data to be loaded
+    cy.wait('@getChainData');
+    cy.getByTestId('chain-id').should('be.visible').and('contain', '324');
 
     cy.getByTestId('home-breadcrumb').click();
     cy.url().should('eq', 'http://localhost:5173/');
@@ -36,6 +46,8 @@ describe('Navigation tests', () => {
     cy.getByTestId('chain-row').first().click();
     cy.url().should('include', '/324');
 
+    // Wait for the mock data to be loaded
+    cy.wait('@getChainData');
     cy.getByTestId('chain-id').should('be.visible').and('contain', '324');
   });
 });
