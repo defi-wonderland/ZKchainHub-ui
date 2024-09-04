@@ -41,8 +41,18 @@ export const getStaticPaths: GetStaticPaths = async () => {
     };
   }
 
-  const ecosystemData = await fetchEcosystemData();
-  const chains = ecosystemData.zkChains;
+  let ecosystemData;
+  try {
+    ecosystemData = await fetchEcosystemData();
+  } catch (error) {
+    console.error('Failed to fetch ecosystem data:', error);
+    return {
+      paths: [],
+      fallback: true,
+    };
+  }
+
+  const chains = ecosystemData.zkChains || [];
 
   const paths = SUPPORTED_LANGUAGES.flatMap((locale) =>
     chains.map((chain: EcosystemChainData) => ({
