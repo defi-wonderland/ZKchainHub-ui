@@ -6,22 +6,30 @@ import { ChainData, EcosystemData } from '~/types';
 /**
  * Fetch data from the API or return mock data if API_URL is not set.
  * @param endpoint - The API endpoint to fetch data from.
- * @param mockData - The mock data to return if API_URL is not set.
- * @returns The fetched data or mock data.
+ * @returns The fetched data.
  */
 const fetchData = async (endpoint: string, mockData: EcosystemData | ChainData) => {
-  const { API_URL } = getConfig();
-  const url = `${API_URL}${endpoint}`;
+  const { API_URL, TESTING_MODE } = getConfig();
 
-  if (!API_URL) return mockData;
+  if (TESTING_MODE) {
+    return mockData;
+  }
+
+  if (!API_URL) {
+    console.error('API URL is not set. Please set the NEXT_PUBLIC_API_BASE_URL environment variable.');
+    throw new Error('API_URL_NOT_SET');
+  }
+
+  const url = `${API_URL}${endpoint}`;
 
   try {
     const response = await fetch(url);
-    if (!response.ok) throw new Error('Network response was not ok');
+    if (!response.ok) throw new Error('NETWORK_ERROR');
+
     return await response.json();
   } catch (error) {
     console.error(`Error fetching data from ${url}:`, error);
-    throw error;
+    throw new Error('ERROR_FETCHING_DATA');
   }
 };
 

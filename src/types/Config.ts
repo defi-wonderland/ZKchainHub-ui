@@ -2,6 +2,7 @@ export interface Env {
   PROJECT_ID: string;
   API_URL: string;
   TESTNET_MODE: string;
+  TESTING_MODE: string;
 }
 
 export type SupportedLanguage = 'en' | 'es';

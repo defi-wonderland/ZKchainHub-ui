@@ -12,15 +12,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: pnpm/action-setup@v3
+      - uses: pnpm/action-setup@v4
         with:
-          version: 8
+          version: 9.5.0
 
       - name: Create env file
         run: |
           touch .env
-          echo "NEXT_PUBLIC_PROJECT_ID=${{ secrets.NEXT_PUBLIC_PROJECT_ID }}" >> .env
-          echo "NEXT_PUBLIC_API_URL=${{ secrets.NEXT_PUBLIC_API_URL }}" >> .env
+          echo "NEXT_PUBLIC_API_BASE_URL=${{ secrets.NEXT_PUBLIC_API_BASE_URL }}" >> .env
+          echo "NEXT_PUBLIC_TESTING_MODE=${{ secrets.NEXT_PUBLIC_TESTING_MODE }}" >> .env
 
       - name: run Cypress and Jest
         uses: cypress-io/github-action@v6
