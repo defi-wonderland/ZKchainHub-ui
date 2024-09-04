@@ -1,11 +1,6 @@
 describe('Navigation tests', () => {
   beforeEach(() => {
-    Cypress.env('NEXT_PUBLIC_API_BASE_URL');
-
-    // Intercept the API requests and provide mock responses
-    cy.intercept('GET', '**/metrics/ecosystem', { fixture: 'ecosystemMockData.json' }).as('getEcosystemData');
-    cy.intercept('GET', '**/metrics/zkchain/*', { fixture: 'chainMockData.json' }).as('getChainData');
-
+    Cypress.env('NEXT_PUBLIC_API_BASE_URL', 'NEXT_PUBLIC_TESTING_MODE');
     cy.visit('/');
   });
 
