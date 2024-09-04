@@ -31,6 +31,7 @@ export const DataContext = createContext({} as ContextType);
 
 export const DataProvider = ({ children }: DataProps) => {
   const [selectedChainId, setSelectedChainId] = useState<string>('');
+  const [errorCode, setErrorCode] = useState<string | null>(null);
   const [hasNavigatedToError, setHasNavigatedToError] = useState<boolean>(false);
   const router = useRouter();
 
@@ -38,6 +39,7 @@ export const DataProvider = ({ children }: DataProps) => {
     isLoading: isEcosystemLoading,
     data: ecosystemData,
     isError: isEcosystemError,
+    error: ecosystemError,
   } = useQuery({
     queryKey: ['ecosystem'],
     queryFn: fetchEcosystemData,
@@ -48,6 +50,7 @@ export const DataProvider = ({ children }: DataProps) => {
     isLoading: isChainLoading,
     data: chainData,
     isError: isChainError,
+    error: chainError,
     refetch: refetchChainData,
   } = useQuery({
     queryKey: ['chainData', selectedChainId],
@@ -58,12 +61,21 @@ export const DataProvider = ({ children }: DataProps) => {
 
   const hasError = useMemo(() => isEcosystemError || isChainError, [isEcosystemError, isChainError]);
 
-  const handleNavigationToError = useCallback(() => {
-    if (hasError && !hasNavigatedToError) {
-      setHasNavigatedToError(true);
-      router.push('/error');
+  useEffect(() => {
+    if (isEcosystemError) {
+      setErrorCode((ecosystemError as Error)?.message || 'UNKNOWN_ERROR');
     }
-  }, [hasError, hasNavigatedToError, router]);
+    if (isChainError) {
+      setErrorCode((chainError as Error)?.message || 'UNKNOWN_ERROR');
+    }
+  }, [isEcosystemError, isChainError, ecosystemError, chainError]);
+
+  const handleNavigationToError = useCallback(() => {
+    if (hasError && !hasNavigatedToError && errorCode) {
+      setHasNavigatedToError(true);
+      router.push(`/error?code=${errorCode}`);
+    }
+  }, [hasError, hasNavigatedToError, router, errorCode]);
 
   useEffect(() => {
     handleNavigationToError();

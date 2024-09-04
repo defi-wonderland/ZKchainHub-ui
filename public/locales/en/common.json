@@ -93,7 +93,9 @@
   },
   "ERROR": {
     "title": "Error",
-    "message": "An error occurred while fetching the data. Please try again later."
+    "noApiUrl": "API URL is missing. Please add it in the .env file.",
+    "networkError": "Network connection error. Please try again later.",
+    "errorFetchingData": "There was a problem retrieving the data. Please try again later."
   },
   "LOCALES": {
     "en": "English",

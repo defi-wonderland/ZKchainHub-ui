@@ -1,5 +1,6 @@
 describe('Navigation tests', () => {
   beforeEach(() => {
+    Cypress.env('NEXT_PUBLIC_API_BASE_URL', 'NEXT_PUBLIC_TESTING_MODE');
     cy.visit('/');
   });
 
@@ -16,6 +17,8 @@ describe('Navigation tests', () => {
 
     cy.getByTestId('search-bar').find('input').type('324');
     cy.getByTestId('chain-row').should('be.visible').click();
+
+    cy.getByTestId('chain-id').should('be.visible').and('contain', '324');
     cy.url().should('include', '/324');
 
     cy.getByTestId('home-breadcrumb').click();
