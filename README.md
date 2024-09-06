@@ -84,6 +84,34 @@ Vercel will automatically deploy your project and provide a live URL.
 - **[Vercel CLI Documentation](https://vercel.com/docs/cli)**: Find comprehensive information on using the Vercel CLI.
 - **[Vercel Documentation](https://vercel.com/docs)**: Access general Vercel documentation and guides.
 
+## 🐳 Docker deployment
+
+## Prerequisites
+
+- **Docker**: Ensure that Docker is installed.
+
+## Deployment Steps
+
+1. **Build the Docker Image**
+
+   From your project directory, build the Docker image by running the following command:
+
+   ```bash
+   docker build -t <app-name> .
+   ```
+
+2. **Run the Docker Container**
+
+   After the image is built, run the Docker container with the environment variables.
+
+   ```bash
+   docker run -p 5173:5173 --env-file .env <app-name>
+   ```
+
+3. **Access your app:**
+
+   http://localhost:5173
+
 ## Development
 
 ### 💻 Conventional Commits
