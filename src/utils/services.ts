@@ -1,19 +1,12 @@
 import { getConfig } from '~/config';
-import ecosystemMockData from '~/data/ecosystemMockData.json';
-import chainMockData from '~/data/chainMockData.json';
-import { ChainData, EcosystemData } from '~/types';
 
 /**
  * Fetch data from the API or return mock data if API_URL is not set.
  * @param endpoint - The API endpoint to fetch data from.
  * @returns The fetched data.
  */
-const fetchData = async (endpoint: string, mockData: EcosystemData | ChainData) => {
-  const { API_URL, TESTING_MODE } = getConfig();
-
-  if (TESTING_MODE) {
-    return mockData;
-  }
+const fetchData = async (endpoint: string) => {
+  const { API_URL } = getConfig();
 
   if (!API_URL) {
     console.error('API URL is not set. Please set the NEXT_PUBLIC_API_BASE_URL environment variable.');
@@ -38,7 +31,7 @@ const fetchData = async (endpoint: string, mockData: EcosystemData | ChainData) 
  * @returns The ecosystem data.
  */
 export const fetchEcosystemData = async () => {
-  return fetchData('/metrics/ecosystem', ecosystemMockData);
+  return fetchData('/metrics/ecosystem');
 };
 
 /**
@@ -47,7 +40,7 @@ export const fetchEcosystemData = async () => {
  * @returns The chain data.
  */
 export const fetchChainData = async (chainId: string) => {
-  return fetchData(`/metrics/zkchain/${chainId}`, chainMockData);
+  return fetchData(`/metrics/zkchain/${chainId}`);
 };
 
 /**
