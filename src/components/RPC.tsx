@@ -2,8 +2,8 @@ import { useState, useEffect, useMemo } from 'react';
 import { useTranslation } from 'next-i18next';
 import { Box, Typography, Tooltip, styled, Skeleton, Button } from '@mui/material';
 
-import { useData, useCustomTheme } from '~/hooks';
-import { DataContainer, STitle, Icon, NotAvailable } from '~/components';
+import { useData, useCustomTheme, useCopyToClipboard } from '~/hooks';
+import { DataContainer, STitle, Icon, NotAvailable, STooltip } from '~/components';
 import { checkRpcStatus } from '~/utils';
 
 export const RPC = () => {
@@ -12,6 +12,7 @@ export const RPC = () => {
   const [rpcData, setRpcData] = useState<{ url: string; status: boolean }[]>([]);
   const [rpcIsLoading, setRpcIsLoading] = useState(true);
   const [showAll, setShowAll] = useState(false);
+  const [copiedState, copy] = useCopyToClipboard();
 
   useEffect(() => {
     const updateRpcStatuses = async () => {
@@ -77,8 +78,9 @@ export const RPC = () => {
                   </RPCIcon>
                 </Tooltip>
               )}
-
-              <RPCUrl>{rpc.url}</RPCUrl>
+              <STooltip title={rpc.url === copiedState[`${rpc.url}`] ? t('HOME.copied') : t('HOME.copy')}>
+                <RPCUrl onClick={() => copy(rpc.url, rpc.url)}>{rpc.url}</RPCUrl>
+              </STooltip>
             </RPCBox>
           ))}
 
@@ -121,9 +123,9 @@ const RPCBox = styled(Box)(() => {
   const { currentTheme } = useCustomTheme();
   return {
     display: 'flex',
-    gap: currentTheme.gap,
     height: '4.5rem',
     alignItems: 'center',
+    width: '100%',
     padding: currentTheme.padding,
   };
 });
@@ -132,21 +134,19 @@ const RPCIcon = styled(Box)(() => {
   return {
     display: 'flex',
     alignItems: 'center',
+    marginRight: '0.5rem',
   };
 });
 
-const RPCUrl = styled(Typography)(({ theme }) => {
+const RPCUrl = styled(Typography)(() => {
   const { currentTheme } = useCustomTheme();
   return {
     textDecoration: 'underline',
     textUnderlineOffset: currentTheme.gap,
     overflow: 'hidden',
-    textOverflow: 'ellipsis',
-    whiteSpace: 'nowrap',
-    maxWidth: '15rem',
-    [theme.breakpoints.down('md')]: {
-      maxWidth: '25rem',
-    },
+    wordBreak: 'break-all',
+    whiteSpace: 'normal',
+    cursor: 'pointer',
   };
 });
 

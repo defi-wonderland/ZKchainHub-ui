@@ -180,7 +180,7 @@ export const STableCellHead = styled(TableCell)(() => {
   const { currentTheme } = useCustomTheme();
   return {
     color: currentTheme.textSecondary,
-    textAlign: 'left',
+    textAlign: 'center',
     borderBottom: 'none',
   };
 });
@@ -204,7 +204,7 @@ export const STableCell = styled(TableCell)(({ theme }) => {
   const { currentTheme } = useCustomTheme();
   return {
     color: currentTheme.textPrimary,
-    textAlign: 'left',
+    textAlign: 'center',
     border: 'none',
     fontSize: '1rem',
     [theme.breakpoints.down('md')]: {
@@ -247,6 +247,7 @@ export const ContractCell = styled(Link)(() => {
   return {
     display: 'flex',
     alignItems: 'center',
+    justifyContent: 'center',
     gap: currentTheme.gap,
     color: currentTheme.textPrimary,
   };

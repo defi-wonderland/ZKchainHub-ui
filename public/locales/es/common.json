@@ -10,8 +10,9 @@
   "HOME": {
     "title": "ZKsync",
     "subtitle": "Ecosistema",
-
     "home": "Inicio",
+    "copy": "Copiar",
+    "copied": "Copiado!",
     "LOCKEDASSETS": {
       "lockedAssets": "Activos bloqueados",
       "others": "Otros",
