@@ -29,9 +29,7 @@ const TokensContainer = styled('main')(({ theme }) => ({
   gap: '4rem',
   marginTop: '4rem',
   marginBottom: '4rem',
-  minHeight: 'calc(100vh - 19rem)',
   [theme.breakpoints.down('md')]: {
     padding: '0 1rem',
-    minHeight: 'calc(100vh - 23rem)',
   },
 }));
