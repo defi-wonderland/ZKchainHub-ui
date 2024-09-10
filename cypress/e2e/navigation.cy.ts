@@ -18,7 +18,7 @@ describe('Navigation tests', () => {
 
     // Intercept the chain data API call and mock the response using a JSON fixture for chainId 324
     cy.fixture('nextData.json').then((nextData) => {
-      cy.intercept('GET', '/_next/data/development/en/324.json?chain=324', {
+      cy.intercept('GET', '**/_next/data/**/324.json?chain=324', {
         statusCode: 200,
         body: nextData,
       }).as('fetchNextData');
