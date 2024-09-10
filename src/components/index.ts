@@ -18,3 +18,4 @@ export * from './TVLGraph/DesktopTVLGraph';
 export * from './TVLGraph/MobileTVLGraph';
 export * from './AddNetworkButton';
 export * from './TVLGraph';
+export * from './Tooltip';

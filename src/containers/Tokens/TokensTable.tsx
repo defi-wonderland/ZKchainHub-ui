@@ -1,5 +1,5 @@
 import { useTranslation } from 'next-i18next';
-import { Table, Typography, Box } from '@mui/material';
+import { Table, Typography, Box, styled } from '@mui/material';
 
 import { TotalValueLockedProps, TvlData } from '~/types';
 import {
@@ -15,11 +15,14 @@ import {
   FirstCellWithLogo,
   TableCellHeadFirst,
   NotAvailable,
+  STooltip,
 } from '~/components';
+import { useCopyToClipboard, useCustomTheme } from '~/hooks';
 import { formatDataNumber, truncateAddress } from '~/utils';
 
 export const TokensTable = ({ tvl }: TotalValueLockedProps) => {
   const { t } = useTranslation();
+  const [copiedState, copy] = useCopyToClipboard();
 
   return (
     <Box>
@@ -53,7 +56,17 @@ export const TokensTable = ({ tvl }: TotalValueLockedProps) => {
                   </FirstCellWithLogo>
 
                   <STableCell>
-                    {token.contractAddress && <Typography>{truncateAddress(token.contractAddress || '')}</Typography>}
+                    {token.contractAddress && (
+                      <STooltip
+                        title={
+                          token.contractAddress === copiedState['token contract'] ? t('HOME.copied') : t('HOME.copy')
+                        }
+                      >
+                        <CopyText onClick={() => copy('token contract', token.contractAddress || '')}>
+                          {truncateAddress(token.contractAddress || '')}
+                        </CopyText>
+                      </STooltip>
+                    )}
                     {!token.contractAddress && <NotAvailable>{t('CHAIN.CHAININFORMATION.notAvailable')}</NotAvailable>}
                   </STableCell>
 
@@ -74,3 +87,11 @@ export const TokensTable = ({ tvl }: TotalValueLockedProps) => {
     </Box>
   );
 };
+
+const CopyText = styled(Typography)(() => {
+  const { currentTheme } = useCustomTheme();
+  return {
+    color: currentTheme.textPrimary,
+    cursor: 'pointer',
+  };
+});

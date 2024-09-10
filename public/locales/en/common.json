@@ -11,6 +11,8 @@
     "title": "ZKsync",
     "subtitle": "Ecosystem",
     "home": "Home",
+    "copy": "Copy",
+    "copied": "Copied!",
     "LOCKEDASSETS": {
       "lockedAssets": "Locked assets",
       "others": "Others",
