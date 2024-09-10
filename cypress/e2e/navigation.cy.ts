@@ -16,6 +16,14 @@ describe('Navigation tests', () => {
       }).as('fetchChainData');
     });
 
+    // Intercept the chain data API call and mock the response using a JSON fixture for chainId 324
+    cy.fixture('nextData.json').then((nextData) => {
+      cy.intercept('GET', '/_next/data/development/en/324.json?chain=324', {
+        statusCode: 200,
+        body: nextData,
+      }).as('fetchNextData');
+    });
+
     cy.visit('/');
   });
 
@@ -32,6 +40,8 @@ describe('Navigation tests', () => {
 
     cy.getByTestId('search-bar').find('input').type('324');
     cy.getByTestId('chain-row').should('be.visible').click();
+
+    cy.wait('@fetchNextData');
 
     cy.getByTestId('chain-id').should('be.visible').and('contain', '324');
     cy.url().should('include', '/324');
