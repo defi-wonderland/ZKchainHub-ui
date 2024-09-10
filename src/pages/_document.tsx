@@ -3,8 +3,8 @@ import type { DocumentHeadTagsProps } from '@mui/material-nextjs/v13-pagesRouter
 import { DocumentContext, DocumentProps, Head, Html, Main, NextScript } from 'next/document';
 
 export default function MyDocument(props: DocumentProps & DocumentHeadTagsProps) {
-  const descriptionText = 'Web3 Boilerplate by Wonderland.';
-  const bannerImage = '';
+  const descriptionText = 'ZKsync ecosystem live L1 & L2 metrics.';
+  const bannerImage = 'https://mainnet-zkchainhub.vercel.app/banner.png';
 
   return (
     <Html lang='en'>
@@ -13,14 +13,14 @@ export default function MyDocument(props: DocumentProps & DocumentHeadTagsProps)
         <link rel='icon' href='/favicon.png' type='image/x-icon' sizes='48x48' />
         <meta name='description' content={descriptionText} />
 
-        <meta property='og:title' content='Web3 Boilerplate' />
+        <meta property='og:title' content='ZK Chain Hub' />
         <meta property='og:description' content={descriptionText} />
         <meta name='twitter:image' content={bannerImage} />
 
         <meta name='twitter:card' content='summary_large_image' />
-        <meta name='twitter:site' content='@DeFi_Wonderland' />
-        <meta name='twitter:creator' content='@DeFi_Wonderland' />
-        <meta name='twitter:title' content='Web3 Boilerplate' />
+        <meta name='twitter:site' content='@zksync' />
+        <meta name='twitter:creator' content='@zksync' />
+        <meta name='twitter:title' content='ZK Chain Hub' />
         <meta name='twitter:description' content={descriptionText} />
 
         <meta name='twitter:image' content={bannerImage} />
