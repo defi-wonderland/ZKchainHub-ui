@@ -41,8 +41,6 @@ describe('Navigation tests', () => {
     cy.getByTestId('search-bar').find('input').type('324');
     cy.getByTestId('chain-row').should('be.visible').click();
 
-    cy.wait('@fetchNextData');
-
     cy.getByTestId('chain-id').should('be.visible').and('contain', '324');
     cy.url().should('include', '/324');
 
