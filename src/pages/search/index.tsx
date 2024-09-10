@@ -4,7 +4,7 @@ import { GetStaticProps } from 'next';
 import { useTranslation } from 'next-i18next';
 
 import { CustomHead } from '~/components';
-import { Dashboard } from '~/containers';
+import { SearchPage } from '~/containers';
 import { getConfig } from '~/config';
 import { useSearchContext } from '~/hooks';
 
@@ -24,7 +24,7 @@ const Search = () => {
   return (
     <>
       <CustomHead title={t('HEADER.search')} />
-      <Dashboard />
+      <SearchPage />
     </>
   );
 };

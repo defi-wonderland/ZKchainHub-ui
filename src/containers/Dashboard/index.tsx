@@ -49,13 +49,10 @@ const DashboardContainer = styled('section')(({ theme }) => {
 
   return {
     width: '100%',
-    minHeight: 'calc(100vh - 19rem)',
     ...(isSearch && {
       padding: '0 7rem',
-      minHeight: 'calc(100vh - 11rem)',
       [theme.breakpoints.down('md')]: {
         padding: '0 1rem',
-        minHeight: 'calc(100vh - 23rem)',
       },
     }),
   };
