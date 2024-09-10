@@ -1,6 +1,29 @@
 describe('Navigation tests', () => {
   beforeEach(() => {
-    Cypress.env('NEXT_PUBLIC_API_BASE_URL', 'NEXT_PUBLIC_TESTING_MODE');
+    // Intercept the ecosystem data API call and mock the response using a JSON fixture
+    cy.fixture('ecosystemMockData.json').then((ecosystemData) => {
+      cy.intercept('GET', '**/metrics/ecosystem', {
+        statusCode: 200,
+        body: ecosystemData,
+      }).as('fetchEcosystemData');
+    });
+
+    // Intercept the chain data API call and mock the response using a JSON fixture for chainId 324
+    cy.fixture('chainMockData.json').then((chainData) => {
+      cy.intercept('GET', '**/metrics/zkchain/*', {
+        statusCode: 200,
+        body: chainData,
+      }).as('fetchChainData');
+    });
+
+    // Intercept the chain data API call and mock the response using a JSON fixture for chainId 324
+    cy.fixture('nextData.json').then((nextData) => {
+      cy.intercept('GET', '**/_next/data/**/324.json?chain=324', {
+        statusCode: 200,
+        body: nextData,
+      }).as('fetchNextData');
+    });
+
     cy.visit('/');
   });
 
