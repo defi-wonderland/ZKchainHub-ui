@@ -1,2 +1,2 @@
-export * from './ScrollToTop';
-export * from './useStateContext';
+export * from './useContext';
+export * from './useCopyToClipboard';

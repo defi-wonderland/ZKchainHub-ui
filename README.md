@@ -1,45 +1,127 @@
-# Web3 React Boilerplate
+# ZKchainHub UI 🌐
 
-## Features
+## Description
 
-- Modern React setup with the latest tools and libraries.
-- Boilerplate for building web3-enabled applications.
-- Example unit and integration tests included.
-- Code linting and formatting for clean and maintainable code.
-- GitHub workflows for continuous integration.
+The **ZKchainHub** proposes a decentralized, permissionless platform that provides custom analytics dashboards for ZK ecosystems, empowering chain operators to track and visualize key metrics like TVL, transaction counts, and block details. This allows users to easily explore each chain.
 
-## Setup
+## 📋 Prerequisites
 
-1. Clone this repository.
-2. Copy the `.env.example` file to `.env` and fill in the variables.
-3. Install the project dependencies by running:
+- Ensure you have `pnpm >= 9.0.0` installed.
+
+## 💻 WebFlow
+
+The flow of the application is as follows:
+
+Home Page: The ecosystem page, where data is fetched from `metrics/ecosystem`. From here, you can navigate to all token's TVL data or directly to the Chain Page.
+
+Chain Page: Accessible via search in the header or by selecting a row in the table. Information is fetched from `metrics/zkchain/:id`.
+
+## 🚀 Installation
+
+```bash
+$ pnpm install
+```
+
+## ⚙️ Setting up env variables
+
+- Create `.env` file in the `root` folder and copy paste `.env.example` content in there.
+
+```
+$ cp .env.example .env
+```
+
+- Set up `NEXT_PUBLIC_API_BASE_URL` with ZKchainHub Backend API url. It will typically run on `http://localhost:3000`
+- (Optionally)
+  - Set `NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID` with your [Wallet Connect](https://walletconnect.com/) ProjectID
+  - Set `NEXT_PUBLIC_TESTNET_MODE ` with `true` to use testnet mode with testnet backend API URL set up in `NEXT_PUBLIC_API_BASE_URL`
+
+## 🏃 Running the app
+
+```bash
+$ pnpm run start
+```
+
+To verify ZKchainHub UI is running open http://localhost:5173 in your browser
+
+## Deployment
+
+## 🏗️ Vercel deployment
+
+## Prerequisites
+
+1. **Vercel Account**: [Sign up](https://vercel.com) if you don’t have an account.
+2. **Vercel CLI**: Install the Vercel CLI by running:
 
    ```bash
-   pnpm install
+   npm install -g vercel
    ```
 
-## Available Scripts
+## Deployment Steps
 
-Available scripts that can be run using `pnpm`:
+1. **Authenticate with Vercel**: Run the following command and follow the prompts to log in
 
-| Script         | Description                                                  |
-| -------------- | ------------------------------------------------------------ |
-| `dev`          | Start the development server using Next.                     |
-| `build`        | Build the project for production.                            |
-| `preview`      | Preview the production build using Next.                     |
-| `lint`         | Run ESLint on the source code to check for coding standards. |
-| `lint:fix`     | Run ESLint and automatically fix code formatting issues.     |
-| `prettier`     | Check code formatting using Prettier.                        |
-| `prettier:fix` | Format code using Prettier and automatically fix issues.     |
-| `format`       | Run Prettier and ESLint to format and fix code issues.       |
-| `format:check` | Check code formatting and linting without making changes.    |
-| `test`         | Run tests using Cypress and Jest                             |
+   ```bash
+   vercel login
+   ```
 
-## Technologies Used
+2. **Deploy Your Project**: Navigate to your project directory and run:
 
-This boilerplate leverages the latest technologies, including:
+   ```bash
+   vercel
+   ```
 
-- [NextJS](https://nextjs.org/)
-- [Wagmi](https://wagmi.sh/)
-- [Viem](https://viem.sh/)
-- [Rainbowkit](https://www.rainbowkit.com/)
+Follow the prompts to configure your project.
+Vercel will automatically deploy your project and provide a live URL.
+
+3. **Set Environment Variables**: To add environment variables, use:
+
+   ```bash
+   vercel env add <name> <value>
+   ```
+
+**Additional Resources**
+
+- **[Vercel CLI Documentation](https://vercel.com/docs/cli)**: Find comprehensive information on using the Vercel CLI.
+- **[Vercel Documentation](https://vercel.com/docs)**: Access general Vercel documentation and guides.
+
+## 🐳 Docker deployment
+
+## Prerequisites
+
+- **Docker**: Ensure that Docker is installed.
+
+## Deployment Steps
+
+1. **Build the Docker Image**
+
+   From your project directory, build the Docker image by running the following command:
+
+   ```bash
+   docker build -t <app-name> .
+   ```
+
+2. **Run the Docker Container**
+
+   After the image is built, run the Docker container with the environment variables.
+
+   ```bash
+   docker run -p 5173:5173 --env-file .env <app-name>
+   ```
+
+3. **Access your app:**
+
+   http://localhost:5173
+
+## Development
+
+### 💻 Conventional Commits
+
+We follow the Conventional Commits [specification](https://www.conventionalcommits.org/en/v1.0.0/#specification).
+
+## Contributing
+
+ZKchainHub was built with ❤️ by [Wonderland](https://defi.sucks).
+
+Wonderland is a team of top Web3 researchers, developers, and operators who believe that the future needs to be open-source, permissionless, and decentralized.
+
+[DeFi sucks](https://defi.sucks), but Wonderland is here to make it better.

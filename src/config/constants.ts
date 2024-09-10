@@ -1,7 +1,9 @@
 import { Constants } from '~/types';
 
 const constants: Constants = {
-  // Put your project constants here
+  SUPPORTED_LANGUAGES: ['en', 'es'],
+  DEFAULT_LANG: 'en',
+  THEME_KEY: 'theme',
 };
 
 export const getConstants = (): Constants => {

@@ -1,0 +1,106 @@
+{
+  "HEADER": {
+    "lightMode": "Light mode",
+    "darkMode": "Dark mode",
+    "menu": "Menu",
+    "search": "Search",
+    "gasPrice": "L1 Gas Price",
+    "transfer": "ERC-20 Transfer"
+  },
+  "HOME": {
+    "title": "ZKsync",
+    "subtitle": "Ecosystem",
+    "home": "Home",
+    "copy": "Copy",
+    "copied": "Copied!",
+    "LOCKEDASSETS": {
+      "lockedAssets": "Locked assets",
+      "others": "Others",
+      "allTokens": "All tokens"
+    },
+    "DASHBOARD": {
+      "title": "Chain list",
+      "chain": "Chain",
+      "chainId": "Chain ID",
+      "nativeToken": "Native token",
+      "tvl": "TVL (L1)",
+      "type": "Type",
+      "search": "Search (Chain)",
+      "noRPC": "No RPC",
+      "noMetadata": "No Metadata",
+      "searchResults": "Search results",
+      "enterSearchTerm": "Enter the name or chain ID",
+      "notFound": "No results found"
+    }
+  },
+  "CHAIN": {
+    "website": "Website",
+    "explorer": "Explorer",
+    "launchDate": "Launch date",
+    "environment": "Environment",
+    "nativeToken": "Native token",
+    "addNetwork": "Add network",
+    "networkAdded": "Network added",
+    "chainId": "Chain ID",
+    "CHAININFORMATION": {
+      "title": "Chain information",
+      "chainType": "Chain type",
+      "lastBlock": "Last block",
+      "lastBlockVerified": "Last block verified",
+      "transactionsPerSecond": "Transactions per second",
+      "totalBatchesCommitted": "Total batches committed",
+      "totalBatchesExecuted": "Total batches executed",
+      "totalBatchesVerified": "Total batches verified",
+      "averageBlockTime": "Average block time",
+      "notAvailable": "Not available"
+    },
+    "TVL": {
+      "title": "TVL",
+      "chain": "Chain",
+      "token": "Token",
+      "price": "Price",
+      "tvl": "TVL",
+      "address": "Contract Address"
+    },
+    "RPC": {
+      "title": "RPCs",
+      "subtitle": "Statuses",
+      "status": "Status",
+      "statusActive": "Active",
+      "statusInactive": "Inactive",
+      "showMore": "Show more",
+      "showLess": "Show less"
+    },
+    "FEEPARAMS": {
+      "title": "Fee params",
+      "batch": "Batch Overhead L1 Gas",
+      "maxPubData": "Max public data per batch",
+      "maxGasBatch": "Max Gas per Batch",
+      "priorityTxMaxPubdata": "Max priority data"
+    },
+    "backButton": "Go back"
+  },
+  "TOKENS": {
+    "title": "Tokens"
+  },
+  "WALLET": {
+    "connection": "Connect Wallet",
+    "connectTooltip": "Connect your wallet to add this network"
+  },
+  "FOOTER": {
+    "docs": "Documentation",
+    "github": "GitHub",
+    "madeWith": "Made with",
+    "by": "by"
+  },
+  "ERROR": {
+    "title": "Error",
+    "noApiUrl": "API URL is missing. Please add it in the .env file.",
+    "networkError": "Network connection error. Please try again later.",
+    "errorFetchingData": "There was a problem retrieving the data. Please try again later."
+  },
+  "LOCALES": {
+    "en": "English",
+    "es": "Spanish"
+  }
+}

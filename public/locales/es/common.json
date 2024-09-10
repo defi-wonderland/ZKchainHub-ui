@@ -1,0 +1,106 @@
+{
+  "HEADER": {
+    "lightMode": "Modo claro",
+    "darkMode": "Modo oscuro",
+    "menu": "Menú",
+    "search": "Búsqueda",
+    "gasPrice": "Precio del gas L1",
+    "transfer": "Transferencia ERC-20"
+  },
+  "HOME": {
+    "title": "ZKsync",
+    "subtitle": "Ecosistema",
+    "home": "Inicio",
+    "copy": "Copiar",
+    "copied": "Copiado!",
+    "LOCKEDASSETS": {
+      "lockedAssets": "Activos bloqueados",
+      "others": "Otros",
+      "allTokens": "Todos los tokens"
+    },
+    "DASHBOARD": {
+      "title": "Lista de cadenas",
+      "chain": "Cadena",
+      "chainId": "ID de cadena",
+      "nativeToken": "Token nativo",
+      "tvl": "TVL (L1)",
+      "type": "Tipo",
+      "search": "Buscar (Cadena)",
+      "noRPC": "Sin RPC",
+      "noMetadata": "Sin Metadata",
+      "searchResults": "Resultados de la búsqueda",
+      "enterSearchTerm": "Ingrese el nombre o ID de la cadena",
+      "notFound": "No se encontraron resultados"
+    }
+  },
+  "CHAIN": {
+    "website": "Sitio web",
+    "explorer": "Explorador",
+    "launchDate": "Fecha de lanzamiento",
+    "environment": "Entorno",
+    "nativeToken": "Token nativo",
+    "addNetwork": "Agregar red",
+    "networkAdded": "Red agregada",
+    "chainId": "ID de cadena",
+    "CHAININFORMATION": {
+      "title": "Información de la cadena",
+      "chainType": "Tipo de cadena",
+      "lastBlock": "Último bloque",
+      "lastBlockVerified": "Último bloque verificado",
+      "transactionsPerSecond": "Transacciones por segundo",
+      "totalBatchesCommitted": "Total de lotes comprometidos",
+      "totalBatchesExecuted": "Total de lotes ejecutados",
+      "totalBatchesVerified": "Total de lotes verificados",
+      "averageBlockTime": "Tiempo promedio de bloque",
+      "notAvailable": "No disponible"
+    },
+    "TVL": {
+      "title": "TVL",
+      "chain": "Cadena",
+      "price": "Precio",
+      "token": "Token",
+      "tvl": "TVL",
+      "address": "Dirección del contrato"
+    },
+    "RPC": {
+      "title": "RPCs",
+      "subtitle": "Estados",
+      "status": "Estado",
+      "statusActive": "Activo",
+      "statusInactive": "Inactivo",
+      "showMore": "Mostrar más",
+      "showLess": "Mostrar menos"
+    },
+    "FEEPARAMS": {
+      "title": "Parámetros de gas",
+      "batch": "Sobrecarga de lote L1 Gas",
+      "maxPubData": "Máximos datos públicos por lote",
+      "maxGasBatch": "Máximo gas por lote",
+      "priorityTxMaxPubdata": "Maximos datos de prioridad"
+    },
+    "backButton": "Volver"
+  },
+  "TOKENS": {
+    "title": "Tokens"
+  },
+  "FOOTER": {
+    "docs": "Documentación",
+    "github": "GitHub",
+    "madeWithLove": "Hecho con",
+    "by": "por"
+  },
+  "WALLET": {
+    "connection": "Conectar Wallet",
+    "connectTooltip": "Conecta tu wallet para agregar esta red"
+  },
+  "ERROR": {
+    "title": "Error",
+    "noApiUrl": "No se encontró la URL de la API. Por favor, agréguela en el archivo .env.",
+    "networkError": "Error de conexión de red. Por favor, inténtelo de nuevo más tarde.",
+    "errorFetchingData": "Lo sentimos, algo salió mal. Por favor, inténtelo de nuevo más tarde."
+  },
+  "LOCALES": {
+    "en": "Inglés",
+    "es": "Español"
+  }
+}

@@ -1,5 +1,5 @@
 import { createConfig, http, cookieStorage, createStorage } from 'wagmi';
-import { localhost, sepolia } from 'wagmi/chains';
+import { zkSync } from 'wagmi/chains';
 import { rainbowWallet, walletConnectWallet, injectedWallet } from '@rainbow-me/rainbowkit/wallets';
 import { connectorsForWallets } from '@rainbow-me/rainbowkit';
 
@@ -23,20 +23,19 @@ const connectors = connectorsForWallets(
     },
   ],
   {
-    appName: 'Web3 React boilerplate',
+    appName: 'ZKchainHub',
     projectId: PROJECT_ID,
   },
 );
 
 export const config = createConfig({
-  chains: [localhost, sepolia],
+  chains: [zkSync],
   ssr: true,
   storage: createStorage({
     storage: cookieStorage,
   }),
   transports: {
-    [localhost.id]: http(),
-    [sepolia.id]: http(),
+    [zkSync.id]: http(),
   },
   batch: { multicall: true },
   connectors,

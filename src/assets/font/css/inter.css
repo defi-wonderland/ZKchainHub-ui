@@ -1,0 +1,21 @@
+/*
+Copyright 2020 The Inter Project Authors (https://github.com/rsms/inter)
+
+This Font Software is licensed under the SIL Open Font License, Version 1.1.
+This license is copied below, and is also available with a FAQ at:
+https://openfontlicense.org
+
+-----------------------------------------------------------
+SIL OPEN FONT LICENSE Version 1.1 - 26 February 2007
+-----------------------------------------------------------
+*/
+
+@font-face {
+  font-family: 'Inter-Variable';
+  src:
+    url('../fonts/Inter-Italic-VariableFont_opsz,wght.ttf') format('ttf'),
+    url('../fonts/Inter-VariableFont_opsz,wght.ttf') format('ttf');
+  font-weight: 200 700;
+  font-display: swap;
+  font-style: normal;
+}

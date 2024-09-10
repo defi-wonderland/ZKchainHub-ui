@@ -1,21 +1,38 @@
 import { styled } from '@mui/material/styles';
 
-import { DISCLAIMER_HEIGHT, SURROUND_HEIGHT } from '~/utils';
+import { Dashboard, LockedAssets } from '~/containers';
+import { EcosystemTitle } from '~/components';
+import { useData } from '~/hooks';
+import { SkeletonLanding } from './SkeletonLanding';
 
 export const Landing = () => {
+  const { isEcosystemLoading } = useData();
+
   return (
     <LandingContainer>
-      <h1 data-testid='boilerplate-title'>Web3 React Boilerplate</h1>
+      {isEcosystemLoading && <SkeletonLanding />}
+      {!isEcosystemLoading && (
+        <>
+          <EcosystemTitle />
+          <LockedAssets />
+          <Dashboard />
+        </>
+      )}
     </LandingContainer>
   );
 };
 
-const LandingContainer = styled('div')({
+const LandingContainer = styled('main')(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
-  height: `calc(100vh - ${SURROUND_HEIGHT}rem - ${DISCLAIMER_HEIGHT}rem)`,
-  padding: '0 8rem',
+  padding: '0 7rem',
   alignItems: 'center',
   justifyContent: 'center',
   width: '100%',
-});
+  gap: '4rem',
+  marginTop: '4rem',
+  marginBottom: '4rem',
+  [theme.breakpoints.down('md')]: {
+    padding: '0 1rem',
+  },
+}));
