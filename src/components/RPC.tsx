@@ -3,8 +3,12 @@ import { useTranslation } from 'next-i18next';
 import { Box, Typography, Tooltip, styled, Skeleton, Button } from '@mui/material';
 
 import { useData, useCustomTheme, useCopyToClipboard } from '~/hooks';
-import { DataContainer, STitle, Icon, NotAvailable, STooltip } from '~/components';
+import { STitle, Icon, NotAvailable, STooltip } from '~/components';
 import { checkRpcStatus } from '~/utils';
+
+interface RpcProps {
+  count: number;
+}
 
 export const RPC = () => {
   const { t } = useTranslation();
@@ -41,6 +45,10 @@ export const RPC = () => {
     return rpcData.length > 4 && !rpcIsLoading;
   }, [rpcData, rpcIsLoading]);
 
+  const count = useMemo(() => {
+    return Math.min(rpcData.length, 4);
+  }, [rpcData.length]);
+
   return (
     <article>
       <RPCTitle>
@@ -48,7 +56,7 @@ export const RPC = () => {
         <Subtitle>{t('CHAIN.RPC.subtitle')}</Subtitle>
       </RPCTitle>
 
-      <DataContainer aria-live='polite' aria-busy={rpcIsLoading}>
+      <RPCContainer aria-live='polite' aria-busy={rpcIsLoading} count={count}>
         {rpcIsLoading &&
           Array.from({ length: 4 }).map((_, index) => (
             <RPCBox key={index}>
@@ -89,7 +97,7 @@ export const RPC = () => {
             <NotAvailable>{t('CHAIN.CHAININFORMATION.notAvailable')}</NotAvailable>
           </RPCBox>
         )}
-      </DataContainer>
+      </RPCContainer>
 
       {showMoreButton && (
         <RPCButtonContainer>
@@ -103,6 +111,22 @@ export const RPC = () => {
     </article>
   );
 };
+
+export const RPCContainer = styled(Box)<RpcProps>(({ theme: muiTheme, count }) => {
+  const { currentTheme, theme } = useCustomTheme();
+
+  return {
+    background: theme === 'dark' ? currentTheme.backgroundTertiary : currentTheme.backgroundSecondary,
+    borderRadius: currentTheme.borderRadius,
+    border: currentTheme.border,
+    display: 'grid',
+    gridTemplateColumns: `repeat(${count}, 1fr)`,
+
+    [muiTheme.breakpoints.down('md')]: {
+      gridTemplateColumns: 'repeat(1, 1fr)',
+    },
+  };
+});
 
 const RPCTitle = styled(Box)(() => {
   return {
@@ -123,7 +147,7 @@ const RPCBox = styled(Box)(() => {
   const { currentTheme } = useCustomTheme();
   return {
     display: 'flex',
-    height: '4.5rem',
+    minHeight: '4.5rem',
     alignItems: 'center',
     width: '100%',
     padding: currentTheme.padding,
