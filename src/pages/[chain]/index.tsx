@@ -19,7 +19,7 @@ const Chain = ({ chain }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const { setSelectedChainId, refetchChainData } = useData();
 
   useEffect(() => {
-    if (chain.chainId) {
+    if (chain?.chainId) {
       setSelectedChainId(chain.chainId);
     }
   }, [chain?.chainId, setSelectedChainId, refetchChainData]);
