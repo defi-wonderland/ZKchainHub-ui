@@ -40,6 +40,7 @@
     "environment": "Environment",
     "nativeToken": "Native token",
     "addNetwork": "Add network",
+    "addNetworkFailed": "Failed to add network",
     "networkAdded": "Network added",
     "chainId": "Chain ID",
     "CHAININFORMATION": {
