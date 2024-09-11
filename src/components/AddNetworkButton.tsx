@@ -47,16 +47,18 @@ export const AddNetworkButton = () => {
       {!isConnected && (
         <>
           <STooltip title={t('WALLET.connectTooltip')}>
-            <BlueButton onClick={openConnectModal}>{t('WALLET.connection')} </BlueButton>
+            <BlueButton onClick={openConnectModal}>{t('CHAIN.addNetwork')} </BlueButton>
           </STooltip>
         </>
       )}
+
       {isConnected && !isNetworkAdded && (
         <BlueButton variant='contained' onClick={handleAddNetwork}>
           <Icon icon='add' alt='Add' size={24} />
           {t('CHAIN.addNetwork')}
         </BlueButton>
       )}
+
       {isConnected && isNetworkAdded && (
         <BlueButton variant='contained' disabled>
           {t('CHAIN.networkAdded')}
