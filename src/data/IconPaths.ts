@@ -45,11 +45,26 @@ import CheckDark from '~/assets/icons/checkDark.svg';
 import CheckLight from '~/assets/icons/checkLight.svg';
 import ErrorDark from '~/assets/icons/errorDark.svg';
 import ErrorLight from '~/assets/icons/errorLight.svg';
+import DisabledWebLight from '~/assets/icons/disabledWebLight.svg';
+import DisabledWebDark from '~/assets/icons/disabledWebDark.svg';
+import DisabledLinkDark from '~/assets/icons/disabledLinkDark.svg';
+import DisabledLinkLight from '~/assets/icons/disabledLinkLight.svg';
+import DisabledBlockDark from '~/assets/icons/disabledBlockDark.svg';
+import DisabledBlockLight from '~/assets/icons/disabledBlockLight.svg';
+import WhiteBlock from '~/assets/icons/whiteBlock.svg';
 
 export const iconPaths: IconPaths = {
   block: {
     dark: BlockDark,
     light: BlockLight,
+  },
+  btnBlock: {
+    dark: WhiteBlock,
+    light: BlockLight,
+  },
+  disabledBlock: {
+    dark: DisabledBlockDark,
+    light: DisabledBlockLight,
   },
   chainType: {
     dark: ChainTypeDark,
@@ -83,9 +98,17 @@ export const iconPaths: IconPaths = {
     dark: WebDark,
     light: WebLight,
   },
+  disabledWeb: {
+    dark: DisabledWebDark,
+    light: DisabledWebLight,
+  },
   link: {
     dark: LinkDark,
     light: LinkLight,
+  },
+  disabledLink: {
+    dark: DisabledLinkDark,
+    light: DisabledLinkLight,
   },
   mode: {
     dark: LightMode, // Intended to show the light mode icon when the theme is dark
