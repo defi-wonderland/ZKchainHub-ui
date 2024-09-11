@@ -1,7 +1,7 @@
 interface AddNetwork {
   chainId: string;
   chainName: string;
-  rpcUrls: string[];
+  rpcUrls: string;
   name: string;
   symbol: string;
   decimals: number;
