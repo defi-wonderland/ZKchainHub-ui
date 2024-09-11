@@ -27,16 +27,16 @@ export const ChainMetadata = () => {
         </ChainIdentity>
 
         <ButtonsContainer>
-          <MetadataButton href={chainMetadata?.explorerUrl} target='_blank'>
-            <Icon icon='web' alt='web-icon' size={20} />
+          <MetadataButton href={chainMetadata?.websiteUrl} target='_blank' disable={!chainMetadata?.websiteUrl}>
+            <Icon icon={chainMetadata?.websiteUrl ? 'web' : 'disabledWeb'} alt='web-icon' size={24} />
             {t('CHAIN.website')}
-            <Icon icon='link' alt='link-icon' size={24} />
+            <Icon icon={chainMetadata?.websiteUrl ? 'link' : 'disabledLink'} alt='link-icon' size={24} />
           </MetadataButton>
 
-          <MetadataButton href={chainMetadata?.explorerUrl} target='_blank'>
-            <Icon icon='block' alt='block-icon' size={24} />
+          <MetadataButton href={chainMetadata?.explorerUrl} target='_blank' disable={!chainMetadata?.explorerUrl}>
+            <Icon icon={chainMetadata?.explorerUrl ? 'btnBlock' : 'disabledBlock'} alt='block-icon' size={24} />
             {t('CHAIN.explorer')}
-            <Icon icon='link' alt='link-icon' size={24} />
+            <Icon icon={chainMetadata?.explorerUrl ? 'link' : 'disabledLink'} alt='link-icon' size={24} />
           </MetadataButton>
 
           <AddNetworkButton />
@@ -122,7 +122,7 @@ const ChainIdentity = styled(Box)(() => {
   };
 });
 
-const MetadataButton = styled('a')(() => {
+const MetadataButton = styled('a')(({ disable }: { disable: boolean }) => {
   const { currentTheme, theme } = useCustomTheme();
 
   return {
@@ -132,7 +132,7 @@ const MetadataButton = styled('a')(() => {
     background: theme === 'dark' ? currentTheme.backgroundSecondary : currentTheme.backgroundTertiary,
     borderRadius: currentTheme.borderRadius,
     padding: currentTheme.padding,
-    color: currentTheme.textPrimary,
+    color: disable ? (theme === 'dark' ? currentTheme.textSecondary : '#BEC2CC') : currentTheme.textPrimary,
     boxShadow: 'none',
     textTransform: 'none',
     fontSize: '1rem',
@@ -140,7 +140,7 @@ const MetadataButton = styled('a')(() => {
     lineHeight: '1.5rem',
     textDecoration: 'none',
     '&:hover': {
-      background: theme === 'dark' ? currentTheme.neutral[800] : currentTheme.neutral[300],
+      background: !disable && (theme === 'dark' ? currentTheme.neutral[800] : currentTheme.neutral[300]),
       boxShadow: 'none',
     },
   };

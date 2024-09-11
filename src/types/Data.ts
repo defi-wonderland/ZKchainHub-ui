@@ -30,6 +30,7 @@ export interface ChainData {
     launchDate: number;
     chainType?: string;
     tokenImgUrl?: string;
+    websiteUrl: string;
   };
   l2ChainInfo?: {
     tps: number;
