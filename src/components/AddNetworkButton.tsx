@@ -29,7 +29,7 @@ export const AddNetworkButton = () => {
       await addNetwork({
         chainId: chain as string,
         chainName: chainData?.metadata.name,
-        rpcUrls: chainData?.metadata.publicRpcs,
+        rpcUrls: chainData?.metadata.publicRpcs[0],
         name: chainData?.baseToken.name,
         symbol: chainData?.baseToken.symbol,
         decimals: chainData?.baseToken.decimals,
@@ -47,16 +47,18 @@ export const AddNetworkButton = () => {
       {!isConnected && (
         <>
           <STooltip title={t('WALLET.connectTooltip')}>
-            <BlueButton onClick={openConnectModal}>{t('WALLET.connection')} </BlueButton>
+            <BlueButton onClick={openConnectModal}>{t('CHAIN.addNetwork')} </BlueButton>
           </STooltip>
         </>
       )}
+
       {isConnected && !isNetworkAdded && (
         <BlueButton variant='contained' onClick={handleAddNetwork}>
           <Icon icon='add' alt='Add' size={24} />
           {t('CHAIN.addNetwork')}
         </BlueButton>
       )}
+
       {isConnected && isNetworkAdded && (
         <BlueButton variant='contained' disabled>
           {t('CHAIN.networkAdded')}
