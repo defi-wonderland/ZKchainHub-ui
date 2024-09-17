@@ -69,7 +69,7 @@ const AllTokensButton = styled(Button)(() => {
     borderRadius: currentTheme.borderRadius,
     padding: '0.5rem 1rem',
     gap: currentTheme.gap,
-    width: '5.5rem',
+    minWidth: 'fit-content',
     textTransform: 'none',
     fontSize: '0.75rem',
     marginTop: '1.5rem',

@@ -55,3 +55,7 @@ export const calculateUSDGas = (txGas: bigint, gasPriceInWei: bigint, etherPrice
   const txCostInEther = Number(txGasInWei) / 1e18;
   return Math.round(txCostInEther * etherPrice * 100) / 100;
 };
+
+export const capitalizeFirstLetter = (word: string) => {
+  return word.charAt(0).toUpperCase() + word.slice(1);
+};
