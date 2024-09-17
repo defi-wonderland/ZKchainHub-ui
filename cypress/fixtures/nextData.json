@@ -206,7 +206,7 @@
                 "batch": "Sobrecarga de lote L1 Gas",
                 "maxPubData": "Máximos datos públicos por lote",
                 "maxGasBatch": "Máximo gas por lote",
-                "priorityTxMaxPubdata": "Maximos datos de prioridad"
+                "priorityTxMaxPubdata": "Máximos datos de prioridad"
               },
               "backButton": "Volver"
             },

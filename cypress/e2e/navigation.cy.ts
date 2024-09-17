@@ -45,7 +45,7 @@ describe('Navigation tests', () => {
     cy.url().should('include', '/324');
 
     cy.getByTestId('home-breadcrumb').click();
-    cy.url().should('eq', 'http://localhost:5173/');
+    cy.url().should('eq', 'http://localhost:5173/en');
     cy.getByTestId('search-bar').find('input').should('have.value', '');
   });
 

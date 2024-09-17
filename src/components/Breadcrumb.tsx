@@ -6,6 +6,7 @@ import Image from 'next/image';
 import { useData, useCustomTheme } from '~/hooks';
 import SmallArrowDark from '~/assets/icons/smallArrowDark.svg';
 import SmallArrowLight from '~/assets/icons/smallArrowLight.svg';
+import { capitalizeFirstLetter } from '~/utils';
 
 interface BreadcrumbProps {
   isChain: boolean;
@@ -15,13 +16,14 @@ export const Breadcrumb = ({ isChain }: BreadcrumbProps) => {
   const pathname = usePathname();
   const { chainData } = useData();
   const { theme } = useCustomTheme();
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const pathNames = pathname ? pathname.split('/').filter((path) => path) : [];
 
   const breadcrumbItems = pathNames.map((path, index) => {
     const isLast = index === pathNames.length - 1;
-    const displayName = isChain && isLast ? chainData?.metadata?.name || path : path;
+    const displayName =
+      isChain && isLast ? chainData?.metadata?.name || capitalizeFirstLetter(path) : capitalizeFirstLetter(path);
     const href = `/${pathNames.slice(0, index + 1).join('/')}`;
 
     return {
@@ -34,7 +36,7 @@ export const Breadcrumb = ({ isChain }: BreadcrumbProps) => {
 
   return (
     <BreadcrumbNav aria-label='breadcrumb'>
-      <BreadcrumbLink href='/' data-testid='home-breadcrumb'>
+      <BreadcrumbLink href={`/${i18n.language}`} data-testid='home-breadcrumb'>
         {t('HOME.home')}
       </BreadcrumbLink>
 
