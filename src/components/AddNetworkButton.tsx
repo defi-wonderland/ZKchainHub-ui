@@ -27,7 +27,7 @@ export const AddNetworkButton = () => {
 
     try {
       await addNetwork({
-        chainId: chain as string,
+        chainId: '0x' + Number(chain)?.toString(16),
         chainName: chainData?.metadata.name,
         rpcUrls: chainData?.metadata.publicRpcs[0],
         name: chainData?.baseToken.name,
@@ -39,6 +39,7 @@ export const AddNetworkButton = () => {
     } catch (error) {
       console.error('Failed to add network:', error);
       alert(t('CHAIN.addNetworkFailed'));
+      setIsNetworkAdded(false);
     }
   };
 

@@ -77,7 +77,7 @@
       "batch": "Sobrecarga de lote L1 Gas",
       "maxPubData": "Máximos datos públicos por lote",
       "maxGasBatch": "Máximo gas por lote",
-      "priorityTxMaxPubdata": "Maximos datos de prioridad"
+      "priorityTxMaxPubdata": "Máximos datos de prioridad"
     },
     "backButton": "Volver"
   },
@@ -87,7 +87,7 @@
   "FOOTER": {
     "docs": "Documentación",
     "github": "GitHub",
-    "madeWithLove": "Hecho con",
+    "madeWith": "Hecho con",
     "by": "por"
   },
   "WALLET": {
